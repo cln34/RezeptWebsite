@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <title>Rezept erstellen</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+    <header>
+        <h1>Studenten-Rezepte</h1>
+        <nav>
+          <a href="index.html">Startseite</a>
+          <a href="suche.html">Suche</a>
+          <a href="rezept-erstellen.html">Neues Rezept</a>
+          <a href="favoriten.html">Favoriten</a>
+          <a href="anmeldung.html">Anmelden</a>
+          <a href="registrierung.html">Registrieren</a>
+          <a href="abmeldung.html">Abmelden</a>
+          <a href="nutzerliste.html">Nutzerliste</a>
+        </nav>
+      </header>
+
+  <main>
+    <form method="POST" action="#" enctype="multipart/form-data">
+      <label for="titel">Titel:</label><br>
+      <input type="text" id="titel" name="titel" required><br>
+
+      <label for="zutaten">Zutaten:</label><br>
+      <textarea id="zutaten" name="zutaten" rows="4" required></textarea><br>
+
+      <label for="anleitung">Zubereitung:</label><br>
+      <textarea id="anleitung" name="anleitung" rows="6" required></textarea><br>
+
+      <label for="bild">Bild hochladen:</label><br>
+      <input type="file" id="bild" name="bild"><br><br>
+
+      <button type="submit">Rezept speichern</button>
+    </form>
+  </main>
+
+  <footer>
+    <a href="impressum.html">Impressum</a>
+    <a href="datenschutz.html">Datenschutz</a>
+    <a href="nutzungsbedingungen.html">Nutzungsbedingungen</a>
+  </footer>
+
+</body>
+</html>

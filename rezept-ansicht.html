@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <title>Rezept ansehen</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+    <header>
+        <h1>Studenten-Rezepte</h1>
+        <nav>
+          <a href="index.html">Startseite</a>
+          <a href="suche.html">Suche</a>
+          <a href="rezept-erstellen.html">Neues Rezept</a>
+          <a href="favoriten.html">Favoriten</a>
+          <a href="anmeldung.html">Anmelden</a>
+          <a href="registrierung.html">Registrieren</a>
+          <a href="abmeldung.html">Abmelden</a>
+          <a href="nutzerliste.html">Nutzerliste</a>
+        </nav>
+      </header>
+
+  <main>
+    <article>
+      <h2>Spaghetti Aglio e Olio</h2>
+      <p>von: max@student.uni</p>
+      <p>Veröffentlicht am: 10.04.2025</p>
+      <img src="bilder/spaghetti.jpg" alt="Spaghetti Aglio e Olio" />
+      <h3>Zutaten:</h3>
+      <ul>
+        <li>200g Spaghetti</li>
+        <li>2 Knoblauchzehen</li>
+        <li>Olivenöl, Salz, Chili</li>
+      </ul>
+      <h3>Zubereitung:</h3>
+      <p>Spaghetti kochen. Knoblauch in Öl anbraten, mit Spaghetti vermengen, würzen, servieren.</p>
+
+      <section>
+        <h3>Bewertungen</h3>
+        <p>⭐⭐⭐⭐☆ (4/5)</p>
+        <form>
+          <label for="bewertung">Deine Bewertung:</label>
+          <select id="bewertung">
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5</option>
+          </select>
+          <button type="submit">Absenden</button>
+        </form>
+      </section>
+
+      <section>
+        <h3>Kommentare</h3>
+        <p><strong>lisa@uni.de:</strong> Super einfach und lecker!</p>
+        <form>
+          <label for="kommentar">Neuer Kommentar:</label><br>
+          <textarea id="kommentar" rows="4" cols="50" placeholder="Dein Kommentar..."></textarea><br>
+          <button type="submit">Absenden</button>
+        </form>
+      </section>
+    </article>
+  </main>
+
+  <footer>
+    <a href="impressum.html">Impressum</a>
+    <a href="datenschutz.html">Datenschutz</a>
+    <a href="nutzungsbedingungen.html">Nutzungsbedingungen</a>
+  </footer>
+
+</body>
+</html>
