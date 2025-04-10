@@ -1,8 +1,8 @@
-Team Tag-Buchstabe
+Team DI-12-B
 Namen der Studierenden:
-- Name 1
-- Name 2
-- Name 3
-Abgabe zu Aufgabenblatt x
+- Busse
+- Rettig
+- Bolbas
+Abgabe zu Aufgabenblatt 1
 
 Hinweise:
