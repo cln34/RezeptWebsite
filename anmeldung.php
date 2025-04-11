@@ -12,34 +12,34 @@
 
 <body>
 
-  <?php
-include "header.php";
-?>
+    <?php
+    include "header.php";
+    ?>
 
     <main>
 
         <h1>Anmeldung</h1>
-        <form >
+        <form>
             <div>
-            <input type="text" placeholder="Email Adresse" id="email">
+                <input type="text" placeholder="Email Adresse" id="email">
             </div>
             <br>
             <div>
-            <input type="password" placeholder="Passwort" id="passwort">
+                <input type="password" placeholder="Passwort" id="passwort">
             </div>
             <br>
-            </form>
-            <a href="index.php">
+        </form>
+        <a href="index.php">
             <input type="submit"></a>
-        
 
-        
+
+
 
     </main>
 
-     <?php
-include "footer.php"
-?>
+    <?php
+    include "footer.php"
+    ?>
 </body>
 
 </html>

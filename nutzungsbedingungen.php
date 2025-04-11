@@ -11,9 +11,9 @@
 
 <body>
 
-   <?php
-include "header.php";
-?>
+    <?php
+    include "header.php";
+    ?>
 
     <main>
 
@@ -30,9 +30,9 @@ include "header.php";
 
     </main>
 
-     <?php
-include "footer.php"
-?>
+    <?php
+    include "footer.php"
+    ?>
 </body>
 
 </html>
