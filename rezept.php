@@ -69,5 +69,8 @@
       Tomatensoße und verschiedensten Zutaten belegen. Pizza im vorgeheizten
       Ofen etwa 15 Minuten backen.
     </p>
+       <?php
+include "footer.php"
+?>
   </body>
 </html>

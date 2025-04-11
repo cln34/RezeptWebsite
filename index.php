@@ -8,18 +8,9 @@
     <title>StudiRezepte-Einfach & Günstig</title>
 </head>
 <body>
-  <nav>
-        <div>
-            <a href="index.php">Homepage</a>
-        </div>
-        <div>
-            <a href="anmeldung.php">Anmelden/Abmelden</a> <!--if user is logged in {open abmeldung.html}
-                                                              if user isnt logged in{open anmeldung.html}-->
-        </div>
-        <div>
-            <a href="registrierung.php">Registrieren</a>
-        </div>
-    </nav>
+<?php
+include "header.php";
+?>
     <h1>StudiRezepte-Einfach & Günstig</h1>
     <hr />
     <form >
@@ -101,11 +92,9 @@
 
   </body>
   
-    <footer>
-      <a href="impressum.php">Impressum</a>
-      <a href="datenschutz.php">Datenschutz</a>
-      <a href="nutzungsbedingungen.php">Nutzungsbedingungen</a>
-    </footer>
+   <?php
+include "footer.php"
+?>
 </html>
 <!--shift+alt+f zum formattieren-->
 

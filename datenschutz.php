@@ -12,17 +12,9 @@
 
 <body>
 
-    <nav>
-        <div>
-            <a href="index.php">Homepage</a>
-        </div>
-        <div>
-            <a href="anmeldung.php">Anmelden/Abmelden</a>
-        </div>
-        <div>
-            <a href="registrierung.php">Registrieren</a>
-        </div>
-    </nav>
+  <?php
+include "header.php";
+?>
 
     <main>
 
@@ -38,12 +30,9 @@
         </p>
 
     </main>
-
-    <footer>
-      <a href="impressum.php">Impressum</a>
-      <a href="datenschutz.php">Datenschutz</a>
-      <a href="nutzungsbedingungen.php">Nutzungsbedingungen</a>
-    </footer>
+   <?php
+include "footer.php"
+?>
 </body>
 
 </html>

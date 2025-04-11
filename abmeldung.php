@@ -8,9 +8,16 @@
     <title>StudiRezepte-Einfach & Günstig</title>
 </head>
 <body>
+    <?php
+include "header.php";
+?>
     <h1>Abmeldung</h1>
     <hr>
     <h2>Sind Sie sicher, dass Sie sich abmelden wollen?</h2>
     <button>Abmelden</button>
+
+       <?php
+include "footer.php"
+?>
 </body>
 </html>
