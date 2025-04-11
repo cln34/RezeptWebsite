@@ -25,7 +25,7 @@ include "header.php";
             </div>
             <br>
             <div>
-            <input type="text" placeholder="Passwort" id="passwort">
+            <input type="password" placeholder="Passwort" id="passwort">
             </div>
             <br>
             </form>

@@ -11,6 +11,9 @@
     <title>StudiRezepte-Einfach & Günstig</title>
   </head>
   <body>
+    <?php
+include "header.php";
+?>
     <h1>Rezept:</h1>
     <hr />
     <h2>Pizza:</h2>
