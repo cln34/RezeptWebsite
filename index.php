@@ -75,7 +75,7 @@
           </tr>
           <tr bgcolor="lightgrey" align="center">
             <td>20 min</td>
-            <td>Einfach</td>
+            <td>Leicht</td>
             <td>5€</td>
           </tr>
         </table>
