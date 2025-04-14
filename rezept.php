@@ -16,6 +16,7 @@
   include "header.php";
   ?>
   <hr>
+  <main>
   <h1>Rezept:</h1>
   <hr />
   <h2>Pizza:</h2>
@@ -78,6 +79,7 @@
   <a href="kommentare.php">
   <button>Kommentare ansehen</button>
   </a>
+</main>
   <hr><br>
   <?php
   include "footer.php"

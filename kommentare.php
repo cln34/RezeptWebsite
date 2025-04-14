@@ -14,21 +14,22 @@
     include "header.php";
     ?>
     <hr />
-    <h1>Kommentare: </h1>
-    <h3>Colin: (datum einfügen)</h3>
-    <p>Ich finde die Pizza müsste länger im Ofen sein, ansonsten sehr lecker</p>
-    <br>
-    <h3>Sascha: (datum einfügen)</h3>
-    <p>Einfach fabelhaft!</p>
-    <br>
-    <h3>Chris: (datum einfügen)</h3>
-    <p>Da muss mehr Käse drauf!</p>
-    <hr><br>
-    <form action="">
-        <textarea placeholder="Kommentar eingeben" name="Kommentar" required></textarea>
-        <input type="submit" value="Kommentar absenden" id="KommentarValue">
-    </form>
-
+    <main>
+        <h1>Kommentare: </h1>
+        <h3>Colin: (datum einfügen)</h3>
+        <p>Ich finde die Pizza müsste länger im Ofen sein, ansonsten sehr lecker</p>
+        <br>
+        <h3>Sascha: (datum einfügen)</h3>
+        <p>Einfach fabelhaft!</p>
+        <br>
+        <h3>Chris: (datum einfügen)</h3>
+        <p>Da muss mehr Käse drauf!</p>
+        <hr><br>
+        <form action="">
+            <textarea placeholder="Kommentar eingeben" name="Kommentar" required></textarea>
+            <input type="submit" value="Kommentar absenden" id="KommentarValue">
+        </form>
+    </main>
     <hr><br>
     <?php
     include "footer.php"
