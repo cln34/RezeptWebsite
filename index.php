@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
 
 <head>
   <meta charset="utf-8">
@@ -13,8 +13,9 @@
   <?php
   include "header.php";
   ?>
-  <h1>StudiRezepte-Einfach & Günstig</h1>
   <hr />
+  <h1>StudiRezepte-Einfach & Günstig</h1>
+  
   <form>
     <!--<label for="Suche">Neue Rezepte entdecken: </label>-->
     <div>
@@ -26,8 +27,8 @@
   oder:
   <a href="rezeptErstellen.php">
     <button>Rezept erstellen</button></a>
+    <hr />
   <h2>Rezepte:</h2>
-  <hr />
   beispielausgabe!!!!:
   <!-- Tabelle erstellen, um essen nebeneinander darzustellen -->
   <table width="100%">
@@ -97,7 +98,7 @@
   </table>
 
 </body>
-
+<hr><br>
 <?php
 include "footer.php"
 ?>

@@ -13,6 +13,7 @@
     <?php
     include "header.php";
     ?>
+    <hr>
     <br>
     <h1>Rezept erstellen</h1>
     <hr>
@@ -69,7 +70,7 @@
         <input type="submit">
 
     </form>
-
+<hr><br>
     <?php
     include "footer.php"
     ?>

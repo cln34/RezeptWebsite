@@ -15,7 +15,7 @@
   <?php
   include "header.php";
   ?>
-
+<hr>
   <main>
     <h1>Registrierung</h1>
     <form>
@@ -38,7 +38,7 @@
     <a href="anmeldung.php">
       <input type="submit"></a>
   </main>
-
+<hr><br>
   <?php
   include "footer.php"
   ?>

@@ -15,6 +15,7 @@
   <?php
   include "header.php";
   ?>
+  <hr>
   <h1>Rezept:</h1>
   <hr />
   <h2>Pizza:</h2>
@@ -72,6 +73,12 @@
     Tomatensoße und verschiedensten Zutaten belegen. Pizza im vorgeheizten
     Ofen etwa 15 Minuten backen.
   </p>
+  <hr>
+  <br>
+  <a href="kommentare.php">
+  <button>Kommentare ansehen</button>
+  </a>
+  <hr><br>
   <?php
   include "footer.php"
   ?>

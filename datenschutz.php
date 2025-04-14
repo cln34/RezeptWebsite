@@ -15,7 +15,7 @@
     <?php
     include "header.php";
     ?>
-
+<hr>
     <main>
 
         <h1>Datenschutz</h1>
@@ -30,6 +30,7 @@
         </p>
 
     </main>
+    <hr><br>
     <?php
     include "footer.php"
     ?>

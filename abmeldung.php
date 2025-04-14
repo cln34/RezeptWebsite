@@ -13,6 +13,7 @@
     <?php
     include "header.php";
     ?>
+    <hr>
     <main>
         <h1>Abmeldung</h1>
         <hr>
@@ -20,11 +21,11 @@
         <a href="anmeldung.php">
             <button>Abmelden</button></a>
     </main>
-    <footer>
+    <hr><br>
         <?php
         include "footer.php"
         ?>
-    </footer>
+    
 </body>
 
 </html>

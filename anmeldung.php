@@ -15,7 +15,7 @@
     <?php
     include "header.php";
     ?>
-
+<hr>
     <main>
 
         <h1>Anmeldung</h1>
@@ -36,7 +36,7 @@
 
 
     </main>
-
+<hr><br>
     <?php
     include "footer.php"
     ?>

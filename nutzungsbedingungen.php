@@ -14,7 +14,7 @@
     <?php
     include "header.php";
     ?>
-
+<hr>
     <main>
 
         <h1>Nutzungsbedingungen</h1>
@@ -29,7 +29,7 @@
         </p>
 
     </main>
-
+<hr><br>
     <?php
     include "footer.php"
     ?>
