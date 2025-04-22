@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="Rezeptesammlung">
+    <meta name="author" content="Sascha Busse, Christoph Rettig, Colin Bolbas">
+    <link rel="stylesheet" href="css/main.css" />
+    <title>StudiRezepte-Einfach & Günstig</title>
+</head>
+
+<body>
+    <?php
+    include "header.php";
+    ?>
+    <hr>
+    <br>
+    <main>
+
+
+    
+    </main>
+    <hr><br>
+    <?php
+    include "footer.php"
+    ?>
+</body>
+
+</html>
