@@ -36,8 +36,8 @@
       <tr>
         <!-- erste zzelle für Pizza -->
         <td width="50%" valign="top">
+        <a href="rezept.php">
           <h2>Pizza:</h2>
-          <a href="rezept.php">
             <img
               src="images/pizza1.jpg"
               alt="das ist ein Bild von Pizza"
