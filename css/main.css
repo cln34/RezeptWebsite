@@ -28,7 +28,7 @@ button:active{
 .box{
   width: calc(33.3% - 10px);  /* 33.3 % um drei elemente nebeneinander und -10 px für etwas abstand*/
   height: 750px;
-  background-color: lightgray;
+  background-color: #D6C6B4;
   text-align: center;
   border-radius: 15px;
   color: #333333;
@@ -57,7 +57,7 @@ button:active{
 .box-link {
   text-decoration: none; /* Keine Unterstreichung */
   color: inherit;         /* Erbt die Textfarbe von der Box */
-  display: block;         /* WICHTIG: Link wird wie ein Block behandelt */
+  display: block;          /*WICHTIG: Link wird wie ein Block behandelt */
   display: flex;
 
 }
