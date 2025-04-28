@@ -3,3 +3,31 @@ body {
   background-color: rgb(255, 255, 255);
   
 }
+h1{
+  color: #FF6B35;
+  font-family: sans-serif;
+  font-family: "Tagesschrift", sans-serif;
+  font-size: 50px;
+  text-align: center;
+}
+button:hover{
+  background-color: lightgray;
+}
+button:active{
+  background-color: white;
+}
+.container{
+  display:flex;
+  border: 5px solid black;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+}
+
+.box{
+  width: calc(33.3% - 10px);
+  height: 500px;
+  background-color: gray;
+  text-align: center;
+  border-radius: 15px;
+}
