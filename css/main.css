@@ -103,5 +103,9 @@ button:active{
 
 .navbar li{
   float: left;
+
+.navbar button{
+  float: right
+}
 }
 
