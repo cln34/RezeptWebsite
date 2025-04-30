@@ -1,4 +1,4 @@
-  <nav>
+  <nav class="header">
 
           <a href="index.php">Homepage</a>
 
