@@ -82,8 +82,11 @@ button:active{
 
 .header {
   background-color: blue;
-  padding: 20px 10px;
-
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  padding: 1rem 0;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
 }
 
 .header a{
