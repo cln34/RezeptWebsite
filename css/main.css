@@ -94,7 +94,7 @@ button:active{
   text-decoration: none;
   display: block;
   text-align: center;
-
+  padding: 15px;
 }
 
 .navbar li{
