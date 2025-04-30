@@ -1,11 +1,9 @@
-  <nav class="header">
-
-          <a href="index.php">Homepage</a>
-
-          <a href="anmeldung.php">Anmelden/Abmelden</a> <!--if user is logged in {open abmeldung.html}
-                                                              if user isnt logged in{open anmeldung.html}-->
-          <a href="registrierung.php">Registrieren</a>
-
-          <a href="favoriten.php">Favoriten</a>
+  <nav class="navbar">
+        <ul>
+                <li> <a href="index.php">Homepage</a> </li>
+                <li> <a href="anmeldung.php">Anmelden/Abmelden</a> </li>
+                <li> <a href="registrierung.php">Registrieren</a> </li>
+                <li> <a href="favoriten.php">Favoriten</a> </li>
+        </ul>
 
   </nav>

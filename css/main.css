@@ -80,16 +80,28 @@ button:active{
 }
 /* irgendwie sodass untere zellen heller sind als obere*/
 
-.header {
-  background-color: blue;
-  position: sticky;
-  padding-left: 15px;
-  padding-right: 15px;
-  
+.navbar ul {
+  list-style-type: none;
+  background-color: lightblue;
+  padding: 0px;
+  margin: 0px;
+  overflow: hidden;
 }
 
-.header a{
-  color: lightblue;
+.navbar a{
+  color: blue;
+  text-decoration: none;
+  padding: 15px;
+  display: block;
   text-align: center;
+
+}
+
+.navbar a:hover{
+  background-color: darkblue;
+}
+
+.navbar li{
+  float: left;
 }
 
