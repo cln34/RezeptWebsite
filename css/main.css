@@ -109,7 +109,8 @@ button:active{
 .navbar button{
   float: right;
   font-size: medium;
-  background-color: black;
+  background-color: white;
+  color: black;
   color: lightgray;
   border-radius: 10px;
   margin-right: 10px
