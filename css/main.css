@@ -80,10 +80,6 @@ button:active{
 }
 /* irgendwie sodass untere zellen heller sind als obere*/
 
-.navbar{
-  position: sticky;
-}
-
 .navbar ul {
   list-style-type: none;
   background-color: #D6C6B4;
@@ -113,7 +109,7 @@ button:active{
 .navbar button{
   float: right;
   font-size: medium;
-  background-color: white;
+  background-color: black;
   color: lightgray;
   border-radius: 10px;
   margin-right: 10px
@@ -125,7 +121,7 @@ button:active{
 
 .footer ul{
   list-style-type: none;
-  background-color: #D6C6B4;
+  background-color: blue;
   padding: 0px;
   margin: 0px;
   overflow: hidden;
