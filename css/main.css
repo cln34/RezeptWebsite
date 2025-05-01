@@ -80,13 +80,16 @@ button:active{
 }
 /* irgendwie sodass untere zellen heller sind als obere*/
 
+.navbar{
+  position: sticky;
+}
+
 .navbar ul {
   list-style-type: none;
   background-color: #D6C6B4;
   padding: 0px;
   margin: 0px;
   overflow: hidden;
-  position: sticky;
 }
 
 .navbar a{
