@@ -82,7 +82,7 @@ button:active{
 
 .navbar ul {
   list-style-type: none;
-  background-color: blue;
+  background-color: #D6C6B4;
   padding: 0px;
   margin: 0px;
   overflow: hidden;
@@ -111,7 +111,6 @@ button:active{
   font-size: medium;
   background-color: white;
   color: black;
-  color: lightgray;
   border-radius: 10px;
   margin-right: 10px
 }
@@ -122,7 +121,7 @@ button:active{
 
 .footer ul{
   list-style-type: none;
-  background-color: blue;
+  background-color: #D6C6B4;
   padding: 0px;
   margin: 0px;
   overflow: hidden;
@@ -139,5 +138,5 @@ button:active{
 }
 
 .footer li{
-  float: left;
+  float: center;
 }
