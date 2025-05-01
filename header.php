@@ -8,7 +8,4 @@
                 <button> <a href="anmeldung.php">Anmelden/Abmelden</a> </button>
                 <button> <a href="registrierung.php">Registrieren</a> </button>
         </ul>
-
-        
-
   </nav>
