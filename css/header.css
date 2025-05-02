@@ -28,11 +28,11 @@
 
 .navbar button{
   float: right;
-  font-size: 100px;
+  font-size: small;
   background-color: white;
   color: black;
   border-radius: 15px;
-  margin-right: 10px
+  margin-right: 10px;
 }
 
 .navbar button:hover{
