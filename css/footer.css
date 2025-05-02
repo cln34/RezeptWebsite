@@ -13,12 +13,13 @@
   text-align: center;
   font-size: large;
   padding: 15px;
-  margin-left: 16.67%;
-  margin-right: 16.67%;
+  margin: 0px;
 }
 
 .footer li{
   float: left;
+  margin-left: 16%;
+  margin-right: 16%;
 }
 
 .footer li:hover{
