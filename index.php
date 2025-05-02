@@ -7,6 +7,7 @@
   <meta name="description" content="Rezeptesammlung">
   <meta name="author" content="Sascha Busse, Christoph Rettig, Colin Bolbas">
   <link rel="stylesheet" href="css/main.css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=search" />
   <title>StudiRezepte-Einfach & Günstig</title>
 </head>
 
@@ -18,15 +19,17 @@
   <main>
     <h1>StudiRezepte-Einfach & Günstig</h1>
 
-    <form>
+    <section class="search-container">
+    <form action="">
       <!--<label for="Suche">Neue Rezepte entdecken: </label>-->
-      <div>
-        <input type="text" id="Suche" name="Sucheingabe" placeholder="Neue Rezepte entdecken:" size="90" required>
-        <input type="submit" value="suchen">
+      <div class="search">
+        <span class="search-icon material-symbols-outlined"> search </span>
+        <input class="search-input" type="search" id="Suche" name="Sucheingabe" placeholder="Neue Rezepte entdecken:" size="90" required>
       </div> <!--name ist name für die eingegeben daten, eine variable sozusagen-->
     </form>
+    </section>
     <br>
-    <hr/>
+    <hr />
     <!-- Flexbox erstellen, um essen nebeneinander darzustellen -->
     <section class="flexcontainer">
 
