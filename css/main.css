@@ -104,6 +104,7 @@ button:active{
 
 .navbar li:hover{
   background-color: #dac0a2;
+  transform: scale(1.01);
 }
 
 .navbar button{
@@ -117,6 +118,7 @@ button:active{
 
 .navbar button:hover{
   background-color: lightgray;
+  transform: scale(1.01);
 }
 
 .footer ul{
@@ -139,4 +141,8 @@ button:active{
 
 .footer li{
   float: center;
+}
+
+.footer li:hover{
+  background-color: #dac0a2;
 }
