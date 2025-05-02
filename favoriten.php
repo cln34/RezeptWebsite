@@ -12,7 +12,7 @@
 <body>
 
     <?php
-    include "header.php";
+    include "php/header.php";
     ?>
     <hr>
     <h1>Favoriten</h1>
@@ -20,7 +20,7 @@
 
     <hr><br>
     <?php
-    include "footer.php"
+    include "php/footer.php"
     ?>
 </body>
 

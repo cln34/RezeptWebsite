@@ -11,7 +11,7 @@
 
 <body>
     <?php
-    include "header.php";
+    include "php/header.php";
     ?>
     <hr>
     <main>
@@ -23,7 +23,7 @@
     </main>
     <hr><br>
         <?php
-        include "footer.php"
+        include "php/footer.php"
         ?>
     
 </body>
