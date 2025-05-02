@@ -3,11 +3,11 @@
 
 <head>
   <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Rezeptesammlung">
   <meta name="author" content="Sascha Busse, Christoph Rettig, Colin Bolbas">
   <link rel="stylesheet" href="css/main.css" />
   <title>StudiRezepte-Einfach & Günstig</title>
-  <link href="https://fonts.googleapis.com/css2?family=Tagesschrift&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -30,17 +30,17 @@
     <a href="rezeptErstellen.php">
       <button>Rezept erstellen</button></a>
     <hr />
-    <h2>Rezepte:</h2>
     <!-- Flexbox erstellen, um essen nebeneinander darzustellen -->
-    <div class="container">
+    <div class="flexcontainer">
 
-      <!-- <a href="rezept.php" class="box-link"> -->
-      <div class="box" id="box1">
+      <div class="flexbox" id="box1">
         <h2>Pizza:</h2>
-        <img
-          src="images/pizza1.jpg"
-          alt="das ist ein Bild von Pizza"
-          title="Lecker Pizza" />
+        <a href="rezept.php" class="box-link">
+          <img
+            src="images/pizza.jpg"
+            alt="Das ist ein Bild von Pizza"
+            title="Lecker Pizza" />
+        </a>
         <div class="info-grid">
           <div>Dauer</div>
           <div>Schwierigkeit</div>
@@ -49,17 +49,15 @@
           <div>Mittel</div>
           <div>4€</div>
 
-
         </div>
-        <p>Kurzbeschreibung: Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid sed ab eos aspernatur ipsam cum repellendus culpa commodi consequuntur, velit pariatur quod dolores nisi itaque similique repellat provident sequi! Veniam!</p>
+        <p>Kurzbeschreibung: odit alias magnam rem rerum a Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos consequuntur delectus nostrum sit at quam libero! Libero odio temporibus aspernatur, eveniet nostrum error voluptatibus unde dolorum id repudiandae non quasi? t? Repellat ad odio deleniti dolore quibusdam molestiae, optio placeat. Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid sed ab eos aspernatur ipsam cum repellendus culpa commodi consequuntur, velit pariatur quod dolores nisi itaque similique repellat provident sequi! Veniam!</p>
       </div>
-      <!--   </a> -->
 
-      <div class="box" id="box2">
+      <div class="flexbox" id="box2">
         <h2>Burger:</h2>
         <img
           src="images/burger.jpg"
-          alt="das ist ein Bild von einem Burger"
+          alt="Das ist ein Bild von einem Burger"
           title="Saftiger Burger" />
         <div class="info-grid">
           <div>Dauer</div>
@@ -72,43 +70,55 @@
         <p>Kurzbeschreibung: Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid sed ab eos aspernatur ipsam cum repellendus culpa commodi consequuntur, velit pariatur quod dolores nisi itaque similique repellat provident sequi! Veniam!</p>
       </div>
 
-      <div class="box" id="box3">
+      <div class="flexbox" id="box3">
         <h2>Spaghetti Carbonara</h2>
-
+        <img
+          src="images/carbonara.jpg"
+          alt="das ist ein Bild von Spaghetti Carbonara"
+          title="Spaghetti Carbonara" />
         <div class="info-grid">
           <div>Dauer</div>
           <div>Schwierigkeit</div>
           <div>Ungefährer Preis</div>
-          <div></div>
-          <div></div>
-          <div></div>
+          <div>30 min</div>
+          <div>Schwer</div>
+          <div>7€</div>
         </div>
+        <p>Kurzbeschreibung: Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid sed ab eos aspernatur ipsam cum repellendus culpa commodi consequuntur, velit pariatur quod dolores nisi itaque similique repellat provident sequi! Veniam!</p>
       </div>
 
-      <div class="box" id="box4">
+      <div class="flexbox" id="box4">
         <h2>Spaghetti Bolognese</h2>
-
+        <img
+          src="images/Bolognese.jpg"
+          alt="Das ist ein Bild von Spaghetti Bolognese"
+          title="Spaghetti Bolognese" />
         <div class="info-grid">
           <div>Dauer</div>
           <div>Schwierigkeit</div>
           <div>Ungefährer Preis</div>
-          <div></div>
-          <div></div>
-          <div></div>
+          <div>35 min</div>
+          <div>Mittel</div>
+          <div>5€</div>
         </div>
+        <p>Kurzbeschreibung: Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid sed ab eos aspernatur ipsam cum repellendus culpa commodi consequuntur, velit pariatur quod dolores nisi itaque similique repellat provident sequi! Veniam!</p>
       </div>
 
-      <div class="box" id="box4">
+      <div class="flexbox" id="box4">
         <h2>Pesto</h2>
-
+        <img
+          src="images/Pesto.jpg"
+          alt="Das ist ein Bild von Pesto"
+          title="Pesto" />
         <div class="info-grid">
           <div>Dauer</div>
           <div>Schwierigkeit</div>
           <div>Ungefährer Preis</div>
-          <div></div>
-          <div></div>
-          <div></div>
+          <div>15 min</div>
+          <div>Einfach</div>
+          <div>6€</div>
         </div>
+        <p>Kurzbeschreibung: Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid sed ab eos aspernatur ipsam cum repellendus culpa commodi consequuntur, velit pariatur quod dolores nisi itaque similique repellat provident sequi! Veniam!</p>
       </div>
 
     </div>
