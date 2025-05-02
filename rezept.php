@@ -21,8 +21,8 @@
   <hr />
   <h2>Pizza:</h2>
   <img
-    src="images/pizza1.jpg"
-    alt="das ist ein Bild von Pizza"
+    src="images/pizza.jpg"
+    alt="Das ist ein Bild von Pizza"
     title="Lecker Pizza"
     height="300" />
   <table width="30%" bgcolor="black">

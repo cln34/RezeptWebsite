@@ -26,12 +26,9 @@
       </div> <!--name ist name für die eingegeben daten, eine variable sozusagen-->
     </form>
     <br>
-    oder:
-    <a href="rezeptErstellen.php">
-      <button>Rezept erstellen</button></a>
-    <hr />
+    <hr/>
     <!-- Flexbox erstellen, um essen nebeneinander darzustellen -->
-    <div class="flexcontainer">
+    <section class="flexcontainer">
 
       <div class="flexbox" id="box1">
         <h2>Pizza:</h2>
@@ -104,7 +101,7 @@
         <p>Kurzbeschreibung: Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid sed ab eos aspernatur ipsam cum repellendus culpa commodi consequuntur, velit pariatur quod dolores nisi itaque similique repellat provident sequi! Veniam!</p>
       </div>
 
-      <div class="flexbox" id="box4">
+      <div class="flexbox" id="box5">
         <h2>Pesto</h2>
         <img
           src="images/Pesto.jpg"
@@ -121,7 +118,7 @@
         <p>Kurzbeschreibung: Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid sed ab eos aspernatur ipsam cum repellendus culpa commodi consequuntur, velit pariatur quod dolores nisi itaque similique repellat provident sequi! Veniam!</p>
       </div>
 
-    </div>
+    </section>
 
   </main>
   <hr><br>
