@@ -18,6 +18,7 @@
 
 .navbar li{
   float: left;
+  margin-left: 10px;
 }
 
 .navbar li:hover{
