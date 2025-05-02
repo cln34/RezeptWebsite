@@ -140,7 +140,7 @@ button:active{
 
 .footer li{
   float: inherit;
-  border: black;
+  border-radius: 10px;
 }
 
 .footer li:hover{
