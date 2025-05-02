@@ -1,43 +1,41 @@
-.navbar ul {
+.header .navbar ul {
   list-style-type: none;
   background-color: #D6C6B4;
-  padding: 0px;
-  margin: 0px;
+  padding: 0;
+  margin: 0;
   overflow: hidden;
   position: sticky;
 }
 
-.navbar a{
+.header .navbar a {
   color: black;
   text-decoration: none;
   display: block;
   text-align: center;
   font-size: large;
   padding: 15px;
-  margin: 0px;
+  margin: 0;
 }
 
-.navbar li{
+.header .navbar li {
   float: left;
   margin-left: 25px;
 }
 
-.navbar li:hover{
+.header .navbar li:hover {
   background-color: #dac0a2;
 }
 
-.navbar button{
+.header .navbar button {
   float: right;
   font-size: medium;
   background-color: white;
   color: black;
   border-radius: 15px;
   margin-right: 10px;
+  border: none;
 }
 
-.navbar button:hover{
+.header .navbar button:hover {
   background-color: lightgray;
 }
-
-
-  
