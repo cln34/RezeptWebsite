@@ -104,13 +104,12 @@ button:active{
 
 .navbar li:hover{
   background-color: #dac0a2;
-  transform: scale(1.01);
 }
 
 .navbar button{
   float: right;
   font-size: medium;
-  background-color: white;
+  background-color: blue;
   color: black;
   border-radius: 10px;
   margin-right: 10px
@@ -118,7 +117,6 @@ button:active{
 
 .navbar button:hover{
   background-color: lightgray;
-  transform: scale(1.01);
 }
 
 .footer ul{
