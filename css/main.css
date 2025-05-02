@@ -139,7 +139,7 @@ button:active{
 }
 
 .footer li{
-  float: none;
+  float: inherit;
 }
 
 .footer li:hover{
