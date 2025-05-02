@@ -1,0 +1,27 @@
+.footer ul{
+  list-style-type: none;
+  background-color: #D6C6B4;
+  padding: 0px;
+  margin: 0px;
+  overflow: hidden;
+}
+
+.footer a{
+  color: black;
+  text-decoration: none;
+  display: block;
+  text-align: center;
+  font-size: large;
+  padding: 15px;
+  margin: 0px;
+}
+
+.footer li{
+  float: left;
+  margin-left: 12.5%;
+  margin-right: 12.5%;
+}
+
+.footer li:hover{
+  background-color: #dac0a2;
+}
