@@ -17,8 +17,9 @@
 }
 
 .footer li{
-  float: inherit;
-  border-radius: 10px;
+  float: left;
+  margin-left: 16,67%;
+  margin-right: 16,67%
 }
 
 .footer li:hover{
