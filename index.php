@@ -26,9 +26,6 @@
       </div> <!--name ist name für die eingegeben daten, eine variable sozusagen-->
     </form>
     <br>
-    oder:
-    <a href="rezeptErstellen.php">
-      <button>Rezept erstellen</button></a>
     <hr />
     <h2>Rezepte:</h2>
     <!-- Flexbox erstellen, um essen nebeneinander darzustellen -->
