@@ -16,18 +16,18 @@ button:active{
   background-color: white;
 }
 
-.flexcontainer{
-  display:flex;
+.flexcontainer {
+  display: flex;
   flex-wrap: wrap;
   gap: 10px;
   justify-content: center;
 }
 
-.flexbox{
-  flex: 31.5%;
-  max-width: 31.5%; /*90%, wenn man übergang ohne weiße ränder links und rechts haben will*/
-  min-width: 500px;
-  height: 750px;
+.flexbox {
+  flex: calc(33.33% - 20px); /* Flex-Grow, Flex-Shrink, Basisgröße */
+  max-width: calc(33.33% - 20px); /* Maximale Breite für drei Boxen */
+  min-width: 430px; /* Mindestbreite für kleinere Bildschirme */
+  height: 700px;
   background-color: #D6C6B4;
   text-align: center;
   border-radius: 15px;
@@ -35,19 +35,19 @@ button:active{
   overflow: hidden;
 }
 
-
-@media (max-width: 1024px){
-  .flexbox{
-    flex: 50%; /*90%, wenn man übergang ohne weiße ränder links und rechts haben will*/
-    max-width: 50%;/*90%, wenn man übergang ohne weiße ränder links und rechts haben will*/
+ @media (max-width: 1024px) {
+  .flexbox {
+    flex: calc(50% - 20px); 
+    max-width: calc(50% - 20px);
+    min-width: 430px;
   }
 }
 
-@media (max-width:600px){
-  .flexbox{
-    min-width: 300px;
-    flex: 95%;
-    max-width: 95%;
+@media (max-width: 600px) {
+  .flexbox {
+    flex: 90%; 
+    max-width: 90%;
+    min-width: 400px;
   }
 }
 
