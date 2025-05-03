@@ -29,8 +29,8 @@
             <label for="zutaten">Zutaten</label>
             <div id="zutaten-container">
                 <div class="zutat-eintrag">
-                    <select name="zutaten[]" required>
-                        <option value="">-- Zutat wählen --</option>
+                    <select id="zutaten" name="zutaten[]" required>
+                        <option value="" disabled selected>-- Zutat wählen --</option>
                         <option value="Mehl">Mehl</option>
                         <option value="Zucker">Zucker</option>
                         <option value="Eier">Eier</option>
@@ -62,6 +62,7 @@
 
             <label for="schwierigkeit">Schwierigkeit</label>
             <select id="schwierigkeit" name="schwierigkeit" required>
+            <option value="" disabled selected>-- Schwierigkeit wählen --</option>
             <option value="leicht">leicht</option>
             <option value="mittel">mittel</option>
             <option value="schwer">schwer</option>

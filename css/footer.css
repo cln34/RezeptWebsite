@@ -27,4 +27,5 @@
 
 .footer-nav li a:hover {
   background-color: #dac0a2;
+  border-radius: 5px;
 }

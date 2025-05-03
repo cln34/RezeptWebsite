@@ -39,6 +39,7 @@
 
 .navbar .left-links li:hover a {
   background-color: #dac0a2; /* Hover-Effekt für Links */
+  border-radius: 5px;
 }
 
 /* Buttons auf der rechten Seite */
