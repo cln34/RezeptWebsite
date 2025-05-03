@@ -27,7 +27,32 @@
             <input type="file" id="bild" name="bild" accept="image/*" />
 
             <label for="zutaten">Zutaten</label>
-            <textarea id="zutaten" name="zutaten" rows="4" required></textarea>
+            <div id="zutaten-container">
+                <div class="zutat-eintrag">
+                    <select name="zutaten[]" required>
+                        <option value="">-- Zutat wählen --</option>
+                        <option value="Mehl">Mehl</option>
+                        <option value="Zucker">Zucker</option>
+                        <option value="Eier">Eier</option>
+                        <option value="Milch">Milch</option>
+                        <option value="Butter">Butter</option>
+                        <option value="Salz">Salz</option>
+                        <option value="Pfeffer">Pfeffer</option>
+                        <option value="Olivenöl">Olivenöl</option>
+                        <option value="Sahne">Sahne</option>
+                        <option value="Hefe">Hefe</option>
+                        <option value="Backpulver">Backpulver</option>
+                        <option value="Vanillezucker">Vanillezucker</option>
+                        <option value="Zimt">Zimt</option>
+                        <!-- Weitere Zutaten hier -->
+                    </select>
+                    <input type="text" name="mengen[]" placeholder="Menge (z. B. 200g)" required>
+                </div>
+            </div>
+
+            <!-- Button zum Hinzufügen einer weiteren Zutat -->
+            <!-- Funktion addZutat() später bei JavaScript einfügen-->
+            <button type="button" onclick="addZutat()">Weitere Zutat hinzufügen</button>
 
             <label for="anleitung">Zubereitung</label>
             <textarea id="anleitung" name="anleitung" rows="6" required></textarea>
