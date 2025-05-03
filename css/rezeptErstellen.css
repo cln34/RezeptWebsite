@@ -3,6 +3,7 @@
     justify-content: center;
     align-items: center;
     min-height: 100vh;
+    padding: 1%;
   }
   
 .rezeptErstellen form {
@@ -28,7 +29,6 @@
   
 .rezeptErstellen input[type="text"],
 .rezeptErstellen textarea,
-
 .rezeptErstellen select {
     width: 100%;
     padding: 0.6rem;
@@ -57,3 +57,16 @@
 .rezeptErstellen input[type="submit"]:hover {
     background-color: #c2781c;
   }
+
+.rezeptErstellen input[type="text"],
+.rezeptErstellen input[type="number"],
+.rezeptErstellen textarea,
+.rezeptErstellen select {
+  width: 100%;
+  padding: 0.6rem;
+  margin-top: 0.4rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-sizing: border-box;
+  font-size: 1rem;
+}
