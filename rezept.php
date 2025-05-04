@@ -90,9 +90,8 @@
     <p>Teig halbieren und auf bemehlter Fläche rund ausrollen. Ofen auf 240°C vorheizen. Teig auf Backpapier legen und belegen. Ca. 15 Minuten backen.</p>
   </div>
 
-  <a href="kommentare.php">
-    <button class="rezept-button">Kommentare ansehen</button>
-  </a>
+  <a href="kommentare.php" class="rezept-button">Kommentare ansehen </a>
+  
 </main>
   <hr><br>
   <?php

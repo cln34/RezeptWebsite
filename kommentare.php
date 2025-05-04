@@ -39,7 +39,8 @@
       </div>
 
       <form action="" method="post" class="kommentar-form">
-        <label for="bewertung">Bewertung:</label>
+      <label for="bewertung">Bewertung:</label>
+      <input type="text" id="bewertung" name="bewertung">
         <div class="sterne-bewertung">
           <input type="radio" name="bewertung" id="stern5" value="5" required><label for="stern5">★</label>
           <input type="radio" name="bewertung" id="stern4" value="4"><label for="stern4">★</label>
