@@ -15,27 +15,25 @@
   include "php/header.php";
   ?>
 <hr>
-  <main>
+  <main class="anmeldung-main">
     <h1>Registrierung</h1>
-    <form>
-      <div>
-        <input type="text" placeholder="Email Adresse" id="email" />
-      </div>
-      <br />
-      <div>
-        <input type="password" placeholder="Passwort" id="passwort" />
-      </div>
-      <br />
-      <div>
-        <input
-          type="password"
-          placeholder="Passwort wiederholen"
-          id="passwortWDH" />
-      </div>
-      <br />
+
+    <form action="registrieren.php" method="post" class="anmeldung-form">
+      <label for="email">E-Mail-Adresse</label>
+      <input type="email" id="email" name="email" placeholder="z. B. max@mustermann.de" required />
+
+      <label for="passwort">Passwort</label>
+      <input type="password" id="passwort" name="passwort" placeholder="Passwort" required />
+
+      <label for="passwortWDH">Passwort wiederholen</label>
+      <input type="password" id="passwortWDH" name="passwortWDH" placeholder="Passwort wiederholen" required />
+
+      <input type="submit" value="Registrieren" class="button" />
     </form>
-    <a href="anmeldung.php">
-      <input type="submit"></a>
+
+    <p class="centered-link">
+      <a href="anmeldung.php">Bereits registriert? Jetzt anmelden</a>
+    </p>
   </main>
 <hr><br>
   <?php

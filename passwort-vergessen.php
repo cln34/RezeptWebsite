@@ -3,28 +3,26 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Anmeldung</title>
+  <title>Passwort vergessen</title>
   <link rel="stylesheet" href="css/main.css" />
 </head>
-
 <body>
   <?php include "php/header.php"; ?>
   <main class="anmeldung-main">
-    <h1>Anmeldung</h1>
+    <h1>Passwort vergessen</h1>
 
-    <form action="login.php" method="post" class="anmeldung-form">
+
+    <!-- Hier wird das Formular für die Passwort-Wiederherstellung angezeigt -->
+    <p>Gib bitte deine E-Mail-Adresse ein, um einen Link zum Zurücksetzen deines Passworts zu erhalten.</p>
+    <form action="passwort-zuruecksetzen.php" method="post" class="anmeldung-form">
       <label for="email">E-Mail-Adresse</label>
       <input type="email" id="email" name="email" placeholder="z. B. max@mustermann.de" required />
 
-      <label for="passwort">Passwort</label>
-      <input type="password" id="passwort" name="passwort" placeholder="Passwort" required />
-
-      <input type="submit" value="Anmelden" class="button" />
+      <input type="submit" value="Link zum Zurücksetzen senden" class="button" />
     </form>
 
     <p class="centered-link">
-      <a href="registrierung.php">Noch kein Konto? Jetzt registrieren</a><br />
-      <a href="passwort-vergessen.php">Passwort vergessen?</a>
+      <a href="anmeldung.php">Zurück zur Anmeldung</a>
     </p>
   </main>
   <?php include "php/footer.php"; ?>
