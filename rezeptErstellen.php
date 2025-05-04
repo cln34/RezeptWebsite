@@ -11,72 +11,75 @@
 </head>
 
 <body>
+
     <?php
     include "php/header.php";
     ?>
-    <hr>
-    <br>
-    <main>
-        <h1>Rezept erstellen</h1>
-        <hr>
-        <br>
-        <form>
-            <p>Rezeptitel eingeben:</p>
-            <div>
-                <label for="Rezepttitel"><input type="text" placeholder="Rezepttitel" name="Rezepttitel" required></label>
-            </div>
-            <br>
-            <hr>
-            <p>Bild einfügen:</p>
-            <div>
-                <label for="Bild"><input type="file" placeholder="Bild einfügen" name="Bild" required></label>
-            </div>
-            <br>
-            <hr>
-            <p>Zutaten eingeben: </p>
-            <div>
-                <label for="Zutaten"><textarea placeholder="Zutaten" name="Zutaten" required></textarea></label>
-            </div>
-            <br>
-            <hr>
-            <p>Kochanleitung eingeben:</p>
-            <div>
-                <label for="Kochanleitung"><textarea placeholder="Kochanleitung" name="Kochanleitung" required></textarea></label>
-            </div>
-            <br>
-            <hr>
-            <p>Kurzbeschreibung eingeben:</p>
-            <div>
-                <label for="Kurzbeschreibung"><textarea placeholder="Kurzbeschreibung" name="Kurzbeschreibung" required></textarea></label>
-            </div>
-            <br>
-            <hr>
-            <p>Schwierigkeit angeben: </p>
-            <div>
-                <label for="Schwierigkeit"><select placeholder="Schwierigkeit" name="Schwierigkeit" required>
-                        <option value="leicht">leicht</option>
-                        <option value="mittel">mittel</option>
-                        <option value="schwer">schwer</option>
+
+    <main class="rezeptErstellen">
+        <form action="index.php">
+            <h2>Rezept erstellen</h2>
+
+            <label for="titel">Rezepttitel</label>
+            <input type="text" id="titel" name="titel" required />
+
+            <label for="bild">Bild hochladen</label>
+            <input type="file" id="bild" name="bild" accept="image/*" />
+
+            <label for="zutaten">Zutaten</label>
+            <div id="zutaten-container">
+                <div class="zutat-eintrag">
+                    <select id="zutaten" name="zutaten[]" required>
+                        <option value="" disabled selected>-- Zutat wählen --</option>
+                        <option value="Mehl">Mehl</option>
+                        <option value="Zucker">Zucker</option>
+                        <option value="Eier">Eier</option>
+                        <option value="Milch">Milch</option>
+                        <option value="Butter">Butter</option>
+                        <option value="Salz">Salz</option>
+                        <option value="Pfeffer">Pfeffer</option>
+                        <option value="Olivenöl">Olivenöl</option>
+                        <option value="Sahne">Sahne</option>
+                        <option value="Hefe">Hefe</option>
+                        <option value="Backpulver">Backpulver</option>
+                        <option value="Vanillezucker">Vanillezucker</option>
+                        <option value="Zimt">Zimt</option>
+                        <!-- Weitere Zutaten hier -->
                     </select>
-
-                </label>
+                    <input type="text" name="mengen[]" placeholder="Menge (z. B. 200g)" required>
+                </div>
             </div>
-            <br>
-            <hr>
-            <p>Preis angeben (max 50€):</p>
-            <div>
-                <label for="Preis"><input type="number" placeholder="Preis" name="Preis" required max="50" min="0"></textarea></label>
-            </div>
-            <br>
-            <hr>
-            <input type="submit">
 
+            <!-- Button zum Hinzufügen einer weiteren Zutat -->
+            <!-- Funktion addZutat() später bei JavaScript einfügen-->
+            <button type="button" onclick="addZutat()">Weitere Zutat hinzufügen</button>
+
+            <label for="anleitung">Zubereitung</label>
+            <textarea id="anleitung" name="anleitung" rows="6" required></textarea>
+
+            <label for="beschreibung">Kurzbeschreibung</label>
+            <textarea id="beschreibung" name="beschreibung" rows="3"></textarea>
+
+            <label for="schwierigkeit">Schwierigkeit</label>
+            <select id="schwierigkeit" name="schwierigkeit" required>
+            <option value="" disabled selected>-- Schwierigkeit wählen --</option>
+            <option value="leicht">leicht</option>
+            <option value="mittel">mittel</option>
+            <option value="schwer">schwer</option>
+            </select>
+
+            <label for="preis">Preis angeben (max 50€):</label>
+            <input type="number" id="preis" name="preis" min="0" max="50" step="0.01" required />
+
+            <input type="submit" value="Rezept speichern" />
         </form>
     </main>
-    <hr><br>
+  
+
     <?php
     include "php/footer.php"
     ?>
+
 </body>
 
 </html>
