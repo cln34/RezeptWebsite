@@ -73,7 +73,7 @@
 /* Umsetzung bei Mobilen Endgeräten später durch ein Hamburger-Munü mit JavaScript */
 
 /* Smartphones */
-@media (max-width: 768px) {
+@media (max-width: 480px) {
   .navbar {
     flex-direction: column;
     align-items: center; /* optional: mittige Ausrichtung */
@@ -103,7 +103,7 @@
 }
 
 /* Tablets */
-@media (min-width: 769px) and (max-width: 1024px) {
+@media (min-width: 481px) and (max-width: 1024px) {
   .navbar {
     flex-direction: column;
     align-items: center;
