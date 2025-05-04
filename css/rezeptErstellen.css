@@ -1,0 +1,72 @@
+.rezeptErstellen {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 1%;
+  }
+  
+.rezeptErstellen form {
+    background-color: #fff7ed;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 500px;
+  }
+  
+.rezeptErstellen h2 {
+    text-align: center;
+    color: #333;
+  }
+  
+.rezeptErstellen label {
+    display: block;
+    margin-top: 1rem;
+    font-weight: bold;
+    color: #333;
+  }
+  
+.rezeptErstellen input[type="text"],
+.rezeptErstellen textarea,
+.rezeptErstellen select {
+    width: 100%;
+    padding: 0.6rem;
+    margin-top: 0.4rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-sizing: border-box;
+    font-size: 1rem;
+  }
+  
+.rezeptErstellen input[type="file"] {
+    margin-top: 0.5rem;
+  }
+  
+.rezeptErstellen input[type="submit"] {
+    margin-top: 1.5rem;
+    background-color: #d28b26;
+    color: white;
+    border: none;
+    padding: 0.7rem 1.5rem;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1rem;
+  }
+  
+.rezeptErstellen input[type="submit"]:hover {
+    background-color: #c2781c;
+  }
+
+.rezeptErstellen input[type="text"],
+.rezeptErstellen input[type="number"],
+.rezeptErstellen textarea,
+.rezeptErstellen select {
+  width: 100%;
+  padding: 0.6rem;
+  margin-top: 0.4rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-sizing: border-box;
+  font-size: 1rem;
+}
