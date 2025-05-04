@@ -17,69 +17,81 @@
   include "php/header.php";
   ?>
   <hr>
-  <main>
+  <main class="rezept-container">
   <h1>Rezept:</h1>
-  <hr />
-  <h2>Pizza:</h2>
-  <img
-    src="images/pizza.jpg"
-    alt="Das ist ein Bild von Pizza"
-    title="Lecker Pizza"
-    height="300" />
-  <table width="30%" bgcolor="black">
-    <tr bgcolor="grey" align="center">
-      <th width="70">Dauer</th>
-      <th width="70">Schwierigkeit</th>
-      <th width="70">Ungefährer Preis</th>
+  <h2>Pizza</h2>
+  <img src="images/pizza.jpg" alt="Das ist ein Bild von Pizza" title="Lecker Pizza" class="rezept-bild" />
+
+  <table class="rezept-info-table">
+    <tr>
+      <th>Dauer</th>
+      <th>Schwierigkeit</th>
+      <th>Ungefährer Preis</th>
     </tr>
-    <tr bgcolor="lightgrey" align="center">
+    <tr>
       <td>30 min</td>
       <td>Mittel</td>
       <td>4€</td>
     </tr>
   </table>
-  <ul>
-    <li>
-      Teig
-      <ul>
-        <li><i>500g Weizenmehl</i></li>
-        <li><i>250ml Wasser</i></li>
-        <li><i>1 Würfel Hefe</i></li>
-      </ul>
-    </li>
-    <li>200g Tomatensauce</li>
-    <li>100g Mozzarella</li>
-    <li>Belag nach Belieben</li>
-    <li>Basilikum</li>
-  </ul>
-  <h3><ins>1. Schritt</ins></h3>
-  <p>
-    250ml lauwarmes Wasser in einen Messbecher füllen. Hefe hineinbröseln und
-    mit einer Prise Zucker und Salz verrühren. 10-15 Minuten gehen lassen.
-  </p>
-  <h3><ins>2. Schritt</ins></h3>
-  <p>
-    Das Mehl und Salz in eine Schüssel geben. Flüssigkeit und Öl über das Mehl
-    geben und mit den Knethaken des Handrührgeräts mindestens 5 Minuten kneten
-    (von Hand mindestens 10 Minuten lang kneten). Zum Schluss mit den Händen
-    noch einmal wenige Minuten weiterkneten, bis der Teig geschmeidig ist. Die
-    Teigschüssel mit einem Tuch abdecken und an einem warmen Ort (ca. 35°C)
-    etwa 40 Minuten gehen lassen.
-  </p>
-  <h3><ins>3. Schritt</ins></h3>
-  <p>
-    Teig halbieren und auf bemehlter Arbeitsfläche rund (Ø ca. 28-30 cm)
-    ausrollen. Ofen auf 240 Grad (Umluft: 220) vorheizen. Zwei Standardbleche
-    (38x45 cm) mit Backpapier belegen. Teige auf die Backbleche legen und
-    etwas in die Ränder zurechtdrücken. Jetzt den Pizzateig nach Belieben mit
-    Tomatensoße und verschiedensten Zutaten belegen. Pizza im vorgeheizten
-    Ofen etwa 15 Minuten backen.
-  </p>
-  <hr>
-  <br>
-  <a href="kommentare.php">
-  <button>Kommentare ansehen</button>
-  </a>
+
+  <h2>Zutaten</h2>
+<table class="zutaten-table">
+  <thead>
+    <tr>
+      <th>Zutat</th>
+      <th>Menge</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Weizenmehl</td>
+      <td>500g</td>
+    </tr>
+    <tr>
+      <td>Wasser</td>
+      <td>250ml</td>
+    </tr>
+    <tr>
+      <td>Hefe</td>
+      <td>1 Würfel</td>
+    </tr>
+    <tr>
+      <td>Tomatensauce</td>
+      <td>200g</td>
+    </tr>
+    <tr>
+      <td>Mozzarella</td>
+      <td>100g</td>
+    </tr>
+    <tr>
+      <td>Belag</td>
+      <td>nach Belieben</td>
+    </tr>
+    <tr>
+      <td>Basilikum</td>
+      <td></td>
+    </tr>
+  </tbody>
+</table>
+
+  <div class="rezept-schritt">
+    <h3>1. Schritt</h3>
+    <p>250ml lauwarmes Wasser in einen Messbecher füllen. Hefe hineinbröseln und mit einer Prise Zucker und Salz verrühren. 10-15 Minuten gehen lassen.</p>
+  </div>
+
+  <div class="rezept-schritt">
+    <h3>2. Schritt</h3>
+    <p>Das Mehl und Salz in eine Schüssel geben. Flüssigkeit und Öl über das Mehl geben und mit den Knethaken des Handrührgeräts mindestens 5 Minuten kneten (von Hand mindestens 10 Minuten). Danach mit den Händen geschmeidig kneten. Teigschüssel abdecken und an warmem Ort ca. 40 Minuten gehen lassen.</p>
+  </div>
+
+  <div class="rezept-schritt">
+    <h3>3. Schritt</h3>
+    <p>Teig halbieren und auf bemehlter Fläche rund ausrollen. Ofen auf 240°C vorheizen. Teig auf Backpapier legen und belegen. Ca. 15 Minuten backen.</p>
+  </div>
+
+  <a href="kommentare.php" class="rezept-button">Kommentare ansehen </a>
+  
 </main>
   <hr><br>
   <?php
