@@ -68,3 +68,56 @@
 .navbar .right-buttons li a:hover {
   background-color: lightgray; /* Hover-Effekt für Buttons */
 }
+
+
+/* Smartphones */
+@media (max-width: 767px) {
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .left-links, .right-buttons {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .left-links a, .right-buttons a {
+    font-size: 1.1rem;
+  }
+}
+
+/* Tablets */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .navbar {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  .left-links, .right-buttons {
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: auto;
+  }
+
+  .left-links a, .right-buttons a {
+    font-size: 1.1rem;
+  }
+}
+
+/* Notebooks und kleine Desktops */
+@media (min-width: 1025px) and (max-width: 1440px) {
+  /* Feinabstimmung z. B. Schriftgröße oder Abstände */
+  .left-links a, .right-buttons a {
+    font-size: 1.2rem;
+  }
+}
+
+/* Große Bildschirme */
+@media (min-width: 1441px) {
+  .left-links a, .right-buttons a {
+    font-size: 1.3rem;
+    padding: 20px 25px;
+  }
+}
