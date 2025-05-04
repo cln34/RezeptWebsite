@@ -1,0 +1,99 @@
+
+
+
+.kommentar-container {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding: 0 10%;
+}
+
+.kommentar-card {
+  background-color: #D6C6B4;
+  border-radius: 10px;
+  padding: 15px;
+  color: black;
+}
+
+.kommentar-datum {
+  font-size: 0.9em;
+  color: #333;
+  margin-left: 10px;
+}
+
+.sterne-anzeige {
+  font-size: 1.5rem;
+  color: gold;
+  margin: 5px 0;
+}
+
+.sterne-bewertung {
+  direction: rtl;
+  unicode-bidi: bidi-override;
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+  margin-bottom: 15px;
+}
+
+.sterne-bewertung input {
+  display: none;
+}
+
+.sterne-bewertung label {
+  font-size: 2rem;
+  color: #ccc;
+  cursor: pointer;
+}
+
+.sterne-bewertung input:checked ~ label,
+.sterne-bewertung label:hover,
+.sterne-bewertung label:hover ~ label {
+  color: gold;
+}
+
+.kommentar-form {
+  background-color: #fdf6ee;
+  padding: 20px;
+  border-radius: 15px;
+  max-width: 700px;
+  margin: 30px auto;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.kommentar-form > * {
+  margin-top: 10px;
+}
+
+.kommentar-form label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 8px;
+  color: #333;
+}
+
+.kommentar-form textarea {
+  width: 100%;
+  height: 120px;
+  padding: 12px;
+  font-size: 16px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  resize: vertical;
+  margin-bottom: 20px;
+}
+
+.kommentar-form .button {
+  background-color: #5C6F4D;
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  font-size: 16px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.kommentar-form .button:hover {
+  background-color: #4a593d;
+}
