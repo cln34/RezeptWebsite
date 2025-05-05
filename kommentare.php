@@ -20,19 +20,19 @@
 
       <div class="kommentar-container">
         <div class="kommentar-card">
-          <h3>Colin <span class="kommentar-datum">(Datum einfügen)</span></h3>
+          <h2>Colin <span class="kommentar-datum">(Datum einfügen)</span></h2>
           <div class="sterne-anzeige">★★★★☆</div>
           <p>Ich finde die Pizza müsste länger im Ofen sein, ansonsten sehr lecker.</p>
         </div>
 
         <div class="kommentar-card">
-          <h3>Sascha <span class="kommentar-datum">(Datum einfügen)</span></h3>
+          <h2>Sascha <span class="kommentar-datum">(Datum einfügen)</span></h2>
           <div class="sterne-anzeige">★★★★★</div>
           <p>Einfach fabelhaft!</p>
         </div>
 
         <div class="kommentar-card">
-          <h3>Chris <span class="kommentar-datum">(Datum einfügen)</span></h3>
+          <h2>Chris <span class="kommentar-datum">(Datum einfügen)</span></h2>
           <div class="sterne-anzeige">★★★☆☆</div>
           <p>Da muss mehr Käse drauf!</p>
         </div>
@@ -42,14 +42,18 @@
       <label for="bewertung">Bewertung:</label>
       <input type="text" id="bewertung" name="bewertung">
         <div class="sterne-bewertung">
+        <fieldset class="sterne-bewertung">
+          <legend>Bewertung abgeben</legend>
           <input type="radio" name="bewertung" id="stern5" value="5" required><label for="stern5">★</label>
           <input type="radio" name="bewertung" id="stern4" value="4"><label for="stern4">★</label>
           <input type="radio" name="bewertung" id="stern3" value="3"><label for="stern3">★</label>
           <input type="radio" name="bewertung" id="stern2" value="2"><label for="stern2">★</label>
           <input type="radio" name="bewertung" id="stern1" value="1"><label for="stern1">★</label>
+        </fieldset>
         </div>
 
-        <textarea placeholder="Kommentar eingeben" name="Kommentar" required></textarea>
+        <label for="kommentar" class="visually-hidden">Kommentar</label>
+        <textarea id="kommentar" placeholder="Kommentar eingeben" name="Kommentar" required></textarea>
         <input type="submit" value="Kommentar absenden" class="button">
       </form>
     </main>
