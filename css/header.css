@@ -68,3 +68,82 @@
 .navbar .right-buttons li a:hover {
   background-color: lightgray; /* Hover-Effekt für Buttons */
 }
+
+
+/* Umsetzung bei Mobilen Endgeräten später durch ein Hamburger-Munü mit JavaScript */
+
+/* Smartphones */
+@media (max-width: 480px) {
+  .navbar {
+    flex-direction: column;
+    align-items: center; /* optional: mittige Ausrichtung */
+  }
+
+  .navbar .left-links,
+  .navbar .right-buttons {
+    flex-direction: column;
+    align-items: center; /* zentriert Inhalte */
+    width: 100%;
+  }
+
+  .navbar .left-links li,
+  .navbar .right-buttons li {
+    margin: 5px 0;
+  }
+
+  .navbar .left-links li a,
+  .navbar .right-buttons li a {
+    width: auto; /* reduziert die Breite */
+    max-width: 250px; /* optional: maximale Breite */
+    text-align: center;
+    padding: 8px 15px;
+    font-size: 1rem;
+    margin: 0 auto; /* zentriert Button horizontal */
+  }
+}
+
+/* Tablets */
+@media (min-width: 481px) and (max-width: 1024px) {
+  .navbar {
+    flex-direction: column;
+    align-items: center;
+    padding: 15px;
+  }
+
+  .left-links {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-bottom: 15px;
+  }
+
+  .right-buttons {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .left-links a, .right-buttons a {
+    font-size: 1.1rem;
+    padding: 10px 15px;
+    text-align: center;
+  }
+}
+
+/* Notebooks und kleine Desktops */
+@media (min-width: 1025px) and (max-width: 1440px) {
+  /* Feinabstimmung z. B. Schriftgröße oder Abstände */
+  .left-links a, .right-buttons a {
+    font-size: 1.2rem;
+  }
+}
+
+/* Große Bildschirme */
+@media (min-width: 1441px) {
+  .left-links a, .right-buttons a {
+    font-size: 1.3rem;
+    padding: 20px 25px;
+  }
+} 

@@ -29,3 +29,29 @@
   background-color: #dac0a2;
   border-radius: 5px;
 }
+
+/* Smartphones */
+@media (max-width: 480px) {
+  .footer-nav ul {
+    flex-direction: column; /* Links untereinander anordnen */
+    gap: 20px; /* Kleineren Abstand zwischen den Links */
+  }
+
+  .footer-nav li a {
+    font-size: small;
+    padding: 10px;
+    text-align: center;
+  }
+}
+
+/* Tablets */
+@media (min-width: 481px) and (max-width: 1024px) {
+  .footer-nav ul {
+    gap: 50px; /* Weniger Abstand zwischen den Links */
+  }
+
+  .footer-nav li a {
+    font-size: medium;
+    padding: 12px;
+  }
+}

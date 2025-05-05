@@ -21,8 +21,8 @@
 
     <section class="search-container">
     <form action="">
-      <!--<label for="Suche">Neue Rezepte entdecken: </label>-->
       <div class="search">
+        <label for="Suche" class="visually-hidden">Suche</label> <!-- Unsichtbares Label für Barrierefreiheit -->
         <span class="search-icon material-symbols-outlined"> search </span>
         <input class="search-input" type="search" id="Suche" name="Sucheingabe" placeholder="Neue Rezepte entdecken:" size="90" required>
       </div> <!--name ist name für die eingegeben daten, eine variable sozusagen-->

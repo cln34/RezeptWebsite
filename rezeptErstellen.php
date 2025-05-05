@@ -46,7 +46,8 @@
                         <option value="Zimt">Zimt</option>
                         <!-- Weitere Zutaten hier -->
                     </select>
-                    <input type="text" name="mengen[]" placeholder="Menge (z. B. 200g)" required>
+                    <label for="menge" class="visually-hidden">Menge</label> <!-- Unsichtbares Label für Barrierefreiheit -->
+                    <input type="text" id=menge name="mengen[]" placeholder="Menge (z. B. 200g)" required>
                 </div>
             </div>
 

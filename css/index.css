@@ -132,3 +132,15 @@ button:active{
 .search-input::placeholder, .search-icon{
   color: rgba(0, 0, 0, 0.5);
 }
+
+/* Unsichtbares Label für Barrierefreiheit */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
