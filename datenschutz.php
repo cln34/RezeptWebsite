@@ -33,7 +33,7 @@
     </main>
     <hr><br>
     <?php
-    include "php/footer.php"
+    include_once "php/footer.php"
     ?>
 </body>
 
