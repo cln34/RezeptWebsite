@@ -18,7 +18,7 @@
   ?>
  
   <main class="rezept-container">
-  <h1>Rezept:</h1>
+  <h1>Rezept</h1>
   <h2>Pizza</h2>
   <img src="images/pizza.jpg" alt="Das ist ein Bild von Pizza" title="Lecker Pizza" class="rezept-bild" />
 
