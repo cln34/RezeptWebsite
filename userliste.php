@@ -14,14 +14,12 @@
     <?php
     include_once "php/header.php";
     ?>
-    <hr>
-    <br>
+    
     <main>
-<h1>Userliste: </h1>
-Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloremque, quos officia. Maiores ex laboriosam impedit iure, vero magni soluta, maxime similique temporibus corrupti delectus, modi suscipit incidunt asperiores! Facere, fugit.
-
+        <h1>Userliste</h1>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloremque, quos officia. Maiores ex laboriosam impedit iure, vero magni soluta, maxime similique temporibus corrupti delectus, modi suscipit incidunt asperiores! Facere, fugit.
     </main>
-    <hr><br>
+
     <?php
     include_once "php/footer.php"
     ?>

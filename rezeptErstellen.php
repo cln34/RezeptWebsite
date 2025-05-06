@@ -18,7 +18,7 @@
 
     <main class="rezeptErstellen">
         <form action="index.php">
-            <h2>Rezept erstellen</h2>
+            <h1>Rezept erstellen</h1>
 
             <label for="titel">Rezepttitel</label>
             <input type="text" id="titel" name="titel" required />
