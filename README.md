@@ -3,6 +3,6 @@ Namen der Studierenden:
 - Busse
 - Rettig
 - Bolbas
-Abgabe zu Aufgabenblatt 1
+Abgabe zu Aufgabenblatt 2
 
 Hinweise:
