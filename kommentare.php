@@ -40,7 +40,7 @@
 
       <form action="" method="post" class="kommentar-form">
       <label for="bewertung">Bewertung:</label>
-      <input type="text" id="bewertung" name="bewertung">
+      <input type="text" id="NameBewerter" placeholder="Name des Bewerters" name="NameBewerter">
         <div class="sterne-bewertung">
         <fieldset class="sterne-bewertung">
           <legend>Bewertung abgeben</legend>
