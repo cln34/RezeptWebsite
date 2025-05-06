@@ -12,7 +12,7 @@
 
 <body>
     <?php
-    include "php/header.php";
+    include_once "php/header.php";
     ?>
     <hr>
     <br>
@@ -23,7 +23,7 @@ Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloremque, quos offic
     </main>
     <hr><br>
     <?php
-    include "php/footer.php"
+    include_once "php/footer.php"
     ?>
 </body>
 

@@ -13,7 +13,7 @@
 <body>
 
     <?php
-    include "php/header.php";
+    include_once "php/header.php";
     ?>
 
     <main class="rezeptErstellen">
@@ -78,7 +78,7 @@
   
 
     <?php
-    include "php/footer.php"
+    include_once "php/footer.php"
     ?>
 
 </body>

@@ -13,7 +13,7 @@
 
 <body>
   <?php
-  include "php/header.php";
+  include_once "php/header.php";
   ?>
   <hr />
   <main>
@@ -126,7 +126,7 @@
   </main>
   <hr><br>
   <?php
-  include "php/footer.php"
+  include_once "php/footer.php"
   ?>
 </body>
 

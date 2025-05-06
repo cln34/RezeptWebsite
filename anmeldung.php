@@ -8,7 +8,7 @@
 </head>
 
 <body>
-  <?php include "php/header.php"; ?>
+  <?php include_once "php/header.php"; ?>
   <main class="anmeldung-main">
     <h1>Anmeldung</h1>
 
@@ -27,6 +27,6 @@
       <a href="passwort-vergessen.php">Passwort vergessen?</a>
     </p>
   </main>
-  <?php include "php/footer.php"; ?>
+  <?php include_once "php/footer.php"; ?>
 </body>
 </html>
