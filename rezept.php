@@ -16,7 +16,7 @@
   <?php
   include_once "php/header.php";
   ?>
-  <hr>
+ 
   <main class="rezept-container">
   <h1>Rezept:</h1>
   <h2>Pizza</h2>
@@ -93,7 +93,7 @@
   <a href="kommentare.php" class="rezept-button">Kommentare ansehen </a>
   
 </main>
-  <hr><br>
+
   <?php
   include_once "php/footer.php"
   ?>

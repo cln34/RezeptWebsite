@@ -14,7 +14,7 @@
   <?php
   include_once "php/header.php";
   ?>
-<hr>
+
   <main class="anmeldung-main">
     <h1>Registrierung</h1>
 
@@ -35,7 +35,7 @@
       <a href="anmeldung.php">Bereits registriert? Jetzt anmelden</a>
     </p>
   </main>
-<hr><br>
+
   <?php
   include_once "php/footer.php"
   ?>

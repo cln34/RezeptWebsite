@@ -15,11 +15,11 @@
     <?php
     include_once "php/header.php";
     ?>
-    <hr>
+    
     <h1>Favoriten</h1>
     Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi exercitationem officiis beatae, corporis voluptates voluptatibus, tenetur provident sed amet dolores perferendis consequatur nihil accusantium! Fuga reiciendis sunt corrupti est expedita!
 
-    <hr><br>
+    
     <?php
     include_once "php/footer.php"
     ?>

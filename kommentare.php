@@ -14,7 +14,7 @@
     <?php
     include_once "php/header.php";
     ?>
-    <hr />
+    
     <main>
       <h1>Kommentare</h1>
 
@@ -57,7 +57,7 @@
         <input type="submit" value="Kommentar absenden" class="button">
       </form>
     </main>
-    <hr><br>
+    
     <?php
     include_once "php/footer.php"
     ?>

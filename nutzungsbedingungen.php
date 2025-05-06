@@ -15,7 +15,7 @@
     <?php
     include_once "php/header.php";
     ?>
-<hr>
+
     <main>
 
         <h1>Nutzungsbedingungen</h1>
@@ -30,7 +30,7 @@
         </p>
 
     </main>
-<hr><br>
+
     <?php
     include_once "php/footer.php"
     ?>
