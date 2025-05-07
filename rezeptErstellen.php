@@ -13,12 +13,12 @@
 <body>
 
     <?php
-    include "php/header.php";
+    include_once "php/header.php";
     ?>
 
     <main class="rezeptErstellen">
         <form action="index.php">
-            <h2>Rezept erstellen</h2>
+            <h1>Rezept erstellen</h1>
 
             <label for="titel">Rezepttitel</label>
             <input type="text" id="titel" name="titel" required />
@@ -61,6 +61,9 @@
             <label for="beschreibung">Kurzbeschreibung</label>
             <textarea id="beschreibung" name="beschreibung" rows="3"></textarea>
 
+            <label for="dauer">Dauer (in Minuten)</label>
+            <input type="number" id="dauer" name="dauer" min="1" max="180" required />
+
             <label for="schwierigkeit">Schwierigkeit</label>
             <select id="schwierigkeit" name="schwierigkeit" required>
             <option value="" disabled selected>-- Schwierigkeit wählen --</option>
@@ -78,7 +81,7 @@
   
 
     <?php
-    include "php/footer.php"
+    include_once "php/footer.php"
     ?>
 
 </body>

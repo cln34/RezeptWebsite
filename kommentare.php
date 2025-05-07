@@ -12,9 +12,9 @@
 
 <body>
     <?php
-    include "php/header.php";
+    include_once "php/header.php";
     ?>
-    <hr />
+    
     <main>
       <h1>Kommentare</h1>
 
@@ -40,7 +40,7 @@
 
       <form action="" method="post" class="kommentar-form">
       <label for="bewertung">Bewertung:</label>
-      <input type="text" id="bewertung" name="bewertung">
+      <input type="text" id="NameBewerter" placeholder="Name des Bewerters" name="NameBewerter">
         <div class="sterne-bewertung">
         <fieldset class="sterne-bewertung">
           <legend>Bewertung abgeben</legend>
@@ -57,9 +57,9 @@
         <input type="submit" value="Kommentar absenden" class="button">
       </form>
     </main>
-    <hr><br>
+    
     <?php
-    include "php/footer.php"
+    include_once "php/footer.php"
     ?>
 </body>
 

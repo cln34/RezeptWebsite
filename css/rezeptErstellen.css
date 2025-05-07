@@ -14,12 +14,7 @@
     width: 100%;
     max-width: 500px;
   }
-  
-.rezeptErstellen h2 {
-    text-align: center;
-    color: #333;
-  }
-  
+
 .rezeptErstellen label {
     display: block;
     margin-top: 1rem;
@@ -37,6 +32,7 @@
     border-radius: 8px;
     box-sizing: border-box;
     font-size: 1rem;
+    resize: none;
   }
   
 .rezeptErstellen input[type="file"] {
@@ -45,7 +41,7 @@
   
 .rezeptErstellen input[type="submit"] {
     margin-top: 1.5rem;
-    background-color: #d28b26;
+    background-color: #5C6F4D;
     color: white;
     border: none;
     padding: 0.7rem 1.5rem;
@@ -55,7 +51,7 @@
   }
   
 .rezeptErstellen input[type="submit"]:hover {
-    background-color: #c2781c;
+    background-color: #3e5033;
   }
 
 .rezeptErstellen input[type="text"],

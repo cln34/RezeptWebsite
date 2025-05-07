@@ -14,9 +14,9 @@
 <body>
 
     <?php
-    include "php/header.php";
+    include_once "php/header.php";
     ?>
-    <hr>
+    
     <main>
 
         <h1>Impressum</h1>
@@ -31,9 +31,9 @@
         </p>
 
     </main>
-    <hr><br>
+    
     <?php
-    include "php/footer.php"
+    include_once "php/footer.php"
     ?>
 </body>
 

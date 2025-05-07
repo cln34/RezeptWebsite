@@ -13,9 +13,9 @@
 
 <body>
   <?php
-  include "php/header.php";
+  include_once "php/header.php";
   ?>
-  <hr />
+  
   <main>
     <h1>StudiRezepte-Einfach & Günstig</h1>
 
@@ -28,8 +28,7 @@
       </div> <!--name ist name für die eingegeben daten, eine variable sozusagen-->
     </form>
     </section>
-    <br>
-    <hr />
+    
     <!-- Flexbox erstellen, um essen nebeneinander darzustellen -->
     <section class="flexcontainer">
 
@@ -124,9 +123,9 @@
     </section>
 
   </main>
-  <hr><br>
+  
   <?php
-  include "php/footer.php"
+  include_once "php/footer.php"
   ?>
 </body>
 

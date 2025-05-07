@@ -12,9 +12,9 @@
 
 <body>
     <?php
-    include "php/header.php";
+    include_once "php/header.php";
     ?>
-    <hr>
+    
     <main>
         <h1>Abmeldung</h1>
         <hr>
@@ -22,9 +22,9 @@
         <a href="anmeldung.php">
             <button>Abmelden</button></a>
     </main>
-    <hr><br>
+    
     <?php
-    include "php/footer.php"
+    include_once "php/footer.php"
     ?>
 
 </body>

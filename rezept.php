@@ -14,11 +14,11 @@
 
 <body>
   <?php
-  include "php/header.php";
+  include_once "php/header.php";
   ?>
-  <hr>
+ 
   <main class="rezept-container">
-  <h1>Rezept:</h1>
+  <h1>Rezept</h1>
   <h2>Pizza</h2>
   <img src="images/pizza.jpg" alt="Das ist ein Bild von Pizza" title="Lecker Pizza" class="rezept-bild" />
 
@@ -93,9 +93,9 @@
   <a href="kommentare.php" class="rezept-button">Kommentare ansehen </a>
   
 </main>
-  <hr><br>
+
   <?php
-  include "php/footer.php"
+  include_once "php/footer.php"
   ?>
 </body>
 

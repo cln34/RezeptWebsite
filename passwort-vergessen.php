@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="css/main.css" />
 </head>
 <body>
-  <?php include "php/header.php"; ?>
+  <?php include_once "php/header.php"; ?>
   <main class="anmeldung-main">
     <h1>Passwort vergessen</h1>
 
@@ -25,6 +25,6 @@
       <a href="anmeldung.php">Zurück zur Anmeldung</a>
     </p>
   </main>
-  <?php include "php/footer.php"; ?>
+  <?php include_once "php/footer.php"; ?>
 </body>
 </html>
