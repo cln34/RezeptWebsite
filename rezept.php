@@ -22,58 +22,32 @@
   <h2>Pizza</h2>
   <img src="images/pizza.jpg" alt="Das ist ein Bild von Pizza" title="Lecker Pizza" class="rezept-bild" />
 
-  <table class="rezept-info-table">
-    <tr>
-      <th>Dauer</th>
-      <th>Schwierigkeit</th>
-      <th>Ungefährer Preis</th>
-    </tr>
-    <tr>
-      <td>30 min</td>
-      <td>Mittel</td>
-      <td>4€</td>
-    </tr>
-  </table>
+  <div class="table-container">
+    <div class="table-header">
+      <div>Dauer</div>
+      <div>Schwierigkeit</div>
+      <div>Ungefährer Preis</div>
+    </div>
+    <div class="table-row">
+      <div>30 min</div>
+      <div>Mittel</div>
+      <div>4€</div>
+    </div>
+  </div>
 
-  <h2>Zutaten</h2>
-<table class="zutaten-table">
-  <thead>
-    <tr>
-      <th>Zutat</th>
-      <th>Menge</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Weizenmehl</td>
-      <td>500g</td>
-    </tr>
-    <tr>
-      <td>Wasser</td>
-      <td>250ml</td>
-    </tr>
-    <tr>
-      <td>Hefe</td>
-      <td>1 Würfel</td>
-    </tr>
-    <tr>
-      <td>Tomatensauce</td>
-      <td>200g</td>
-    </tr>
-    <tr>
-      <td>Mozzarella</td>
-      <td>100g</td>
-    </tr>
-    <tr>
-      <td>Belag</td>
-      <td>nach Belieben</td>
-    </tr>
-    <tr>
-      <td>Basilikum</td>
-      <td></td>
-    </tr>
-  </tbody>
-</table>
+  <div class="table-container">
+    <div class="table-header">
+      <div>Zutat</div>
+      <div>Menge</div>
+    </div>
+    <div class="table-row"><div>Weizenmehl</div><div>500g</div></div>
+    <div class="table-row"><div>Wasser</div><div>250ml</div></div>
+    <div class="table-row"><div>Hefe</div><div>1 Würfel</div></div>
+    <div class="table-row"><div>Tomatensauce</div><div>200g</div></div>
+    <div class="table-row"><div>Mozzarella</div><div>100g</div></div>
+    <div class="table-row"><div>Belag</div><div>nach Belieben</div></div>
+    <div class="table-row"><div>Basilikum</div><div></div></div>
+  </div>
 
   <div class="rezept-schritt">
     <h3>1. Schritt</h3>
