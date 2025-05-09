@@ -17,7 +17,7 @@
     ?>
 
     <main class="rezeptErstellen">
-        <form action="index.php">
+        <form action="rezept_speichern.php" method="post" enctype="multipart/form-data">
             <h1>Rezept erstellen</h1>
 
             <label for="titel">Rezepttitel</label>

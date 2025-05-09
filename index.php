@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="de">
 
@@ -119,6 +122,26 @@
         </div>
         <p>Kurzbeschreibung: Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid sed ab eos aspernatur ipsam cum repellendus culpa commodi consequuntur, velit pariatur quod dolores nisi itaque similique repellat provident sequi! Veniam!</p>
       </div>
+
+      <?php
+      if (isset($_SESSION['rezepte'])) {
+          foreach ($_SESSION['rezepte'] as $rezept) {
+              echo '<div class="flexbox">';
+              echo '<h2>' . htmlspecialchars($rezept["titel"]) . ':</h2>';
+              if (!empty($rezept["bild"])) {
+                  echo '<img src="images/' . htmlspecialchars($rezept["bild"]) . '" alt="Bild von ' . htmlspecialchars($rezept["titel"]) . '" title="' . htmlspecialchars($rezept["titel"]) . '" />';
+              }
+              echo '<div class="info-grid">';
+              echo '<div>Dauer</div><div>Schwierigkeit</div><div>Ungefährer Preis</div>';
+              echo '<div>' . htmlspecialchars($rezept["dauer"]) . ' min</div>';
+              echo '<div>' . htmlspecialchars($rezept["schwierigkeit"]) . '</div>';
+              echo '<div>' . htmlspecialchars($rezept["preis"]) . '€</div>';
+              echo '</div>';
+              echo '<p>Kurzbeschreibung: ' . nl2br(htmlspecialchars($rezept["beschreibung"])) . '</p>';
+              echo '</div>';
+          }
+      }
+      ?>
 
     </section>
 
