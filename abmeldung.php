@@ -1,5 +1,8 @@
 <?php
 session_start();
+if(isset($_SESSION["email"])){
+    echo $_SESSION["email"];
+}
    if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] == true && isset($_POST['abmelden'])){
     session_destroy();
     header("Location: anmeldung.php");

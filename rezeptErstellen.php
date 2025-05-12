@@ -1,3 +1,9 @@
+<?php
+session_start();
+if (isset($_SESSION["email"])) {
+    echo $_SESSION["email"];
+}
+?>
 <!DOCTYPE html>
 <html lang="de">
 
@@ -66,10 +72,10 @@
 
             <label for="schwierigkeit">Schwierigkeit</label>
             <select id="schwierigkeit" name="schwierigkeit" required>
-            <option value="" disabled selected>-- Schwierigkeit wählen --</option>
-            <option value="leicht">leicht</option>
-            <option value="mittel">mittel</option>
-            <option value="schwer">schwer</option>
+                <option value="" disabled selected>-- Schwierigkeit wählen --</option>
+                <option value="leicht">leicht</option>
+                <option value="mittel">mittel</option>
+                <option value="schwer">schwer</option>
             </select>
 
             <label for="preis">Preis angeben (max 50€):</label>
@@ -78,7 +84,7 @@
             <input type="submit" value="Rezept speichern" />
         </form>
     </main>
-  
+
 
     <?php
     include_once "php/footer.php"
