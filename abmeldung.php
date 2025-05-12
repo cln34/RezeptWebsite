@@ -1,3 +1,11 @@
+<?php
+session_start();
+   if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] == true && isset($_POST['abmelden'])){
+    session_destroy();
+    header("Location: anmeldung.php");
+   }
+?>
+
 <!DOCTYPE html>
 <html lang="de">
 
@@ -14,15 +22,16 @@
     <?php
     include_once "php/header.php";
     ?>
-    
+
     <main>
         <h1>Abmeldung</h1>
         <hr>
         <h2>Sind Sie sicher, dass Sie sich abmelden wollen?</h2>
-        <a href="anmeldung.php">
-            <button>Abmelden</button></a>
+        <form method="post">
+            <button name="abmelden">Abmelden</button>
+        </form>
     </main>
-    
+
     <?php
     include_once "php/footer.php"
     ?>

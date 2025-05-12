@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="de">
 
@@ -16,7 +19,7 @@
     <?php
     include_once "php/header.php";
     ?>
-    
+
     <main>
 
         <h1>Datenschutz</h1>
@@ -31,7 +34,7 @@
         </p>
 
     </main>
-    
+
     <?php
     include_once "php/footer.php"
     ?>
