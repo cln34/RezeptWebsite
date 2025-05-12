@@ -1,3 +1,10 @@
+<?php
+session_start();
+if (isset($_SESSION["email"])) {
+  echo $_SESSION["email"];
+}
+?>
+
 <!DOCTYPE html>
 <html lang="de">
 
@@ -15,20 +22,20 @@
   <?php
   include_once "php/header.php";
   ?>
-  
+
   <main>
     <h1>StudiRezepte-Einfach & Günstig</h1>
 
     <section class="search-container">
-    <form action="">
-      <div class="search">
-        <label for="Suche" class="visually-hidden">Suche</label> <!-- Unsichtbares Label für Barrierefreiheit -->
-        <span class="search-icon material-symbols-outlined"> search </span>
-        <input class="search-input" type="search" id="Suche" name="Sucheingabe" placeholder="Neue Rezepte entdecken:" size="90" required>
-      </div> <!--name ist name für die eingegeben daten, eine variable sozusagen-->
-    </form>
+      <form action="">
+        <div class="search">
+          <label for="Suche" class="visually-hidden">Suche</label> <!-- Unsichtbares Label für Barrierefreiheit -->
+          <span class="search-icon material-symbols-outlined"> search </span>
+          <input class="search-input" type="search" id="Suche" name="Sucheingabe" placeholder="Neue Rezepte entdecken:" size="90" required>
+        </div> <!--name ist name für die eingegeben daten, eine variable sozusagen-->
+      </form>
     </section>
-    
+
     <!-- Flexbox erstellen, um essen nebeneinander darzustellen -->
     <section class="flexcontainer">
 
@@ -123,7 +130,7 @@
     </section>
 
   </main>
-  
+
   <?php
   include_once "php/footer.php"
   ?>

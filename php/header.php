@@ -8,7 +8,11 @@
     </ul>
 
     <ul class="right-buttons">
-      <li><a href="anmeldung.php" class="button-link">Anmelden/Abmelden</a></li>
+      <?php if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] == true) { ?>
+        <li><a href="abmeldung.php" class="button-link">Abmelden</a></li>
+      <?php } else { ?>
+        <li><a href="anmeldung.php" class="button-link">Anmelden</a></li>
+      <?php } ?>
       <li><a href="registrierung.php" class="button-link">Registrieren</a></li>
     </ul>
   </nav>

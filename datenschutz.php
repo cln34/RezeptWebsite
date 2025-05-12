@@ -1,3 +1,9 @@
+<?php
+session_start();
+if (isset($_SESSION["email"])) {
+    echo $_SESSION["email"];
+}
+?>
 <!DOCTYPE html>
 <html lang="de">
 
@@ -16,7 +22,7 @@
     <?php
     include_once "php/header.php";
     ?>
-    
+
     <main>
 
         <h1>Datenschutz</h1>
@@ -31,7 +37,7 @@
         </p>
 
     </main>
-    
+
     <?php
     include_once "php/footer.php"
     ?>
