@@ -7,7 +7,7 @@
 
 class InternalErrorException extends Exception {}
 class MissingEntryException extends Exception {}
-interface RezepteDAO
+interface RezeptDAO
 {
 	/*
 	 * Einfügen eines neuen Eintrags mit Überschrift, EMail-Adresse und Text

@@ -1,0 +1,78 @@
+<?php
+class RezeptEintrag
+{
+    private $id;
+    private $title;
+    private $email;
+    private $kurzbeschreibung;
+    private $dauer;
+    private $schwierigkeit;
+    private $preis;
+    private $zutaten;
+    private $anleitung;
+    private $bild;
+
+    public function __construct($id, $title, $email, $kurzbeschreibung, $dauer, $schwierigkeit, $preis, $zutaten, $anleitung, $bild)
+    {
+        $this->id = $id;
+        $this->title = $title;
+        $this->email = $email;
+        $this->kurzbeschreibung = $kurzbeschreibung;
+        $this->dauer = $dauer;
+        $this->schwierigkeit = $schwierigkeit;
+        $this->preis = $preis;
+        $this->zutaten = $zutaten;
+        $this->anleitung = $anleitung;
+        $this->bild = $bild;
+    }
+
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    public function getTitle()
+    {
+        return $this->title;
+    }
+
+    public function getEmail()
+    {
+        return $this->email;
+    }
+
+    public function getKurzbeschreibung()
+    {
+        return $this->kurzbeschreibung;
+    }
+
+    public function getDauer()
+    {
+        return $this->dauer;
+    }
+
+    public function getSchwierigkeit()
+    {
+        return $this->schwierigkeit;
+    }
+
+    public function getPreis()
+    {
+        return $this->preis;
+    }
+
+    public function getZutaten()
+    {
+        return $this->zutaten;
+    }
+
+    public function getAnleitung()
+    {
+        return $this->anleitung;
+    }
+
+    public function getBild()
+    {
+        return $this->bild;
+    }
+}
