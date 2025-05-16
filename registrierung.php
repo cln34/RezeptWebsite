@@ -12,7 +12,7 @@
 
 <body>
   <?php
-  include_once "php/header.php";
+  include_once "php/include/header.php";
   ?>
 
   <main class="anmeldung-main">
@@ -37,7 +37,7 @@
   </main>
 
   <?php
-  include_once "php/footer.php"
+  include_once "php/include/footer.php"
   ?>
 </body>
 

@@ -1,9 +1,37 @@
 <?php
 session_start();
-if (isset($_SESSION["email"])) {
-    echo $_SESSION["email"];
-}
+// Aufbereitung der Daten fuer die Ausgabe (View)
+$title = isset($_SESSION["title"]) ? $_SESSION["title"] : "";
+$email = isset($_SESSION["email"]) ? $_SESSION["email"] : "";
+
+$kurzbeschreibung = isset($_SESSION["kurzbeschreibung"]) ? $_SESSION["kurzbeschreibung"] : "";
+$dauer = isset($_SESSION["dauer"]) ? $_SESSION["dauer"] : "";
+$schwierigkeit = isset($_SESSION["schwierigkeit"]) ? $_SESSION["schwierigkeit"] : "";
+$preis = isset($_SESSION["preis"]) ? $_SESSION["preis"] : "";
+$zutaten = isset($_SESSION["zutaten"]) ? $_SESSION["zutaten"] : "";
+$anleitung = isset($_SESSION["anleitung"]) ? $_SESSION["anleitung"] : "";
+$bild = isset($_SESSION["bild"]) ? $_SESSION["bild"] : "";
+
+unset($_SESSION["title"]);
+unset($_SESSION["email"]);
+
+unset($_SESSION["kurzbeschreibung"]);
+unset($_SESSION["dauer"]);
+unset($_SESSION["schwierigkeit"]);
+unset($_SESSION["preis"]);
+unset($_SESSION["zutaten"]);
+unset($_SESSION["anleitung"]);
+unset($_SESSION["bild"]);
 ?>
+
+
+
+//************************************************************************************
+// TODO: Die variaben von oben mit werten belegen, damit man die createEntry funktion aufrufen kann
+//************************************************************************************
+
+
+
 <!DOCTYPE html>
 <html lang="de">
 
