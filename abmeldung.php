@@ -23,7 +23,7 @@ if(isset($_SESSION["email"])){
 
 <body>
     <?php
-    include_once "php/header.php";
+    include_once "php/include/header.php";
     ?>
 
     <main>
@@ -36,7 +36,7 @@ if(isset($_SESSION["email"])){
     </main>
 
     <?php
-    include_once "php/footer.php"
+    include_once "php/include/footer.php"
     ?>
 
 </body>

@@ -28,7 +28,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") { //bedeutung: wenn dieses skript dur
 </head>
 
 <body>
-  <?php include_once "php/header.php"; ?>
+  <?php include_once "php/include/header.php"; ?>
   <main class="anmeldung-main">
     <h1>Anmeldung</h1>
 
@@ -47,7 +47,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") { //bedeutung: wenn dieses skript dur
       <a href="passwort-vergessen.php">Passwort vergessen?</a>
     </p>
   </main>
-  <?php include_once "php/footer.php"; ?>
+  <?php include_once "php/include/footer.php"; ?>
 </body>
 
 </html>

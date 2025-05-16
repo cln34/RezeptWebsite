@@ -1,0 +1,54 @@
+<?php
+/*
+* --------------------------------------------------------------------------
+* Erstmal so kopiert von Musterlösung aber nach diesem DAO Konzept müssen wir arbeiten
+*-----------------------------------------------------------------------------
+*/
+
+class InternalErrorException extends Exception {}
+class MissingEntryException extends Exception {}
+interface RezepteDAO
+{
+	/*
+	 * Einfügen eines neuen Eintrags mit Überschrift, EMail-Adresse und Text
+	 * return: die ID des neuen Eintrags
+	 * mögliche Exceptions:
+	 * InternalErrorException, wenn es einen internen Fehler gibt (bspw. beim Zugriff auf eine Datenbank)
+	 */
+	public function createEntry($title, $email, $text);
+
+	/*
+	 * ermitteln und liefern des Eintrags mit der angegebenen ID
+	 * return: Objekt der Klasse Entry
+	 * mögliche Exceptions:
+	 * MissingEntryException, wenn es keinen Eintrag mit der angegebenen ID gibt
+	 * InternalErrorException, wenn es einen internen Fehler gibt (bspw. beim Zugriff auf eine Datenbank)
+	 */
+	public function readEntry($id);
+
+	/*
+	 * Ändern eines Eintrags mit neuer Überschrift, EMail-Adresse und Text
+	 * return: Objekt der Klasse Entry (geänderter Eintrag)
+	 * mögliche Exceptions:
+	 * MissingEntryException, wenn es keinen Eintrag mit der angegebenen ID gibt
+	 * InternalErrorException, wenn es einen internen Fehler gibt (bspw. beim Zugriff auf eine Datenbank)
+	 */
+	public function updateEntry($id, $title, $email, $text);
+
+	/*
+	 * löschen des Eintrags mit der angegebenen ID
+	 * return: void
+	 * mögliche Exceptions:
+	 * MissingEntryException, wenn es keinen Eintrag mit der angegebenen ID gibt
+	 * InternalErrorException, wenn es einen internen Fehler gibt (bspw. beim Zugriff auf eine Datenbank)
+	 */
+	public function deleteEntry($id);
+
+	/*
+	 * ermitteln und liefern aller Einträge
+	 * return: Array mit Objekten der Klasse Eintrag; kann auch leer sein
+	 * mögliche Exceptions:
+	 * InternalErrorException, wenn es einen internen Fehler gibt (bspw. beim Zugriff auf eine Datenbank)
+	 */
+	public function getEntries();
+}
