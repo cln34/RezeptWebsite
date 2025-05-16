@@ -12,7 +12,7 @@ class RezeptSession implements RezeptDAO{
     }
     private $entries = array();
 
-	public function createEntry($title, $email, $text) {
+	public function createEntry($id, $title, $email, $kurzbeschreibung, $dauer, $schwierigkeit, $preis, $zutaten, $anleitung, $bild) {
 		// TODO: Implement createEntry() method.
 	}
 
@@ -20,7 +20,7 @@ class RezeptSession implements RezeptDAO{
 		// TODO: Implement readEntry() method.
 	}
 
-	public function updateEntry($id, $title, $email, $text) {
+	public function updateEntry($id, $title, $email, $kurzbeschreibung, $dauer, $schwierigkeit, $preis, $zutaten, $anleitung, $bild) {
 		// TODO: Implement updateEntry() method.
 	}
 
