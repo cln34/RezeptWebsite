@@ -56,15 +56,15 @@ unset($_SESSION["bild"]);
             <h1>Rezept erstellen</h1>
 
             <label for="titel">Rezepttitel</label>
-            <input type="text" id="titel" name="titel" value="<? htmlspecialchars($titel) ?>" required />
+            <input type="text" id="titel" name="titel" value="<?php echo htmlspecialchars($titel); ?>" required />
 
             <label for="bild">Bild hochladen</label>
-            <input type="file" id="bild" name="bild" value="<? htmlspecialchars($bild) ?>" accept="image/*" />
+            <input type="file" id="bild" name="bild" value="<?php echo htmlspecialchars($bild); ?>" accept="image/*" />
 
             <label for="zutaten">Zutaten</label>
             <div id="zutaten-container">
                 <div class="zutat-eintrag">
-                    <select id="zutaten" name="zutaten[]" value="<? htmlspecialchars($zutaten) ?>" required>
+                    <select id="zutaten" name="zutaten[]" required>
                         <option value="" disabled selected>-- Zutat wählen --</option>
                         <option value="Mehl">Mehl</option>
                         <option value="Zucker">Zucker</option>
@@ -91,24 +91,24 @@ unset($_SESSION["bild"]);
             <button type="button" onclick="addZutat()">Weitere Zutat hinzufügen</button>
 
             <label for="anleitung">Zubereitung</label>
-            <textarea id="anleitung" name="anleitung" value="<?php htmlspecialchars($anleitung) ?>" rows="6" required></textarea>
+            <textarea id="anleitung" name="anleitung" rows="6" required><?php echo htmlspecialchars($anleitung); ?></textarea>
 
             <label for="kurzbeschreibung">Kurzbeschreibung</label>
-            <textarea id="kurzbeschreibung" name="kurzbeschreibung" rows="3" value="<?php htmlspecialchars($kurzbeschreibung) ?>"></textarea>
+            <textarea id="kurzbeschreibung" name="kurzbeschreibung" rows="3"><?php echo htmlspecialchars($kurzbeschreibung); ?></textarea>
 
             <label for="dauer">Dauer (in Minuten)</label>
-            <input type="number" id="dauer" name="dauer" min="1" max="180" value="<?php htmlspecialchars($dauer) ?>" required />
+            <input type="number" id="dauer" name="dauer" min="1" max="180" value="<?php echo htmlspecialchars($dauer); ?>" required />
 
             <label for="schwierigkeit">Schwierigkeit</label>
-            <select id="schwierigkeit" name="schwierigkeit" value="<?php htmlspecialchars($schwierigkeit) ?>" required>
-                <option value="" disabled selected>-- Schwierigkeit wählen --</option>
-                <option value="leicht">leicht</option>
-                <option value="mittel">mittel</option>
-                <option value="schwer">schwer</option>
+            <select id="schwierigkeit" name="schwierigkeit" required>
+                <option value="" disabled <?= empty($schwierigkeit) ? 'selected' : '' ?>>-- Schwierigkeit wählen --</option>
+                <option value="leicht" <?= $schwierigkeit == 'leicht' ? 'selected' : '' ?>>leicht</option>
+                <option value="mittel" <?= $schwierigkeit == 'mittel' ? 'selected' : '' ?>>mittel</option>
+                <option value="schwer" <?= $schwierigkeit == 'schwer' ? 'selected' : '' ?>>schwer</option>
             </select>
 
             <label for="preis">Preis angeben (max 50€):</label>
-            <input type="number" id="preis" name="preis" min="0" max="50" step="1" value="<?php htmlspecialchars($preis) ?>" required />
+            <input type="number" id="preis" name="preis" min="0" max="50" step="1" value="<?php echo htmlspecialchars($preis); ?>" required />
 
             <input type="submit" value="Rezept speichern" />
         </form>
