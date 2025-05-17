@@ -6,19 +6,10 @@ if (isset($_SESSION["email"])) {
   echo $_SESSION["email"];
 }
 ?>
-<!DOCTYPE html>
-<html lang="en">
 
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Rezeptesammlung" />
-  <meta
-    name="author"
-    content="Sascha Busse, Christoph Rettig, Colin Bolbas" />
-  <link rel="stylesheet" href="css/main.css" />
-  <title>StudiRezepte-Einfach & Günstig</title>
-</head>
+<?php
+require_once "php/include/head.php";
+?>
 
 <body>
   <?php

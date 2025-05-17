@@ -1,13 +1,6 @@
-
-<!DOCTYPE html>
-<html lang="de">
-
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Passwort vergessen</title>
-  <link rel="stylesheet" href="css/main.css" />
-</head>
+<?php
+require_once "php/include/head.php";
+?>
 
 <body>
   <?php include_once "php/include/header.php"; ?>
