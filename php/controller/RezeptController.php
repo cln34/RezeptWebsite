@@ -10,8 +10,9 @@ class RezeptController
         //überprüft parameter
           $this->checkEntryRequiredParam();
 
-
-        /*  if (!$this->checkEntryEmail()) {
+        /* kann man noch nicht verwenden, da die email erst in einer session gespeichert werden muss bei login eines users,
+           noch kann man die rezepte ohne login erstellen:
+           if (!$this->checkEntryEmail()) {
             header("Location: eintrag-neu.php");
             exit;
         }*/
