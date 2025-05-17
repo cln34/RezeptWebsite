@@ -1,7 +1,7 @@
 <?php
 
 // Aufbereitung der Daten fuer die Ausgabe (View)
-$title = isset($_SESSION["title"]) ? $_SESSION["title"] : "";
+$titel = isset($_SESSION["titel"]) ? $_SESSION["titel"] : "";
 $email = isset($_SESSION["email"]) ? $_SESSION["email"] : "";
 
 $kurzbeschreibung = isset($_SESSION["kurzbeschreibung"]) ? $_SESSION["kurzbeschreibung"] : ""; //prüfung ob es die veriable bereits gibt, wenn nein wird sie auf einen leeren string gesetzt
@@ -12,7 +12,7 @@ $zutaten = isset($_SESSION["zutaten"]) ? $_SESSION["zutaten"] : "";
 $anleitung = isset($_SESSION["anleitung"]) ? $_SESSION["anleitung"] : "";
 $bild = isset($_SESSION["bild"]) ? $_SESSION["bild"] : "";
 
-unset($_SESSION["title"]);
+unset($_SESSION["titel"]);
 unset($_SESSION["email"]);
 
 unset($_SESSION["kurzbeschreibung"]);
@@ -42,7 +42,7 @@ unset($_SESSION["bild"]);
     <meta name="description" content="Rezeptesammlung">
     <meta name="author" content="Sascha Busse, Christoph Rettig, Colin Bolbas">
     <link rel="stylesheet" href="css/main.css" />
-    <title>StudiRezepte-Einfach & Günstig</title>
+    <titel>StudiRezepte-Einfach & Günstig</titel>
 </head>
 
 <body>
@@ -56,7 +56,7 @@ unset($_SESSION["bild"]);
             <h1>Rezept erstellen</h1>
 
             <label for="titel">Rezepttitel</label>
-            <input type="text" id="titel" name="titel" value="<? htmlspecialchars($title) ?>" required />
+            <input type="text" id="titel" name="titel" value="<? htmlspecialchars($titel) ?>" required />
 
             <label for="bild">Bild hochladen</label>
             <input type="file" id="bild" name="bild" value="<? htmlspecialchars($bild) ?>" accept="image/*" />
@@ -91,16 +91,16 @@ unset($_SESSION["bild"]);
             <button type="button" onclick="addZutat()">Weitere Zutat hinzufügen</button>
 
             <label for="anleitung">Zubereitung</label>
-            <textarea id="anleitung" name="anleitung" value="<? htmlspecialchars($anleitung) ?>" rows="6" required></textarea>
+            <textarea id="anleitung" name="anleitung" value="<?php htmlspecialchars($anleitung) ?>" rows="6" required></textarea>
 
-            <label for="beschreibung">Kurzbeschreibung</label>
-            <textarea id="beschreibung" name="beschreibung" value="<? htmlspecialchars($kurzbeschreibung) ?>" rows="3"></textarea>
+            <label for="kurzbeschreibung">Kurzbeschreibung</label>
+            <textarea id="kurzbeschreibung" name="kurzbeschreibung" rows="3" value="<?php htmlspecialchars($kurzbeschreibung) ?>"></textarea>
 
             <label for="dauer">Dauer (in Minuten)</label>
-            <input type="number" id="dauer" name="dauer" min="1" max="180" required />
+            <input type="number" id="dauer" name="dauer" min="1" max="180" value="<?php htmlspecialchars($dauer) ?>" required />
 
             <label for="schwierigkeit">Schwierigkeit</label>
-            <select id="schwierigkeit" name="schwierigkeit" value="<? htmlspecialchars($schwierigkeit) ?>" required>
+            <select id="schwierigkeit" name="schwierigkeit" value="<?php htmlspecialchars($schwierigkeit) ?>" required>
                 <option value="" disabled selected>-- Schwierigkeit wählen --</option>
                 <option value="leicht">leicht</option>
                 <option value="mittel">mittel</option>
@@ -108,7 +108,7 @@ unset($_SESSION["bild"]);
             </select>
 
             <label for="preis">Preis angeben (max 50€):</label>
-            <input type="number" id="preis" name="preis" min="0" max="50" step="1" value="<? htmlspecialchars($preis) ?>" required />
+            <input type="number" id="preis" name="preis" min="0" max="50" step="1" value="<?php htmlspecialchars($preis) ?>" required />
 
             <input type="submit" value="Rezept speichern" />
         </form>

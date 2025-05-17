@@ -1,27 +1,28 @@
-<?php 
-require_once "php/model/RezeptEintrag.php"; 
+<?php
+require_once "php/model/RezeptEintrag.php";
 require_once "php/model/Rezept.php";
 
-class RezeptController{
+class RezeptController
+{
     //erzeugt einen neuen RezeptEintrag
-    public function createEntry(){
+    public function createEntry()
+    {
         //überprüft parameter
-        $this->checkEntryParam();
+          $this->checkEntryRequiredParam();
 
 
-        if (!$this->checkEntryEmail()) {
+        /*  if (!$this->checkEntryEmail()) {
             header("Location: eintrag-neu.php");
             exit;
-        }
+        }*/
 
         try {
             // Aufbereitung der Daten fuer die Kontaktierung des Models
-            // Hinweis: hier nichts zu tun
 
             // Kontaktierung des Models (Geschaeftslogik)
             $rezept = Rezept::getInstance();
             $rezept->createEntry(
-                $_POST["title"],
+                $_POST["titel"],
                 $_POST["email"],
                 $_POST["kurzbeschreibung"],
                 $_POST["dauer"],
@@ -38,14 +39,15 @@ class RezeptController{
             // Behandlung von potentiellen Fehlern der Geschaeftslogik
             $this->handleInternalErrorException();
         }
-
     }
-     //TODO: checkEntryRequiredParam()
-     
-    private function checkEntryParam()
-    {
-        if (!isset($_POST["title"]) || !isset($_POST["email"]) || !isset($_POST["text"]) || /*|| für die restlichen paramertet*/ !isset($_POST["submit"])) {
-            $_SESSION["message"] = "missing_parameters";
+    /*TODO: checkEntryParam()
+     verstehe nicht den unterschied zwischen checkEntryParam und checkEntryRequiredParam*/
+    private function checkEntryRequiredParam() {
+        if (!isset($_POST["titel"]) || !isset($_POST["kurzbeschreibung"]) || 
+            !isset($_POST["dauer"]) ||  !isset($_POST["schwierigkeit"]) ||  !isset($_POST["preis"]) 
+            ||!isset($_POST["zutaten"]) ||  !isset($_POST["anleitung"]) /*|| !isset($_POST["email"])*/
+        ) {
+            $_SESSION["message"] = "missing_required_parameters";
             header("Location: index.php");
             exit;
         }
@@ -56,7 +58,7 @@ class RezeptController{
         if (!filter_var($_POST["email"], FILTER_VALIDATE_EMAIL)) { // syntaktisch korrekte EMail-Adresse?
             $_SESSION["message"] = "wrong_email";
             //bereits eingegebene Werte in die Session speichern, damit diese nicht nochmal eingegeben werden müssen
-            $_SESSION["title"] = $_POST["title"];
+            $_SESSION["titel"] = $_POST["titel"];
             $_SESSION["email"] = $_POST["email"];
             $_SESSION["text"] = $_POST["text"];
             return false;
@@ -78,6 +80,3 @@ class RezeptController{
         exit;
     }
 }
-
-?>
-

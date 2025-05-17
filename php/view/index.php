@@ -9,14 +9,14 @@ require_once "php/include/head.php";
     <main>
         <?php if (isset($_SESSION["message"]) && $_SESSION["message"] == "invalid_entry_id"): ?>
             <p>
-                Das Rezetp kann leider nicht gefunden werden.
+                Das Rezept kann leider nicht gefunden werden.
             </p>
         <?php elseif (isset($_SESSION["message"]) && $_SESSION["message"] == "internal_error"): ?>
             <p>
                 Es ist ein interner Fehler aufgetreten.
                 Bitte versuchen Sie es erneut oder kontaktieren Sie den Administrator.
             </p>
-        <?php elseif (isset($_SESSION["message"]) && $_SESSION["message"] == "missing_parameters"): ?>
+        <?php elseif (isset($_SESSION["message"]) && $_SESSION["message"] == "missing_required_parameters"): ?>
             <p>
                 Fehler beim Aufruf der Seite: Es fehlen notwendige Parameter!
             </p>
@@ -36,17 +36,32 @@ require_once "php/include/head.php";
         <h1>StudiRezepte - Einfach & Günstig</h1>
 
         <ul>
-            <?php if (empty($entries)): ?>
-                Keine Einträge vorhanden.
+            <section class="flexcontainer">
+                <?php if (empty($entries)): ?>
+                    Keine Einträge vorhanden.
                 <?php else:
-                foreach ($entries as $entry): ?>
-                    <li><a href="eintrag-anzeigen.php?id=<?= urlencode($entry->getId()) ?>">
-                            <?= htmlspecialchars($entry->getTitle()) ?>
-                        </a> |
-                        <a href="eintrag-loeschen.php?id=<?= urlencode($entry->getId()) ?>">löschen</a>
-                    </li>
+                    foreach ($entries as $entry): ?>
+                    <div class="flexbox">
+                        <h2><?= htmlspecialchars($entry->getTitel()) ?></h2>
+                        <a href="rezept.php?id=<?= urlencode($entry->getId()) ?>" class="box-link">
+                            <img
+                                src="images/<?= htmlspecialchars($entry->getBild()) ?>"
+                                alt="Bild von <?= htmlspecialchars($entry->getTitel()) ?>"
+                                title="<?= htmlspecialchars($entry->getTitel()) ?>" />
+                        </a>
+                        <div class="info-grid">
+                            <div>Dauer</div>
+                            <div>Schwierigkeit</div>
+                            <div>Ungefährer Preis</div>
+                            <div><?= htmlspecialchars($entry->getDauer()) ?></div>
+                            <div><?= htmlspecialchars($entry->getSchwierigkeit()) ?></div>
+                            <div><?= htmlspecialchars($entry->getPreis()) ?></div>
+                        </div>
+                        <p>Kurzbeschreibung: <?= htmlspecialchars($entry->getKurzbeschreibung()) ?></p>
+                    </div>
                 <?php endforeach; ?>
-            <?php endif; ?>
+                <?php endif; ?>
+            </section>
         </ul>
     </main>
 
