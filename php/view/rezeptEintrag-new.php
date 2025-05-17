@@ -1,10 +1,10 @@
 <?php
-session_start();
+
 // Aufbereitung der Daten fuer die Ausgabe (View)
 $title = isset($_SESSION["title"]) ? $_SESSION["title"] : "";
 $email = isset($_SESSION["email"]) ? $_SESSION["email"] : "";
 
-$kurzbeschreibung = isset($_SESSION["kurzbeschreibung"]) ? $_SESSION["kurzbeschreibung"] : "";
+$kurzbeschreibung = isset($_SESSION["kurzbeschreibung"]) ? $_SESSION["kurzbeschreibung"] : ""; //prüfung ob es die veriable bereits gibt, wenn nein wird sie auf einen leeren string gesetzt
 $dauer = isset($_SESSION["dauer"]) ? $_SESSION["dauer"] : "";
 $schwierigkeit = isset($_SESSION["schwierigkeit"]) ? $_SESSION["schwierigkeit"] : "";
 $preis = isset($_SESSION["preis"]) ? $_SESSION["preis"] : "";
@@ -22,13 +22,14 @@ unset($_SESSION["preis"]);
 unset($_SESSION["zutaten"]);
 unset($_SESSION["anleitung"]);
 unset($_SESSION["bild"]);
-?>
-
-
 
 //************************************************************************************
 // TODO: Die variaben von oben mit werten belegen, damit man die createEntry funktion aufrufen kann
 //************************************************************************************
+?>
+
+
+
 
 
 
@@ -51,19 +52,19 @@ unset($_SESSION["bild"]);
     ?>
 
     <main class="rezeptErstellen">
-        <form action="index.php">
+        <form action="eintrag-eintragen.php" method="post">
             <h1>Rezept erstellen</h1>
 
             <label for="titel">Rezepttitel</label>
-            <input type="text" id="titel" name="titel" required />
+            <input type="text" id="titel" name="titel" value="<? htmlspecialchars($title) ?>" required />
 
             <label for="bild">Bild hochladen</label>
-            <input type="file" id="bild" name="bild" accept="image/*" />
+            <input type="file" id="bild" name="bild" value="<? htmlspecialchars($bild) ?>" accept="image/*" />
 
             <label for="zutaten">Zutaten</label>
             <div id="zutaten-container">
                 <div class="zutat-eintrag">
-                    <select id="zutaten" name="zutaten[]" required>
+                    <select id="zutaten" name="zutaten[]" value="<? htmlspecialchars($zutaten) ?>" required>
                         <option value="" disabled selected>-- Zutat wählen --</option>
                         <option value="Mehl">Mehl</option>
                         <option value="Zucker">Zucker</option>
@@ -90,16 +91,16 @@ unset($_SESSION["bild"]);
             <button type="button" onclick="addZutat()">Weitere Zutat hinzufügen</button>
 
             <label for="anleitung">Zubereitung</label>
-            <textarea id="anleitung" name="anleitung" rows="6" required></textarea>
+            <textarea id="anleitung" name="anleitung" value="<? htmlspecialchars($anleitung) ?>" rows="6" required></textarea>
 
             <label for="beschreibung">Kurzbeschreibung</label>
-            <textarea id="beschreibung" name="beschreibung" rows="3"></textarea>
+            <textarea id="beschreibung" name="beschreibung" value="<? htmlspecialchars($kurzbeschreibung) ?>" rows="3"></textarea>
 
             <label for="dauer">Dauer (in Minuten)</label>
             <input type="number" id="dauer" name="dauer" min="1" max="180" required />
 
             <label for="schwierigkeit">Schwierigkeit</label>
-            <select id="schwierigkeit" name="schwierigkeit" required>
+            <select id="schwierigkeit" name="schwierigkeit" value="<? htmlspecialchars($schwierigkeit) ?>" required>
                 <option value="" disabled selected>-- Schwierigkeit wählen --</option>
                 <option value="leicht">leicht</option>
                 <option value="mittel">mittel</option>
@@ -107,7 +108,7 @@ unset($_SESSION["bild"]);
             </select>
 
             <label for="preis">Preis angeben (max 50€):</label>
-            <input type="number" id="preis" name="preis" min="0" max="50" step="0.01" required />
+            <input type="number" id="preis" name="preis" min="0" max="50" step="1" value="<? htmlspecialchars($preis) ?>" required />
 
             <input type="submit" value="Rezept speichern" />
         </form>
