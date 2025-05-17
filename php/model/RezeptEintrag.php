@@ -2,7 +2,7 @@
 class RezeptEintrag
 {
     private $id;
-    private $title;
+    private $titel;
     private $email;
     private $kurzbeschreibung;
     private $dauer;
@@ -12,10 +12,10 @@ class RezeptEintrag
     private $anleitung;
     private $bild;
 
-    public function __construct($id, $title, $email, $kurzbeschreibung, $dauer, $schwierigkeit, $preis, $zutaten, $anleitung, $bild)
+    public function __construct($id, $titel, $email, $kurzbeschreibung, $dauer, $schwierigkeit, $preis, $zutaten, $anleitung, $bild)
     {
         $this->id = $id;
-        $this->title = $title;
+        $this->titel = $titel;
         $this->email = $email;
         $this->kurzbeschreibung = $kurzbeschreibung;
         $this->dauer = $dauer;
@@ -31,9 +31,9 @@ class RezeptEintrag
         return $this->id;
     }
 
-    public function getTitle()
+    public function getTitel()
     {
-        return $this->title;
+        return $this->titel;
     }
 
     public function getEmail()
