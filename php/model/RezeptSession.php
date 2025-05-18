@@ -61,7 +61,13 @@ class RezeptSession implements RezeptDAO
 
 	public function readEntry($id)
 	{
-		// TODO: Implement readEntry() method.
+		 foreach ($this->entries as $entry) {
+            if ($entry->getId() == $id) {
+                return $entry;
+            }
+        }
+        throw new MissingEntryException();
+        // throw new InternalErrorException(); // zum Testen
 	}
 
 	public function updateEntry($id, $titel, $email, $kurzbeschreibung, $dauer, $schwierigkeit, $preis, $zutaten, $anleitung, $bild)

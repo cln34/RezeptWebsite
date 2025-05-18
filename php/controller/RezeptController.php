@@ -41,6 +41,31 @@ class RezeptController
             $this->handleInternalErrorException();
         }
     }
+
+    public function readEntry()
+    {
+        // Ueberpruefung der Parameter
+        $this->checkId();
+
+        try {
+            // Aufbereitung der Daten fuer die Kontaktierung des Models
+            $id = intval($_GET["id"]);
+
+            // Kontaktierung des Models (Geschaeftslogik)
+            $rezept = Rezept::getInstance();
+            $entry = $rezept->readEntry($id);
+
+            // Aufbereitung der Daten fuer die Ausgabe (View), Hinweis: in diesem Fall nichts zu tun
+            return $entry;
+        } catch (MissingEntryException $exc) {
+            // Behandlung von potentiellen Fehlern der Geschaeftslogik
+            $this->handleMissingEntryException();
+        } catch (InternalErrorException $exc) {
+            // Behandlung von potentiellen Fehlern der Geschaeftslogik
+            $this->handleInternalErrorException();
+        }
+    }
+
     /*TODO: checkEntryParam()
      verstehe nicht den unterschied zwischen checkEntryParam und checkEntryRequiredParam*/
     private function checkEntryRequiredParam() {
@@ -79,5 +104,12 @@ class RezeptController
         $_SESSION["message"] = "internal_error";
         header("Location: index.php");
         exit;
+    }
+
+    private function checkId()
+    {
+        if (!isset($_REQUEST["id"]) || !is_numeric($_REQUEST["id"])) {
+            $this->handleMissingEntryException();
+        }
     }
 }
