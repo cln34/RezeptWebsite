@@ -32,56 +32,57 @@ require_once "php/include/head.php";
         <?php
         unset($_SESSION["message"]);
         ?>
-    <h1>Rezept</h1>
-    <h2>
-        <?= htmlspecialchars($entry->getTitel()) ?>
-    </h2>
-    <img
-        src="images/<?= htmlspecialchars($entry->getBild()) ?>"
-        alt="Bild von <?= htmlspecialchars($entry->getTitel()) ?>"
-        title="<?= htmlspecialchars($entry->getTitel()) ?>" />
-    <div class="table-container">
-      <div class="table-header">
-        <div>Dauer</div>
-        <div>Schwierigkeit</div>
-        <div>Ungefährer Preis</div>
-      </div>
-      <div class="table-row">
-        <div>
-            <?= htmlspecialchars($entry->getDauer()) ?>
+            <h1>Rezept</h1>
+            <h2>
+                <?= htmlspecialchars($entry->getTitel()) ?>
+            </h2>
+            <img
+                src="images/<?= htmlspecialchars($entry->getBild()) ?>"
+                alt="Bild von <?= htmlspecialchars($entry->getTitel()) ?>"
+                title="<?= htmlspecialchars($entry->getTitel()) ?>" 
+                class="rezept-bild" />
+        <div class="table-container">
+            <div class="table-header">
+                <div>Dauer</div>
+                <div>Schwierigkeit</div>
+                <div>Ungefährer Preis</div>
+            </div>
+            <div class="table-row">
+                <div>
+                    <?= htmlspecialchars($entry->getDauer()) ?>
+                </div>
+                <div>
+                    <?= htmlspecialchars($entry->getSchwierigkeit()) ?>
+                </div>
+                <div>
+                    <?= htmlspecialchars($entry->getPreis()) ?>
+                </div>
+            </div>
         </div>
-        <div>
-            <?= htmlspecialchars($entry->getSchwierigkeit()) ?>
+        <div class="table-container">
+            <div class="table-header">
+                <div>Zutat</div>
+                <div>Menge</div>
+            </div>
+            <div class="table-row">
+                <div>
+                    <?= htmlspecialchars($entry->getZutaten()) ?>
+                </div>
+                <div>
+                    <?= htmlspecialchars($entry->getMenge()) ?>
+                </div>
+            </div>
         </div>
-        <div>
-            <?= htmlspecialchars($entry->getPreis()) ?>
+         <div class="rezept-schritt">
+            <h3>1. Schritt</h3>
+            <p>
+                <?= htmlspecialchars($entry->getAnleitung()) ?>
+            </p>
         </div>
-    </div>
-
-    <div class="table-container">
-      <div class="table-header">
-        <div>Zutat</div>
-        <div>Menge</div>
-      </div>
-      <div class="table-row">
-        <div>
-            <?= htmlspecialchars($entry->getZutaten()) ?>
-        </div>
-        <div>
-            500g
-        </div>
-      </div>
-
-       <div class="rezept-schritt">
-      <h3>1. Schritt</h3>
-      <p>
-        <?= htmlspecialchars($entry->getAnleitung()) ?>
-    </p>
-    </div>
-
-     <?php
-  include_once "php/include/footer.php"
-  ?>
-</body>
+    </main>
+    <?php
+    include_once "php/include/footer.php"
+    ?>
+    </body>
 
 </html>

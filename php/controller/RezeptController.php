@@ -30,6 +30,7 @@ class RezeptController
                 $_POST["schwierigkeit"],
                 $_POST["preis"],
                 $_POST["zutaten"],
+                $_POST["menge"],
                 $_POST["anleitung"],
                 $_POST["bild"]
             );
@@ -71,7 +72,7 @@ class RezeptController
     private function checkEntryRequiredParam() {
         if (!isset($_POST["titel"]) || !isset($_POST["kurzbeschreibung"]) || 
             !isset($_POST["dauer"]) ||  !isset($_POST["schwierigkeit"]) ||  !isset($_POST["preis"]) 
-            ||!isset($_POST["zutaten"]) ||  !isset($_POST["anleitung"]) /*|| !isset($_POST["email"])*/
+            ||!isset($_POST["zutaten"]) ||!isset($_POST["menge"]) ||  !isset($_POST["anleitung"]) /*|| !isset($_POST["email"])*/
         ) {
             $_SESSION["message"] = "missing_required_parameters";
             header("Location: index.php");

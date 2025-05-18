@@ -15,7 +15,7 @@ interface RezeptDAO
 	 * mögliche Exceptions:
 	 * InternalErrorException, wenn es einen internen Fehler gibt (bspw. beim Zugriff auf eine Datenbank)
 	 */
-	public function createEntry($titel, $email, $kurzbeschreibung, $dauer, $schwierigkeit, $preis, $zutaten, $anleitung, $bild);
+	public function createEntry($titel, $email, $kurzbeschreibung, $dauer, $schwierigkeit, $preis, $zutaten, $menge, $anleitung, $bild);
 
 	/*
 	 * ermitteln und liefern des Eintrags mit der angegebenen ID
@@ -33,7 +33,7 @@ interface RezeptDAO
 	 * MissingEntryException, wenn es keinen Eintrag mit der angegebenen ID gibt
 	 * InternalErrorException, wenn es einen internen Fehler gibt (bspw. beim Zugriff auf eine Datenbank)
 	 */
-	public function updateEntry($id, $titel, $email, $kurzbeschreibung, $dauer, $schwierigkeit, $preis, $zutaten, $anleitung, $bild);
+	public function updateEntry($id, $titel, $email, $kurzbeschreibung, $dauer, $schwierigkeit, $preis, $zutaten, $menge, $anleitung, $bild);
 
 	/*
 	 * löschen des Eintrags mit der angegebenen ID

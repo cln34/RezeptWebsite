@@ -9,6 +9,7 @@ $dauer = isset($_SESSION["dauer"]) ? $_SESSION["dauer"] : "";
 $schwierigkeit = isset($_SESSION["schwierigkeit"]) ? $_SESSION["schwierigkeit"] : "";
 $preis = isset($_SESSION["preis"]) ? $_SESSION["preis"] : "";
 $zutaten = isset($_SESSION["zutaten"]) ? $_SESSION["zutaten"] : "";
+$menge = isset($_SESSION["menge"]) ? $_SESSION["menge"] : "";
 $anleitung = isset($_SESSION["anleitung"]) ? $_SESSION["anleitung"] : "";
 $bild = isset($_SESSION["bild"]) ? $_SESSION["bild"] : "";
 
@@ -20,6 +21,7 @@ unset($_SESSION["dauer"]);
 unset($_SESSION["schwierigkeit"]);
 unset($_SESSION["preis"]);
 unset($_SESSION["zutaten"]);
+unset($_SESSION["menge"]);
 unset($_SESSION["anleitung"]);
 unset($_SESSION["bild"]);
 
@@ -53,7 +55,7 @@ require_once "php/include/head.php";
             <label for="zutaten">Zutaten</label>
             <div id="zutaten-container">
                 <div class="zutat-eintrag">
-                    <select id="zutaten" name="zutaten[]" required>
+                    <select id="zutaten" name="zutaten" required>
                         <option value="" disabled selected>-- Zutat wählen --</option>
                         <option value="Mehl">Mehl</option>
                         <option value="Zucker">Zucker</option>
@@ -71,7 +73,7 @@ require_once "php/include/head.php";
                         <!-- Weitere Zutaten hier -->
                     </select>
                     <label for="menge" class="visually-hidden">Menge</label> <!-- Unsichtbares Label für Barrierefreiheit -->
-                    <input type="text" id=menge name="mengen[]" placeholder="Menge (z. B. 200g)" required>
+                    <input type="text" id=menge name="menge" placeholder="Menge (z. B. 200g)" value="<?php echo htmlspecialchars($menge); ?>" required>
                 </div>
             </div>
 

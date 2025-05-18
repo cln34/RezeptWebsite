@@ -31,18 +31,20 @@ class RezeptSession implements RezeptDAO
 				"Einfach",
 				"5€",
 				"Nudeln, Hackfleisch, Tomaten, Zwiebeln, Knoblauch, Gewürze",
+				"200gr",
 				"Zwiebeln und Knoblauch anbraten, Hackfleisch dazugeben, Tomaten und Gewürze hinzufügen, köcheln lassen, mit Nudeln servieren.",
 				"Bolognese.jpg"
 			);
 			$this->entries[1] = new RezeptEintrag(
 				1,
-				"pizza",
+				"Pizza",
 				"julia.schmidt@test.de",
 				"Leckere pizza",
 				"45 Minuten",
 				"Mittel",
 				"7€",
 				"Nudeln, Zucchini, Aubergine, Tomaten, Käse, Gewürze",
+				"500gr",
 				"Gemüse schneiden und anbraten, Tomatensoße zubereiten, alles schichten, mit Käse bestreuen und backen.",
 				"pizza.jpg"
 			);
@@ -52,9 +54,9 @@ class RezeptSession implements RezeptDAO
 	}
 
 
-	public function createEntry($titel, $email, $kurzbeschreibung, $dauer, $schwierigkeit, $preis, $zutaten, $anleitung, $bild)
+	public function createEntry($titel, $email, $kurzbeschreibung, $dauer, $schwierigkeit, $preis, $zutaten, $menge, $anleitung, $bild)
 	{
-		$this->entries[$_SESSION["nextId"]] = new RezeptEintrag($_SESSION["nextId"], $titel, $email, $kurzbeschreibung, $dauer, $schwierigkeit, $preis, $zutaten, $anleitung, $bild);
+		$this->entries[$_SESSION["nextId"]] = new RezeptEintrag($_SESSION["nextId"], $titel, $email, $kurzbeschreibung, $dauer, $schwierigkeit, $preis, $menge, $zutaten, $anleitung, $bild);
 		$_SESSION["nextId"] = $_SESSION["nextId"] + 1;
 		$_SESSION["entries"] = serialize($this->entries);
 	}
@@ -67,10 +69,9 @@ class RezeptSession implements RezeptDAO
             }
         }
         throw new MissingEntryException();
-        // throw new InternalErrorException(); // zum Testen
 	}
 
-	public function updateEntry($id, $titel, $email, $kurzbeschreibung, $dauer, $schwierigkeit, $preis, $zutaten, $anleitung, $bild)
+	public function updateEntry($id, $titel, $email, $kurzbeschreibung, $dauer, $schwierigkeit, $preis, $zutaten, $menge, $anleitung, $bild)
 	{
 		// TODO: Implement updateEntry() method.
 	}

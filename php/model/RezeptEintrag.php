@@ -9,10 +9,11 @@ class RezeptEintrag
     private $schwierigkeit;
     private $preis;
     private $zutaten;
+    private $menge;
     private $anleitung;
     private $bild;
 
-    public function __construct($id, $titel, $email, $kurzbeschreibung, $dauer, $schwierigkeit, $preis, $zutaten, $anleitung, $bild)
+    public function __construct($id, $titel, $email, $kurzbeschreibung, $dauer, $schwierigkeit, $preis, $zutaten, $menge, $anleitung, $bild)
     {
         $this->id = $id;
         $this->titel = $titel;
@@ -22,6 +23,7 @@ class RezeptEintrag
         $this->schwierigkeit = $schwierigkeit;
         $this->preis = $preis;
         $this->zutaten = $zutaten;
+        $this->menge = $menge;
         $this->anleitung = $anleitung;
         $this->bild = $bild;
     }
@@ -64,6 +66,11 @@ class RezeptEintrag
     public function getZutaten()
     {
         return $this->zutaten;
+    }
+
+    public function getMenge()
+    {
+        return $this->menge;
     }
 
     public function getAnleitung()
