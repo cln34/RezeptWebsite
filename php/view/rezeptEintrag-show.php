@@ -6,7 +6,7 @@ require_once "php/include/head.php";
     <?php
     require_once "php/include/header.php";
     ?>
-    <main>
+    <main class="rezept-container">
         <?php if (isset($_SESSION["message"]) && $_SESSION["message"] == "invalid_entry_id"): ?>
             <p>
                 Das Rezept kann leider nicht gefunden werden.
@@ -32,13 +32,11 @@ require_once "php/include/head.php";
         <?php
         unset($_SESSION["message"]);
         ?>
-
-        <main class="rezept-container">
     <h1>Rezept</h1>
     <h2>
-        <?= htmlspecialchars($entry->getTitle()) ?>
+        <?= htmlspecialchars($entry->getTitel()) ?>
     </h2>
-    <<img
+    <img
         src="images/<?= htmlspecialchars($entry->getBild()) ?>"
         alt="Bild von <?= htmlspecialchars($entry->getTitel()) ?>"
         title="<?= htmlspecialchars($entry->getTitel()) ?>" />
