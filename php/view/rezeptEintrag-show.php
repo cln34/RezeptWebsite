@@ -32,15 +32,15 @@ require_once "php/include/head.php";
         <?php
         unset($_SESSION["message"]);
         ?>
-            <h1>Rezept</h1>
-            <h2>
-                <?= htmlspecialchars($entry->getTitel()) ?>
-            </h2>
-            <img
-                src="images/<?= htmlspecialchars($entry->getBild()) ?>"
-                alt="Bild von <?= htmlspecialchars($entry->getTitel()) ?>"
-                title="<?= htmlspecialchars($entry->getTitel()) ?>" 
-                class="rezept-bild" />
+        <h1>Rezept</h1>
+        <h2>
+            <?= htmlspecialchars($entry->getTitel()) ?>
+        </h2>
+        <img
+            src="images/<?= htmlspecialchars($entry->getBild()) ?>"
+            alt="Bild von <?= htmlspecialchars($entry->getTitel()) ?>"
+            title="<?= htmlspecialchars($entry->getTitel()) ?>"
+            class="rezept-bild" />
         <div class="table-container">
             <div class="table-header">
                 <div>Dauer</div>
@@ -73,16 +73,17 @@ require_once "php/include/head.php";
                 </div>
             </div>
         </div>
-         <div class="rezept-schritt">
+        <div class="rezept-schritt">
             <h3>1. Schritt</h3>
             <p>
                 <?= htmlspecialchars($entry->getAnleitung()) ?>
             </p>
         </div>
     </main>
+    <a href="eintrag-loeschen.php?id=<?= urlencode($entry->getId()) ?>"><button> Rezept löschen </button></a>
     <?php
     include_once "php/include/footer.php"
     ?>
-    </body>
+</body>
 
 </html>

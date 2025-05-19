@@ -2,12 +2,10 @@
 require_once "php/model/RezeptEintrag.php";
 require_once "php/model/RezeptDAO.php";
 
-class RezeptSession implements RezeptDAO
-{
+class RezeptSession implements RezeptDAO{
 
 	private static $instance = null;
-	public static function getInstance()
-	{
+	public static function getInstance(){
 		if (self::$instance == null) {
 			self::$instance = new RezeptSession();
 		}
@@ -16,8 +14,7 @@ class RezeptSession implements RezeptDAO
 	}
 	private $entries = array();
 
-	private function __construct()
-	{
+	private function __construct(){
 		if (isset($_SESSION["entries"])) {
 			$this->entries = unserialize($_SESSION["entries"]);
 		} else {
@@ -54,15 +51,13 @@ class RezeptSession implements RezeptDAO
 	}
 
 
-	public function createEntry($titel, $email, $kurzbeschreibung, $dauer, $schwierigkeit, $preis, $zutaten, $menge, $anleitung, $bild)
-	{
+	public function createEntry($titel, $email, $kurzbeschreibung, $dauer, $schwierigkeit, $preis, $zutaten, $menge, $anleitung, $bild){
 		$this->entries[$_SESSION["nextId"]] = new RezeptEintrag($_SESSION["nextId"], $titel, $email, $kurzbeschreibung, $dauer, $schwierigkeit, $preis, $menge, $zutaten, $anleitung, $bild);
 		$_SESSION["nextId"] = $_SESSION["nextId"] + 1;
 		$_SESSION["entries"] = serialize($this->entries);
 	}
 
-	public function readEntry($id)
-	{
+	public function readEntry($id){
 		 foreach ($this->entries as $entry) {
             if ($entry->getId() == $id) {
                 return $entry;
@@ -71,18 +66,22 @@ class RezeptSession implements RezeptDAO
         throw new MissingEntryException();
 	}
 
-	public function updateEntry($id, $titel, $email, $kurzbeschreibung, $dauer, $schwierigkeit, $preis, $zutaten, $menge, $anleitung, $bild)
-	{
+	public function updateEntry($id, $titel, $email, $kurzbeschreibung, $dauer, $schwierigkeit, $preis, $zutaten, $menge, $anleitung, $bild){
 		// TODO: Implement updateEntry() method.
 	}
 
-	public function deleteEntry($id)
-	{
-		// TODO: Implement deleteEntry() method.
+	public function deleteEntry($id){
+		foreach ($this->entries as $key => $entry) {
+			if ($entry->getId() == $id) {
+				unset($this->entries[$key]);
+				$this->entries = array_values($this->entries);
+				$_SESSION["entries"] = serialize($this->entries);
+				return;
+			}
+		}
 	}
 
-	public function getEntries()
-	{
+	public function getEntries(){
 		return $this->entries;
 	}
 }
