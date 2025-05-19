@@ -79,6 +79,7 @@ require_once "php/include/head.php";
                 <?= htmlspecialchars($entry->getAnleitung()) ?>
             </p>
         </div>
+        <a href="kommentare.php" class="rezept-button">Kommentare ansehen </a>
     </main>
     <a href="eintrag-loeschen.php?id=<?= urlencode($entry->getId()) ?>"><button> Rezept löschen </button></a>
     <?php
