@@ -55,3 +55,10 @@
   .centered-link a:hover {
     text-decoration: underline;
   }
+
+  @media (min-width: 1024px) {
+  .anmeldung-main {
+    max-width: 900px;
+    padding: 3rem;
+  }
+}
