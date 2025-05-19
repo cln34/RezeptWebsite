@@ -30,6 +30,7 @@ class RezeptController
                 $_POST["schwierigkeit"],
                 $_POST["preis"],
                 $_POST["zutaten"],
+                $_POST["menge"],
                 $_POST["anleitung"],
                 $_POST["bild"]
             );
@@ -41,12 +42,37 @@ class RezeptController
             $this->handleInternalErrorException();
         }
     }
+
+    public function readEntry()
+    {
+        // Ueberpruefung der Parameter
+        $this->checkId();
+
+        try {
+            // Aufbereitung der Daten fuer die Kontaktierung des Models
+            $id = intval($_GET["id"]);
+
+            // Kontaktierung des Models (Geschaeftslogik)
+            $rezept = Rezept::getInstance();
+            $entry = $rezept->readEntry($id);
+
+            // Aufbereitung der Daten fuer die Ausgabe (View), Hinweis: in diesem Fall nichts zu tun
+            return $entry;
+        } catch (MissingEntryException $exc) {
+            // Behandlung von potentiellen Fehlern der Geschaeftslogik
+            $this->handleMissingEntryException();
+        } catch (InternalErrorException $exc) {
+            // Behandlung von potentiellen Fehlern der Geschaeftslogik
+            $this->handleInternalErrorException();
+        }
+    }
+
     /*TODO: checkEntryParam()
      verstehe nicht den unterschied zwischen checkEntryParam und checkEntryRequiredParam*/
     private function checkEntryRequiredParam() {
         if (!isset($_POST["titel"]) || !isset($_POST["kurzbeschreibung"]) || 
             !isset($_POST["dauer"]) ||  !isset($_POST["schwierigkeit"]) ||  !isset($_POST["preis"]) 
-            ||!isset($_POST["zutaten"]) ||  !isset($_POST["anleitung"]) /*|| !isset($_POST["email"])*/
+            ||!isset($_POST["zutaten"]) ||!isset($_POST["menge"]) ||  !isset($_POST["anleitung"]) /*|| !isset($_POST["email"])*/
         ) {
             $_SESSION["message"] = "missing_required_parameters";
             header("Location: index.php");
@@ -79,5 +105,12 @@ class RezeptController
         $_SESSION["message"] = "internal_error";
         header("Location: index.php");
         exit;
+    }
+
+    private function checkId()
+    {
+        if (!isset($_REQUEST["id"]) || !is_numeric($_REQUEST["id"])) {
+            $this->handleMissingEntryException();
+        }
     }
 }
