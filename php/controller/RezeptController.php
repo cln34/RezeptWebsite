@@ -113,4 +113,29 @@ class RezeptController
             $this->handleMissingEntryException();
         }
     }
+
+    // löscht einen existierendes Rezept
+    public function deleteEntry()
+    {
+        // Ueberpruefung der Parameter
+        $this->checkId();
+
+        try {
+            // Aufbereitung der Daten fuer die Kontaktierung des Models
+            // Hinweis: hier nichts zu tun
+
+            // Kontaktierung des Models (Geschaeftslogik)
+            $rezept = Rezept::getInstance();
+            $rezept->deleteEntry($_GET["id"]);
+
+            // Aufbereitung der Daten fuer die Ausgabe (View)
+            $_SESSION["message"] = "delete_entry";
+        } catch (MissingEntryException $exc) {
+            // Behandlung von potentiellen Fehlern der Geschaeftslogik
+            $this->handleMissingEntryException();
+        } catch (InternalErrorException $exc) {
+            // Behandlung von potentiellen Fehlern der Geschaeftslogik
+            $this->handleInternalErrorException();
+        }
+    }
 }
