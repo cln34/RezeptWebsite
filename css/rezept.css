@@ -48,6 +48,7 @@
   padding: 12px 24px;
   border-radius: 10px;
   font-size: 16px;
+  text-decoration: none;
   cursor: pointer;
   transition: 0.3s ease;
 }
