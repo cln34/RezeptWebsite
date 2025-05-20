@@ -19,15 +19,6 @@ require_once "php/include/head.php";
     <main>
         <h1>Favoriten</h1>
 
-        <section class="search-container">
-            <form action="">
-                <div class="search">
-                    <label for="Suche" class="visually-hidden">Suche</label> <!-- Unsichtbares Label für Barrierefreiheit -->
-                    <span class="search-icon material-symbols-outlined"> search </span>
-                    <input class="search-input" type="search" id="Suche" name="Sucheingabe" placeholder="Neue Rezepte entdecken:" size="90" required>
-                </div> <!--name ist name für die eingegeben daten, eine variable sozusagen-->
-            </form>
-        </section>
 
         <section class="flexcontainer">
             <div class="flexbox" id="box1">

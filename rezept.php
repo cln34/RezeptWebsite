@@ -9,5 +9,6 @@ $rezeptController = new RezeptController();
 $entry = $rezeptController->readEntry();
 // die Ausgabe des HTML-Codes kann erfolgen
 
-//bin unsicher, ob das __DIR__ . so richtig ist
 require_once "php/view/RezeptEintrag-show.php";
+
+
