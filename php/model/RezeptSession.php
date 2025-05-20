@@ -2,10 +2,12 @@
 require_once "php/model/RezeptEintrag.php";
 require_once "php/model/RezeptDAO.php";
 
-class RezeptSession implements RezeptDAO{
+class RezeptSession implements RezeptDAO
+{
 
 	private static $instance = null;
-	public static function getInstance(){
+	public static function getInstance()
+	{
 		if (self::$instance == null) {
 			self::$instance = new RezeptSession();
 		}
@@ -13,8 +15,10 @@ class RezeptSession implements RezeptDAO{
 		return self::$instance;
 	}
 	private $entries = array();
+	private $searchEntries = array();
 
-	private function __construct(){
+	private function __construct()
+	{
 		if (isset($_SESSION["entries"])) {
 			$this->entries = unserialize($_SESSION["entries"]);
 		} else {
@@ -51,26 +55,30 @@ class RezeptSession implements RezeptDAO{
 	}
 
 
-	public function createEntry($titel, $email, $kurzbeschreibung, $dauer, $schwierigkeit, $preis, $zutaten, $menge, $anleitung, $bild){
+	public function createEntry($titel, $email, $kurzbeschreibung, $dauer, $schwierigkeit, $preis, $zutaten, $menge, $anleitung, $bild)
+	{
 		$this->entries[$_SESSION["nextId"]] = new RezeptEintrag($_SESSION["nextId"], $titel, $email, $kurzbeschreibung, $dauer, $schwierigkeit, $preis, $menge, $zutaten, $anleitung, $bild);
 		$_SESSION["nextId"] = $_SESSION["nextId"] + 1;
 		$_SESSION["entries"] = serialize($this->entries);
 	}
 
-	public function readEntry($id){
-		 foreach ($this->entries as $entry) {
-            if ($entry->getId() == $id) {
-                return $entry;
-            }
-        }
-        throw new MissingEntryException();
+	public function readEntry($id)
+	{
+		foreach ($this->entries as $entry) {
+			if ($entry->getId() == $id) {
+				return $entry;
+			}
+		}
+		throw new MissingEntryException();
 	}
 
-	public function updateEntry($id, $titel, $email, $kurzbeschreibung, $dauer, $schwierigkeit, $preis, $zutaten, $menge, $anleitung, $bild){
+	public function updateEntry($id, $titel, $email, $kurzbeschreibung, $dauer, $schwierigkeit, $preis, $zutaten, $menge, $anleitung, $bild)
+	{
 		// TODO: Implement updateEntry() method.
 	}
 
-	public function deleteEntry($id){
+	public function deleteEntry($id)
+	{
 		foreach ($this->entries as $key => $entry) {
 			if ($entry->getId() == $id) {
 				unset($this->entries[$key]);
@@ -81,7 +89,30 @@ class RezeptSession implements RezeptDAO{
 		}
 	}
 
-	public function getEntries(){
+	public function getEntries()
+	{
 		return $this->entries;
+	}
+
+	//Methode um die Suche durchzuführen, vergleicht die sucheingabe mit dem Titel der Rezepte und speichert nur
+	//die gefundenen Rezepte in dem searchEntries array
+	public function searchForEntry($sucheingabe)
+	{
+		$this->searchEntries = []; // Suchergebnisse zurücksetzen
+		foreach ($this->entries as $entry) {
+			if (stripos($entry->getTitel(), $sucheingabe) !== false) { // Titel enthält Suchbegriff
+				$this->searchEntries[] = $entry;
+			}
+		}
+	}
+	//Methode um die Suchergebnisse zurückzugeben: wird im indexcontroller verwendet um die index seite nur mit den
+	//gefundenen Rezepten zu laden
+	public function getSearchEntries()
+	{
+		if (empty($this->searchEntries)) {
+			return null; // Keine Suchergebnisse gefunden
+		} else{
+			return $this->searchEntries;}
+		
 	}
 }

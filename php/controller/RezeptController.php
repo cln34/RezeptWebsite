@@ -138,4 +138,5 @@ class RezeptController
             $this->handleInternalErrorException();
         }
     }
+
 }
