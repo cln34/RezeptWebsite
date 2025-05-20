@@ -23,7 +23,7 @@
 }
 
 .user-card:hover {
-  transform: scale(1.02);
+  transform: scale(1.01);
 }
 
 .user-card span {
@@ -32,12 +32,12 @@
   font-size: 16px;
 }
 
-.user-id, .user-name {
+.user-card span.user-email {
   font-weight: bold;
-  font-size: 30px;
+  font-size: 18px;
 }
 
-.user-email, .user-role {
+ .user-role {
   font-size: 15px;
 }
 
