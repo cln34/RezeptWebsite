@@ -17,19 +17,23 @@ class UserSession implements UserDAO
 
     private function __construct()
     {
-        $this->users[0] = new UserEintrag(0, "colin@uol.de", password_hash("pass123", PASSWORD_DEFAULT), "Admin");
-        $this->users[1] = new UserEintrag(1, "sascha@uol.de", password_hash("geheim", PASSWORD_DEFAULT), "User");
-        $this->users[2] = new UserEintrag(2, "christoph@uol.de", password_hash("1234", PASSWORD_DEFAULT), "User");
+        if (isset($_SESSION["users"])) {
+			$this->users = unserialize($_SESSION["users"]);
+		} else {
+            $this->users[0] = new UserEintrag(0, "colin@uol.de", password_hash("pass123", PASSWORD_DEFAULT), "Admin");
+            $this->users[1] = new UserEintrag(1, "sascha@uol.de", password_hash("geheim", PASSWORD_DEFAULT), "User");
+            $this->users[2] = new UserEintrag(2, "christoph@uol.de", password_hash("1234", PASSWORD_DEFAULT), "User");
 
-        $_SESSION["users"] = serialize($this->users);
-		$_SESSION["nextId"] = 2;
+            $_SESSION["users"] = serialize($this->users);
+            $_SESSION["nextId"] = 2;
+        }
     }
 
     public function createUser($email, $password)
     {
         $this->users[$_SESSION["nextId"]] = new UserEintrag($_SESSION["nextId"], $email, password_hash($password, PASSWORD_DEFAULT), "User");
         $_SESSION["nextId"] = $_SESSION["nextId"] + 1;
-        $_SESSION["entries"] = serialize($this->users);
+        $_SESSION["users"] = serialize($this->users);
     }
 
     public function readUser($id)

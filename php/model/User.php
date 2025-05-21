@@ -8,7 +8,7 @@ require_once "php/model/UserSession.php";
 
 class User{
     public static function getInstance(){
-        return User::getInstance(); //dummy fix
+        return UserSession::getInstance(); //dummy fix
         //return UserDB::getInstance(); // Datenbank
     }
 }
