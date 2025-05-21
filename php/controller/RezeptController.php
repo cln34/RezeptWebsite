@@ -68,8 +68,7 @@ class RezeptController
         }
     }
 
-    /*TODO: checkEntryParam()
-     verstehe nicht den unterschied zwischen checkEntryParam und checkEntryRequiredParam*/
+    /*TODO: checkEntryParam()*/
     private function checkEntryRequiredParam() {
         if (!isset($_POST["titel"]) || !isset($_POST["kurzbeschreibung"]) || 
             !isset($_POST["dauer"]) ||  !isset($_POST["schwierigkeit"]) ||  !isset($_POST["preis"]) 
@@ -81,6 +80,7 @@ class RezeptController
         }
     }
 
+    //wird noch nicht genutzt, da noch keine richtige Registrierung
     private function checkEntryEmail()
     {
         if (!filter_var($_POST["email"], FILTER_VALIDATE_EMAIL)) { // syntaktisch korrekte EMail-Adresse?
