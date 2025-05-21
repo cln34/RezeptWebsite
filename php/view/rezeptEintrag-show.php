@@ -80,8 +80,8 @@ require_once "php/include/head.php";
             </p>
         </div>
     </main>
-    <a href="eintrag-loeschen.php?id=<?= urlencode($entry->getId()) ?>"><button> Rezept löschen </button></a>
-    <a href="eintrag-bearbeiten.php?id=<?= urlencode($entry->getId()) ?>"><button> Rezept bearbeiten </button></a>
+    <a href="eintrag-loeschen.php?id=<?= urlencode($entry->getId()) ?>"><button class="rezept-button"> Rezept löschen </button></a>
+    <a href="eintrag-bearbeiten.php?id=<?= urlencode($entry->getId()) ?>"><button class="rezept-button"> Rezept bearbeiten </button></a>
     <?php
     include_once "php/include/footer.php"
     ?>
