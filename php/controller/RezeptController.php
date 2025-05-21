@@ -4,6 +4,7 @@ require_once "php/model/Rezept.php";
 
 class RezeptController
 {
+    private $entries = []; // Define the $entries property
     //erzeugt einen neuen RezeptEintrag
     public function createEntry()
     {
@@ -138,5 +139,44 @@ class RezeptController
             $this->handleInternalErrorException();
         }
     }
+    public function updateEntry()
+    {
+        // Überprüfung der erforderlichen Parameter
+        $this->checkEntryRequiredParam();
 
+        try {
+            // Aufbereitung der Daten für die Kontaktierung des Modells
+            $id = intval($_POST["id"]);
+
+            // Kontaktierung des Modells (Geschäftslogik)
+            $rezept = Rezept::getInstance();
+            $rezept->updateEntry(
+                $id,
+                $_POST["titel"],
+                $_POST["email"],
+                $_POST["kurzbeschreibung"],
+                $_POST["dauer"],
+                $_POST["schwierigkeit"],
+                $_POST["preis"],
+                $_POST["zutaten"],
+                $_POST["menge"],
+                $_POST["anleitung"],
+                $_POST["bild"]
+                
+            );
+            
+
+            // Aufbereitung der Daten für die Ausgabe (View)
+            $_SESSION["message"] = "update_success";
+        } catch (MissingEntryException) {
+            // Behandlung von potentiellen Fehlern der Geschäftslogik
+            $this->handleMissingEntryException();
+        } catch (InternalErrorException) {
+            // Behandlung von potentiellen Fehlern der Geschäftslogik
+            $this->handleInternalErrorException();
+        }
+
+        // Aufbereitung der Daten für die Ausgabe (View)
+        $_SESSION["message"] = "update_success";
+    }
 }
