@@ -74,7 +74,25 @@ class RezeptSession implements RezeptDAO
 
 	public function updateEntry($id, $titel, $email, $kurzbeschreibung, $dauer, $schwierigkeit, $preis, $zutaten, $menge, $anleitung, $bild)
 	{
-		// TODO: Implement updateEntry() method.
+		foreach ($this->entries as $entry) {
+			if ($entry->getId() == $id) {
+				$entry->setTitel($titel);
+				$entry->setEmail($email);
+				$entry->setKurzbeschreibung($kurzbeschreibung);
+				$entry->setDauer($dauer);
+				$entry->setSchwierigkeit($schwierigkeit);
+				$entry->setPreis($preis);
+				$entry->setZutaten($zutaten);
+				$entry->setMenge($menge);
+				$entry->setAnleitung($anleitung);
+				$entry->setBild($bild);
+				break;
+			}
+		
+		}
+
+		$_SESSION["entries"] = serialize($this->entries);
+		$_SESSION["message"] = "Rezept erfolgreich aktualisiert!";
 	}
 
 	public function deleteEntry($id)

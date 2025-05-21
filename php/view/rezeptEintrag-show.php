@@ -85,7 +85,8 @@ require_once "php/include/head.php";
         </div>
         <a href="kommentare.php" class="rezept-button">Kommentare ansehen </a>
     </main>
-    <a href="eintrag-loeschen.php?id=<?= urlencode($entry->getId()) ?>" class="rezept-button">Rezept löschen</a>
+    <a href="eintrag-loeschen.php?id=<?= urlencode($entry->getId()) ?>"><button class="rezept-button"> Rezept löschen </button></a>
+    <a href="eintrag-bearbeiten.php?id=<?= urlencode($entry->getId()) ?>"><button class="rezept-button"> Rezept bearbeiten </button></a>
     <?php
     include_once "php/include/footer.php"
     ?>

@@ -4,6 +4,7 @@ require_once "php/model/Rezept.php";
 
 class RezeptController
 {
+    private $entries = []; // Define the $entries property
     //erzeugt einen neuen RezeptEintrag
     public function createEntry()
     {
@@ -67,8 +68,7 @@ class RezeptController
         }
     }
 
-    /*TODO: checkEntryParam()
-     verstehe nicht den unterschied zwischen checkEntryParam und checkEntryRequiredParam*/
+    /*TODO: checkEntryParam()*/
     private function checkEntryRequiredParam() {
         if (!isset($_POST["titel"]) || !isset($_POST["kurzbeschreibung"]) || 
             !isset($_POST["dauer"]) ||  !isset($_POST["schwierigkeit"]) ||  !isset($_POST["preis"]) 
@@ -80,6 +80,7 @@ class RezeptController
         }
     }
 
+    //wird noch nicht genutzt, da noch keine richtige Registrierung
     private function checkEntryEmail()
     {
         if (!filter_var($_POST["email"], FILTER_VALIDATE_EMAIL)) { // syntaktisch korrekte EMail-Adresse?
@@ -138,5 +139,44 @@ class RezeptController
             $this->handleInternalErrorException();
         }
     }
+    public function updateEntry()
+    {
+        // Überprüfung der erforderlichen Parameter
+        $this->checkEntryRequiredParam();
 
+        try {
+            // Aufbereitung der Daten für die Kontaktierung des Modells
+            $id = intval($_POST["id"]);
+
+            // Kontaktierung des Modells (Geschäftslogik)
+            $rezept = Rezept::getInstance();
+            $rezept->updateEntry(
+                $id,
+                $_POST["titel"],
+                $_POST["email"],
+                $_POST["kurzbeschreibung"],
+                $_POST["dauer"],
+                $_POST["schwierigkeit"],
+                $_POST["preis"],
+                $_POST["zutaten"],
+                $_POST["menge"],
+                $_POST["anleitung"],
+                $_POST["bild"]
+                
+            );
+            
+
+            // Aufbereitung der Daten für die Ausgabe (View)
+            $_SESSION["message"] = "update_success";
+        } catch (MissingEntryException) {
+            // Behandlung von potentiellen Fehlern der Geschäftslogik
+            $this->handleMissingEntryException();
+        } catch (InternalErrorException) {
+            // Behandlung von potentiellen Fehlern der Geschäftslogik
+            $this->handleInternalErrorException();
+        }
+
+        // Aufbereitung der Daten für die Ausgabe (View)
+        $_SESSION["message"] = "update_success";
+    }
 }

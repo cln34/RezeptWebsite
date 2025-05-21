@@ -82,4 +82,55 @@ class RezeptEintrag
     {
         return $this->bild;
     }
+
+
+    public function setTitel($titel)
+    {
+        $this->titel = $titel;
+    }
+
+    public function setEmail($email)
+    {
+        $this->email = $email;
+    }
+
+    public function setKurzbeschreibung($kurzbeschreibung)
+    {
+        $this->kurzbeschreibung = $kurzbeschreibung;
+    }
+
+    public function setDauer($dauer)
+    {
+        $this->dauer = $dauer;
+    }
+
+    public function setSchwierigkeit($schwierigkeit)
+    {
+        $this->schwierigkeit = $schwierigkeit;
+    }
+
+    public function setPreis($preis)
+    {
+        $this->preis = $preis;
+    }
+
+    public function setZutaten($zutaten)
+    {
+        $this->zutaten = $zutaten;
+    }
+
+    public function setMenge($menge)
+    {
+        $this->menge = $menge;
+    }
+
+    public function setAnleitung($anleitung)
+    {
+        $this->anleitung = $anleitung;
+    }
+
+    public function setBild($bild)
+    {
+        $this->bild = $bild;
+    }
 }
