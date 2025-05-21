@@ -48,6 +48,22 @@ class UserController
         }
     }
 
+    public function readUser($email = null)
+{
+    if (!$email) {
+        $this->handleMissingEntryException();
+    }
+
+    try {
+        $user = User::getInstance();
+        return $user->readUser($email);
+    } catch (MissingEntryException $exc) {
+        return null; // User nicht gefunden
+    } catch (InternalErrorException $exc) {
+        $this->handleInternalErrorException();
+    }
+}
+
     public function deleteUser()
     {
         //toDo
@@ -81,10 +97,4 @@ class UserController
         exit;
     }
 
-    private function checkId()
-    {
-        if (!isset($_REQUEST["id"]) || !is_numeric($_REQUEST["id"])) {
-            $this->handleMissingEntryException();
-        }
-    }
 }

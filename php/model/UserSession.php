@@ -36,13 +36,14 @@ class UserSession implements UserDAO
         $_SESSION["users"] = serialize($this->users);
     }
 
-    public function readUser($id)
+    public function readUser($email)
     {
-        if (isset($this->users[$id])) {
-            return $this->users[$id];
-        } else {
-            throw new MissingEntryException("User not found");
-        }
+        foreach ($this->users as $user) {
+			if ($user->getEmail() == $email) {
+				return $user;
+			}
+		}
+		throw new MissingEntryException();
     }
 
     public function updateUser($id, $email, $password, $role)
