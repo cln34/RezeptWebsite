@@ -41,24 +41,27 @@ require_once "php/include/head.php";
             alt="Bild von <?= htmlspecialchars($entry->getTitel()) ?>"
             title="<?= htmlspecialchars($entry->getTitel()) ?>"
             class="rezept-bild" />
-        <div class="table-container">
+        
+        <!-- Erste Tabelle: Dauer / Schwierigkeit / Preis -->
+        <div class="table-container info-table">
             <div class="table-header">
                 <div>Dauer</div>
                 <div>Schwierigkeit</div>
                 <div>Ungefährer Preis</div>
             </div>
             <div class="table-row">
-                <div>
-                    <?= htmlspecialchars($entry->getDauer()) ?>
-                </div>
-                <div>
-                    <?= htmlspecialchars($entry->getSchwierigkeit()) ?>
-                </div>
-                <div>
-                    <?= htmlspecialchars($entry->getPreis()) ?>
-                </div>
+                <div class="table-cell header-cell">Dauer</div>
+                <div class="table-cell"><?= htmlspecialchars($entry->getDauer()) ?></div>
+
+                <div class="table-cell header-cell">Schwierigkeit</div>
+                <div class="table-cell"><?= htmlspecialchars($entry->getSchwierigkeit()) ?></div>
+
+                <div class="table-cell header-cell">Ungefährer Preis</div>
+                <div class="table-cell"><?= htmlspecialchars($entry->getPreis()) ?></div>
             </div>
         </div>
+
+        <!-- Zweite Tabelle: Zutaten und Menge -->
         <div class="table-container">
             <div class="table-header">
                 <div>Zutat</div>
@@ -73,12 +76,14 @@ require_once "php/include/head.php";
                 </div>
             </div>
         </div>
+
         <div class="rezept-schritt">
             <h3>1. Schritt</h3>
             <p>
                 <?= htmlspecialchars($entry->getAnleitung()) ?>
             </p>
         </div>
+        <a href="kommentare.php" class="rezept-button">Kommentare ansehen </a>
     </main>
     <a href="eintrag-loeschen.php?id=<?= urlencode($entry->getId()) ?>"><button class="rezept-button"> Rezept löschen </button></a>
     <a href="eintrag-bearbeiten.php?id=<?= urlencode($entry->getId()) ?>"><button class="rezept-button"> Rezept bearbeiten </button></a>

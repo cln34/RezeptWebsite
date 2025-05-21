@@ -13,13 +13,14 @@
   background-color: #D6C6B4;
   border-radius: 15px;
   padding: 20px;
-  width: calc(33.33% - 40px);
-  min-width: 300px;
   color: black;
   box-shadow: 0 4px 6px rgba(0,0,0,0.1);
   transition: transform 0.2s ease-in-out;
   font-family: sans-serif;
   text-align: center;
+  flex: 1 1 100%; /* Standard: 1 Spalte (mobil) */
+  max-width: 100%;
+  box-sizing: border-box;
 }
 
 .user-card:hover {
@@ -32,7 +33,7 @@
   font-size: 16px;
 }
 
-.user-card span.user-email {
+.user-card span.user-id{
   font-weight: bold;
   font-size: 18px;
 }
@@ -41,14 +42,18 @@
   font-size: 15px;
 }
 
-@media (max-width: 1024px) {
-    .user-card {
-      width: calc(50% - 40px);
-    }
+/* Tablet: 2 Spalten */
+@media (min-width: 600px) {
+  .user-card {
+    flex: 1 1 calc(50% - 20px);
+    max-width: calc(50% - 20px);
   }
-  
-  @media (max-width: 600px) {
-    .user-card {
-      width: 90%;
-    }
+}
+
+/* Desktop: 3 Spalten */
+@media (min-width: 1024px) {
+  .user-card {
+    flex: 1 1 calc(33.333% - 20px);
+    max-width: calc(33.333% - 20px);
   }
+}

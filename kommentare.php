@@ -40,6 +40,7 @@ require_once "php/include/head.php";
 
     <form action="" method="post" class="kommentar-form">
       <label for="bewertung">Bewertung:</label>
+      <label for="NameBewerter" class="visually-hidden">Name</label>
       <input type="text" id="NameBewerter" placeholder="Name des Bewerters" name="NameBewerter">
       <div class="sterne-bewertung">
         <fieldset class="sterne-bewertung">
