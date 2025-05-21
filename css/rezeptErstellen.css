@@ -66,3 +66,15 @@
   box-sizing: border-box;
   font-size: 1rem;
 }
+
+.form-row {
+  display: flex;
+  flex-direction: column;
+}
+
+@media (min-width: 1024px) {
+  .rezeptErstellen form {
+    max-width: 900px;
+    padding: 3rem;
+  }
+}
