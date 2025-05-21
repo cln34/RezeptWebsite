@@ -25,7 +25,7 @@ class UserSession implements UserDAO
             $this->users[2] = new UserEintrag(2, "christoph@uol.de", password_hash("1234", PASSWORD_DEFAULT), "User");
 
             $_SESSION["users"] = serialize($this->users);
-            $_SESSION["nextId"] = 2;
+            $_SESSION["nextId"] = 3;
         }
     }
 
