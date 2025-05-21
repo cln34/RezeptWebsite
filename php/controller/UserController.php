@@ -17,8 +17,7 @@ class UserController
             $user = User::getInstance();
             $user->createUser(
                 $_POST["email"],
-                $_POST["password"],
-                $_POST["rolle"]
+                $_POST["passwort"],
             );
 
             // Aufbereitung der Daten fuer die Ausgabe (View)
@@ -55,9 +54,16 @@ class UserController
     }
 
      private function checkUserRequiredParam() {
-        if (!isset($_POST["email"]) || !isset($_POST["password"]) || !isset($_POST["rolle"])) {
+        if (!isset($_POST["email"]) || !isset($_POST["passwort"]) || !isset($_POST["passwortWDH"])) {
+            // Behandlung von fehlenden Parametern
             $_SESSION["message"] = "missing_required_parameters";
-            header("Location: index.php");
+            header("Location: registrierung.php");
+            exit;
+        }
+        if ($_POST["passwort"] !== $_POST["passwortWDH"]) {
+            // Behandlung von nicht übereinstimmenden Passwörtern
+            $_SESSION["message"] = "passwords_do_not_match";
+            header("Location: registrierung.php");
             exit;
         }
     }
