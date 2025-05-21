@@ -24,3 +24,4 @@ Noch nicht umgesetzt:
 - Usersession mit Funktionen verbinden (z.b. das nur angemeldete User Rezepte erstellen und ändern können)
 - Teilweise Responsives Design für größere Bildschirme verbesser (aktuell noch viel freie Fläche)
 - User können noch keine Bilder hochladen, bisher funktionieren nur die Bilder aus dem images Ordner
+- Bisher ist es nur möglich eine Zutat, eine Menge und einen Anleitungsschritt hinzuzufügen, später soll ein Rezept mehrere haben können
