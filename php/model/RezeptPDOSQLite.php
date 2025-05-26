@@ -2,7 +2,7 @@
 require_once "RezeptDAO.php";
 require_once "RezeptEintrag.php";
 
-class RezeptPDOSQLite extends RezeptDAO
+class RezeptPDOSQLite implements RezeptDAO
 {
     private static $instance = null;
     public static function getInstance()
@@ -13,22 +13,54 @@ class RezeptPDOSQLite extends RezeptDAO
         return self::$instance;
     }
 
-    public function createEntry($titel, $email, $text)
+    public function createEntry($titel, $email, $kurzbeschreibung, $dauer, $schwierigkeit, $preis, $zutaten, $menge, $anleitung, $bild)
     {
         try {
             $db = $this->getConnection();
-            $sql = "INSERT INTO rezept (titel, email, content) VALUES (:titel, :email, :content);";
+            $sql = "INSERT INTO rezept (titel, email, kurzbeschreibung, dauer, schwierigkeit, preis, zutaten, menge, anleitung, bild) 
+                VALUES (:titel, :email, :kurzbeschreibung, :dauer, :schwierigkeit, :preis, :zutaten, :menge, :anleitung, :bild);";
             $command = $db->prepare($sql);
             if (!$command) {
-                throw new InternalErrorException();
+            throw new InternalErrorException();
             }
-            if (!$command->execute([":titel" => $titel, ":email" => $email, ":content" => $text])) {
-                throw new InternalErrorException();
+            if (!$command->execute([
+            ":titel" => $titel,
+            ":email" => $email,
+            ":kurzbeschreibung" => $kurzbeschreibung,
+            ":dauer" => $dauer,
+            ":schwierigkeit" => $schwierigkeit,
+            ":preis" => $preis,
+            ":zutaten" => $zutaten,
+            ":menge" => $menge,
+            ":anleitung" => $anleitung,
+            ":bild" => $bild
+            ])) {
+            throw new InternalErrorException();
             }
             return intval($db->lastInsertId());
         } catch (PDOException $exc) {
             throw new InternalErrorException();
         }
+        
+    }
+
+
+    public function readEntry($id){
+
+    }
+
+    public function updateEntry($id, $titel, $email, $kurzbeschreibung, $dauer, $schwierigkeit, $preis, $zutaten, $menge, $anleitung, $bild){
+
+    }
+
+   
+    public function deleteEntry($id){
+
+    }
+
+   
+    public function getEntries(){
+
     }
 
     private function getConnection()
