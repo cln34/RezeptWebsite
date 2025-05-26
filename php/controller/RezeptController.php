@@ -23,7 +23,7 @@ class RezeptController
 
             // Kontaktierung des Models (Geschaeftslogik)
             $rezept = Rezept::getInstance();
-            $rezept->createEntry(
+             $rezept->createEntry(
                 $_POST["titel"],
                 $_POST["email"],
                 $_POST["kurzbeschreibung"],
@@ -35,6 +35,7 @@ class RezeptController
                 $_POST["anleitung"],
                 $_POST["bild"]
             );
+            
 
             // Aufbereitung der Daten fuer die Ausgabe (View)
             $_SESSION["message"] = "new_entry";
@@ -179,4 +180,5 @@ class RezeptController
         // Aufbereitung der Daten für die Ausgabe (View)
         $_SESSION["message"] = "update_success";
     }
+    
 }
