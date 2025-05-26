@@ -8,8 +8,8 @@ require_once "php/model/RezeptSession.php";
 
 class Rezept{
     public static function getInstance(){
-        return RezeptSession::getInstance(); //dummy fix
-        //return RezeptDB::getInstance(); // Datenbank
+        //return RezeptSession::getInstance(); //dummy fix
+        return RezeptPDOSQLite::getInstance(); // Datenbank
     }
 }
 ?>
