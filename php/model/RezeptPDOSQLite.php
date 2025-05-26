@@ -18,7 +18,7 @@ class RezeptPDOSQLite implements RezeptDAO
         try {
             $db = $this->getConnection();
             $sql = "INSERT INTO rezept (titel, email, kurzbeschreibung, dauer, schwierigkeit, preis, zutaten, menge, anleitung, bild) 
-                VALUES (:titel, :email, :kurzbeschreibung, :dauer, :schwierigkeit, :preis, :zutaten, :menge, :anleitung, :bild);";
+                VALUES (:titel, :email, :kurzbeschreibung, :dauer, :schwierigkeit, :preis, :zutaten, :menge, :anleitung, 'pizza.jpg');";
             $command = $db->prepare($sql);
             if (!$command) {
             throw new InternalErrorException();
@@ -33,7 +33,7 @@ class RezeptPDOSQLite implements RezeptDAO
             ":zutaten" => $zutaten,
             ":menge" => $menge,
             ":anleitung" => $anleitung,
-            ":bild" => $bild
+            // ":bild" => $bild
             ])) {
             throw new InternalErrorException();
             }
@@ -65,15 +65,15 @@ class RezeptPDOSQLite implements RezeptDAO
 
     private function getConnection()
     {
-        global $abs_path;
-        if (!file_exists($abs_path . "/db/rezept.db")) {
+       
+        if (!file_exists("db/rezept.db")) {
             $this->create();
         }
 
         try {
             $user = 'root';
             $pw = null;
-            $dsn = 'sqlite:' . $abs_path . '/db/rezept.db';
+            $dsn = 'sqlite:db/rezept.db';
             return new PDO($dsn, $user, $pw);
         } catch (PDOException $e) {
             throw new InternalErrorException();
@@ -82,11 +82,11 @@ class RezeptPDOSQLite implements RezeptDAO
 
     private function create()
     {
-        global $abs_path;
+       
         try {
             $user = 'root';
             $pw = null;
-            $dsn = 'sqlite:' . $abs_path . '/db/rezept.db';
+            $dsn = 'sqlite:db/rezept.db';
             $db = new PDO($dsn, $user, $pw);
 
             $db->exec("
