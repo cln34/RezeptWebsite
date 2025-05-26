@@ -46,6 +46,13 @@ class RezeptPDOSQLite implements RezeptDAO
 
 
     public function readEntry($id){
+        try{
+            $db = $this->getConnection();
+            return $this->getEntry($id, $db);
+
+        } catch (PDOException $exc) {
+            throw new InternalErrorException();
+        }
 
     }
 
@@ -58,9 +65,72 @@ class RezeptPDOSQLite implements RezeptDAO
 
     }
 
+    public function getEntry($id, $db){
+        try {
+            $sql = "SELECT * FROM rezept WHERE id=:id LIMIT 1";
+            $command = $db->prepare($sql);
+            if (!$command) {
+                throw new InternalErrorException();
+            }
+            if (!$command->execute([":id" => $id])) {
+                throw new InternalErrorException();
+            }
+            $result = $command->fetchAll();
+            if (empty($result)) {
+                throw new MissingEntryException();
+            }
+            $entry = $result[0];
+            return new RezeptEintrag(
+            $entry["id"],
+            $entry["titel"],
+            $entry["email"],
+            $entry["kurzbeschreibung"],
+            $entry["dauer"],
+            $entry["schwierigkeit"],
+            $entry["preis"],
+            $entry["zutaten"],
+            $entry["menge"],
+            $entry["anleitung"],
+            $entry["bild"]);
+        } catch (PDOException $exc) {
+            throw new InternalErrorException();
+        }
+    }
+
    
     public function getEntries(){
+        try {
+            $db = $this->getConnection();
+            $sql = "SELECT * FROM rezept";
+            $command = $db->prepare($sql); //erstellt ein vorbereitetes sql statement, sichert gegen SQL-Injection
+            if (!$command) {
+                throw new InternalErrorException();
+            }
+            if (!$command->execute()) {
+                throw new InternalErrorException();
+            }
+            $result = $command->fetchAll();
 
+            $entries = [];
+            foreach ($result as $row) {
+                $entry = new RezeptEintrag(
+                    $row["id"],
+                    $row["titel"],
+                    $row["email"],
+                    $row["kurzbeschreibung"],
+                    $row["dauer"],
+                    $row["schwierigkeit"],
+                    $row["preis"],
+                    $row["zutaten"],
+                    $row["menge"],
+                    $row["anleitung"],
+                    $row["bild"]);
+                $entries[] = $entry;
+            }
+            return $entries;
+        } catch (PDOException $exc) {
+            throw new InternalErrorException();
+        }
     }
 
     private function getConnection()
