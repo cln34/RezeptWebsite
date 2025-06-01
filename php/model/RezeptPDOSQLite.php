@@ -62,7 +62,39 @@ class RezeptPDOSQLite implements RezeptDAO
 
    
     public function deleteEntry($id){
-
+        try {
+            $db = $this->getConnection();
+            $db->beginTransaction();
+            $sql = "SELECT * FROM rezept WHERE id=:id LIMIT 1";
+            $command = $db->prepare($sql);
+            if (!$command) {
+                $db->rollBack();
+                throw new InternalErrorException();
+            }
+            if (!$command->execute([":id" => $id])) {
+                $db->rollBack();
+                throw new InternalErrorException();
+            }
+            $result = $command->fetchAll();
+            if (empty($result)) {
+                $db->rollBack();
+                throw new MissingEntryException();
+            }
+            $sql = "DELETE FROM rezept WHERE id=:id";
+            $command = $db->prepare($sql);
+            if (!$command) {
+                $db->rollBack();
+                throw new InternalErrorException();
+            }
+            if (!$command->execute([":id" => $id])) {
+                $db->rollBack();
+                throw new InternalErrorException();
+            }
+            $db->commit();
+        } catch (PDOException $exc) {
+            $db->rollBack();
+            throw new InternalErrorException();
+        }
     }
 
     public function getEntry($id, $db){
