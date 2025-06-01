@@ -35,11 +35,11 @@ class UserPDOSQLite implements UserDAO
         }
     }
 
-    public function readUser($id)
+    public function readUser($email)
     {
         try {
             $db = $this->getConnection();
-            return $this->getUser($id, $db);
+            return $this->getUser($email, $db);
         } catch (PDOException $exc) {
             throw new InternalErrorException();
         }
@@ -50,15 +50,15 @@ class UserPDOSQLite implements UserDAO
 
     public function deleteUser($id) {}
 
-    public function getUser($id, $db)
+    public function getUser($email, $db)
     {
         try {
-            $sql = "SELECT * FROM user WHERE id=:id LIMIT 1";
+            $sql = "SELECT * FROM user WHERE email=:email LIMIT 1";
             $command = $db->prepare($sql);
             if (!$command) {
                 throw new InternalErrorException();
             }
-            if (!$command->execute([":id" => $id])) {
+            if (!$command->execute([":email" => $email])) {
                 throw new InternalErrorException();
             }
             $result = $command->fetchAll();
