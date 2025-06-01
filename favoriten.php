@@ -5,6 +5,9 @@ if (session_status() !== PHP_SESSION_ACTIVE) {
 if (isset($_SESSION["email"])) {
     echo $_SESSION["email"];
 }
+if (isset($_SESSION["email"])) {
+    echo $_SESSION["email"];
+}
 ?>
 <?php
 require_once "php/include/head.php";
