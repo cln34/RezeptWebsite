@@ -1,6 +1,4 @@
 <?php
-
-
 require_once "php/model/RezeptEintrag.php";
 require_once  "php/model/Rezept.php";
 
