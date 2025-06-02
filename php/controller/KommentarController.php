@@ -6,8 +6,12 @@ class KommentarController
 {
     public function createComment()
     {
-        //TODO: Ueberpruefung der Parameter
-        //$this->checkEntryParam();#
+        //Ueberpruefung der Parameter
+        $this->checkEntryParam();
+        if (!$this->checkEntryRequiredParam()) {
+            header("Location: kommentare.php?id=" . urlencode($_POST['rezept_id']));
+            exit;
+        }
 
         try {
             $kommentar = Kommentar::getInstance();
@@ -72,6 +76,39 @@ class KommentarController
     {
         if (!isset($_REQUEST["id"]) || !is_numeric($_REQUEST["id"])) {
             $this->handleMissingEntryException();
+        }
+    }
+
+    private function checkEntryParam()
+    {
+        if (
+            !isset($_POST["rezept_id"]) ||
+            !isset($_POST["email"]) ||
+            !isset($_POST["inhalt"]) 
+            // sterneBewertung ist optional
+        ) {
+            $_SESSION["message"] = "missing_parameters";
+            header("Location: kommentare.php?id=" . urlencode($_POST['rezept_id']));
+            exit;
+        }
+    }
+
+    private function checkEntryRequiredParam()
+    {
+        if (
+            empty($_POST["rezept_id"]) ||
+            empty($_POST["email"]) ||
+            empty($_POST["inhalt"])
+            // sterneBewertung ist optional
+        ) {
+            $_SESSION["message"] = "missing_required_parameters";
+            $_SESSION["rezept_id"] = $_POST["rezept_id"] ?? '';
+            $_SESSION["email"] = $_POST["email"] ?? '';
+            $_SESSION["inhalt"] = $_POST["inhalt"] ?? '';
+            $_SESSION["sterneBewertung"] = $_POST["sterneBewertung"] ?? '';
+            return false;
+        } else {
+            return true;
         }
     }
 

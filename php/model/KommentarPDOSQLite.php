@@ -19,7 +19,7 @@ class KommentarPDOSQLite implements KommentarDAO
     {
         try {
             $db = $this->getConnection();
-            $sql = "INSERT INTO kommentar(rezept_id, email, inhalt, sterneBewertung) VALUES (:rezept_id, :email, :inhalt, :sterneBewertung);"; //":id" etc sind platzhalter
+            $sql = "INSERT INTO kommentar(rezept_id, email, inhalt, sterneBewertung) VALUES (:rezept_id, :email, :inhalt, :sterneBewertung);"; //":email" etc sind platzhalter die später belegt wertden
             $command = $db->prepare($sql);
             if (!$command) {
                 throw new InternalErrorException();
@@ -123,7 +123,7 @@ class KommentarPDOSQLite implements KommentarDAO
                 rezept_id INTEGER NOT NULL, --fremdschlüssel
                 email TEXT NOT NULL,
                 inhalt TEXT NOT NULL,
-                sterneBewertung INT NOT NULL
+                sterneBewertung INT
             );");
             $db->exec("
              INSERT INTO kommentar (rezept_id, email, inhalt, sterneBewertung) VALUES
