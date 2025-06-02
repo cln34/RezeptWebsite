@@ -1,6 +1,6 @@
 <?php
-require_once "Kommentar.php";
-require_once "KommentarEintrag.php";
+require_once "php/model/Kommentar.php";
+require_once "php/model/KommentarEintrag.php";
 
 class KommentarController{
     public function createComment(){
@@ -43,13 +43,33 @@ class KommentarController{
             $kommentar = Kommentar::getInstance();
             $kommentar->deleteComment($id);
 
-            $_SESSION["message"] = "delete_comment"
+            $_SESSION["message"] = "delete_comment";
         } catch (MissingEntryException $exc) {
             // Behandlung von potentiellen Fehlern der Geschaeftslogik
             $this->handleMissingEntryException();
         } catch (InternalErrorException $exc) {
             // Behandlung von potentiellen Fehlern der Geschaeftslogik
             $this->handleInternalErrorException();
+        }
+    }
+
+    public function request()
+    {
+        // Ueberpruefung der Parameter, Hinweis: Es gibt keine Parameter
+        try {
+
+            // Aufbereitung der Daten fuer die Kontaktierung des Models
+            // Hinweis: Es werden keine Daten benoetigt
+
+            // Kontaktierung des Models (Geschaeftslogik)
+            $comment = Kommentar::getInstance();
+            $comments = $comment->getComments();
+
+            // Aufbereitung der Daten fuer die Ausgabe (View), Hinweis: in diesem Fall nichts zu tun
+            return $comments;
+        } catch (InternalErrorException $exc) {
+            // Behandlung von potentiellen Fehlern der Geschaeftslogik
+            $_SESSION["message"] = "internal_error";
         }
     }
 
