@@ -2,6 +2,9 @@
 if (session_status() !== PHP_SESSION_ACTIVE) {
     session_start();
 }
+if (isset($_SESSION["email"])) {
+    echo $_SESSION["email"];
+}
 /*
 if (isset($_FILES['bild']) && $_FILES['bild']['error'] === UPLOAD_ERR_OK) {
     $uploadDir = 'images/';

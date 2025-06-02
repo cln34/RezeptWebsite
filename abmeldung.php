@@ -6,9 +6,7 @@ if (isset($_SESSION["email"])) {
     echo $_SESSION["email"];
 }
 if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] == true && isset($_POST['abmelden'])) {
-    $_SESSION["email"] = null;
-    $_SESSION["loggedin"] = false;
-    $_SESSION["message"] = "login_success";
+    session_destroy();
     header("Location: anmeldung.php");
     exit;
 }

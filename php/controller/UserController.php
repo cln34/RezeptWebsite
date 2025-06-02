@@ -48,7 +48,7 @@ class UserController
         }
     }
 
-    public function readUser($email = null)
+    public function readUser($email)
 {
     if (!$email) {
         $this->handleMissingEntryException();

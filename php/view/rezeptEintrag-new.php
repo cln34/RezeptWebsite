@@ -14,7 +14,7 @@ $anleitung = isset($_SESSION["anleitung"]) ? $_SESSION["anleitung"] : "";
 $bild = isset($_SESSION["bild"]) ? $_SESSION["bild"] : "";
 
 unset($_SESSION["titel"]);
-unset($_SESSION["email"]);
+//unset($_SESSION["email"]);
 
 unset($_SESSION["kurzbeschreibung"]);
 unset($_SESSION["dauer"]);
@@ -38,9 +38,9 @@ require_once "php/include/head.php";
 
 <body>
 
-    <?php
-    include_once "php/include/header.php";
-    ?>
+  <?php
+  include_once "php/include/header.php";
+  ?>
 
   <main class="rezeptErstellen">
     <form action="eintrag-eintragen.php" method="post">
@@ -114,14 +114,18 @@ require_once "php/include/head.php";
         <input type="number" id="preis" name="preis" min="0" max="50" step="1" required />
       </div>
 
+      <!--um die email des autors mit zu übergeben -->
+      <input type="hidden" name="email" value="<?php echo htmlspecialchars($email); ?>" />
+
       <input type="submit" value="Rezept speichern" />
     </form>
+
   </main>
 
 
-    <?php
-    include_once "php/include/footer.php"
-    ?>
+  <?php
+  include_once "php/include/footer.php"
+  ?>
 
 </body>
 

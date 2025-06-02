@@ -85,9 +85,10 @@ require_once "php/include/head.php";
         </div>
         <a href="kommentare.php?id=<?= urlencode($entry->getId()) ?>" class="rezept-button">Kommentare ansehen </a>
     </main>
+    <?php if(isset($_SESSION["email"]) && $_SESSION["email"] == $entry->getEmail()){ ?>
     <a href="eintrag-loeschen.php?id=<?= urlencode($entry->getId()) ?>"><button class="rezept-button"> Rezept löschen </button></a>
     <a href="eintrag-bearbeiten.php?id=<?= urlencode($entry->getId()) ?>"><button class="rezept-button"> Rezept bearbeiten </button></a>
-
+     <?php } ?>
     <?php
     include_once "php/include/footer.php"
     ?>

@@ -35,38 +35,30 @@ class UserPDOSQLite implements UserDAO
         }
     }
 
-    public function readUser($id)
+    public function readUser($email)
     {
-       try{
+        try {
             $db = $this->getConnection();
-            return $this->getUser($id, $db);
-
+            return $this->getUser($email, $db);
         } catch (PDOException $exc) {
             throw new InternalErrorException();
         }
-
     }
 
-    
-    public function updateUser($id, $email, $passwort, $rolle)
-    {
 
-    }
+    public function updateUser($id, $email, $passwort, $rolle) {}
 
-    public function deleteUser($id)
-    {
-    
-    }
+    public function deleteUser($id) {}
 
-    public function getUser($id, $db)
+    public function getUser($email, $db)
     {
-         try {
-            $sql = "SELECT * FROM user WHERE id=:id LIMIT 1";
+        try {
+            $sql = "SELECT * FROM user WHERE email=:email LIMIT 1";
             $command = $db->prepare($sql);
             if (!$command) {
                 throw new InternalErrorException();
             }
-            if (!$command->execute([":id" => $id])) {
+            if (!$command->execute([":email" => $email])) {
                 throw new InternalErrorException();
             }
             $result = $command->fetchAll();
@@ -78,7 +70,7 @@ class UserPDOSQLite implements UserDAO
                 $entry["id"],
                 $entry["email"],
                 $entry["passwort"],
-                $entry["rolle"],
+                $entry["rolle"]
             );
         } catch (PDOException $exc) {
             throw new InternalErrorException();
@@ -116,7 +108,7 @@ class UserPDOSQLite implements UserDAO
 
     private function getConnection()
     {
-       
+
         if (!file_exists("db/user.db")) {
             $this->create();
         }
@@ -146,13 +138,12 @@ class UserPDOSQLite implements UserDAO
                 passwort TEXT NOT NULL,
                 rolle TEXT DEFAULT 'User'
             );");
-            $db->exec("INSERT INTO user (email, passwort) VALUES ('colin@uol.de', 'pass123');");
-            $db->exec("INSERT INTO user (email, passwort) VALUES ('sascha@uol.de', 'geheim');");
-            $db->exec("INSERT INTO user (email, passwort) VALUES ('christoph@uol.de', '1234');");
+            $db->exec("INSERT INTO user (email, passwort) VALUES ('colin@uol.de', '" . password_hash('pass123', PASSWORD_DEFAULT) . "');");
+            $db->exec("INSERT INTO user (email, passwort) VALUES ('sascha@uol.de', '" . password_hash('geheim', PASSWORD_DEFAULT) . "');");
+            $db->exec("INSERT INTO user (email, passwort) VALUES ('christoph@uol.de', '" . password_hash('pass123', PASSWORD_DEFAULT) . "');");
             unset($db);
         } catch (PDOException $e) {
             throw new InternalErrorException();
         }
-         
     }
 }
