@@ -14,7 +14,7 @@ $anleitung = isset($_SESSION["anleitung"]) ? $_SESSION["anleitung"] : "";
 $bild = isset($_SESSION["bild"]) ? $_SESSION["bild"] : "";
 
 unset($_SESSION["titel"]);
-unset($_SESSION["email"]);
+//unset($_SESSION["email"]);
 
 unset($_SESSION["kurzbeschreibung"]);
 unset($_SESSION["dauer"]);
