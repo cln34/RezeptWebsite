@@ -51,13 +51,13 @@ require_once "php/include/head.php";
             </div>
             <div class="table-row">
                 <div class="table-cell header-cell">Dauer</div>
-                <div class="table-cell"><?= htmlspecialchars($entry->getDauer()) ?></div>
+                <div class="table-cell"><?= htmlspecialchars($entry->getDauer()) ?> min</div>
 
                 <div class="table-cell header-cell">Schwierigkeit</div>
                 <div class="table-cell"><?= htmlspecialchars($entry->getSchwierigkeit()) ?></div>
 
                 <div class="table-cell header-cell">Ungefährer Preis</div>
-                <div class="table-cell"><?= htmlspecialchars($entry->getPreis()) ?></div>
+                <div class="table-cell"><?= htmlspecialchars($entry->getPreis()) ?> €</div>
             </div>
         </div>
 

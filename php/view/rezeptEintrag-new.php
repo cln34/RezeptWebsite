@@ -1,5 +1,8 @@
 <?php
-
+if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
+  header("Location: index.php"); // nur eingeloggte user können auf diese seite
+  exit;
+}
 // Aufbereitung der Daten fuer die Ausgabe (View)
 $titel = isset($_SESSION["titel"]) ? $_SESSION["titel"] : "";
 $email = isset($_SESSION["email"]) ? $_SESSION["email"] : "";
