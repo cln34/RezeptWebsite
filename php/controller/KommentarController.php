@@ -2,14 +2,16 @@
 require_once "php/model/Kommentar.php";
 require_once "php/model/KommentarEintrag.php";
 
-class KommentarController{
-    public function createComment(){
+class KommentarController
+{
+    public function createComment()
+    {
         //TODO: Ueberpruefung der Parameter
         //$this->checkEntryParam();#
 
-        try{
+        try {
             $kommentar = Kommentar::getInstance();
-            $kommentar->createComment($_POST["email"], $_POST["text"], $_POST["sterneBewertung"]);
+            $kommentar->createComment($_POST["rezept_id"], $_POST["email"], $_POST["inhalt"], $_POST["sterneBewertung"]);
 
             $_SESSION["message"] = "new_comment";
         } catch (InternalErrorException $exc) {
@@ -18,14 +20,14 @@ class KommentarController{
         }
     }
 
-    public function readComment(){
+    public function readComment()
+    {
         $this->checkId();
-        try{
+        try {
             $id = intval($_GET["id"]);
 
             $kommentar = Kommentar::getInstance();
             return $kommentar->readComment($id);
-
         } catch (MissingEntryException $exc) {
             // Behandlung von potentiellen Fehlern der Geschaeftslogik
             $this->handleMissingEntryException();
@@ -35,10 +37,11 @@ class KommentarController{
         }
     }
 
-    public function deleteComment(){
+    public function deleteComment()
+    {
         $this->checkId();
 
-        try{
+        try {
             $id = intval($_GET["id"]);
             $kommentar = Kommentar::getInstance();
             $kommentar->deleteComment($id);
@@ -53,22 +56,13 @@ class KommentarController{
         }
     }
 
-    public function request()
+    public function request($rezeptId)
     {
-        // Ueberpruefung der Parameter, Hinweis: Es gibt keine Parameter
         try {
-
-            // Aufbereitung der Daten fuer die Kontaktierung des Models
-            // Hinweis: Es werden keine Daten benoetigt
-
-            // Kontaktierung des Models (Geschaeftslogik)
             $comment = Kommentar::getInstance();
-            $comments = $comment->getComments();
-
-            // Aufbereitung der Daten fuer die Ausgabe (View), Hinweis: in diesem Fall nichts zu tun
+            $comments = $comment->getCommentsByRezeptId($rezeptId);
             return $comments;
         } catch (InternalErrorException $exc) {
-            // Behandlung von potentiellen Fehlern der Geschaeftslogik
             $_SESSION["message"] = "internal_error";
         }
     }
@@ -95,5 +89,3 @@ class KommentarController{
         exit;
     }
 }
-
-?>

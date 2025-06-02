@@ -2,15 +2,15 @@
 class KommentarEintrag{
     private $id;
     private $email;
-    private $text;
+    private $inhalt;
     private $sterneBewertung;
    //private $datum; kann man später noch machen
 
-    public function __construct($id, $email, $text, $sterneBewertung)
+    public function __construct($id, $email, $inhalt, $sterneBewertung)
     {
         $this->id = $id;
         $this->email = $email;
-        $this->text = $text;
+        $this->inhalt = $inhalt;
         $this->sterneBewertung = $sterneBewertung;
     }
 
@@ -22,8 +22,8 @@ class KommentarEintrag{
         return $this->email;
     }
 
-    public function getText(){
-        return $this->text;
+    public function getInhalt(){
+        return $this->inhalt;
     }
 
     public function getSterneBewertung(){

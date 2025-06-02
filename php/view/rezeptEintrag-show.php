@@ -41,7 +41,7 @@ require_once "php/include/head.php";
             alt="Bild von <?= htmlspecialchars($entry->getTitel()) ?>"
             title="<?= htmlspecialchars($entry->getTitel()) ?>"
             class="rezept-bild" />
-        
+
         <!-- Erste Tabelle: Dauer / Schwierigkeit / Preis -->
         <div class="table-container info-table">
             <div class="table-header">
@@ -83,10 +83,11 @@ require_once "php/include/head.php";
                 <?= htmlspecialchars($entry->getAnleitung()) ?>
             </p>
         </div>
-        <a href="kommentare.php" class="rezept-button">Kommentare ansehen </a>
+        <a href="kommentare.php?id=<?= urlencode($entry->getId()) ?>" class="rezept-button">Kommentare ansehen </a>
     </main>
     <a href="eintrag-loeschen.php?id=<?= urlencode($entry->getId()) ?>"><button class="rezept-button"> Rezept löschen </button></a>
     <a href="eintrag-bearbeiten.php?id=<?= urlencode($entry->getId()) ?>"><button class="rezept-button"> Rezept bearbeiten </button></a>
+
     <?php
     include_once "php/include/footer.php"
     ?>

@@ -176,18 +176,18 @@ class RezeptPDOSQLite implements RezeptDAO
                         menge TEXT,
                         anleitung TEXT,
                         bild TEXT 
-                    );");//bei bild muss entweder ein Pfad oder ein Blob rein
+                    );"); //bei bild muss entweder ein Pfad oder ein Blob rein
             $db->exec("
-                INSERT INTO rezept (titel, email, kurzbeschreibung, dauer, schwierigkeit, preis, zutaten, menge, anleitung, bild) VALUES
-                    ('Überschrift 1', 'test1@test.de', 'Kurze Beschreibung 1', 30, 'Einfach', 5.99, 'Zutat1, Zutat2', '2, 3', 'Anleitung 1', 'bild1.jpg')
+                    INSERT INTO rezept (titel, email, kurzbeschreibung, dauer, schwierigkeit, preis, zutaten, menge, anleitung, bild) VALUES
+                        ('Pizza Margherita', 'pizza@beispiel.de', 'Klassische italienische Pizza mit Tomate und Mozzarella.', 20, 'Einfach', 4.50, 'Pizzateig, Tomatensauce, Mozzarella, Basilikum', '1, 100ml, 100g, 1 Bund', 'Teig ausrollen, mit Tomatensauce bestreichen, Mozzarella darauf verteilen, backen und mit Basilikum garnieren.', 'pizza.jpg')
                 ;");
             $db->exec("
-                INSERT INTO rezept (titel, email, kurzbeschreibung, dauer, schwierigkeit, preis, zutaten, menge, anleitung, bild) VALUES
-                    ('Überschrift 2', 'test2@test.de', 'Kurze Beschreibung 2', 45, 'Mittel', 8.50, 'Zutat3, Zutat4', '1, 4', 'Anleitung 2', 'bild2.jpg')
+                    INSERT INTO rezept (titel, email, kurzbeschreibung, dauer, schwierigkeit, preis, zutaten, menge, anleitung, bild) VALUES
+                        ('Spaghetti Bolognese', 'bolognese@beispiel.de', 'Schnelle Spaghetti mit würziger Hackfleischsoße.', 25, 'Einfach', 5.00, 'Spaghetti, Hackfleisch, Tomaten, Zwiebel, Knoblauch', '200g, 150g, 200g, 1, 1 Zehe', 'Spaghetti kochen. Hackfleisch mit Zwiebel und Knoblauch anbraten, Tomaten zugeben, köcheln lassen. Mit Spaghetti servieren.', 'Bolognese.jpg')
                 ;");
             $db->exec("
-                INSERT INTO rezept (titel, email, kurzbeschreibung, dauer, schwierigkeit, preis, zutaten, menge, anleitung, bild) VALUES
-                    ('Überschrift 3', 'test3@test.de', 'Kurze Beschreibung 3', 60, 'Schwer', 12.00, 'Zutat5, Zutat6', '5, 2', 'Anleitung 3', 'bild3.jpg')
+                    INSERT INTO rezept (titel, email, kurzbeschreibung, dauer, schwierigkeit, preis, zutaten, menge, anleitung, bild) VALUES
+                        ('Pesto alla Genovese', 'pesto@beispiel.de', 'Frisches Basilikumpesto für Pasta oder Brot.', 10, 'Einfach', 3.00, 'Basilikum, Pinienkerne, Parmesan, Olivenöl, Knoblauch', '1 Bund, 30g, 30g, 50ml, 1 Zehe', 'Alle Zutaten im Mörser oder Mixer fein zerkleinern und mit Öl vermengen.', 'Pesto.jpg')
                 ;");
 
             unset($db);
