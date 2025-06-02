@@ -1,9 +1,4 @@
 <?php
-/*
-* --------------------------------------------------------------------------
-* Erstmal so kopiert von Musterlösung aber nach diesem DAO Konzept müssen wir arbeiten
-*-----------------------------------------------------------------------------
-*/
 
 class InternalErrorException extends Exception {}
 class MissingEntryException extends Exception {}

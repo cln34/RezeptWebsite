@@ -5,6 +5,10 @@ require_once "RezeptEintrag.php";
 class RezeptPDOSQLite implements RezeptDAO
 {
     private static $instance = null;
+
+    private $entries = array();
+    private $searchEntries = array();
+
     public static function getInstance()
     {
         if (self::$instance === null) {
@@ -189,6 +193,57 @@ class RezeptPDOSQLite implements RezeptDAO
             unset($db);
         } catch (PDOException $e) {
             // nothing
+        }
+    }
+
+    //Methode um die Suche durchzuführen, vergleicht die sucheingabe mit dem Titel der Rezepte und speichert nur
+    //die gefundenen Rezepte in dem searchEntries array
+    public function searchForEntry($sucheingabe)
+    {
+        $this->searchEntries = []; // Suchergebnisse zurücksetzen
+        try {
+            $db = $this->getConnection();
+            $sql = "SELECT * FROM rezept";
+            $command = $db->prepare($sql); //erstellt ein vorbereitetes sql statement, sichert gegen SQL-Injection
+            if (!$command) {
+                throw new InternalErrorException();
+            }
+            if (!$command->execute()) {
+                throw new InternalErrorException();
+            }
+            $result = $command->fetchAll();
+
+            foreach ($result as $row) {
+                if(stripos($row["titel"], $sucheingabe) !== false){
+                $entry = new RezeptEintrag(
+                    $row["id"],
+                    $row["titel"],
+                    $row["email"],
+                    $row["kurzbeschreibung"],
+                    $row["dauer"],
+                    $row["schwierigkeit"],
+                    $row["preis"],
+                    $row["zutaten"],
+                    $row["menge"],
+                    $row["anleitung"],
+                    $row["bild"]
+                );
+                $this->searchEntries[] = $entry;
+            }
+            }
+
+        } catch(PDOException $e){
+
+        }
+    }
+    //Methode um die Suchergebnisse zurückzugeben: wird im indexcontroller verwendet um die index seite nur mit den
+    //gefundenen Rezepten zu laden
+    public function getSearchEntries()
+    {
+        if (empty($this->searchEntries)) {
+            return null; // Keine Suchergebnisse gefunden
+        } else {
+            return $this->searchEntries;
         }
     }
 }
