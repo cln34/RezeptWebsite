@@ -67,9 +67,9 @@ require_once "php/include/head.php";
                                 <div>Dauer</div>
                                 <div>Schwierigkeit</div>
                                 <div>Ungefährer Preis</div>
-                                <div><?= htmlspecialchars($entry->getDauer()) ?></div>
+                                <div><?= htmlspecialchars($entry->getDauer()) ?> min</div>
                                 <div><?= htmlspecialchars($entry->getSchwierigkeit()) ?></div>
-                                <div><?= htmlspecialchars($entry->getPreis()) ?></div>
+                                <div><?= htmlspecialchars($entry->getPreis()) ?> €</div>
                             </div>
                             <p>Kurzbeschreibung: <?= htmlspecialchars($entry->getKurzbeschreibung()) ?></p>
                         </div>

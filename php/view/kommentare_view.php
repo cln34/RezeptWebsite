@@ -60,12 +60,10 @@ require_once "php/include/head.php";
         <?php endif; ?>
       </section>
 
+      <?php if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] == true) { ?>
       <form action="kommentar-eintragen.php" method="post" class="kommentar-form">
         <label for="bewertung">Bewertung:</label>
-        <label for="NameBewerter" class="visually-hidden">Name</label>
-        <input type="text" id="NameBewerter" placeholder="Name des Bewerters" name="email">
-        <?php //TODO: die folgende zeile einfügen wenn Problem mit Sessions behoben wurde, damit automatisch die email des loggedin users übergeben wird: <input type="hidden" name="email" value="<?= htmlspecialchars($_SESSION['email'] ?? '') 
-        ?>"> ?>
+        <input type="hidden" name="email" value="<?= htmlspecialchars($_SESSION['email'] ?? '') ?>">
         <input type="hidden" name="rezept_id" value="<?= htmlspecialchars($_GET['id'] ?? '') ?>"> <!--id des rezepts wird übergeben, damit kommentar diesselbe id bekommt-->
         <div class="sterne-bewertung">
           <fieldset class="sterne-bewertung">
@@ -82,6 +80,7 @@ require_once "php/include/head.php";
         <textarea id="kommentar" placeholder="Kommentar eingeben" name="inhalt" required></textarea>
         <input type="submit" value="Kommentar absenden" class="button">
       </form>
+      <?php } ?>
     </main>
 
     <?php

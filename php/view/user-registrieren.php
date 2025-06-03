@@ -21,13 +21,13 @@ require_once "php/include/head.php";
   <main class="anmeldung-main">
 
     <?php if (isset($_SESSION["message"]) && $_SESSION["message"] == "missing_required_parameters"): ?>
-            <p>
-                Fehler beim Aufruf der Seite: Es fehlen notwendige Parameter!
-            </p>
-        <?php elseif (isset($_SESSION["message"]) && $_SESSION["message"] == "passwords_do_not_match"): ?>
-            <p>
-                Die Passwörter stimmen nicht überein!
-            </p>
+      <p>
+        Fehler beim Aufruf der Seite: Es fehlen notwendige Parameter!
+      </p>
+    <?php elseif (isset($_SESSION["message"]) && $_SESSION["message"] == "passwords_do_not_match"): ?>
+      <p>
+        Die Passwörter stimmen nicht überein!
+      </p>
     <?php endif; ?>
 
     <h1>Registrierung</h1>

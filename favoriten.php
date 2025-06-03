@@ -5,6 +5,10 @@ if (session_status() !== PHP_SESSION_ACTIVE) {
 if (isset($_SESSION["email"])) {
     echo $_SESSION["email"];
 }
+if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
+    header("Location: index.php"); // nur eingeloggte user können auf diese seite
+    exit;
+}
 ?>
 <?php
 require_once "php/include/head.php";

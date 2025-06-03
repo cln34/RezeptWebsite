@@ -12,5 +12,5 @@ $userController = new UserController();
 $userController->createUser();
 
 // die Ausgabe des HTML-Codes kann erfolgen
-header("Location: registrierung.php");
+header("Location: anmeldung.php");
 exit;
