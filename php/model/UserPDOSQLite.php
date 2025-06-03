@@ -64,10 +64,16 @@ class UserPDOSQLite implements UserDAO
             $db->rollBack();
             throw new InternalErrorException();
         }
-        $result = $command->fetchAll();
+        $result = $command->fetch();
         if (empty($result)) {
             $db->rollBack();
             throw new MissingEntryException();
+        }
+
+        // Admin darf nicht gelöscht werden
+        if ($result["rolle"] === "Admin") {
+            $db->rollBack();
+            throw new InternalErrorException();
         }
 
         $sql = "DELETE FROM user WHERE email = :email";

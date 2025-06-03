@@ -1,4 +1,10 @@
 <?php
+if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true || $_SESSION["rolle"] !== "Admin") {
+  header("Location: index.php"); // nur eingeloggte Admins können auf diese seite
+  exit;
+}
+
+
 require_once "php/include/head.php";
 ?>
 
@@ -20,7 +26,7 @@ require_once "php/include/head.php";
                         <span class='user-role'>Rolle: <?= htmlspecialchars($user->getRolle()) ?></span>
 
                          <!-- Link mit Button zum Löschen -->
-                        <a href="php/user-loeschen.php?email=<?= urlencode($user->getEmail()) ?>" ><button class="delete-button">Benutzer löschen</button></a>
+                        <a href="user-loeschen.php?email=<?= urlencode($user->getEmail()) ?>" ><button class="delete-button">Benutzer löschen</button></a>
                     </div>
                 <?php endforeach; ?>
             <?php endif; ?>

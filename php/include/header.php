@@ -2,11 +2,13 @@
   <nav class="navbar">
     <ul class="left-links">
       <li><a href="index.php">Homepage</a></li>
-      <?php if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] == true) { ?>
+      <?php if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true) { ?>
         <li><a href="rezeptErstellen.php">Rezept erstellen</a></li>
         <li><a href="favoriten.php">Favoriten</a></li>
+        <?php if (isset($_SESSION["rolle"]) && $_SESSION["rolle"] === "Admin") { ?>
+          <li><a href="userliste.php">Userliste</a></li>
+        <?php } ?>
       <?php } ?>
-      <li><a href="userliste.php">Userliste</a></li>
     </ul>
 
     <ul class="right-buttons">
