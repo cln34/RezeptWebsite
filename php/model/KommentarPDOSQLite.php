@@ -127,7 +127,7 @@ class KommentarPDOSQLite implements KommentarDAO
             );");
             $db->exec("
              INSERT INTO kommentar (rezept_id, email, inhalt, sterneBewertung) VALUES
-                 (0, 'colin@uol.de', 'Ich finde die Pizza müsste länger im Ofen sein, ansonsten sehr lecker.', 4)
+                 (1, 'colin@uol.de', 'Ich finde die Pizza müsste länger im Ofen sein, ansonsten sehr lecker.', 4)
              ;");
             $db->exec("
              INSERT INTO kommentar (rezept_id, email, inhalt, sterneBewertung) VALUES

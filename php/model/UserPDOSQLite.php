@@ -48,7 +48,45 @@ class UserPDOSQLite implements UserDAO
 
     public function updateUser($id, $email, $passwort, $rolle) {}
 
-    public function deleteUser($id) {}
+    public function deleteUser($email)
+{
+    try {
+        $db = $this->getConnection();
+        $db->beginTransaction();
+
+        $sql = "SELECT * FROM user WHERE email = :email LIMIT 1";
+        $command = $db->prepare($sql);
+        if (!$command) {
+            $db->rollBack();
+            throw new InternalErrorException();
+        }
+        if (!$command->execute([":email" => $email])) {
+            $db->rollBack();
+            throw new InternalErrorException();
+        }
+        $result = $command->fetchAll();
+        if (empty($result)) {
+            $db->rollBack();
+            throw new MissingEntryException();
+        }
+
+        $sql = "DELETE FROM user WHERE email = :email";
+        $command = $db->prepare($sql);
+        if (!$command) {
+            $db->rollBack();
+            throw new InternalErrorException();
+        }
+        if (!$command->execute([":email" => $email])) {
+            $db->rollBack();
+            throw new InternalErrorException();
+        }
+
+        $db->commit();
+    } catch (PDOException $exc) {
+        $db->rollBack();
+        throw new InternalErrorException();
+    }
+}
 
     public function getUser($email, $db)
     {
@@ -138,9 +176,15 @@ class UserPDOSQLite implements UserDAO
                 passwort TEXT NOT NULL,
                 rolle TEXT DEFAULT 'User'
             );");
-            $db->exec("INSERT INTO user (email, passwort) VALUES ('colin@uol.de', '" . password_hash('pass123', PASSWORD_DEFAULT) . "');");
-            $db->exec("INSERT INTO user (email, passwort) VALUES ('sascha@uol.de', '" . password_hash('geheim', PASSWORD_DEFAULT) . "');");
-            $db->exec("INSERT INTO user (email, passwort) VALUES ('christoph@uol.de', '" . password_hash('pass123', PASSWORD_DEFAULT) . "');");
+
+            $db->exec("INSERT INTO user (email, passwort, rolle) VALUES ('colin@uol.de', '" . password_hash('pass123', PASSWORD_DEFAULT) . "',);");
+            $db->exec("INSERT INTO user (email, passwort, rolle) VALUES ('sascha@uol.de', '" . password_hash('geheim', PASSWORD_DEFAULT) . "',);");
+            $db->exec("INSERT INTO user (email, passwort, rolle) VALUES ('christoph@uol.de', '" . password_hash('pass123', PASSWORD_DEFAULT) . "');");
+
+            $db->exec("UPDATE user SET rolle = 'Admin' WHERE email = 'colin@uol.de';");
+            $db->exec("UPDATE user SET rolle = 'Admin' WHERE email = 'sascha@uol.de';");
+            $db->exec("UPDATE user SET rolle = 'Admin' WHERE email = 'christoph@uol.de';");
+
             unset($db);
         } catch (PDOException $e) {
             throw new InternalErrorException();

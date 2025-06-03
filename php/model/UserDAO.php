@@ -8,13 +8,13 @@ interface UserDAO
 	public function createUser($email, $passwort);
 
 	
-	public function readUser($id);
+	public function readUser($email);
 
 	
 	public function updateUser($id, $email, $passwort, $rolle);
 
 	
-	public function deleteUser($id);
+	public function deleteUser($email);
 
 
 	public function getUsers();
