@@ -42,6 +42,22 @@
   font-size: 15px;
 }
 
+.delete-button {
+  margin-top: 5px;
+  padding: 8px 12px;
+  background-color: #b23b3b;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.delete-button:hover {
+  background-color: #8c2c2c;
+}
+
 /* Tablet: 2 Spalten */
 @media (min-width: 600px) {
   .user-card {
