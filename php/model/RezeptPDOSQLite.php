@@ -81,6 +81,13 @@ class RezeptPDOSQLite implements RezeptDAO
                 $db->rollBack();
                 throw new MissingEntryException();
             }
+            if (empty($bild)) {
+                $sql = "SELECT bild FROM rezept WHERE id = :id LIMIT 1";
+                $command = $db->prepare($sql);
+                $command->execute([":id" => $id]);
+                $result = $command->fetch();
+                $bild = $result["bild"];
+            }
 
             // Update durchführen
             $sql = "UPDATE rezept SET 
