@@ -61,7 +61,82 @@ class RezeptPDOSQLite implements RezeptDAO
     }
 
     public function updateEntry($id, $titel, $email, $kurzbeschreibung, $dauer, $schwierigkeit, $preis, $zutaten, $menge, $anleitung, $bild){
+        try {
+            $db = $this->getConnection();
+            $db->beginTransaction();
 
+            // Prüfen, ob der Eintrag existiert
+            $sql = "SELECT * FROM rezept WHERE id=:id LIMIT 1";
+            $command = $db->prepare($sql);
+            if (!$command) {
+                $db->rollBack();
+                throw new InternalErrorException();
+            }
+            if (!$command->execute([":id" => $id])) {
+                $db->rollBack();
+                throw new InternalErrorException();
+            }
+            $result = $command->fetchAll();
+            if (empty($result)) {
+                $db->rollBack();
+                throw new MissingEntryException();
+            }
+            if (empty($bild)) {
+                $sql = "SELECT bild FROM rezept WHERE id = :id LIMIT 1";
+                $command = $db->prepare($sql);
+                $command->execute([":id" => $id]);
+                $result = $command->fetch();
+                $bild = $result["bild"];
+            }
+            if (empty($email)) {
+                $sql = "SELECT email FROM rezept WHERE id = :id LIMIT 1";
+                $command = $db->prepare($sql);
+                $command->execute([":id" => $id]);
+                $result = $command->fetch();
+                $email = $result["email"];
+            }
+
+            // Update durchführen
+            $sql = "UPDATE rezept SET 
+                titel = :titel,
+                email = :email,
+                kurzbeschreibung = :kurzbeschreibung,
+                dauer = :dauer,
+                schwierigkeit = :schwierigkeit,
+                preis = :preis,
+                zutaten = :zutaten,
+                menge = :menge,
+                anleitung = :anleitung,
+                bild = :bild
+                WHERE id = :id";
+            $command = $db->prepare($sql);
+            if (!$command) {
+                $db->rollBack();
+                throw new InternalErrorException();
+            }
+            if (!$command->execute([
+                ":titel" => $titel,
+                ":email" => $email,
+                ":kurzbeschreibung" => $kurzbeschreibung,
+                ":dauer" => $dauer,
+                ":schwierigkeit" => $schwierigkeit,
+                ":preis" => $preis,
+                ":zutaten" => $zutaten,
+                ":menge" => $menge,
+                ":anleitung" => $anleitung,
+                ":bild" => $bild,
+                ":id" => $id
+            ])) {
+                $db->rollBack();
+                throw new InternalErrorException();
+            }
+            $db->commit();
+        } catch (PDOException $exc) {
+            if (isset($db)) {
+                $db->rollBack();
+            }
+            throw new InternalErrorException();
+        }
     }
 
    
