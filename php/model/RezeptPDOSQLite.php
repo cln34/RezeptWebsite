@@ -88,6 +88,13 @@ class RezeptPDOSQLite implements RezeptDAO
                 $result = $command->fetch();
                 $bild = $result["bild"];
             }
+            if (empty($email)) {
+                $sql = "SELECT email FROM rezept WHERE id = :id LIMIT 1";
+                $command = $db->prepare($sql);
+                $command->execute([":id" => $id]);
+                $result = $command->fetch();
+                $email = $result["email"];
+            }
 
             // Update durchführen
             $sql = "UPDATE rezept SET 
