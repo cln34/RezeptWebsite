@@ -64,9 +64,26 @@ class UserController
     }
 }
 
-    public function deleteUser()
+    public function deleteUser($email)
     {
-        //toDo
+        if (!$email) {
+        $this->handleMissingEntryException();
+    }
+    
+    try {
+            // Kontaktierung des Models (Geschaeftslogik)
+            $user = User::getInstance();
+            $user->deleteUser($email);
+
+            // Aufbereitung der Daten fuer die Ausgabe (View)
+            $_SESSION["message"] = "delete_entry";
+        } catch (MissingEntryException $exc) {
+            // Behandlung von potentiellen Fehlern der Geschaeftslogik
+            $this->handleMissingEntryException();
+        } catch (InternalErrorException $exc) {
+            // Behandlung von potentiellen Fehlern der Geschaeftslogik
+            $this->handleInternalErrorException();
+        }
     }
 
      private function checkUserRequiredParam() {

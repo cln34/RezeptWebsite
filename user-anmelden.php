@@ -19,6 +19,7 @@ $user = $userController->readUser($email);
 
 if ($user && $email === $user->getEmail() && password_verify($passwort, $user->getPassword())) {
     $_SESSION["email"] = $email;
+    $_SESSION["rolle"] = $user->getRolle();
     $_SESSION["loggedin"] = true;
     $_SESSION["message"] = "login_success";
     header("Location: index.php");
