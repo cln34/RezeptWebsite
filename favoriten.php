@@ -22,7 +22,7 @@ require_once "php/include/head.php";
 
     <main>
         <h1>Favoriten</h1>
-
+<!-- ist nur fester filler code wird später dynamisch geändert-->
 
         <section class="flexcontainer">
             <div class="flexbox" id="box1">
