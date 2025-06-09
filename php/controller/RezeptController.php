@@ -30,8 +30,10 @@ class RezeptController
                 $_POST["dauer"],
                 $_POST["schwierigkeit"],
                 $_POST["preis"],
-                $_POST["zutaten"],
-                $_POST["menge"],
+                //php syntax "?=wenn die bedingung stimmt" ": else"
+                // Wandelt die Zutaten- und Mengen-Arrays (wenn es arrays sind) aus dem Formular in kommaseparierte Strings um, damit sie korrekt in der Datenbank gespeichert werden
+                $_POST['zutaten'] = is_array($_POST['zutaten']) ? implode(',', $_POST['zutaten']) : $_POST['zutaten'],
+                $_POST['menge'] = is_array($_POST['menge']) ? implode(',', $_POST['menge']) : $_POST['menge'],
                 $_POST["anleitung"],
                 $_POST["bild"]
             );
