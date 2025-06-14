@@ -46,7 +46,7 @@ require_once "php/include/head.php";
   ?>
 
   <main class="rezeptErstellen">
-    <form action="eintrag-eintragen.php" method="post">
+    <form action="eintrag-eintragen.php" method="post" enctype="multipart/form-data">
       <h1>Rezept erstellen</h1>
 
       <div class="form-row">
@@ -57,6 +57,7 @@ require_once "php/include/head.php";
       <div class="form-row">
         <label for="bild">Bild hochladen</label>
         <input type="file" id="bild" name="bild" accept="image/*" />
+        <img id="bild-vorschau" src="#" alt="Bildvorschau" style="display: none; max-width: 300px; margin-top: 10px;" />
       </div>
 
       <div class="form-row">
@@ -130,6 +131,26 @@ require_once "php/include/head.php";
   include_once "php/include/footer.php"
   ?>
 
+  <script>
+    document.getElementById('bild').addEventListener('change', function (event) {
+      const file = event.target.files[0];
+      const preview = document.getElementById('bild-vorschau');
+
+      if (file && file.type.startsWith('image/')) {
+        const reader = new FileReader();
+
+        reader.onload = function (e) {
+          preview.src = e.target.result;
+          preview.style.display = 'block';
+        };
+
+        reader.readAsDataURL(file);
+      } else {
+        preview.src = '#';
+        preview.style.display = 'none';
+      }
+    });
+  </script>
 
   <script>
     // Funktion fügt zusätzliche Zutaten hinzu
@@ -163,7 +184,6 @@ require_once "php/include/head.php";
       container.appendChild(div);
     }
   </script>
-
 </body>
 
 </html>

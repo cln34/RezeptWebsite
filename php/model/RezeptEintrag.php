@@ -12,8 +12,9 @@ class RezeptEintrag
     private $menge = [];
     private $anleitung;
     private $bild;
+    private $datum;
 
-    public function __construct($id, $titel, $email, $kurzbeschreibung, $dauer, $schwierigkeit, $preis, $zutaten, $menge, $anleitung, $bild)
+    public function __construct($id, $titel, $email, $kurzbeschreibung, $dauer, $schwierigkeit, $preis, $zutaten, $menge, $anleitung, $bild, $datum)
     {
         $this->id = $id;
         $this->titel = $titel;
@@ -27,6 +28,7 @@ class RezeptEintrag
         $this->menge = is_array($menge) ? $menge : explode(',', $menge);
         $this->anleitung = $anleitung;
         $this->bild = $bild;
+        $this->datum = $datum;
     }
     public function getId()
     {
@@ -83,6 +85,11 @@ class RezeptEintrag
         return $this->bild;
     }
 
+    public function getDatum()
+    {
+        return $this->datum;
+    }
+
 
     public function setTitel($titel)
     {
@@ -133,5 +140,10 @@ class RezeptEintrag
     public function setBild($bild)
     {
         $this->bild = $bild;
+    }
+
+    public function setDatum($datum)
+    {
+        $this->datum = $datum;
     }
 }

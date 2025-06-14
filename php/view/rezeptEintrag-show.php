@@ -40,7 +40,7 @@ require_once "php/include/head.php";
             <?= htmlspecialchars($entry->getEmail()) ?>
         </h3>
         <img
-            src="images/<?= htmlspecialchars($entry->getBild()) ?>"
+            src="rezeptBild.php?id=<?= urlencode($entry->getId()) ?>" 
             alt="Bild von <?= htmlspecialchars($entry->getTitel()) ?>"
             title="<?= htmlspecialchars($entry->getTitel()) ?>"
             class="rezept-bild" />
