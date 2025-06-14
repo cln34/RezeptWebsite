@@ -53,6 +53,8 @@ require_once "php/include/head.php";
             <label for="sortierung">Sortieren nach:</label>
             <select name="sortierung" id="sortierung" onchange="document.getElementById('sortierForm').submit()">
             <option value="">-- Auswahl --</option>
+            <option value="datum_desc" <?= (isset($_GET['sortierung']) && $_GET['sortierung'] === 'datum_desc') ? 'selected' : '' ?>>Neueste zuerst</option>
+            <option value="datum_asc" <?= (isset($_GET['sortierung']) && $_GET['sortierung'] === 'datum_asc') ? 'selected' : '' ?>>Älteste zuerst</option>
             <option value="titel_asc" <?= (isset($_GET['sortierung']) && $_GET['sortierung'] === 'titel_asc') ? 'selected' : '' ?>>Titel (A–Z)</option>
             <option value="titel_desc" <?= (isset($_GET['sortierung']) && $_GET['sortierung'] === 'titel_desc') ? 'selected' : '' ?>>Titel (Z–A)</option>
             <option value="preis_asc" <?= (isset($_GET['sortierung']) && $_GET['sortierung'] === 'preis_asc') ? 'selected' : '' ?>>Preis (aufsteigend)</option>
@@ -70,6 +72,12 @@ require_once "php/include/head.php";
                     
                     if (isset($_GET['sortierung'])) {
                         switch ($_GET['sortierung']) {
+                            case 'datum_desc':
+                                usort($entries, fn($a, $b) => strtotime($b->getErstellungsdatum()) <=> strtotime($a->getErstellungsdatum()));
+                                break;
+                            case 'datum_asc':
+                                usort($entries, fn($a, $b) => strtotime($a->getErstellungsdatum()) <=> strtotime($b->getErstellungsdatum()));
+                                break;
                             case 'titel_asc':
                                 usort($entries, fn($a, $b) => strcmp($a->getTitel(), $b->getTitel()));
                                 break;

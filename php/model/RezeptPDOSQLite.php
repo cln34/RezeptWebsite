@@ -202,7 +202,9 @@ class RezeptPDOSQLite implements RezeptDAO
             $entry["zutaten"],
             $entry["menge"],
             $entry["anleitung"],
-            $entry["bild"]);
+            $entry["bild"],
+            $entry["datum"]
+        );
         } catch (PDOException $exc) {
             throw new InternalErrorException();
         }
@@ -235,7 +237,9 @@ class RezeptPDOSQLite implements RezeptDAO
                     $row["zutaten"],
                     $row["menge"],
                     $row["anleitung"],
-                    $row["bild"]);
+                    $row["bild"],
+                    $row["datum"]
+                );
                 $entries[] = $entry;
             }
             return $entries;
@@ -284,21 +288,21 @@ class RezeptPDOSQLite implements RezeptDAO
                         zutaten TEXT,
                         menge TEXT,
                         anleitung TEXT,
-                        bild TEXT 
+                        bild TEXT,
+                        datum text
                     );"); //bei bild muss entweder ein Pfad oder ein Blob rein
             $db->exec("
-                    INSERT INTO rezept (titel, email, kurzbeschreibung, dauer, schwierigkeit, preis, zutaten, menge, anleitung, bild) VALUES
-                        ('Pizza Margherita', 'pizza@beispiel.de', 'Klassische italienische Pizza mit Tomate und Mozzarella.', 20, 'Einfach', 4.50, 'Pizzateig, Tomatensauce, Mozzarella, Basilikum', '1, 100ml, 100g, 1 Bund', 'Teig ausrollen, mit Tomatensauce bestreichen, Mozzarella darauf verteilen, backen und mit Basilikum garnieren.', 'pizza.jpg')
-                ;");
+                INSERT INTO rezept (titel, email, kurzbeschreibung, dauer, schwierigkeit, preis, zutaten, menge, anleitung, bild, datum) VALUES
+                    ('Pizza Margherita', 'pizza@beispiel.de', 'Klassische italienische Pizza mit Tomate und Mozzarella.', 20, 'Einfach', 4.50, 'Pizzateig, Tomatensauce, Mozzarella, Basilikum', '1, 100ml, 100g, 1 Bund', 'Teig ausrollen, mit Tomatensauce bestreichen, Mozzarella darauf verteilen, backen und mit Basilikum garnieren.', 'pizza.jpg', '2024-01-01 12:00:00')
+            ;");
             $db->exec("
-                    INSERT INTO rezept (titel, email, kurzbeschreibung, dauer, schwierigkeit, preis, zutaten, menge, anleitung, bild) VALUES
-                        ('Spaghetti Bolognese', 'bolognese@beispiel.de', 'Schnelle Spaghetti mit würziger Hackfleischsoße.', 25, 'Einfach', 5.00, 'Spaghetti, Hackfleisch, Tomaten, Zwiebel, Knoblauch', '200g, 150g, 200g, 1, 1 Zehe', 'Spaghetti kochen. Hackfleisch mit Zwiebel und Knoblauch anbraten, Tomaten zugeben, köcheln lassen. Mit Spaghetti servieren.', 'Bolognese.jpg')
-                ;");
+                INSERT INTO rezept (titel, email, kurzbeschreibung, dauer, schwierigkeit, preis, zutaten, menge, anleitung, bild, datum) VALUES
+                    ('Spaghetti Bolognese', 'bolognese@beispiel.de', 'Schnelle Spaghetti mit würziger Hackfleischsoße.', 25, 'Einfach', 5.00, 'Spaghetti, Hackfleisch, Tomaten, Zwiebel, Knoblauch', '200g, 150g, 200g, 1, 1 Zehe', 'Spaghetti kochen. Hackfleisch mit Zwiebel und Knoblauch anbraten, Tomaten zugeben, köcheln lassen. Mit Spaghetti servieren.', 'Bolognese.jpg', '2024-01-02 13:00:00')
+            ;");
             $db->exec("
-                    INSERT INTO rezept (titel, email, kurzbeschreibung, dauer, schwierigkeit, preis, zutaten, menge, anleitung, bild) VALUES
-                        ('Pesto alla Genovese', 'pesto@beispiel.de', 'Frisches Basilikumpesto für Pasta oder Brot.', 10, 'Einfach', 3.00, 'Basilikum, Pinienkerne, Parmesan, Olivenöl, Knoblauch', '1 Bund, 30g, 30g, 50ml, 1 Zehe', 'Alle Zutaten im Mörser oder Mixer fein zerkleinern und mit Öl vermengen.', 'Pesto.jpg')
-                ;");
-
+                INSERT INTO rezept (titel, email, kurzbeschreibung, dauer, schwierigkeit, preis, zutaten, menge, anleitung, bild, datum) VALUES
+                    ('Pesto alla Genovese', 'pesto@beispiel.de', 'Frisches Basilikumpesto für Pasta oder Brot.', 10, 'Einfach', 3.00, 'Basilikum, Pinienkerne, Parmesan, Olivenöl, Knoblauch', '1 Bund, 30g, 30g, 50ml, 1 Zehe', 'Alle Zutaten im Mörser oder Mixer fein zerkleinern und mit Öl vermengen.', 'Pesto.jpg', '2024-01-03 14:00:00')
+            ;");
             unset($db);
         } catch (PDOException $e) {
             // nothing
@@ -335,7 +339,8 @@ class RezeptPDOSQLite implements RezeptDAO
                     $row["zutaten"],
                     $row["menge"],
                     $row["anleitung"],
-                    $row["bild"]
+                    $row["bild"],
+                    $row["datum"]
                 );
                 $this->searchEntries[] = $entry;
             }

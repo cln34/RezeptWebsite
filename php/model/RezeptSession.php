@@ -34,7 +34,8 @@ class RezeptSession implements RezeptDAO
 				"Nudeln, Hackfleisch, Tomaten, Zwiebeln, Knoblauch, Gewürze",
 				"200gr",
 				"Zwiebeln und Knoblauch anbraten, Hackfleisch dazugeben, Tomaten und Gewürze hinzufügen, köcheln lassen, mit Nudeln servieren.",
-				"Bolognese.jpg"
+				"Bolognese.jpg",
+				"2023-10-01 12:00:00",
 			);
 			$this->entries[1] = new RezeptEintrag(
 				1,
@@ -47,7 +48,8 @@ class RezeptSession implements RezeptDAO
 				"Nudeln, Zucchini, Aubergine, Tomaten, Käse, Gewürze",
 				"500gr",
 				"Gemüse schneiden und anbraten, Tomatensoße zubereiten, alles schichten, mit Käse bestreuen und backen.",
-				"pizza.jpg"
+				"pizza.jpg",
+				"2023-10-02 14:30:00",
 			);
 			$_SESSION["entries"] = serialize($this->entries);
 			$_SESSION["nextId"] = 2;
@@ -57,7 +59,7 @@ class RezeptSession implements RezeptDAO
 
 	public function createEntry($titel, $email, $kurzbeschreibung, $dauer, $schwierigkeit, $preis, $zutaten, $menge, $anleitung, $bild)
 	{
-		$this->entries[$_SESSION["nextId"]] = new RezeptEintrag($_SESSION["nextId"], $titel, $email, $kurzbeschreibung, $dauer, $schwierigkeit, $preis, $menge, $zutaten, $anleitung, $bild);
+		$this->entries[$_SESSION["nextId"]] = new RezeptEintrag($_SESSION["nextId"], $titel, $email, $kurzbeschreibung, $dauer, $schwierigkeit, $preis, $menge, $zutaten, $anleitung, $bild, date("Y-m-d H:i:s"));
 		$_SESSION["nextId"] = $_SESSION["nextId"] + 1;
 		$_SESSION["entries"] = serialize($this->entries);
 	}
