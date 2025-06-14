@@ -63,7 +63,7 @@ require_once "php/include/head.php";
         <label for="zutaten">Zutaten</label>
         <div id="zutaten-container">
           <div class="zutat-eintrag">
-            <select id="zutaten" name="zutaten" required>
+            <select id="zutaten" name="zutaten[]" required>
               <option value="" disabled selected>-- Zutat wählen --</option>
               <option value="Mehl">Mehl</option>
               <option value="Zucker">Zucker</option>
@@ -80,12 +80,12 @@ require_once "php/include/head.php";
               <option value="Zimt">Zimt</option>
             </select>
             <label for="menge" class="visually-hidden">Menge</label>
-            <input type="text" id="menge" name="menge" placeholder="Menge (z. B. 200g)" required>
+            <input type="text" id="menge" name="menge[]" placeholder="Menge (z. B. 200g)" required>
           </div>
         </div>
       </div>
 
-      <button type="button" onclick="addZutat()">Weitere Zutat hinzufügen</button>
+      <button class="addZutat-button" type="button" onclick="addZutat()">Weitere Zutat hinzufügen</button>
 
       <div class="form-row">
         <label for="anleitung">Zubereitung</label>
@@ -129,6 +129,40 @@ require_once "php/include/head.php";
   <?php
   include_once "php/include/footer.php"
   ?>
+
+
+  <script>
+    // Funktion fügt zusätzliche Zutaten hinzu
+    function addZutat() {
+      const container = document.getElementById('zutaten-container');
+      const index = container.children.length;
+
+      // Neues Zutaten/Mengen-Paar als HTML
+      const div = document.createElement('div');
+      div.className = 'zutat-eintrag';
+      div.innerHTML = `
+    <select id="zutaten" name="zutaten[]" required>
+      <option value="" disabled selected>-- Zutat wählen --</option>
+      <option value="Mehl">Mehl</option>
+      <option value="Zucker">Zucker</option>
+      <option value="Eier">Eier</option>
+      <option value="Milch">Milch</option>
+      <option value="Butter">Butter</option>
+      <option value="Salz">Salz</option>
+      <option value="Pfeffer">Pfeffer</option>
+      <option value="Olivenöl">Olivenöl</option>
+      <option value="Sahne">Sahne</option>
+      <option value="Hefe">Hefe</option>
+      <option value="Backpulver">Backpulver</option>
+      <option value="Vanillezucker">Vanillezucker</option>
+      <option value="Zimt">Zimt</option>
+    </select>
+    <input type="text" name="menge[]" placeholder="Menge (z. B. 200g)" required>
+    <button class="removeZutat-button" type="button" onclick="this.parentNode.remove()">Zutat entfernen</button>
+  `;
+      container.appendChild(div);
+    }
+  </script>
 
 </body>
 

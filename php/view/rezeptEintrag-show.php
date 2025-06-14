@@ -65,19 +65,21 @@ require_once "php/include/head.php";
         </div>
 
         <!-- Zweite Tabelle: Zutaten und Menge -->
+        <?php
+        $zutatenArr = $entry->getZutaten();
+        $mengeArr = $entry->getMenge();
+        ?>
         <div class="table-container">
             <div class="table-header">
                 <div>Zutat</div>
                 <div>Menge</div>
             </div>
-            <div class="table-row">
-                <div>
-                    <?= htmlspecialchars($entry->getZutaten()) ?>
+            <?php for ($i = 0; $i < count($zutatenArr); $i++): ?>
+                <div class="table-row">
+                    <div><?= htmlspecialchars($zutatenArr[$i] ?? '') ?></div>
+                    <div><?= htmlspecialchars($mengeArr[$i] ?? '') ?></div>
                 </div>
-                <div>
-                    <?= htmlspecialchars($entry->getMenge()) ?>
-                </div>
-            </div>
+            <?php endfor; ?>
         </div>
 
         <div class="rezept-schritt">

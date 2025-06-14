@@ -8,8 +8,8 @@ class RezeptEintrag
     private $dauer;
     private $schwierigkeit;
     private $preis;
-    private $zutaten;
-    private $menge;
+    private $zutaten = [];
+    private $menge = [];
     private $anleitung;
     private $bild;
 
@@ -22,12 +22,12 @@ class RezeptEintrag
         $this->dauer = $dauer;
         $this->schwierigkeit = $schwierigkeit;
         $this->preis = $preis;
-        $this->zutaten = $zutaten;
-        $this->menge = $menge;
+        // explode bewirkt, dass die zutaten und menge die als strings in der db gespeichert wurden, wieder zu arrays werden
+        $this->zutaten = is_array($zutaten) ? $zutaten : explode(',', $zutaten);
+        $this->menge = is_array($menge) ? $menge : explode(',', $menge);
         $this->anleitung = $anleitung;
         $this->bild = $bild;
     }
-
     public function getId()
     {
         return $this->id;
@@ -114,7 +114,8 @@ class RezeptEintrag
         $this->preis = $preis;
     }
 
-    public function setZutaten($zutaten)
+   /*  muss man noch an arrays anpassen
+   public function setZutaten($zutaten)
     {
         $this->zutaten = $zutaten;
     }
@@ -122,7 +123,7 @@ class RezeptEintrag
     public function setMenge($menge)
     {
         $this->menge = $menge;
-    }
+    }*/
 
     public function setAnleitung($anleitung)
     {
