@@ -21,8 +21,8 @@ class RezeptPDOSQLite implements RezeptDAO
     {
         try {
             $db = $this->getConnection();
-            $sql = "INSERT INTO rezept (titel, email, kurzbeschreibung, dauer, schwierigkeit, preis, zutaten, menge, anleitung, bild) 
-                VALUES (:titel, :email, :kurzbeschreibung, :dauer, :schwierigkeit, :preis, :zutaten, :menge, :anleitung, 'pizza.jpg');";
+            $sql = "INSERT INTO rezept (titel, email, kurzbeschreibung, dauer, schwierigkeit, preis, zutaten, menge, anleitung, bild, datum) 
+                VALUES (:titel, :email, :kurzbeschreibung, :dauer, :schwierigkeit, :preis, :zutaten, :menge, :anleitung, 'pizza.jpg', :datum);";
             $command = $db->prepare($sql);
             if (!$command) {
             throw new InternalErrorException();
@@ -38,6 +38,7 @@ class RezeptPDOSQLite implements RezeptDAO
             ":menge" => $menge,
             ":anleitung" => $anleitung,
             // ":bild" => $bild
+            ":datum" => date("Y-m-d H:i:s")
             ])) {
             throw new InternalErrorException();
             }
