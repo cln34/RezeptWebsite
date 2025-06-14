@@ -108,9 +108,8 @@ require_once "php/include/head.php";
                             <h2><?= htmlspecialchars($entry->getTitel()) ?></h2>
                             <a href="rezept.php?id=<?= urlencode($entry->getId()) ?>" class="box-link">
                                 <img
-                                    src="images/<?= htmlspecialchars($entry->getBild()) ?>"
-                                    alt="Bild von <?= htmlspecialchars($entry->getTitel()) ?>"
-                                    title="<?= htmlspecialchars($entry->getTitel()) ?>" />
+                                    src="RezeptBild.php?id=<?= urlencode($entry->getId()) ?>"
+                                    alt="Bild von <?= htmlspecialchars($entry->getTitel()) ?>">
                             </a>
                             <div class="info-grid">
                                 <div>Dauer</div>

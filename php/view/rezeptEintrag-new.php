@@ -46,7 +46,7 @@ require_once "php/include/head.php";
   ?>
 
   <main class="rezeptErstellen">
-    <form action="eintrag-eintragen.php" method="post">
+    <form action="eintrag-eintragen.php" method="post" enctype="multipart/form-data">
       <h1>Rezept erstellen</h1>
 
       <div class="form-row">

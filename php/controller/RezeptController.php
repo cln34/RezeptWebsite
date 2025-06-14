@@ -23,6 +23,10 @@ class RezeptController
 
             // Kontaktierung des Models (Geschaeftslogik)
             $rezept = Rezept::getInstance();
+            $bildBlob = null;
+            if (isset($_FILES['bild']) && $_FILES['bild']['error'] === UPLOAD_ERR_OK) {
+                $bildBlob = file_get_contents($_FILES['bild']['tmp_name']);
+            }
              $rezept->createEntry(
                 $_POST["titel"],
                 $_POST["email"],
@@ -33,7 +37,7 @@ class RezeptController
                 $_POST["zutaten"],
                 $_POST["menge"],
                 $_POST["anleitung"],
-                $_POST["bild"]
+                $bildBlob
             );
             
 
