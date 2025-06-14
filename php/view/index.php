@@ -49,11 +49,48 @@ require_once "php/include/head.php";
             </form>
         </section>
 
+        <form method="get" id="sortierForm">
+            <label for="sortierung">Sortieren nach:</label>
+            <select name="sortierung" id="sortierung" onchange="document.getElementById('sortierForm').submit()">
+            <option value="">-- Auswahl --</option>
+            <option value="titel_asc" <?= (isset($_GET['sortierung']) && $_GET['sortierung'] === 'titel_asc') ? 'selected' : '' ?>>Titel (A–Z)</option>
+            <option value="titel_desc" <?= (isset($_GET['sortierung']) && $_GET['sortierung'] === 'titel_desc') ? 'selected' : '' ?>>Titel (Z–A)</option>
+            <option value="preis_asc" <?= (isset($_GET['sortierung']) && $_GET['sortierung'] === 'preis_asc') ? 'selected' : '' ?>>Preis (aufsteigend)</option>
+            <option value="preis_desc" <?= (isset($_GET['sortierung']) && $_GET['sortierung'] === 'preis_desc') ? 'selected' : '' ?>>Preis (absteigend)</option>
+            <option value="dauer_asc" <?= (isset($_GET['sortierung']) && $_GET['sortierung'] === 'dauer_asc') ? 'selected' : '' ?>>Dauer (kürzeste zuerst)</option>
+            <option value="dauer_desc" <?= (isset($_GET['sortierung']) && $_GET['sortierung'] === 'dauer_desc') ? 'selected' : '' ?>>Dauer (längste zuerst)</option>
+            </select>
+        </form>
+
         <ul>
             <section class="flexcontainer">
                 <?php if (empty($entries)): ?>
                     Keine Einträge vorhanden.
                     <?php else:
+                    
+                    if (isset($_GET['sortierung'])) {
+                        switch ($_GET['sortierung']) {
+                            case 'titel_asc':
+                                usort($entries, fn($a, $b) => strcmp($a->getTitel(), $b->getTitel()));
+                                break;
+                            case 'titel_desc':
+                                usort($entries, fn($a, $b) => strcmp($b->getTitel(), $a->getTitel()));
+                                break;
+                            case 'preis_asc':
+                                usort($entries, fn($a, $b) => $a->getPreis() <=> $b->getPreis());
+                                break;
+                            case 'preis_desc':
+                                usort($entries, fn($a, $b) => $b->getPreis() <=> $a->getPreis());
+                                break;
+                            case 'dauer_asc':
+                                usort($entries, fn($a, $b) => $a->getDauer() <=> $b->getDauer());
+                                break;
+                            case 'dauer_desc':
+                                usort($entries, fn($a, $b) => $b->getDauer() <=> $a->getDauer());
+                                break;
+                        }
+                    }
+
                     foreach ($entries as $entry): ?>
                         <div class="flexbox">
                             <h2><?= htmlspecialchars($entry->getTitel()) ?></h2>
