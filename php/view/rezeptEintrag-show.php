@@ -36,6 +36,9 @@ require_once "php/include/head.php";
         <h2>
             <?= htmlspecialchars($entry->getTitel()) ?>
         </h2>
+        <h3>
+            <?= htmlspecialchars($entry->getEmail()) ?>
+        </h3>
         <img
             src="images/<?= htmlspecialchars($entry->getBild()) ?>"
             alt="Bild von <?= htmlspecialchars($entry->getTitel()) ?>"
@@ -85,10 +88,10 @@ require_once "php/include/head.php";
         </div>
         <a href="kommentare.php?id=<?= urlencode($entry->getId()) ?>" class="rezept-button">Kommentare ansehen </a>
     </main>
-    <?php if(isset($_SESSION["email"]) && $_SESSION["email"] == $entry->getEmail()){ ?>
-    <a href="eintrag-loeschen.php?id=<?= urlencode($entry->getId()) ?>"><button class="rezept-button"> Rezept löschen </button></a>
-    <a href="eintrag-bearbeiten.php?id=<?= urlencode($entry->getId()) ?>"><button class="rezept-button"> Rezept bearbeiten </button></a>
-     <?php } ?>
+    <?php if (isset($_SESSION["email"]) && $_SESSION["email"] == $entry->getEmail()) { ?>
+        <a href="eintrag-loeschen.php?id=<?= urlencode($entry->getId()) ?>"><button class="rezept-button"> Rezept löschen </button></a>
+        <a href="eintrag-bearbeiten.php?id=<?= urlencode($entry->getId()) ?>"><button class="rezept-button"> Rezept bearbeiten </button></a>
+    <?php } ?>
     <?php
     include_once "php/include/footer.php"
     ?>
