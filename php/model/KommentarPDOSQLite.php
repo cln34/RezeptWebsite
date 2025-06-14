@@ -97,14 +97,16 @@ class KommentarPDOSQLite implements KommentarDAO
 
     private function getConnection()
     {
-        if (!file_exists("db/kommentar.db")) {
+        
             $this->create();
-        }
+        
         try {
             $user = 'root';
             $pw = null;
-            $dsn = 'sqlite:db/kommentar.db';
-            return new PDO($dsn, $user, $pw);
+            $dsn = 'sqlite:db/rezept.db';
+            $db = new PDO($dsn, $user, $pw);
+            $db->exec("PRAGMA foreign_keys = ON;"); // Fremdschlüssel aktivieren!
+            return $db;
         } catch (PDOException $e) {
             throw new InternalErrorException();
         }
@@ -115,15 +117,22 @@ class KommentarPDOSQLite implements KommentarDAO
         try {
             $user = 'root';
             $pw = null;
-            $dsn = 'sqlite:db/kommentar.db';
+            $dsn = 'sqlite:db/rezept.db';
             $db = new PDO($dsn, $user, $pw);
-
+            // Prüfen, ob die Tabelle bereits existiert
+            $result = $db->query("SELECT name FROM sqlite_master WHERE type='table' AND name='kommentar';");
+            if ($result && $result->fetch()) {
+            // Tabelle existiert bereits, also nichts tun
+            unset($db);
+            return;
+  }  
             $db->exec("CREATE TABLE IF NOT EXISTS kommentar(
                 kommentar_id INTEGER PRIMARY KEY AUTOINCREMENT,
                 rezept_id INTEGER NOT NULL, --fremdschlüssel
                 email TEXT NOT NULL,
                 inhalt TEXT NOT NULL,
-                sterneBewertung INT
+                sterneBewertung INTEGER,
+                FOREIGN KEY (rezept_id) REFERENCES rezept(id) ON DELETE CASCADE
             );");
             $db->exec("
              INSERT INTO kommentar (rezept_id, email, inhalt, sterneBewertung) VALUES

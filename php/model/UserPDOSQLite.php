@@ -152,16 +152,14 @@ class UserPDOSQLite implements UserDAO
 
     private function getConnection()
     {
-
-        if (!file_exists("db/user.db")) {
             $this->create();
-        }
-
+    
         try {
             $user = 'root';
             $pw = null;
-            $dsn = 'sqlite:db/user.db';
-            return new PDO($dsn, $user, $pw);
+            $dsn = 'sqlite:db/rezept.db';
+            $db = new PDO($dsn, $user, $pw);
+            return $db;
         } catch (PDOException $e) {
             throw new InternalErrorException();
         }
@@ -173,8 +171,15 @@ class UserPDOSQLite implements UserDAO
         try {
             $user = 'root';
             $pw = null;
-            $dsn = 'sqlite:db/user.db';
+            $dsn = 'sqlite:db/rezept.db';
             $db = new PDO($dsn, $user, $pw);
+            // Prüfen, ob die Tabelle bereits existiert
+            $result = $db->query("SELECT name FROM sqlite_master WHERE type='table' AND name='user';");
+            if ($result && $result->fetch()) {
+            // Tabelle existiert bereits, also nichts tun
+            unset($db);
+            return;
+  }  
 
             $db->exec("CREATE TABLE IF NOT EXISTS user (
                 id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -183,9 +188,9 @@ class UserPDOSQLite implements UserDAO
                 rolle TEXT DEFAULT 'User'
             );");
 
-            $db->exec("INSERT INTO user (email, passwort, rolle) VALUES ('colin@uol.de', '" . password_hash('pass123', PASSWORD_DEFAULT) . "',);");
-            $db->exec("INSERT INTO user (email, passwort, rolle) VALUES ('sascha@uol.de', '" . password_hash('geheim', PASSWORD_DEFAULT) . "',);");
-            $db->exec("INSERT INTO user (email, passwort, rolle) VALUES ('christoph@uol.de', '" . password_hash('pass123', PASSWORD_DEFAULT) . "');");
+            $db->exec("INSERT INTO user (email, passwort, rolle) VALUES ('colin@uol.de', '" . password_hash('pass123', PASSWORD_DEFAULT) . "', 'Admin');");
+            $db->exec("INSERT INTO user (email, passwort, rolle) VALUES ('sascha@uol.de', '" . password_hash('geheim', PASSWORD_DEFAULT) . "', 'Admin');");
+            $db->exec("INSERT INTO user (email, passwort, rolle) VALUES ('christoph@uol.de', '" . password_hash('pass123', PASSWORD_DEFAULT) . "', 'Admin');");
 
             $db->exec("UPDATE user SET rolle = 'Admin' WHERE email = 'colin@uol.de';");
             $db->exec("UPDATE user SET rolle = 'Admin' WHERE email = 'sascha@uol.de';");
