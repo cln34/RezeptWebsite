@@ -56,6 +56,40 @@
   background-color: #4a593d;
 }
 
+.addZutat-button{
+    background-color: #5C6F4D;
+    color: white;
+    border: none;
+    margin-top: 0.5rem;
+    padding: 8px 16px;
+    border-radius: 10px;
+    font-size: 12px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.addZutat-button:hover {
+  background-color: #4a593d;
+}
+
+.removeZutat-button{
+    background-color: #8B0000;
+    color: white;
+    border: none;
+    margin-top: 0.5rem;
+    padding: 8px 16px;
+    border-radius: 10px;
+    font-size: 12px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.removeZutat-button:hover {
+  background-color: #4a593d;
+}
+
 /* Einheitliches Design für Tabellen */
 
 .table-container {

@@ -44,33 +44,33 @@ require_once "php/include/head.php";
                             </select>
                             <label for="menge" class="visually-hidden">Menge</label>
                             <input type="text" id="menge" name="menge[]" value="<?= htmlspecialchars($mengeArr[$i] ?? '') ?>" required>
+                            <button class="removeZutat-button"  type="button" onclick="this.parentNode.remove()">Entfernen</button>
                         </div>
+                    <?php endfor; ?>
                 </div>
-            <?php endfor; ?>
-            </div>
 
-            <button type="button" onclick="addZutat()">Weitere Zutat hinzufügen</button>
+                <button class="addZutat-button" type="button" onclick="addZutat()">Weitere Zutat hinzufügen</button>
 
-            <label for="anleitung">Zubereitung</label>
-            <textarea id="anleitung" name="anleitung" rows="6" required><?= htmlspecialchars($entry->getAnleitung()) ?></textarea>
+                <label for="anleitung">Zubereitung</label>
+                <textarea id="anleitung" name="anleitung" rows="6" required><?= htmlspecialchars($entry->getAnleitung()) ?></textarea>
 
-            <label for="kurzbeschreibung">Kurzbeschreibung</label>
-            <textarea id="kurzbeschreibung" name="kurzbeschreibung" rows="3"><?= htmlspecialchars($entry->getKurzbeschreibung()) ?></textarea>
+                <label for="kurzbeschreibung">Kurzbeschreibung</label>
+                <textarea id="kurzbeschreibung" name="kurzbeschreibung" rows="3"><?= htmlspecialchars($entry->getKurzbeschreibung()) ?></textarea>
 
-            <label for="dauer">Dauer (in Minuten)</label>
-            <input type="number" id="dauer" name="dauer" min="1" max="180" value="<?= htmlspecialchars($entry->getDauer()) ?>" required />
+                <label for="dauer">Dauer (in Minuten)</label>
+                <input type="number" id="dauer" name="dauer" min="1" max="180" value="<?= htmlspecialchars($entry->getDauer()) ?>" required />
 
-            <label for="schwierigkeit">Schwierigkeit</label>
-            <select id="schwierigkeit" name="schwierigkeit" required>
-                <option value="leicht" <?= $entry->getSchwierigkeit() == 'leicht' ? 'selected' : '' ?>>leicht</option>
-                <option value="mittel" <?= $entry->getSchwierigkeit() == 'mittel' ? 'selected' : '' ?>>mittel</option>
-                <option value="schwer" <?= $entry->getSchwierigkeit() == 'schwer' ? 'selected' : '' ?>>schwer</option>
-            </select>
+                <label for="schwierigkeit">Schwierigkeit</label>
+                <select id="schwierigkeit" name="schwierigkeit" required>
+                    <option value="leicht" <?= $entry->getSchwierigkeit() == 'leicht' ? 'selected' : '' ?>>leicht</option>
+                    <option value="mittel" <?= $entry->getSchwierigkeit() == 'mittel' ? 'selected' : '' ?>>mittel</option>
+                    <option value="schwer" <?= $entry->getSchwierigkeit() == 'schwer' ? 'selected' : '' ?>>schwer</option>
+                </select>
 
-            <label for="preis">Preis angeben (max 50€):</label>
-            <input type="number" id="preis" name="preis" min="0" max="50" step="1" value="<?= htmlspecialchars($entry->getPreis()) ?>" required />
+                <label for="preis">Preis angeben (max 50€):</label>
+                <input type="number" id="preis" name="preis" min="0" max="50" step="1" value="<?= htmlspecialchars($entry->getPreis()) ?>" required />
 
-            <input type="submit" value="Rezept aktualisieren" />
+                <input type="submit" value="Rezept aktualisieren" />
         </form>
     </main>
 
@@ -103,7 +103,7 @@ require_once "php/include/head.php";
       <option value="Zimt">Zimt</option>
     </select>
     <input type="text" name="menge[]" placeholder="Menge (z. B. 200g)" required>
-    <button type="button" onclick="this.parentNode.remove()">Entfernen</button>
+    <button type="button" onclick="this.parentNode.remove()">Zutat entfernen</button>
   `;
             container.appendChild(div);
         }

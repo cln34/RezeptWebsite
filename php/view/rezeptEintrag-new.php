@@ -85,7 +85,7 @@ require_once "php/include/head.php";
         </div>
       </div>
 
-      <button type="button" onclick="addZutat()">Weitere Zutat hinzufügen</button>
+      <button class="addZutat-button" type="button" onclick="addZutat()">Weitere Zutat hinzufügen</button>
 
       <div class="form-row">
         <label for="anleitung">Zubereitung</label>
@@ -131,16 +131,16 @@ require_once "php/include/head.php";
   ?>
 
 
-<script>
-  // Funktion fügt zusätzliche Zutaten hinzu
-  function addZutat() {
-  const container = document.getElementById('zutaten-container');
-  const index = container.children.length;
+  <script>
+    // Funktion fügt zusätzliche Zutaten hinzu
+    function addZutat() {
+      const container = document.getElementById('zutaten-container');
+      const index = container.children.length;
 
-  // Neues Zutaten/Mengen-Paar als HTML
-  const div = document.createElement('div');
-  div.className = 'zutat-eintrag';
-  div.innerHTML = `
+      // Neues Zutaten/Mengen-Paar als HTML
+      const div = document.createElement('div');
+      div.className = 'zutat-eintrag';
+      div.innerHTML = `
     <select id="zutaten" name="zutaten[]" required>
       <option value="" disabled selected>-- Zutat wählen --</option>
       <option value="Mehl">Mehl</option>
@@ -158,12 +158,11 @@ require_once "php/include/head.php";
       <option value="Zimt">Zimt</option>
     </select>
     <input type="text" name="menge[]" placeholder="Menge (z. B. 200g)" required>
-    <button type="button" onclick="this.parentNode.remove()">Entfernen</button>
+    <button class="removeZutat-button" type="button" onclick="this.parentNode.remove()">Zutat entfernen</button>
   `;
-  container.appendChild(div);
-}
-
-</script>
+      container.appendChild(div);
+    }
+  </script>
 
 </body>
 
