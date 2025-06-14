@@ -103,7 +103,7 @@ require_once "php/include/head.php";
       <option value="Zimt">Zimt</option>
     </select>
     <input type="text" name="menge[]" placeholder="Menge (z. B. 200g)" required>
-    <button type="button" onclick="this.parentNode.remove()">Zutat entfernen</button>
+    <button class="removeZutat-button" type="button" onclick="this.parentNode.remove()">Zutat entfernen</button>
   `;
             container.appendChild(div);
         }
