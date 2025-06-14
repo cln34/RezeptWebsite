@@ -255,7 +255,9 @@ class RezeptPDOSQLite implements RezeptDAO
             $user = 'root';
             $pw = null;
             $dsn = 'sqlite:db/rezept.db';
-            return new PDO($dsn, $user, $pw);
+            $db = new PDO($dsn, $user, $pw);
+            $db->exec("PRAGMA foreign_keys = ON;"); // Fremdschlüssel aktivieren!
+            return $db;
         } catch (PDOException $e) {
             throw new InternalErrorException();
         }

@@ -64,7 +64,13 @@ class KommentarPDOSQLite implements KommentarDAO
 
             $comments = [];
             foreach ($result as $row) {
-                $comment = new KommentarEintrag($row["rezept_id"], $row["email"], $row["inhalt"], $row["sterneBewertung"]);
+                $comment = new KommentarEintrag(
+                    $row["kommentar_id"],
+                    $row["email"],
+                    $row["inhalt"],
+                    $row["sterneBewertung"],
+                    $row["datum"]
+                );
                 $comments[] = $comment;
             }
             return $comments;
@@ -97,14 +103,16 @@ class KommentarPDOSQLite implements KommentarDAO
 
     private function getConnection()
     {
-        if (!file_exists("db/kommentar.db")) {
-            $this->create();
-        }
+
+        $this->create();
+
         try {
             $user = 'root';
             $pw = null;
-            $dsn = 'sqlite:db/kommentar.db';
-            return new PDO($dsn, $user, $pw);
+            $dsn = 'sqlite:db/rezept.db';
+            $db = new PDO($dsn, $user, $pw);
+            $db->exec("PRAGMA foreign_keys = ON;"); // Fremdschlüssel aktivieren!
+            return $db;
         } catch (PDOException $e) {
             throw new InternalErrorException();
         }
@@ -115,15 +123,23 @@ class KommentarPDOSQLite implements KommentarDAO
         try {
             $user = 'root';
             $pw = null;
-            $dsn = 'sqlite:db/kommentar.db';
+            $dsn = 'sqlite:db/rezept.db';
             $db = new PDO($dsn, $user, $pw);
-
+            // Prüfen, ob die Tabelle bereits existiert
+            $result = $db->query("SELECT name FROM sqlite_master WHERE type='table' AND name='kommentar';");
+            if ($result && $result->fetch()) {
+                // Tabelle existiert bereits, also nichts tun
+                unset($db);
+                return;
+            }
             $db->exec("CREATE TABLE IF NOT EXISTS kommentar(
                 kommentar_id INTEGER PRIMARY KEY AUTOINCREMENT,
                 rezept_id INTEGER NOT NULL, --fremdschlüssel
                 email TEXT NOT NULL,
                 inhalt TEXT NOT NULL,
-                sterneBewertung INT
+                sterneBewertung INTEGER,
+                datum DATETIME DEFAULT CURRENT_TIMESTAMP,
+                FOREIGN KEY (rezept_id) REFERENCES rezept(id) ON DELETE CASCADE
             );");
             $db->exec("
              INSERT INTO kommentar (rezept_id, email, inhalt, sterneBewertung) VALUES
