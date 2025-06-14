@@ -52,7 +52,6 @@ require_once "php/include/head.php";
         <form method="get" id="sortierForm">
             <label for="sortierung">Sortieren nach:</label>
             <select name="sortierung" id="sortierung" onchange="document.getElementById('sortierForm').submit()">
-            <option value="">-- Auswahl --</option>
             <option value="datum_desc" <?= (isset($_GET['sortierung']) && $_GET['sortierung'] === 'datum_desc') ? 'selected' : '' ?>>Neueste zuerst</option>
             <option value="datum_asc" <?= (isset($_GET['sortierung']) && $_GET['sortierung'] === 'datum_asc') ? 'selected' : '' ?>>Älteste zuerst</option>
             <option value="titel_asc" <?= (isset($_GET['sortierung']) && $_GET['sortierung'] === 'titel_asc') ? 'selected' : '' ?>>Titel (A–Z)</option>
@@ -70,13 +69,18 @@ require_once "php/include/head.php";
                     Keine Einträge vorhanden.
                     <?php else:
                     
+                    // Standard-Sortierung, falls keine Sortierung angegeben ist
+                    if (!isset($_GET['sortierung'])) {
+                        $_GET['sortierung'] = 'datum_desc';
+                    }
+                    // Sortierung der Einträge basierend auf der gewählten Sortierung
                     if (isset($_GET['sortierung'])) {
                         switch ($_GET['sortierung']) {
                             case 'datum_desc':
-                                usort($entries, fn($a, $b) => strtotime($b->getErstellungsdatum()) <=> strtotime($a->getErstellungsdatum()));
+                                usort($entries, fn($a, $b) => strtotime($b->getDatum()) <=> strtotime($a->getDatum()));
                                 break;
                             case 'datum_asc':
-                                usort($entries, fn($a, $b) => strtotime($a->getErstellungsdatum()) <=> strtotime($b->getErstellungsdatum()));
+                                usort($entries, fn($a, $b) => strtotime($a->getDatum()) <=> strtotime($b->getDatum()));
                                 break;
                             case 'titel_asc':
                                 usort($entries, fn($a, $b) => strcmp($a->getTitel(), $b->getTitel()));
