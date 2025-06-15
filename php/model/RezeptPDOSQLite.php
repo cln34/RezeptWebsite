@@ -249,6 +249,33 @@ class RezeptPDOSQLite implements RezeptDAO
         }
     }
 
+    // Methoden für Favoriten
+    public function addFavorit($benutzer_email, $rezept_id) {
+        $db = $this->getConnection();
+        $stmt = $db->prepare("INSERT INTO favoriten (benutzer_email, rezept_id) VALUES (?, ?)");
+        $stmt->execute([$benutzer_email, $rezept_id]);
+    }
+
+    public function removeFavorit($benutzer_email, $rezept_id) {
+        $db = $this->getConnection();
+        $stmt = $db->prepare("DELETE FROM favoriten WHERE benutzer_email = ? AND rezept_id = ?");
+        $stmt->execute([$benutzer_email, $rezept_id]);
+    }
+
+    public function isFavorit($benutzer_email, $rezept_id) {
+        $db = $this->getConnection();
+        $stmt = $db->prepare("SELECT 1 FROM favoriten WHERE benutzer_email = ? AND rezept_id = ?");
+        $stmt->execute([$benutzer_email, $rezept_id]);
+        return $stmt->fetch() !== false;
+    }
+
+    public function getFavoriten($benutzer_email) {
+        $db = $this->getConnection();
+        $stmt = $db->prepare("SELECT rezept_id FROM favoriten WHERE benutzer_email = ?");
+        $stmt->execute([$benutzer_email]);
+        return $stmt->fetchAll(PDO::FETCH_COLUMN);
+    }
+
     private function getConnection()
     {
        
@@ -319,6 +346,17 @@ class RezeptPDOSQLite implements RezeptDAO
                         'Alle Zutaten im Mörser oder Mixer fein zerkleinern und mit Öl vermengen.',
                         $bildPesto, '2024-01-03 14:00:00'
                     ]);
+
+            // Tabelle für Favoriten erstellen
+            $db->exec("
+                CREATE TABLE favoriten (
+                    id INTEGER PRIMARY KEY AUTOINCREMENT,
+                    benutzer_email TEXT NOT NULL,
+                    rezept_id INTEGER NOT NULL,
+                    FOREIGN KEY (rezept_id) REFERENCES rezept(id)
+                );
+            ");
+
             unset($db);
         } catch (PDOException $e) {
             // nothing

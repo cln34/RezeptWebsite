@@ -94,6 +94,21 @@ require_once "php/include/head.php";
         <a href="eintrag-loeschen.php?id=<?= urlencode($entry->getId()) ?>"><button class="rezept-button"> Rezept löschen </button></a>
         <a href="eintrag-bearbeiten.php?id=<?= urlencode($entry->getId()) ?>"><button class="rezept-button"> Rezept bearbeiten </button></a>
     <?php } ?>
+
+    <?php
+    $istFavorit = false;
+    if (isset($_SESSION["email"])) {
+        $istFavorit = Rezept::getInstance()->isFavorit($_SESSION["email"], $entry->getId());
+    }
+    ?>
+    <form method="post" action="favourit-toggle.php?id=<?= urlencode($entry->getId()) ?>">
+        <?php if ($istFavorit): ?>
+            <button type="submit" name="action" value="remove" class="rezept-button">Aus Favoriten entfernen</button>
+        <?php else: ?>
+            <button type="submit" name="action" value="add" class="rezept-button">Zu Favoriten hinzufügen</button>
+        <?php endif; ?>
+    </form>
+
     <?php
     include_once "php/include/footer.php"
     ?>
