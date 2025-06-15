@@ -353,7 +353,7 @@ class RezeptPDOSQLite implements RezeptDAO
                     id INTEGER PRIMARY KEY AUTOINCREMENT,
                     benutzer_email TEXT NOT NULL,
                     rezept_id INTEGER NOT NULL,
-                    FOREIGN KEY (rezept_id) REFERENCES rezept(id)
+                    FOREIGN KEY (rezept_id) REFERENCES rezept(id) ON DELETE CASCADE
                 );
             ");
 
