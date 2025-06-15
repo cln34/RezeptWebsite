@@ -159,6 +159,7 @@ class UserPDOSQLite implements UserDAO
             $pw = null;
             $dsn = 'sqlite:db/rezept.db';
             $db = new PDO($dsn, $user, $pw);
+            $db->exec("PRAGMA foreign_keys = ON;");
             return $db;
         } catch (PDOException $e) {
             throw new InternalErrorException();
