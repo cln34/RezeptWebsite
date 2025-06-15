@@ -9,9 +9,9 @@ $rezept_id = intval($_GET["id"]);
 $dao = Rezept::getInstance();
 
 if ($_POST["action"] === "add") {
-    $dao->addFavorit($_SESSION["email"], $rezept_id);
+    $dao->addFavorit($_SESSION["user_id"], $rezept_id);
 } else {
-    $dao->removeFavorit($_SESSION["email"], $rezept_id);
+    $dao->removeFavorit($_SESSION["user_id"], $rezept_id);
 }
 
 if (isset($_GET['from']) && $_GET['from'] === 'favoriten') {

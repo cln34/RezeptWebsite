@@ -250,29 +250,29 @@ class RezeptPDOSQLite implements RezeptDAO
     }
 
     // Methoden für Favoriten
-    public function addFavorit($benutzer_email, $rezept_id) {
+    public function addFavorit($benutzer_id, $rezept_id) {
         $db = $this->getConnection();
-        $stmt = $db->prepare("INSERT INTO favoriten (benutzer_email, rezept_id) VALUES (?, ?)");
-        $stmt->execute([$benutzer_email, $rezept_id]);
+        $stmt = $db->prepare("INSERT INTO favoriten (benutzer_id, rezept_id) VALUES (?, ?)");
+        $stmt->execute([$benutzer_id, $rezept_id]);
     }
 
-    public function removeFavorit($benutzer_email, $rezept_id) {
+    public function removeFavorit($benutzer_id, $rezept_id) {
         $db = $this->getConnection();
-        $stmt = $db->prepare("DELETE FROM favoriten WHERE benutzer_email = ? AND rezept_id = ?");
-        $stmt->execute([$benutzer_email, $rezept_id]);
+        $stmt = $db->prepare("DELETE FROM favoriten WHERE benutzer_id = ? AND rezept_id = ?");
+        $stmt->execute([$benutzer_id, $rezept_id]);
     }
 
-    public function isFavorit($benutzer_email, $rezept_id) {
+    public function isFavorit($benutzer_id, $rezept_id) {
         $db = $this->getConnection();
-        $stmt = $db->prepare("SELECT 1 FROM favoriten WHERE benutzer_email = ? AND rezept_id = ?");
-        $stmt->execute([$benutzer_email, $rezept_id]);
+        $stmt = $db->prepare("SELECT 1 FROM favoriten WHERE benutzer_id = ? AND rezept_id = ?");
+        $stmt->execute([$benutzer_id, $rezept_id]);
         return $stmt->fetch() !== false;
     }
 
-    public function getFavoriten($benutzer_email) {
+    public function getFavoriten($benutzer_id) {
         $db = $this->getConnection();
-        $stmt = $db->prepare("SELECT rezept_id FROM favoriten WHERE benutzer_email = ?");
-        $stmt->execute([$benutzer_email]);
+        $stmt = $db->prepare("SELECT rezept_id FROM favoriten WHERE benutzer_id = ?");
+        $stmt->execute([$benutzer_id]);
         return $stmt->fetchAll(PDO::FETCH_COLUMN);
     }
 
@@ -351,8 +351,9 @@ class RezeptPDOSQLite implements RezeptDAO
             $db->exec("
                 CREATE TABLE favoriten (
                     id INTEGER PRIMARY KEY AUTOINCREMENT,
-                    benutzer_email TEXT NOT NULL,
+                    benutzer_id INTEGER NOT NULL,
                     rezept_id INTEGER NOT NULL,
+                    FOREIGN KEY (benutzer_id) REFERENCES user(id) ON DELETE CASCADE,
                     FOREIGN KEY (rezept_id) REFERENCES rezept(id) ON DELETE CASCADE
                 );
             ");

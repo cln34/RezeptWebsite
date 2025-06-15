@@ -13,7 +13,7 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true || !isset($_
 require_once "php/model/Rezept.php";
 
 $dao = Rezept::getInstance();
-$favoriten_ids = $dao->getFavoriten($_SESSION["email"]);
+$favoriten_ids = $dao->getFavoriten($_SESSION["user_id"]);
 $entries = [];
 foreach ($favoriten_ids as $rid) {
     try {

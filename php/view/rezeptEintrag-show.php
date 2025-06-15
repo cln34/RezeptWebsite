@@ -98,7 +98,7 @@ require_once "php/include/head.php";
     <?php
     $istFavorit = false;
     if (isset($_SESSION["email"])) {
-        $istFavorit = Rezept::getInstance()->isFavorit($_SESSION["email"], $entry->getId());
+        $istFavorit = Rezept::getInstance()->isFavorit($_SESSION["user_id"], $entry->getId());
     }
     ?>
     <form method="post" action="favourit-toggle.php?id=<?= urlencode($entry->getId()) ?>">
