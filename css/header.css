@@ -5,7 +5,8 @@
   z-index: 1000;
   width: 100%;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  background-color: #D6C6B4; /* Hintergrundfarbe für den Header */
+  background-color: #5C6F4D; /* Hintergrundfarbe für den Header */
+  border-radius: 5px;
 }
 
 /* Flexbox für die Navbar */
@@ -29,7 +30,7 @@
 }
 
 .navbar .left-links li a {
-  color: black;
+  color: 	#F5F5F5;
   text-decoration: none;
   display: block;
   text-align: center;
@@ -38,7 +39,7 @@
 }
 
 .navbar .left-links li:hover a {
-  background-color: #dac0a2; /* Hover-Effekt für Links */
+  background-color: 	#A7C686; /* Hover-Effekt für Links */
   border-radius: 5px;
 }
 

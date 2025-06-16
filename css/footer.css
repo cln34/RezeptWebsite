@@ -1,6 +1,6 @@
 .footer {
   width: 100%;
-  background-color: #D6C6B4;
+  background-color: #5C6F4D;
   box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
   position: relative;
   bottom: 0;
@@ -18,7 +18,7 @@
 }
 
 .footer-nav li a {
-  color: black;
+  color: #F5F5F5;
   text-decoration: none;
   font-size: large;
   padding: 15px;
@@ -27,7 +27,7 @@
 }
 
 .footer-nav li a:hover {
-  background-color: #dac0a2;
+  background-color: #A7C686;
   border-radius: 5px;
 }
 
