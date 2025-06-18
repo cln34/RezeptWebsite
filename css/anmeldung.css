@@ -61,4 +61,13 @@
     max-width: 900px;
     padding: 3rem;
   }
+
+
+  .anmeldung-form .input-valid {
+    border: 2px solid green !important;
+  }
+  
+  .anmeldung-form .input-invalid {
+    border: 2px solid red !important;
+  }
 }
