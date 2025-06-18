@@ -44,7 +44,9 @@ require_once "php/include/head.php";
                 <div class="search">
                     <label for="Suche" class="visually-hidden">Suche</label> <!-- Unsichtbares Label für Barrierefreiheit -->
 
-                    <input class="search-input" type="search" id="Suche" name="Sucheingabe" placeholder="Neue Rezepte entdecken:" size="90" required>
+                    <input class="search-input" type="search" id="rezeptSuche" name="Sucheingabe" placeholder="Neue Rezepte entdecken:" size="90" required>
+                    <ul id="suchErgebnisse" class="autocomplete-list"></ul>
+
                 </div> <!--name ist name für die eingegeben daten, eine variable sozusagen-->
             </form>
         </section>
@@ -52,28 +54,26 @@ require_once "php/include/head.php";
         <form method="get" id="sortierForm">
             <label for="sortierung">Sortieren nach:</label>
             <select name="sortierung" id="sortierung" onchange="document.getElementById('sortierForm').submit()">
-            <option value="datum_desc" <?= (isset($_GET['sortierung']) && $_GET['sortierung'] === 'datum_desc') ? 'selected' : '' ?>>Neueste zuerst</option>
-            <option value="datum_asc" <?= (isset($_GET['sortierung']) && $_GET['sortierung'] === 'datum_asc') ? 'selected' : '' ?>>Älteste zuerst</option>
-            <option value="titel_asc" <?= (isset($_GET['sortierung']) && $_GET['sortierung'] === 'titel_asc') ? 'selected' : '' ?>>Titel (A–Z)</option>
-            <option value="titel_desc" <?= (isset($_GET['sortierung']) && $_GET['sortierung'] === 'titel_desc') ? 'selected' : '' ?>>Titel (Z–A)</option>
-            <option value="preis_asc" <?= (isset($_GET['sortierung']) && $_GET['sortierung'] === 'preis_asc') ? 'selected' : '' ?>>Preis (aufsteigend)</option>
-            <option value="preis_desc" <?= (isset($_GET['sortierung']) && $_GET['sortierung'] === 'preis_desc') ? 'selected' : '' ?>>Preis (absteigend)</option>
-            <option value="dauer_asc" <?= (isset($_GET['sortierung']) && $_GET['sortierung'] === 'dauer_asc') ? 'selected' : '' ?>>Dauer (kürzeste zuerst)</option>
-            <option value="dauer_desc" <?= (isset($_GET['sortierung']) && $_GET['sortierung'] === 'dauer_desc') ? 'selected' : '' ?>>Dauer (längste zuerst)</option>
+                <option value="datum_desc" <?= (isset($_GET['sortierung']) && $_GET['sortierung'] === 'datum_desc') ? 'selected' : '' ?>>Neueste zuerst</option>
+                <option value="datum_asc" <?= (isset($_GET['sortierung']) && $_GET['sortierung'] === 'datum_asc') ? 'selected' : '' ?>>Älteste zuerst</option>
+                <option value="titel_asc" <?= (isset($_GET['sortierung']) && $_GET['sortierung'] === 'titel_asc') ? 'selected' : '' ?>>Titel (A–Z)</option>
+                <option value="titel_desc" <?= (isset($_GET['sortierung']) && $_GET['sortierung'] === 'titel_desc') ? 'selected' : '' ?>>Titel (Z–A)</option>
+                <option value="preis_asc" <?= (isset($_GET['sortierung']) && $_GET['sortierung'] === 'preis_asc') ? 'selected' : '' ?>>Preis (aufsteigend)</option>
+                <option value="preis_desc" <?= (isset($_GET['sortierung']) && $_GET['sortierung'] === 'preis_desc') ? 'selected' : '' ?>>Preis (absteigend)</option>
+                <option value="dauer_asc" <?= (isset($_GET['sortierung']) && $_GET['sortierung'] === 'dauer_asc') ? 'selected' : '' ?>>Dauer (kürzeste zuerst)</option>
+                <option value="dauer_desc" <?= (isset($_GET['sortierung']) && $_GET['sortierung'] === 'dauer_desc') ? 'selected' : '' ?>>Dauer (längste zuerst)</option>
             </select>
         </form>
 
         <ul>
-            <section class="flexcontainer">
+            <section class="flexcontainer" id="rezeptListe">
                 <?php if (empty($entries)): ?>
                     Keine Einträge vorhanden.
-                    <?php else:
-                    
-                    // Standard-Sortierung, falls keine Sortierung angegeben ist
+                <?php else:
+                    // Sortierung wie gehabt
                     if (!isset($_GET['sortierung'])) {
                         $_GET['sortierung'] = 'datum_desc';
                     }
-                    // Sortierung der Einträge basierend auf der gewählten Sortierung
                     if (isset($_GET['sortierung'])) {
                         switch ($_GET['sortierung']) {
                             case 'datum_desc':
@@ -130,6 +130,8 @@ require_once "php/include/head.php";
     <?php
     include_once "php/include/footer.php"
     ?>
+    <script src="/RezeptWebsite/js/scripts.js"></script>
+
 </body>
 
 </html>
