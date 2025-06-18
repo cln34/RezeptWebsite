@@ -130,7 +130,7 @@ require_once "php/include/head.php";
     <?php
     include_once "php/include/footer.php"
     ?>
-    <script src="/RezeptWebsite/js/scripts.js"></script>
+    <script src="js/scripts.js"></script>
 
 </body>
 

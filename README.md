@@ -3,28 +3,37 @@ Namen der Studierenden:
 - Busse
 - Rettig
 - Bolbas
-Abgabe zu Aufgabenblatt 4
+Abgabe zu Aufgabenblatt 5
 
 Hinweise:
 
 Umgesetzt (mit Sessions):
-- Rezepte erstellen
-- Rezepte bearbeiten
-- Rezepte löschen
-- Rezepte suchen
-- User registrieren (Ansicht in Userliste wird angepasst)
-- User anmelden
-- User abmelden
-- User löschen (Nur für Admin) (Datenbank)
-- nur angemeldete User können Rezepte erstellen und ändern
-- Kommentare schreiben, bearbeiten, löschen (Datenbank)
+- Rezepte erstellen, bearbeiten, löschen
+- Rezepte suchen (Index und Favouriten)
+- User registrieren, anmelden und abmelden 
+- Userliste ansehen
+
+Umgesetzt mit Datenbank:
+- Rezepte erstellen, bearbeiten, löschen (Nur für Ersteller eines Rezeptes oder für Admins)
+- Rezepte suchen (Index und Favoriten)
+- User registrieren, anmelden und abmelden 
+- Userliste ansehen und User löschen (Nur für Admin)
+- Mehrere Zutaten und Mengen können in der Datenbank gespeichert werden
+- Favoriten speichern, abrufen und entfernen
+- User können bei Rezepten Bilder hochladen und diese werden in der Datenbank gespeichert 
+- Kommentare schreiben und anzeigen (mit Datum und Email des Autors)
+
+Umgesetzt mit JavaScript:
+- Bei Rezept erstellen und Rezpt bearbeiten kann man mehrere Zutaten und Mengen hinzufügen oder wieder entfernen
+- Sortierfunktion auf Indexseite und Favoritenseite
+- Vorschaubild bei Rezepterstellen, wenn Bild hochgeladen ist 
+- Passwordvalidierung bei Registrierung (hat ein Passwort passend viele Zeichen und Stimmen Passwörter überein)
+- LiveSuche auf Indexseite (mind. zwei Zeichen) - AJAX-Technologie
+
 
 Noch nicht umgesetzt:
-- User bearbeiten
+- User bearbeiten (Situation noch nicht vorhanden, vielleicht bei Passwort vergessen)
 - Bessere Sicherheit bei Nutzereingaben
-- Favoriten speichern und suchen
-- Teilweise Responsives Design für größere Bildschirme verbesser (aktuell noch viel freie Fläche)
-- User können noch keine Bilder hochladen, bisher funktionieren nur die Bilder aus dem images Ordner
-- Bisher ist es nur möglich eine Zutat, eine Menge und einen Anleitungsschritt hinzuzufügen, später soll ein Rezept mehrere haben können
-- Autor anzeigen im Rezept
-- Admins können alle Rezpte und Kommentare bearbeiten und löschen
+- Teilweise Responsives Design für größere Bildschirme verbessern (aktuell noch viel freie Fläche)
+- Mehrere Anleitungsschritte hinzufügen 
+- Kommentare mit Sessions

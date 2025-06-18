@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", function () {
         if (query.length >= 2) params.append('query', query);
         params.append('sortierung', sortierung);
 
-        fetch(`/RezeptWebsite/live-suche.php?${params.toString()}`)
+        fetch(`live-suche.php?${params.toString()}`)
             .then(response => response.text())
             .then(html => {
                 // Ersetze das gesamte Rezept-Listen-Element
