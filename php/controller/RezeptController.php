@@ -8,15 +8,15 @@ class RezeptController
     //erzeugt einen neuen RezeptEintrag
     public function createEntry()
     {
-        //überprüft parameter
-          $this->checkEntryRequiredParam();
+        $this->checkCSRF();
 
-        /* kann man noch nicht verwenden, da die email erst in einer session gespeichert werden muss bei login eines users,
-           noch kann man die rezepte ohne login erstellen:
-           if (!$this->checkEntryEmail()) {
+        //überprüft parameter
+        $this->checkEntryRequiredParam();
+
+        if (!$this->checkEntryEmail()) {
             header("Location: eintrag-neu.php");
             exit;
-        }*/
+        }
 
         try {
             // Aufbereitung der Daten fuer die Kontaktierung des Models
@@ -27,7 +27,7 @@ class RezeptController
             if (isset($_FILES['bild']) && $_FILES['bild']['error'] === UPLOAD_ERR_OK) {
                 $bildBlob = file_get_contents($_FILES['bild']['tmp_name']);
             }
-             $rezept->createEntry(
+            $rezept->createEntry(
                 $_POST["titel"],
                 $_POST["email"],
                 $_POST["kurzbeschreibung"],
@@ -41,7 +41,7 @@ class RezeptController
                 $_POST["anleitung"],
                 $bildBlob
             );
-            
+
 
             // Aufbereitung der Daten fuer die Ausgabe (View)
             $_SESSION["message"] = "new_entry";
@@ -76,10 +76,12 @@ class RezeptController
     }
 
     /*TODO: checkEntryParam()*/
-    private function checkEntryRequiredParam() {
-        if (!isset($_POST["titel"]) || !isset($_POST["kurzbeschreibung"]) || 
-            !isset($_POST["dauer"]) ||  !isset($_POST["schwierigkeit"]) ||  !isset($_POST["preis"]) 
-            ||!isset($_POST["zutaten"]) ||!isset($_POST["menge"]) ||  !isset($_POST["anleitung"]) /*|| !isset($_POST["email"])*/
+    private function checkEntryRequiredParam()
+    {
+        if (
+            !isset($_POST["titel"]) || !isset($_POST["kurzbeschreibung"]) ||
+            !isset($_POST["dauer"]) ||  !isset($_POST["schwierigkeit"]) ||  !isset($_POST["preis"])
+            || !isset($_POST["zutaten"]) || !isset($_POST["menge"]) ||  !isset($_POST["anleitung"]) /*|| !isset($_POST["email"])*/
         ) {
             $_SESSION["message"] = "missing_required_parameters";
             header("Location: index.php");
@@ -87,7 +89,6 @@ class RezeptController
         }
     }
 
-    //wird noch nicht genutzt, da noch keine richtige Registrierung
     private function checkEntryEmail()
     {
         if (!filter_var($_POST["email"], FILTER_VALIDATE_EMAIL)) { // syntaktisch korrekte EMail-Adresse?
@@ -125,6 +126,7 @@ class RezeptController
     // löscht einen existierendes Rezept
     public function deleteEntry()
     {
+        $this->checkCSRF();
         // Ueberpruefung der Parameter
         $this->checkId();
 
@@ -148,6 +150,7 @@ class RezeptController
     }
     public function updateEntry()
     {
+        $this->checkCSRF();
         // Überprüfung der erforderlichen Parameter
         $this->checkEntryRequiredParam();
 
@@ -171,9 +174,9 @@ class RezeptController
                 $_POST['menge'] = is_array($_POST['menge']) ? implode(',', $_POST['menge']) : $_POST['menge'],
                 $_POST["anleitung"],
                 $_POST["bild"]
-                
+
             );
-            
+
 
             // Aufbereitung der Daten für die Ausgabe (View)
             $_SESSION["message"] = "update_success";
@@ -188,5 +191,11 @@ class RezeptController
         // Aufbereitung der Daten für die Ausgabe (View)
         $_SESSION["message"] = "update_success";
     }
-    
+
+    private function checkCSRF()
+    {
+        if (!hash_equals($_SESSION['csrf_token'], $_POST['csrf_token'])) {
+            die("CSRF-Angriff erkannt!");
+        }
+    }
 }

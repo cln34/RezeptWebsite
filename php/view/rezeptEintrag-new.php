@@ -28,9 +28,6 @@ unset($_SESSION["menge"]);
 unset($_SESSION["anleitung"]);
 unset($_SESSION["bild"]);
 
-//************************************************************************************
-// TODO: Die variaben von oben mit werten belegen, damit man die createEntry funktion aufrufen kann
-//************************************************************************************
 ?>
 
 
@@ -47,6 +44,7 @@ require_once "php/include/head.php";
 
   <main class="rezeptErstellen">
     <form action="eintrag-eintragen.php" method="post" enctype="multipart/form-data">
+      <input type="hidden" name="csrf_token" value="<?= htmlspecialchars($_SESSION['csrf_token']) ?>">
       <h1>Rezept erstellen</h1>
 
       <div class="form-row">
@@ -132,14 +130,14 @@ require_once "php/include/head.php";
   ?>
 
   <script>
-    document.getElementById('bild').addEventListener('change', function (event) {
+    document.getElementById('bild').addEventListener('change', function(event) {
       const file = event.target.files[0];
       const preview = document.getElementById('bild-vorschau');
 
       if (file && file.type.startsWith('image/')) {
         const reader = new FileReader();
 
-        reader.onload = function (e) {
+        reader.onload = function(e) {
           preview.src = e.target.result;
           preview.style.display = 'block';
         };
