@@ -192,8 +192,7 @@ class RezeptController
         $_SESSION["message"] = "update_success";
     }
 
-    private function checkCSRF()
-    {
+    private function checkCSRF(){
         if (!hash_equals($_SESSION['csrf_token'], $_POST['csrf_token'])) {
             die("CSRF-Angriff erkannt!");
         }
