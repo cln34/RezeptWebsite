@@ -77,6 +77,7 @@ require_once "php/include/head.php";
 
       <?php if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] == true) { ?>
         <form action="kommentar-eintragen.php" method="post" class="kommentar-form">
+          <input type="hidden" name="csrf_token" value="<?= htmlspecialchars($_SESSION['csrf_token']) ?>">
           <label for="bewertung">Bewertung:</label>
           <input type="hidden" name="email" value="<?= htmlspecialchars($_SESSION['email'] ?? '') ?>">
           <input type="hidden" name="rezept_id" value="<?= htmlspecialchars($_GET['id'] ?? '') ?>"> <!--id des rezepts wird übergeben, damit kommentar diesselbe id bekommt-->

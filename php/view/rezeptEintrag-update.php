@@ -7,6 +7,7 @@ require_once "php/include/head.php";
 
     <main class="rezeptErstellen">
         <form action="eintrag-aktualisieren.php" method="post">
+            <input type="hidden" name="csrf_token" value="<?= htmlspecialchars($_SESSION['csrf_token']) ?>">
             <h1>Rezept bearbeiten</h1>
 
             <input type="hidden" name="id" value="<?= htmlspecialchars($entry->getId()) ?>" />
@@ -44,7 +45,7 @@ require_once "php/include/head.php";
                             </select>
                             <label for="menge" class="visually-hidden">Menge</label>
                             <input type="text" id="menge" name="menge[]" value="<?= htmlspecialchars($mengeArr[$i] ?? '') ?>" required>
-                            <button class="removeZutat-button"  type="button" onclick="this.parentNode.remove()">Entfernen</button>
+                            <button class="removeZutat-button" type="button" onclick="this.parentNode.remove()">Entfernen</button>
                         </div>
                     <?php endfor; ?>
                 </div>

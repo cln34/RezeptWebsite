@@ -2,7 +2,6 @@
 
 $email = isset($_SESSION["email"]) ? $_SESSION["email"] : "";
 $passwort = isset($_SESSION["passwort"]) ? $_SESSION["passwort"] : "";
-
 unset($_SESSION["email"]);
 unset($_SESSION["passwort"]);
 ?>

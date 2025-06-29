@@ -40,7 +40,7 @@ require_once "php/include/head.php";
             <?= htmlspecialchars($entry->getEmail()) ?>
         </h3>
         <img
-            src="rezeptBild.php?id=<?= urlencode($entry->getId()) ?>" 
+            src="rezeptBild.php?id=<?= urlencode($entry->getId()) ?>"
             alt="Bild von <?= htmlspecialchars($entry->getTitel()) ?>"
             title="<?= htmlspecialchars($entry->getTitel()) ?>"
             class="rezept-bild" />
@@ -95,7 +95,10 @@ require_once "php/include/head.php";
         (isset($_SESSION["email"]) && $_SESSION["email"] == $entry->getEmail()) ||
         (isset($_SESSION["rolle"]) && $_SESSION["rolle"] === "Admin")
     ) { ?>
-        <a href="eintrag-loeschen.php?id=<?= urlencode($entry->getId()) ?>"><button class="rezept-button"> Rezept löschen </button></a>
+        <form action="eintrag-loeschen.php?id=<?= urlencode($entry->getId()) ?>" method="post" style="display:inline;">
+            <input type="hidden" name="csrf_token" value="<?= htmlspecialchars($_SESSION['csrf_token']) ?>">
+            <button type="submit" class="rezept-button">Rezept löschen</button>
+        </form>
         <a href="eintrag-bearbeiten.php?id=<?= urlencode($entry->getId()) ?>"><button class="rezept-button"> Rezept bearbeiten </button></a>
     <?php } ?>
 
