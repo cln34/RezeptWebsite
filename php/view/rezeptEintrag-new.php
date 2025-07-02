@@ -84,7 +84,11 @@ require_once "php/include/head.php";
         </div>
       </div>
 
-      <button class="addZutat-button" type="button" onclick="addZutat()">Weitere Zutat hinzufügen</button>
+      <button class="addZutat-button js-only" type="button" onclick="addZutat()">Weitere Zutat hinzufügen</button>
+
+      <noscript>
+        <p style="color: red;">Für das Hinzufügen von Zutaten wird JavaScript benötigt.</p>
+      </noscript>
 
       <div class="form-row">
         <label for="anleitung">Zubereitung</label>

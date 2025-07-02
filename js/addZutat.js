@@ -1,3 +1,10 @@
+// Zeigt alle Elemente mit der Klasse .js-only an, sobald JS aktiv ist
+document.addEventListener('DOMContentLoaded', function () {
+  document.querySelectorAll('.js-only').forEach(function (el) {
+    el.style.display = 'inline-block'; // Alternativ: 'block' oder Flex, je nach Layout
+  });
+});
+
 // Funktion fügt zusätzliche Zutaten hinzu
 function addZutat() {
   const container = document.getElementById("zutaten-container");
@@ -28,3 +35,4 @@ function addZutat() {
 `;
   container.appendChild(div);
 }
+
