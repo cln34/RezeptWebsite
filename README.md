@@ -3,9 +3,21 @@ Namen der Studierenden:
 - Busse
 - Rettig
 - Bolbas
-Abgabe zu Aufgabenblatt 5
+Abgabe zu Aufgabenblatt 6
 
 Hinweise:
+Umgesetzt (Aufgabenblatt 6):
+-Sicherheit (SQL-Injection, XSS, CSRF)
+-Ein paar Verbesserungsvorschläge von Blatt 5 eingebaut
+-Registrierung mit datenschutzkonformem Opt-In-Verfahren
+-Zustimmung zu Datenschutz & Nutzungsbedingungen via Checkbox
+-Impressum, Datenschutzerklärung, Nutzungsbedingungen integriert
+
+
+Nicht umgesetzt (Aufgabenblatt 6):
+-Nutzung von Diensten: WebServices und APIs -> Wir haben keine sinnvolle Möglichkeit gefunden WebServices oder APIs einzubauen und da sie bspw. bei Google oder Facebook Diensten auch datenschutzrechtliche Probleme mit sich ziehen
+-Wenn man bei der Demo-Email auf den Anmelden Knopf drückt, könnte man den neuen Tab schließen und wieder den aktuellen auf die Anmeldung.php schicken (mit JavaScript)
+
 
 Umgesetzt (mit Sessions):
 - Rezepte erstellen, bearbeiten, löschen

@@ -1,0 +1,11 @@
+Hallo,
+
+Bitte ignoriere diese Nachricht, falls du dich nicht registrieren wolltest.
+
+➡️ Falls du dich registrieren möchtest, klicke hier:
+registrierungslink-anzeigen.php
+
+➡️ Falls du dein Passwort vergessen hast, klicke auf den Dummy-Button in der Anzeige.
+
+Viele Grüße
+Dein RezeptWebsite-Team

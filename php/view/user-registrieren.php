@@ -44,6 +44,18 @@ require_once "php/include/head.php";
       <input type="password" id="passwortWDH" name="passwortWDH" placeholder="Passwort wiederholen" required />
       <div id="passwortWDH-error" class="input-error"></div>
 
+      <label>
+      <input type="checkbox" name="datenschutz" required>
+        Ich akzeptiere die <a href="datenschutz.php" target="_blank">Datenschutzerklärung</a>
+      </label><br>
+
+      <label>
+      <input type="checkbox" name="nutzungsbedingungen" required>
+        Ich akzeptiere die <a href="nutzungsbedingungen.php" target="_blank">Nutzungsbedingungen</a>
+      </label><br><br>
+
+
+
       <input type="submit" value="Registrieren" class="button" />
     </form>
 
