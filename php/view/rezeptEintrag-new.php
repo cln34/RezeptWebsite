@@ -56,6 +56,10 @@ require_once "php/include/head.php";
         <label for="bild">Bild hochladen</label>
         <input type="file" id="bild" name="bild" accept="image/*" />
         <img id="bild-vorschau" src="#" alt="Bildvorschau" style="display: none; max-width: 300px; margin-top: 10px;" />
+        <!-- Overlay für große Vorschau -->
+        <div id="bild-overlay" style="display:none; position:fixed; top:0; left:0; width:100vw; height:100vh; background:rgba(0,0,0,0.7); justify-content:center; align-items:center; z-index:1000;">
+          <img id="bild-gross" src="#" alt="Große Bildvorschau" style="max-width:90vw; max-height:90vh; box-shadow:0 0 20px #000; background:#fff; border-radius:8px;" />
+        </div>
       </div>
 
       <div class="form-row">
