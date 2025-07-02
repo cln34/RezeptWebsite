@@ -1,35 +1,40 @@
 const passwortFeld = document.getElementById("passwort");
 const wdhPasswortFeld = document.getElementById("passwortWDH");
+const passwortError = document.getElementById("passwort-error");
+const passwortWDHError = document.getElementById("passwortWDH-error");
 
-function validateWdhPasswortFeld() {
-  const pwWDH = wdhPasswortFeld.value;
+function validatePasswortFeld() {
   const pw = passwortFeld.value;
-
-  wdhPasswortFeld.classList.remove("input-valid", "input-invalid");
-
-  if (pwWDH === "") {
-    // Noch nichts eingegeben, keine Klasse setzen
-    return;
-  }
-  if (pwWDH === pw) {
-    wdhPasswortFeld.classList.add("input-valid");
-  } else {
-    wdhPasswortFeld.classList.add("input-invalid");
-  }
-}
-
-passwortFeld.addEventListener("input", function () {
-  const pw = this.value;
-  this.classList.remove("input-valid", "input-invalid");
+  passwortFeld.classList.remove("input-valid", "input-invalid");
+  passwortError.textContent = "";
 
   if (pw.length < 8) {
-    this.classList.add("input-invalid");
+    passwortFeld.classList.add("input-invalid");
+    passwortError.textContent = "Das Passwort muss mindestens 8 Zeichen lang sein.";
   } else {
-    this.classList.add("input-valid");
+    passwortFeld.classList.add("input-valid");
   }
 
   // Wdh-Passwortfeld sofort mitprüfen!
   validateWdhPasswortFeld();
-});
+}
 
+function validateWdhPasswortFeld() {
+  const pwWDH = wdhPasswortFeld.value;
+  const pw = passwortFeld.value;
+  wdhPasswortFeld.classList.remove("input-valid", "input-invalid");
+  passwortWDHError.textContent = "";
+
+  if (pwWDH === "") {
+    return;
+  }
+  if (pwWDH === pw && pw.length >= 8) {
+    wdhPasswortFeld.classList.add("input-valid");
+  } else {
+    wdhPasswortFeld.classList.add("input-invalid");
+    passwortWDHError.textContent = "Die Passwörter stimmen nicht überein!";
+  }
+}
+
+passwortFeld.addEventListener("input", validatePasswortFeld);
 wdhPasswortFeld.addEventListener("input", validateWdhPasswortFeld);

@@ -45,6 +45,9 @@ require_once "php/include/head.php";
                     <label for="Suche" class="visually-hidden">Suche</label> <!-- Unsichtbares Label für Barrierefreiheit -->
 
                     <input class="search-input" type="search" id="rezeptSuche" name="Sucheingabe" placeholder="Neue Rezepte entdecken:" size="90" required>
+                    <noscript>
+                        <button type="submit" class="search-button">Suchen</button>
+                    </noscript>
                     <ul id="suchErgebnisse" class="autocomplete-list"></ul>
 
                 </div> <!--name ist name für die eingegeben daten, eine variable sozusagen-->
@@ -63,6 +66,10 @@ require_once "php/include/head.php";
                 <option value="dauer_asc" <?= (isset($_GET['sortierung']) && $_GET['sortierung'] === 'dauer_asc') ? 'selected' : '' ?>>Dauer (kürzeste zuerst)</option>
                 <option value="dauer_desc" <?= (isset($_GET['sortierung']) && $_GET['sortierung'] === 'dauer_desc') ? 'selected' : '' ?>>Dauer (längste zuerst)</option>
             </select>
+
+            <noscript>
+                <button type="submit" class="sortier-button">Sortieren</button>
+            </noscript>
         </form>
 
         <ul>

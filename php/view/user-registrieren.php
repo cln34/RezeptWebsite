@@ -38,9 +38,11 @@ require_once "php/include/head.php";
 
       <label for="passwort">Passwort</label>
       <input type="password" id="passwort" name="passwort" placeholder="Passwort" minlength="8" maxlength="20" required />
+      <div id="passwort-error" class="input-error"></div>
 
       <label for="passwortWDH">Passwort wiederholen</label>
       <input type="password" id="passwortWDH" name="passwortWDH" placeholder="Passwort wiederholen" required />
+      <div id="passwortWDH-error" class="input-error"></div>
 
       <input type="submit" value="Registrieren" class="button" />
     </form>
