@@ -11,7 +11,7 @@ if (!isset($_SESSION["pending_email"]) || !isset($_SESSION["pending_passwort"]))
 
 require_once "php/controller/UserController.php";
 
-// Fülle $_POST – damit createUser wie gewohnt funktioniert
+// Übernehme die E-Mail und das Passwort aus der Session
 $_POST["email"] = $_SESSION["pending_email"];
 $_POST["passwort"] = $_SESSION["pending_passwort"];
 $_POST["passwortWDH"] = $_SESSION["pending_passwort"];
