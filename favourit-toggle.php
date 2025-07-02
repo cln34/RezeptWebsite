@@ -1,5 +1,7 @@
 <?php
-session_start();
+if (session_status() !== PHP_SESSION_ACTIVE) {
+    session_start();
+}
 require_once "php/model/Rezept.php";
 if (!isset($_SESSION["email"])) {
     header("Location: login.php");

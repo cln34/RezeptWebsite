@@ -6,6 +6,7 @@ class KommentarController
 {
     public function createComment()
     {
+        $this->checkCSRF();
         //Ueberpruefung der Parameter
         $this->checkEntryParam();
         if (!$this->checkEntryRequiredParam()) {
@@ -41,8 +42,8 @@ class KommentarController
         }
     }
 
-    public function deleteComment()
-    {
+    public function deleteComment(){
+        $this->checkCSRF();
         $this->checkId();
 
         try {
@@ -124,5 +125,12 @@ class KommentarController
         $_SESSION["message"] = "internal_error";
         header("Location: index.php");
         exit;
+    }
+
+    private function checkCSRF()
+    {
+        if (!hash_equals($_SESSION['csrf_token'], $_POST['csrf_token'])) {
+            die("CSRF-Angriff erkannt!");
+        }
     }
 }
