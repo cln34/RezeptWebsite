@@ -2,38 +2,41 @@
 if (session_status() !== PHP_SESSION_ACTIVE) {
     session_start();
 }
-if (isset($_SESSION["email"])) {
-    echo $_SESSION["email"];
-}
 ?>
-<?php
-require_once "php/include/head.php";
-?>
+<?php require_once "php/include/head.php"; ?>
 
 <body>
+  <?php include_once "php/include/header.php"; ?>
 
-    <?php
-    include_once "php/include/header.php";
-    ?>
+  <main class="anmeldung-main">
+    <h2>Impressum</h2>
 
-    <main>
+    <p><strong>Angaben gemäß § 5 TMG:</strong></p>
 
-        <h1>Impressum</h1>
+    <ul>
+      <li>Colin Bolbas – <a href="mailto:colin.bolbas@uni-oldenburg.de">colin.bolbas@uni-oldenburg.de</a></li>
+      <li>Sascha Busse – <a href="mailto:sascha.busse@uni-oldenburg.de">sascha.busse@uni-oldenburg.de</a></li>
+      <li>Christoph Rettig – <a href="mailto:christoph.rettig@uni-oldenburg.de">christoph.rettig@uni-oldenburg.de</a></li>
+    </ul>
 
-        <p>
-            Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et
-            dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet
-            clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet,
-            consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat,
-            sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no
-            sea takimata sanctus est Lorem ipsum dolor sit amet.
-        </p>
+    <p><strong>Kontakt:</strong></p>
+    <p>
+      E-Mail: <a href="mailto:info@rezeptwebsite.de">info@rezeptwebsite.de</a><br>
+      Carl von Ossietzky Universität Oldenburg<br>
+      Ammerländer Heerstraße 114–118<br>
+      26129 Oldenburg
+    </p>
 
-    </main>
+    <p><strong>Verantwortlich im Sinne des § 5 TMG und § 55 Abs. 2 RStV:</strong></p>
+    <ul>
+      <li>Colin Bolbas – <a href="mailto:colin.bolbas@uni-oldenburg.de">colin.bolbas@uni-oldenburg.de</a></li>
+      <li>Sascha Busse – <a href="mailto:sascha.busse@uni-oldenburg.de">sascha.busse@uni-oldenburg.de</a></li>
+      <li>Christoph Rettig – <a href="mailto:christoph.rettig@uni-oldenburg.de">christoph.rettig@uni-oldenburg.de</a></li>
+    </ul>
 
-    <?php
-    include_once "php/include/footer.php"
-    ?>
+    <p><em>Dies ist ein studentisches Projekt im Rahmen einer Lehrveranstaltung und dient ausschließlich zu Lernzwecken.</em></p>
+  </main>
+
+  <?php include_once "php/include/footer.php"; ?>
 </body>
-
 </html>
