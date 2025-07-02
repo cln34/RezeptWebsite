@@ -3,9 +3,16 @@ Namen der Studierenden:
 - Busse
 - Rettig
 - Bolbas
-Abgabe zu Aufgabenblatt 5
+Abgabe zu Aufgabenblatt 6
 
 Hinweise:
+Umgesetzt (Aufgabenblatt 6):
+-Sicherheit (SQL-Injection, XSS, CSRF)
+-Ein paar Verbesserungsvorschläge von Blatt 5 eingebaut
+
+Nicht umgesetzt (Aufgabenblatt 6):
+-Nutzung von Diensten: WebServices und APIs -> Wir haben keine sinnvolle Möglichkeit gefunden WebServices oder APIs einzubauen und da sie bspw. bei Google oder Facebook Diensten auch datenschutzrechtliche Probleme mit sich ziehen
+
 
 Umgesetzt (mit Sessions):
 - Rezepte erstellen, bearbeiten, löschen
