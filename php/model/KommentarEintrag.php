@@ -1,10 +1,10 @@
 <?php
 class KommentarEintrag{
-    private $id;
+    private $id; //id des dazugehörigen rezepts
     private $email;
     private $inhalt;
     private $sterneBewertung;
-   private $datum; 
+   private $datum;
 
     public function __construct($id, $email, $inhalt, $sterneBewertung, $datum)
     {
