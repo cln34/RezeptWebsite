@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="de">
+
 <head>
   <meta charset="UTF-8">
   <title>Simulierte E-Mail</title>
@@ -9,6 +10,7 @@
       background: #f4f4f4;
       padding: 2rem;
     }
+
     .container {
       background: #fff;
       border: 1px solid #ccc;
@@ -18,7 +20,9 @@
       margin: auto;
       box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     }
-    a.button, button {
+
+    a.button,
+    button {
       display: inline-block;
       padding: 0.6rem 1.2rem;
       margin-top: 1rem;
@@ -30,15 +34,18 @@
       border-radius: 4px;
       cursor: pointer;
     }
+
     button.dummy {
       background-color: gray;
       cursor: not-allowed;
     }
+
     p {
       line-height: 1.6;
     }
   </style>
 </head>
+
 <body>
   <div class="container">
     <h2>Simulierte E-Mail</h2>
@@ -52,7 +59,7 @@
     <p>
       Falls du dich registrieren möchtest und diese E-Mail erwartest, klicke bitte auf den folgenden Link, um deine Registrierung abzuschließen:
     </p>
-    <a href="anmeldung.php" class="button">➡️ Registrierung abschließen</a>
+    <a href="registrierung-bestaetigen.php" class="button">➡️ Registrierung abschließen</a>
 
     <p>
       Falls du bereits registriert bist und diese Anfrage nicht gestellt hast, ändere bitte dein Passwort, um dein Konto zu sichern. Klicke dazu auf den folgenden Button:
@@ -65,4 +72,5 @@
     </p>
   </div>
 </body>
+
 </html>
