@@ -22,6 +22,9 @@ class RezeptSession implements RezeptDAO
 		if (isset($_SESSION["entries"])) {
 			$this->entries = unserialize($_SESSION["entries"]);
 		} else {
+			$bildPizza = file_exists('images/pizza.jpg') ? file_get_contents('images/pizza.jpg') : null;
+			$bildPasta = file_exists('images/Bolognese.jpg') ? file_get_contents('images/Bolognese.jpg') : null;
+
 			//nur zu Testzwecken
 			$this->entries[0] = new RezeptEintrag(
 				0,
@@ -34,7 +37,7 @@ class RezeptSession implements RezeptDAO
 				"Nudeln, Hackfleisch, Tomaten, Zwiebeln, Knoblauch, Gewürze",
 				"200gr",
 				"Zwiebeln und Knoblauch anbraten, Hackfleisch dazugeben, Tomaten und Gewürze hinzufügen, köcheln lassen, mit Nudeln servieren.",
-				"Bolognese.jpg",
+				$bildPasta,
 				"2023-10-01 12:00:00",
 			);
 			$this->entries[1] = new RezeptEintrag(
@@ -48,7 +51,7 @@ class RezeptSession implements RezeptDAO
 				"Nudeln, Zucchini, Aubergine, Tomaten, Käse, Gewürze",
 				"500gr",
 				"Gemüse schneiden und anbraten, Tomatensoße zubereiten, alles schichten, mit Käse bestreuen und backen.",
-				"pizza.jpg",
+				$bildPizza,
 				"2023-10-02 14:30:00",
 			);
 			$_SESSION["entries"] = serialize($this->entries);

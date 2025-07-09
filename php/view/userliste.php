@@ -1,7 +1,7 @@
 <?php
 if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true || $_SESSION["rolle"] !== "Admin") {
-  header("Location: index.php"); // nur eingeloggte Admins können auf diese seite
-  exit;
+    header("Location: index.php"); // nur eingeloggte Admins können auf diese seite
+    exit;
 }
 
 
@@ -25,8 +25,12 @@ require_once "php/include/head.php";
                         <span class='user-email'>Email: <?= htmlspecialchars($user->getEmail()) ?></span>
                         <span class='user-role'>Rolle: <?= htmlspecialchars($user->getRolle()) ?></span>
 
-                         <!-- Link mit Button zum Löschen -->
-                        <a href="user-loeschen.php?email=<?= urlencode($user->getEmail()) ?>" ><button class="delete-button">Benutzer löschen</button></a>
+                        <!-- Link mit Button zum Löschen -->
+                        <form action="user-loeschen.php?email=<?= urlencode($user->getEmail()) ?>" method="post" style="display:inline;">
+                            <input type="hidden" name="csrf_token" value="<?= htmlspecialchars($_SESSION['csrf_token']) ?>">
+                            <button type="submit" class="delete-button">User löschen</button>
+                        </form>
+                      
                     </div>
                 <?php endforeach; ?>
             <?php endif; ?>

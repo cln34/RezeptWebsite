@@ -25,7 +25,7 @@ class KommentarController
         }
     }
 
-    public function readComment()
+    public function readComment() //Wird zurzeit gar nicht benutzt, evtl. für Kommentar bearbeiten, aber eig brauchen wir die Funktion nicht
     {
         $this->checkId();
         try {
