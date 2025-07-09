@@ -66,6 +66,7 @@ class UserController
 
     public function deleteUser($email)
     {
+     $this->checkCSRF();
         if (!$email) {
         $this->handleMissingEntryException();
     }
@@ -114,4 +115,10 @@ class UserController
         exit;
     }
 
+    private function checkCSRF()
+    {
+        if (!hash_equals($_SESSION['csrf_token'], $_POST['csrf_token'])) {
+            die("CSRF-Angriff erkannt!");
+        }
+    }
 }
