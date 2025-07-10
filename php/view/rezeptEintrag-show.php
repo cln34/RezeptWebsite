@@ -99,7 +99,7 @@ require_once "php/include/head.php";
             <input type="hidden" name="csrf_token" value="<?= htmlspecialchars($_SESSION['csrf_token']) ?>">
             <button type="submit" class="rezept-button">Rezept löschen</button>
         </form>
-        <a href="eintrag-bearbeiten.php?id=<?= urlencode($entry->getId()) ?>"><button class="rezept-button"> Rezept bearbeiten </button></a>
+        <a href="eintrag-bearbeiten.php?id=<?= urlencode($entry->getId()) ?>" class="rezept-button"> Rezept bearbeiten </a>
     <?php } ?>
 
     <?php
