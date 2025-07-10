@@ -9,8 +9,8 @@ require_once "php/model/RezeptPDOSQLite.php";
 
 class Rezept{
     public static function getInstance(){
-        return RezeptSession::getInstance(); //dummy fix
-        //return RezeptPDOSQLite::getInstance(); // Datenbank
+        //return RezeptSession::getInstance(); //dummy fix
+        return RezeptPDOSQLite::getInstance(); // Datenbank
     }
 }
 ?>

@@ -42,13 +42,12 @@ require_once "php/include/head.php";
         <section class="search-container">
             <form action="suche.php" method="get">
                 <div class="search">
-                    <label for="Suche" class="visually-hidden">Suche</label> <!-- Unsichtbares Label für Barrierefreiheit -->
+                    <label for="rezeptSuche" class="visually-hidden">Suche</label> <!-- Unsichtbares Label für Barrierefreiheit -->
 
                     <input class="search-input" type="search" id="rezeptSuche" name="Sucheingabe" placeholder="Neue Rezepte entdecken:" size="90" required>
                     <noscript>
                         <button type="submit" class="search-button">Suchen</button>
                     </noscript>
-                    <ul id="suchErgebnisse" class="autocomplete-list"></ul>
 
                 </div> <!--name ist name für die eingegeben daten, eine variable sozusagen-->
             </form>
@@ -72,7 +71,6 @@ require_once "php/include/head.php";
             </noscript>
         </form>
 
-        <ul>
             <section class="flexcontainer" id="rezeptListe">
                 <?php if (empty($entries)): ?>
                     Keine Einträge vorhanden.
@@ -131,7 +129,6 @@ require_once "php/include/head.php";
                     <?php endforeach; ?>
                 <?php endif; ?>
             </section>
-        </ul>
     </main>
 
     <?php
