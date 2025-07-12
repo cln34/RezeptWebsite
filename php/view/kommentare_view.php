@@ -4,13 +4,8 @@ require_once "php/include/head.php";
 
 <body>
   <?php
-  include_once "php/include/header.php";
+  require_once "php/include/header.php";
   ?>
-
-  <main>
-    <?php
-    require_once "php/include/header.php";
-    ?>
     <main>
       <?php if (isset($_SESSION["message"]) && $_SESSION["message"] == "invalid_entry_id"): ?>
         <p>
@@ -78,7 +73,7 @@ require_once "php/include/head.php";
       <?php if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] == true) { ?>
         <form action="kommentar-eintragen.php" method="post" class="kommentar-form">
           <input type="hidden" name="csrf_token" value="<?= htmlspecialchars($_SESSION['csrf_token']) ?>">
-          <label for="bewertung">Bewertung:</label>
+          <label for="kommentar">Bewertung abgeben:</label>
           <input type="hidden" name="email" value="<?= htmlspecialchars($_SESSION['email'] ?? '') ?>">
           <input type="hidden" name="rezept_id" value="<?= htmlspecialchars($_GET['id'] ?? '') ?>"> <!--id des rezepts wird übergeben, damit kommentar diesselbe id bekommt-->
           <div class="sterne-bewertung">
@@ -92,7 +87,6 @@ require_once "php/include/head.php";
             </fieldset>
           </div>
 
-          <label for="kommentar" class="visually-hidden">Kommentar</label>
           <textarea id="kommentar" placeholder="Kommentar eingeben" name="inhalt" required></textarea>
           <input type="submit" value="Kommentar absenden" class="button">
         </form>

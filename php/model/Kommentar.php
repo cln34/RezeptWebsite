@@ -4,8 +4,8 @@ require_once "KommentarSession.php";
 
 class Kommentar{
     public static function getInstance(){
-        return KommentarSession::getInstance();
-        //return KommentarPDOSQLite::getInstance();
+        // return KommentarSession::getInstance();
+        return KommentarPDOSQLite::getInstance();
     }
 
 }
