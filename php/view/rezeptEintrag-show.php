@@ -82,12 +82,13 @@ require_once "php/include/head.php";
             <?php endfor; ?>
         </div>
 
-        <div class="rezept-schritt">
-            <h3>1. Schritt</h3>
-            <p>
-                <?= htmlspecialchars($entry->getAnleitung()) ?>
-            </p>
-        </div>
+        <?php $anleitungArr = $entry->getAnleitungArray(); ?>
+        <?php foreach ($anleitungArr as $i => $schritt): ?>
+            <div class="rezept-schritt">
+                <h3><?= ($i + 1) ?>. Schritt</h3>
+                <p><?= htmlspecialchars($schritt) ?></p>
+            </div>
+        <?php endforeach; ?>
         <a href="kommentare.php?id=<?= urlencode($entry->getId()) ?>" class="rezept-button">Kommentare ansehen </a>
     </main>
 

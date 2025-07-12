@@ -3,7 +3,8 @@ document.addEventListener("DOMContentLoaded", function () {
   document.querySelectorAll(".js-only").forEach(function (el) {
     el.style.display = "inline-block"; // Alternativ: 'block' oder Flex, je nach Layout
   });
-
+  updateAnleitungNummerierung();
+  updateZutatenButtons();
   const container = document.getElementById("anleitungen");
   if (container) {
     const eintraege = container.querySelectorAll(".anleitung-eintrag");
@@ -17,9 +18,6 @@ document.addEventListener("DOMContentLoaded", function () {
 // Funktion fügt zusätzliche Zutaten hinzu
 function addZutat() {
   const container = document.getElementById("zutaten-container");
-  const index = container.children.length;
-
-  // Neues Zutaten/Mengen-Paar als HTML
   const div = document.createElement("div");
   div.className = "zutat-eintrag";
   div.innerHTML = `
@@ -40,37 +38,47 @@ function addZutat() {
     <option value="Zimt">Zimt</option>
   </select>
   <input type="text" name="menge[]" placeholder="Menge (z. B. 200g)" required>
-  <button class="removeZutat-button" type="button" onclick="this.parentNode.remove()">Zutat entfernen</button>
+  <button class="removeZutat-button" type="button" onclick="this.parentNode.remove(); updateZutatenButtons();">Zutat entfernen</button>
 `;
   container.appendChild(div);
+  updateZutatenButtons();
 }
 
-function addAnleitung() {
+function updateAnleitungNummerierung() {
   const container = document.getElementById("anleitungen");
-  const index = container.children.length;
-
-  // Neues Anleitungsschritt-Element als HTML
-  const div = document.createElement("div");
-  div.className = "anleitung-eintrag";
-  div.innerHTML = `
-    <textarea id="anleitung-${index}" name="anleitung[]" rows="4" required placeholder="Schritt ${
-    index + 1
-  }"></textarea>
-    <button class="removeZutat-button js-only" type="button" onclick="this.parentNode.remove()">Entfernen</button>
-  `;
-  container.appendChild(div);
-
-  // Entfernen-Buttons anzeigen/nicht anzeigen
   const eintraege = container.querySelectorAll(".anleitung-eintrag");
   eintraege.forEach((eintrag, i) => {
-    const btn = eintrag.querySelector(".removeZutat-button");
-    if (btn) {
-      btn.style.display = i === 0 ? "none" : "inline-block";
-    }
     const textarea = eintrag.querySelector("textarea");
     if (textarea) {
       textarea.placeholder = `Schritt ${i + 1}`;
       textarea.id = `anleitung-${i}`;
+    }
+    const btn = eintrag.querySelector(".removeZutat-button");
+    if (btn) {
+      btn.style.display = i === 0 ? "none" : "inline-block";
+    }
+  });
+}
+
+function addAnleitung() {
+  const container = document.getElementById("anleitungen");
+  const div = document.createElement("div");
+  div.className = "anleitung-eintrag";
+  div.innerHTML = `
+    <textarea name="anleitung[]" rows="4" required></textarea>
+    <button class="removeZutat-button js-only" type="button" onclick="this.parentNode.remove(); updateAnleitungNummerierung();">Schritt Entfernen</button>
+  `;
+  container.appendChild(div);
+  updateAnleitungNummerierung();
+}
+
+function updateZutatenButtons() {
+  const container = document.getElementById("zutaten-container");
+  const eintraege = container.querySelectorAll(".zutat-eintrag");
+  eintraege.forEach((eintrag, i) => {
+    const btn = eintrag.querySelector(".removeZutat-button");
+    if (btn) {
+      btn.style.display = eintraege.length > 1 ? "inline-block" : "none";
     }
   });
 }

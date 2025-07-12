@@ -45,15 +45,31 @@ require_once "php/include/head.php";
                             </select>
                             <label for="menge" class="visually-hidden">Menge</label>
                             <input type="text" id="menge" name="menge[]" value="<?= htmlspecialchars($mengeArr[$i] ?? '') ?>" required>
-                            <button class="removeZutat-button" type="button" onclick="this.parentNode.remove()">Entfernen</button>
+                            <button class="removeZutat-button" type="button"
+                                style="<?= count($zutatenArr) > 1 ? '' : 'display:none;' ?>"
+                                onclick="this.parentNode.remove(); updateZutatenButtons();">Zutat Entfernen</button>
                         </div>
                     <?php endfor; ?>
                 </div>
 
                 <button class="addZutat-button" type="button" onclick="addZutat()">Weitere Zutat hinzufügen</button>
 
-                <label for="anleitung">Zubereitung</label>
-                <textarea id="anleitung" name="anleitung" rows="6" required><?= htmlspecialchars($entry->getAnleitung()) ?></textarea>
+                <?php
+                $anleitungArr = $entry->getAnleitungArray();
+                ?>
+                <label for="anleitung-0">Zubereitung</label>
+                <div id="anleitungen">
+                    <?php foreach ($anleitungArr as $i => $schritt): ?>
+                        <div class="anleitung-eintrag">
+                            <textarea id="anleitung-<?= $i ?>" name="anleitung[]" rows="4" required placeholder="Schritt <?= $i + 1 ?>"><?= htmlspecialchars($schritt) ?></textarea>
+                            <button type="button" class="removeZutat-button js-only" style="<?= count($anleitungArr) > 1 ? '' : 'display:none;' ?>" onclick="this.parentNode.remove(); updateAnleitungNummerierung();">Schritt Entfernen</button>
+                        </div>
+                    <?php endforeach; ?>
+                </div>
+                <button class="addZutat-button js-only" type="button" onclick="addAnleitung()">Weiteren Schritt hinzufügen</button>
+                <noscript>
+                    <p style="color: red;">Für das Hinzufügen von Schritten wird JavaScript benötigt.</p>
+                </noscript>
 
                 <label for="kurzbeschreibung">Kurzbeschreibung</label>
                 <textarea id="kurzbeschreibung" name="kurzbeschreibung" rows="3"><?= htmlspecialchars($entry->getKurzbeschreibung()) ?></textarea>

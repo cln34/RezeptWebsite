@@ -99,11 +99,10 @@ require_once "php/include/head.php";
         <div id="anleitungen">
           <div class="anleitung-eintrag">
             <textarea id="anleitung-0" name="anleitung[]" rows="4" required placeholder="Schritt 1"></textarea>
-            <button type="button" class="removeZutat-button js-only" style="display:none;" onclick="this.parentNode.remove()">Entfernen</button>
           </div>
         </div>
-        <button class="addZutat-button js-only" type="button" onclick="addAnleitung()">Weiteren Schritt hinzufügen</button>
       </div>
+      <button class="addZutat-button js-only" type="button" onclick="addAnleitung()">Weiteren Schritt hinzufügen</button>
 
       <noscript>
         <p style="color: red;">Für das Hinzufügen von Schritten wird JavaScript benötigt.</p>
