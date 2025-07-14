@@ -94,10 +94,19 @@ require_once "php/include/head.php";
         <p style="color: red;">Für das Hinzufügen von Zutaten wird JavaScript benötigt.</p>
       </noscript>
 
-      <div class="form-row">
-        <label for="anleitung">Zubereitung</label>
-        <textarea id="anleitung" name="anleitung" rows="6" required></textarea>
+      <div class="form-row" id="anleitung-container">
+        <label for="anleitung-0">Zubereitung</label>
+        <div id="anleitungen">
+          <div class="anleitung-eintrag">
+            <textarea id="anleitung-0" name="anleitung[]" rows="4" required placeholder="Schritt 1"></textarea>
+          </div>
+        </div>
       </div>
+      <button class="addZutat-button js-only" type="button" onclick="addAnleitung()">Weiteren Schritt hinzufügen</button>
+
+      <noscript>
+        <p style="color: red;">Für das Hinzufügen von Schritten wird JavaScript benötigt.</p>
+      </noscript>
 
       <div class="form-row">
         <label for="kurzbeschreibung">Kurzbeschreibung</label>

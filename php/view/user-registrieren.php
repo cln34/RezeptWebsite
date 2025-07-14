@@ -37,7 +37,16 @@ require_once "php/include/head.php";
       <input type="email" id="email" name="email" placeholder="z. B. max@mustermann.de" required />
 
       <label for="passwort">Passwort</label>
-      <input type="password" id="passwort" name="passwort" placeholder="Passwort" minlength="8" maxlength="20" required />
+      <input
+        type="password"
+        id="passwort"
+        name="passwort"
+        placeholder="Passwort"
+        minlength="8"
+        maxlength="20"
+        pattern="^(?=.*[A-Z])(?=.*\d).{8,}$"
+        title="Mindestens 8 Zeichen, mindestens 1 Großbuchstabe und 1 Zahl."
+        required />
       <div id="passwort-error" class="input-error"></div>
 
       <label for="passwortWDH">Passwort wiederholen</label>
@@ -45,12 +54,12 @@ require_once "php/include/head.php";
       <div id="passwortWDH-error" class="input-error"></div>
 
       <label>
-      <input type="checkbox" name="datenschutz" required>
+        <input type="checkbox" name="datenschutz" required>
         Ich akzeptiere die <a href="datenschutz.php" target="_blank">Datenschutzerklärung</a>
       </label><br>
 
       <label>
-      <input type="checkbox" name="nutzungsbedingungen" required>
+        <input type="checkbox" name="nutzungsbedingungen" required>
         Ich akzeptiere die <a href="nutzungsbedingungen.php" target="_blank">Nutzungsbedingungen</a>
       </label><br><br>
 

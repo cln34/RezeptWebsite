@@ -27,6 +27,7 @@ class RezeptController
             if (isset($_FILES['bild']) && $_FILES['bild']['error'] === UPLOAD_ERR_OK) {
                 $bildBlob = file_get_contents($_FILES['bild']['tmp_name']);
             }
+            $anleitung = is_array($_POST['anleitung']) ? implode('||', $_POST['anleitung']) : $_POST['anleitung'];
             $rezept->createEntry(
                 $_POST["titel"],
                 $_POST["email"],
@@ -38,7 +39,7 @@ class RezeptController
                 // Wandelt die Zutaten- und Mengen-Arrays (wenn es arrays sind) aus dem Formular in kommaseparierte Strings um, damit sie korrekt in der Datenbank gespeichert werden
                 $_POST['zutaten'] = is_array($_POST['zutaten']) ? implode(',', $_POST['zutaten']) : $_POST['zutaten'],
                 $_POST['menge'] = is_array($_POST['menge']) ? implode(',', $_POST['menge']) : $_POST['menge'],
-                $_POST["anleitung"],
+                $anleitung,
                 $bildBlob
             );
 
@@ -160,6 +161,7 @@ class RezeptController
 
             // Kontaktierung des Modells (Geschäftslogik)
             $rezept = Rezept::getInstance();
+            $anleitung = is_array($_POST['anleitung']) ? implode('||', $_POST['anleitung']) : $_POST['anleitung'];
             $rezept->updateEntry(
                 $id,
                 $_POST["titel"],
@@ -172,7 +174,7 @@ class RezeptController
                 // Wandelt die Zutaten- und Mengen-Arrays (wenn es arrays sind) aus dem Formular in kommaseparierte Strings um, damit sie korrekt in der Datenbank gespeichert werden
                 $_POST['zutaten'] = is_array($_POST['zutaten']) ? implode(',', $_POST['zutaten']) : $_POST['zutaten'],
                 $_POST['menge'] = is_array($_POST['menge']) ? implode(',', $_POST['menge']) : $_POST['menge'],
-                $_POST["anleitung"],
+                $anleitung,
                 $_POST["bild"]
 
             );

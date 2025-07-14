@@ -75,11 +75,6 @@ class RezeptEintrag
         return $this->menge;
     }
 
-    public function getAnleitung()
-    {
-        return $this->anleitung;
-    }
-
     public function getBild()
     {
         return $this->bild;
@@ -88,6 +83,14 @@ class RezeptEintrag
     public function getDatum()
     {
         return $this->datum;
+    }
+
+    public function getAnleitungArray()
+    {
+        if (is_array($this->anleitung)) {
+            return $this->anleitung;
+        }
+        return explode('||', $this->anleitung);
     }
 
 
@@ -121,7 +124,7 @@ class RezeptEintrag
         $this->preis = $preis;
     }
 
-   /*  muss man noch an arrays anpassen
+    /*  muss man noch an arrays anpassen
    public function setZutaten($zutaten)
     {
         $this->zutaten = $zutaten;

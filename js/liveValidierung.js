@@ -8,9 +8,21 @@ function validatePasswortFeld() {
   passwortFeld.classList.remove("input-valid", "input-invalid");
   passwortError.textContent = "";
 
+  let errors = [];
   if (pw.length < 8) {
+    errors.push("mindestens 8 Zeichen");
+  }
+  if (!/[A-Z]/.test(pw)) {
+    errors.push("mindestens 1 Großbuchstabe");
+  }
+  if (!/\d/.test(pw)) {
+    errors.push("mindestens 1 Zahl");
+  }
+
+  if (errors.length > 0) {
     passwortFeld.classList.add("input-invalid");
-    passwortError.textContent = "Das Passwort muss mindestens 8 Zeichen lang sein.";
+    passwortError.textContent =
+      "Das Passwort muss " + errors.join(", ") + " enthalten.";
   } else {
     passwortFeld.classList.add("input-valid");
   }
