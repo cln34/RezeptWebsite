@@ -65,9 +65,39 @@ class RezeptPDOSQLite implements RezeptDAO
         try {
             $db = $this->getConnection();
             $db->beginTransaction();
+            // Prüfen, ob der Eintrag existiert
+            $sql = "SELECT * FROM rezept WHERE id=:id LIMIT 1";
+            $command = $db->prepare($sql);
+            if (!$command) {
+                $db->rollBack();
+                throw new InternalErrorException();
+            }
+            if (!$command->execute([":id" => $id])) {
+                $db->rollBack();
+                throw new InternalErrorException();
+            }
+            $result = $command->fetchAll();
+            if (empty($result)) {
+                $db->rollBack();
+                throw new MissingEntryException();
+            }
+            if (empty($bild)) {
+                $sql = "SELECT bild FROM rezept WHERE id = :id LIMIT 1";
+                $command = $db->prepare($sql);
+                $command->execute([":id" => $id]);
+                $result = $command->fetch();
+                $bild = $result["bild"];
+            }
+            if (empty($email)) {
+                $sql = "SELECT email FROM rezept WHERE id = :id LIMIT 1";
+                $command = $db->prepare($sql);
+                $command->execute([":id" => $id]);
+                $result = $command->fetch();
+                $email = $result["email"];
+            }
 
             // Update durchführen
-            $sql = "UPDATE rezept SET 
+            $sql = "UPDATE rezept SET
                 titel = :titel,
                 email = :email,
                 kurzbeschreibung = :kurzbeschreibung,
@@ -83,11 +113,6 @@ class RezeptPDOSQLite implements RezeptDAO
             if (!$command) {
                 $db->rollBack();
                 throw new InternalErrorException();
-            }
-            //Überprüfen ob eintrag leer
-            if ($command->rowCount() === 0) {
-                $db->rollBack();
-                throw new MissingEntryException();
             }
             if (!$command->execute([
                 ":titel" => $titel,
