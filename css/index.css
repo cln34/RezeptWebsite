@@ -77,7 +77,9 @@ button:active{
 .flexbox p{
   padding-left: 5%;
   padding-right: 5%;
-  /*TODO: Max Zeichen festlegen für kurzbeschreibung bei den rezepten, sodass kein overflow stattfindet */
+  word-break: break-word;
+  overflow-wrap: break-word;
+  white-space: normal;
 } 
 
 /* Suchleiste: */

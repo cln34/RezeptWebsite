@@ -49,7 +49,7 @@ require_once "php/include/head.php";
 
       <div class="form-row">
         <label for="titel">Rezepttitel</label>
-        <input type="text" id="titel" name="titel" required />
+        <input type="text" id="titel" name="titel" required maxlength="25" />
       </div>
 
       <div class="form-row">
@@ -110,7 +110,7 @@ require_once "php/include/head.php";
 
       <div class="form-row">
         <label for="kurzbeschreibung">Kurzbeschreibung</label>
-        <textarea id="kurzbeschreibung" name="kurzbeschreibung" rows="3"></textarea>
+        <textarea id="kurzbeschreibung" name="kurzbeschreibung" rows="3" maxlength="200"></textarea>
       </div>
 
       <div class="form-row">
