@@ -34,7 +34,7 @@ require_once "php/include/head.php";
 
     <form action="user-eintragen.php" method="post" class="anmeldung-form">
       <label for="email">E-Mail-Adresse</label>
-      <input type="email" id="email" name="email" placeholder="z. B. max@mustermann.de" required />
+      <input type="email" id="email" name="email" placeholder="z. B. max@mustermann.de" required maxlength="25"/>
 
       <label for="passwort">Passwort</label>
       <input
