@@ -110,7 +110,7 @@ require_once "php/include/head.php";
 
       <div class="form-row">
         <label for="kurzbeschreibung">Kurzbeschreibung</label>
-        <textarea id="kurzbeschreibung" name="kurzbeschreibung" rows="3" maxlength="200"></textarea>
+        <textarea id="kurzbeschreibung" name="kurzbeschreibung" rows="3" maxlength="150"></textarea>
       </div>
 
       <div class="form-row">

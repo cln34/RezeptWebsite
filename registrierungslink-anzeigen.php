@@ -4,46 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <title>Simulierte E-Mail</title>
-  <style>
-    body {
-      font-family: sans-serif;
-      background: #f4f4f4;
-      padding: 2rem;
-    }
-
-    .container {
-      background: #fff;
-      border: 1px solid #ccc;
-      border-radius: 8px;
-      padding: 2rem;
-      max-width: 600px;
-      margin: auto;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    }
-
-    a.button,
-    button {
-      display: inline-block;
-      padding: 0.6rem 1.2rem;
-      margin-top: 1rem;
-      font-size: 1rem;
-      background-color: #0077cc;
-      color: #fff;
-      text-decoration: none;
-      border: none;
-      border-radius: 4px;
-      cursor: pointer;
-    }
-
-    button.dummy {
-      background-color: gray;
-      cursor: not-allowed;
-    }
-
-    p {
-      line-height: 1.6;
-    }
-  </style>
+  <link rel="stylesheet" href="css/registrierungslink.css" />
 </head>
 
 <body>

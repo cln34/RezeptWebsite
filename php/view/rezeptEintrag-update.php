@@ -13,10 +13,18 @@ require_once "php/include/head.php";
             <input type="hidden" name="id" value="<?= htmlspecialchars($entry->getId()) ?>" />
 
             <label for="titel">Rezepttitel</label>
-            <input type="text" id="titel" name="titel" value="<?= htmlspecialchars($entry->getTitel()) ?>" required />
+            <input type="text" id="titel" name="titel" value="<?= htmlspecialchars($entry->getTitel()) ?>" required maxlength="25"/>
 
-            <label for="bild">Bild hochladen</label>
-            <input type="file" id="bild" name="bild" value="<?= htmlspecialchars($entry->getBild()) ?>" accept="image/*" />
+
+            <div class="form-row">
+                <label for="bild">Bild hochladen</label>
+                <input type="file" id="bild" name="bild" value="<?= htmlspecialchars($entry->getBild()) ?>" accept="image/*" />
+                <img id="bild-vorschau" src="#" alt="Bildvorschau" style="display: none; max-width: 300px; margin-top: 10px;" />
+                <!-- Overlay für große Vorschau -->
+                <div id="bild-overlay" style="display:none; position:fixed; top:0; left:0; width:100vw; height:100vh; background:rgba(0,0,0,0.7); justify-content:center; align-items:center; z-index:1000;">
+                <img id="bild-gross" src="#" alt="Große Bildvorschau" style="max-width:90vw; max-height:90vh; box-shadow:0 0 20px #000; background:#fff; border-radius:8px;" />
+                </div>
+            </div>
 
             <div class="form-row">
                 <?php
@@ -72,7 +80,7 @@ require_once "php/include/head.php";
                 </noscript>
 
                 <label for="kurzbeschreibung">Kurzbeschreibung</label>
-                <textarea id="kurzbeschreibung" name="kurzbeschreibung" rows="3"><?= htmlspecialchars($entry->getKurzbeschreibung()) ?></textarea>
+                <textarea id="kurzbeschreibung" name="kurzbeschreibung" rows="3" maxlength="150"><?= htmlspecialchars($entry->getKurzbeschreibung()) ?></textarea>
 
                 <label for="dauer">Dauer (in Minuten)</label>
                 <input type="number" id="dauer" name="dauer" min="1" max="180" value="<?= htmlspecialchars($entry->getDauer()) ?>" required />
@@ -93,5 +101,6 @@ require_once "php/include/head.php";
 
     <?php include_once "php/include/footer.php"; ?>
 
+    <script src="js/bildVorschau.js"></script>
     <script src="js/addZutat.js"></script>
 </body>
