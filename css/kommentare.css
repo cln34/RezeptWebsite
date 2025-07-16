@@ -15,6 +15,12 @@
   color: black;
 }
 
+.kommentar-card p {
+  word-break: break-word;
+  overflow-wrap: break-word;
+  white-space: normal;
+}
+
 .kommentar-datum {
   font-size: 0.9em;
   color: #333;
@@ -53,7 +59,7 @@
 }
 
 .sterne-anzeige .star-gold {
-  color: gold;
+  color: black;
 }
 
 
