@@ -15,9 +15,10 @@ class UserController
 
             // Kontaktierung des Models (Geschaeftslogik)
             $user = User::getInstance();
+            $hashedPasswort = password_hash($_POST["passwort"], PASSWORD_DEFAULT);
             $user->createUser(
                 $_POST["email"],
-                $_POST["passwort"],
+                $hashedPasswort,
             );
 
             // Aufbereitung der Daten fuer die Ausgabe (View)
@@ -49,29 +50,29 @@ class UserController
     }
 
     public function readUser($email)
-{
-    if (!$email) {
-        $this->handleMissingEntryException();
-    }
+    {
+        if (!$email) {
+            $this->handleMissingEntryException();
+        }
 
-    try {
-        $user = User::getInstance();
-        return $user->readUser($email);
-    } catch (MissingEntryException $exc) {
-        return null; // User nicht gefunden
-    } catch (InternalErrorException $exc) {
-        $this->handleInternalErrorException();
+        try {
+            $user = User::getInstance();
+            return $user->readUser($email);
+        } catch (MissingEntryException $exc) {
+            return null; // User nicht gefunden
+        } catch (InternalErrorException $exc) {
+            $this->handleInternalErrorException();
+        }
     }
-}
 
     public function deleteUser($email)
     {
-     $this->checkCSRF();
+        $this->checkCSRF();
         if (!$email) {
-        $this->handleMissingEntryException();
-    }
-    
-    try {
+            $this->handleMissingEntryException();
+        }
+
+        try {
             // Kontaktierung des Models (Geschaeftslogik)
             $user = User::getInstance();
             $user->deleteUser($email);
@@ -87,7 +88,17 @@ class UserController
         }
     }
 
-     private function checkUserRequiredParam() {
+    public function authenticateUser($email, $passwort)
+    {
+        $user = $this->readUser($email);
+        if ($user && password_verify($passwort, $user->getPassword())) {
+            return $user;
+        }
+        return null;
+    }
+
+    private function checkUserRequiredParam()
+    {
         if (!isset($_POST["email"]) || !isset($_POST["passwort"]) || !isset($_POST["passwortWDH"])) {
             // Behandlung von fehlenden Parametern
             $_SESSION["message"] = "missing_required_parameters";

@@ -21,47 +21,52 @@ class RezeptPDOSQLite implements RezeptDAO
     {
         try {
             $db = $this->getConnection();
+            $db->beginTransaction(); 
             $sql = "INSERT INTO rezept (titel, email, kurzbeschreibung, dauer, schwierigkeit, preis, zutaten, menge, anleitung, bild, datum)
                 VALUES (:titel, :email, :kurzbeschreibung, :dauer, :schwierigkeit, :preis, :zutaten, :menge, :anleitung, :bild, :datum);";
             $command = $db->prepare($sql);
             if (!$command) {
-            throw new InternalErrorException();
+                $db->rollBack();
+                throw new InternalErrorException();
             }
             if (!$command->execute([
-            ":titel" => $titel,
-            ":email" => $email,
-            ":kurzbeschreibung" => $kurzbeschreibung,
-            ":dauer" => $dauer,
-            ":schwierigkeit" => $schwierigkeit,
-            ":preis" => $preis,
-            ":zutaten" => $zutaten,
-            ":menge" => $menge,
-            ":anleitung" => $anleitung,
-            ":bild" => $bild,
-            ":datum" => date("Y-m-d H:i:s")
+                ":titel" => $titel,
+                ":email" => $email,
+                ":kurzbeschreibung" => $kurzbeschreibung,
+                ":dauer" => $dauer,
+                ":schwierigkeit" => $schwierigkeit,
+                ":preis" => $preis,
+                ":zutaten" => $zutaten,
+                ":menge" => $menge,
+                ":anleitung" => $anleitung,
+                ":bild" => $bild,
+                ":datum" => date("Y-m-d H:i:s")
             ])) {
-            throw new InternalErrorException();
+                $db->rollBack();
+                throw new InternalErrorException();
             }
-            return intval($db->lastInsertId());
+            $lastId = intval($db->lastInsertId());
+            $db->commit(); 
+            return $lastId;
         } catch (PDOException $exc) {
+             $db->rollBack();
             throw new InternalErrorException();
         }
-        
     }
 
 
-    public function readEntry($id){
-        try{
+    public function readEntry($id)
+    {
+        try {
             $db = $this->getConnection();
             return $this->getEntry($id, $db);
-
         } catch (PDOException $exc) {
             throw new InternalErrorException();
         }
-
     }
 
-    public function updateEntry($id, $titel, $email, $kurzbeschreibung, $dauer, $schwierigkeit, $preis, $zutaten, $menge, $anleitung, $bild){
+    public function updateEntry($id, $titel, $email, $kurzbeschreibung, $dauer, $schwierigkeit, $preis, $zutaten, $menge, $anleitung, $bild)
+    {
         try {
             $db = $this->getConnection();
             $db->beginTransaction();
@@ -132,15 +137,14 @@ class RezeptPDOSQLite implements RezeptDAO
             }
             $db->commit();
         } catch (PDOException $exc) {
-            if (isset($db)) {
-                $db->rollBack();
-            }
+            $db->rollBack();
             throw new InternalErrorException();
         }
     }
 
-   
-    public function deleteEntry($id){
+
+    public function deleteEntry($id)
+    {
         try {
             $db = $this->getConnection();
             $db->beginTransaction();
@@ -176,7 +180,8 @@ class RezeptPDOSQLite implements RezeptDAO
         }
     }
 
-    public function getEntry($id, $db){
+    public function getEntry($id, $db)
+    {
         try {
             $sql = "SELECT * FROM rezept WHERE id=:id LIMIT 1";
             $command = $db->prepare($sql);
@@ -192,26 +197,27 @@ class RezeptPDOSQLite implements RezeptDAO
             }
             $entry = $result[0];
             return new RezeptEintrag(
-            $entry["id"],
-            $entry["titel"],
-            $entry["email"],
-            $entry["kurzbeschreibung"],
-            $entry["dauer"],
-            $entry["schwierigkeit"],
-            $entry["preis"],
-            $entry["zutaten"],
-            $entry["menge"],
-            $entry["anleitung"],
-            $entry["bild"],
-            $entry["datum"]
-        );
+                $entry["id"],
+                $entry["titel"],
+                $entry["email"],
+                $entry["kurzbeschreibung"],
+                $entry["dauer"],
+                $entry["schwierigkeit"],
+                $entry["preis"],
+                $entry["zutaten"],
+                $entry["menge"],
+                $entry["anleitung"],
+                $entry["bild"],
+                $entry["datum"]
+            );
         } catch (PDOException $exc) {
             throw new InternalErrorException();
         }
     }
 
-   
-    public function getEntries(){
+
+    public function getEntries()
+    {
         try {
             $db = $this->getConnection();
             $sql = "SELECT * FROM rezept";
@@ -249,26 +255,30 @@ class RezeptPDOSQLite implements RezeptDAO
     }
 
     // Methoden für Favoriten
-    public function addFavorit($benutzer_id, $rezept_id) {
+    public function addFavorit($benutzer_id, $rezept_id)
+    {
         $db = $this->getConnection();
         $stmt = $db->prepare("INSERT INTO favoriten (benutzer_id, rezept_id) VALUES (?, ?)");
         $stmt->execute([$benutzer_id, $rezept_id]);
     }
 
-    public function removeFavorit($benutzer_id, $rezept_id) {
+    public function removeFavorit($benutzer_id, $rezept_id)
+    {
         $db = $this->getConnection();
         $stmt = $db->prepare("DELETE FROM favoriten WHERE benutzer_id = ? AND rezept_id = ?");
         $stmt->execute([$benutzer_id, $rezept_id]);
     }
 
-    public function isFavorit($benutzer_id, $rezept_id) {
+    public function isFavorit($benutzer_id, $rezept_id)
+    {
         $db = $this->getConnection();
         $stmt = $db->prepare("SELECT 1 FROM favoriten WHERE benutzer_id = ? AND rezept_id = ?");
         $stmt->execute([$benutzer_id, $rezept_id]);
         return $stmt->fetch() !== false;
     }
 
-    public function getFavoriten($benutzer_id) {
+    public function getFavoriten($benutzer_id)
+    {
         $db = $this->getConnection();
         $stmt = $db->prepare("SELECT rezept_id FROM favoriten WHERE benutzer_id = ?");
         $stmt->execute([$benutzer_id]);
@@ -277,7 +287,7 @@ class RezeptPDOSQLite implements RezeptDAO
 
     private function getConnection()
     {
-       
+
         if (!file_exists("db/rezept.db")) {
             $this->create();
         }
@@ -318,33 +328,54 @@ class RezeptPDOSQLite implements RezeptDAO
                         datum text
                     );"); //bei bild muss entweder ein Pfad oder ein Blob rein
 
-                    $bildPizza = file_exists('images/pizza.jpg') ? file_get_contents('images/pizza.jpg') : null;
-                    $bildPasta = file_exists('images/Bolognese.jpg') ? file_get_contents('images/Bolognese.jpg') : null;
-                    $bildPesto = file_exists('images/Pesto.jpg') ? file_get_contents('images/Pesto.jpg') : null;
+            $bildPizza = file_exists('images/pizza.jpg') ? file_get_contents('images/pizza.jpg') : null;
+            $bildPasta = file_exists('images/Bolognese.jpg') ? file_get_contents('images/Bolognese.jpg') : null;
+            $bildPesto = file_exists('images/Pesto.jpg') ? file_get_contents('images/Pesto.jpg') : null;
 
-                    $stmt = $db->prepare("
+            $stmt = $db->prepare("
                         INSERT INTO rezept (titel, email, kurzbeschreibung, dauer, schwierigkeit, preis, zutaten, menge, anleitung, bild, datum)
                         VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
                     ");
 
-                    $stmt->execute([
-                        'Pizza Margherita', 'pizza@beispiel.de', 'Klassische italienische Pizza mit Tomate und Mozzarella.', 20, 'Einfach', 4.50,
-                        'Pizzateig, Tomatensauce, Mozzarella, Basilikum', '1, 100ml, 100g, 1 Bund',
-                        'Teig ausrollen, mit Tomatensauce bestreichen, Mozzarella darauf verteilen, backen und mit Basilikum garnieren.',
-                        $bildPizza, '2024-01-01 12:00:00'
-                    ]);
-                    $stmt->execute([
-                        'Spaghetti Bolognese', 'bolognese@beispiel.de', 'Schnelle Spaghetti mit würziger Hackfleischsoße.', 25, 'Einfach', 5.00,
-                        'Spaghetti, Hackfleisch, Tomaten, Zwiebel, Knoblauch', '200g, 150g, 200g, 1, 1 Zehe',
-                        'Spaghetti kochen. Hackfleisch mit Zwiebel und Knoblauch anbraten, Tomaten zugeben, köcheln lassen. Mit Spaghetti servieren.',
-                        $bildPasta, '2024-01-02 13:00:00'
-                    ]);
-                    $stmt->execute([
-                        'Pesto alla Genovese', 'pesto@beispiel.de', 'Frisches Basilikumpesto für Pasta oder Brot.', 10, 'Einfach', 3.00,
-                        'Basilikum, Pinienkerne, Parmesan, Olivenöl, Knoblauch', '1 Bund, 30g, 30g, 50ml, 1 Zehe',
-                        'Alle Zutaten im Mörser oder Mixer fein zerkleinern und mit Öl vermengen.',
-                        $bildPesto, '2024-01-03 14:00:00'
-                    ]);
+            $stmt->execute([
+                'Pizza Margherita',
+                'pizza@beispiel.de',
+                'Klassische italienische Pizza mit Tomate und Mozzarella.',
+                20,
+                'Einfach',
+                4.50,
+                'Pizzateig, Tomatensauce, Mozzarella, Basilikum',
+                '1, 100ml, 100g, 1 Bund',
+                'Teig ausrollen, mit Tomatensauce bestreichen, Mozzarella darauf verteilen, backen und mit Basilikum garnieren.',
+                $bildPizza,
+                '2024-01-01 12:00:00'
+            ]);
+            $stmt->execute([
+                'Spaghetti Bolognese',
+                'bolognese@beispiel.de',
+                'Schnelle Spaghetti mit würziger Hackfleischsoße.',
+                25,
+                'Einfach',
+                5.00,
+                'Spaghetti, Hackfleisch, Tomaten, Zwiebel, Knoblauch',
+                '200g, 150g, 200g, 1, 1 Zehe',
+                'Spaghetti kochen. Hackfleisch mit Zwiebel und Knoblauch anbraten, Tomaten zugeben, köcheln lassen. Mit Spaghetti servieren.',
+                $bildPasta,
+                '2024-01-02 13:00:00'
+            ]);
+            $stmt->execute([
+                'Pesto alla Genovese',
+                'pesto@beispiel.de',
+                'Frisches Basilikumpesto für Pasta oder Brot.',
+                10,
+                'Einfach',
+                3.00,
+                'Basilikum, Pinienkerne, Parmesan, Olivenöl, Knoblauch',
+                '1 Bund, 30g, 30g, 50ml, 1 Zehe',
+                'Alle Zutaten im Mörser oder Mixer fein zerkleinern und mit Öl vermengen.',
+                $bildPesto,
+                '2024-01-03 14:00:00'
+            ]);
 
             // Tabelle für Favoriten erstellen
             $db->exec("
@@ -359,7 +390,7 @@ class RezeptPDOSQLite implements RezeptDAO
 
             unset($db);
         } catch (PDOException $e) {
-            // nothing
+            throw new InternalErrorException();
         }
     }
 
@@ -381,27 +412,26 @@ class RezeptPDOSQLite implements RezeptDAO
             $result = $command->fetchAll();
 
             foreach ($result as $row) {
-                if(stripos($row["titel"], $sucheingabe) !== false){
-                $entry = new RezeptEintrag(
-                    $row["id"],
-                    $row["titel"],
-                    $row["email"],
-                    $row["kurzbeschreibung"],
-                    $row["dauer"],
-                    $row["schwierigkeit"],
-                    $row["preis"],
-                    $row["zutaten"],
-                    $row["menge"],
-                    $row["anleitung"],
-                    $row["bild"],
-                    $row["datum"]
-                );
-                $this->searchEntries[] = $entry;
+                if (stripos($row["titel"], $sucheingabe) !== false) {
+                    $entry = new RezeptEintrag(
+                        $row["id"],
+                        $row["titel"],
+                        $row["email"],
+                        $row["kurzbeschreibung"],
+                        $row["dauer"],
+                        $row["schwierigkeit"],
+                        $row["preis"],
+                        $row["zutaten"],
+                        $row["menge"],
+                        $row["anleitung"],
+                        $row["bild"],
+                        $row["datum"]
+                    );
+                    $this->searchEntries[] = $entry;
+                }
             }
-            }
-
-        } catch(PDOException $e){
-
+        } catch (PDOException $e) {
+            throw new InternalErrorException();
         }
     }
     //Methode um die Suchergebnisse zurückzugeben: wird im indexcontroller verwendet um die index seite nur mit den
