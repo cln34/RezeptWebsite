@@ -20,56 +20,60 @@ require_once "php/include/head.php";
 
   <h1>Nutzungsbedingungen</h1>
 
-  <p><em>Stand: Juli 2025</em></p>
+  <h4><u>Besondere Nutzungsbedingungen für die Forenregistrierung auf unserer RezeptWebsite:</u></h4>
 
-  <h2>1. Geltungsbereich</h2>
-  <p>
-    Diese Nutzungsbedingungen gelten für die Nutzung der Website „RezeptWebsite“, einem studentischen Projekt im Rahmen einer Lehrveranstaltung an der Carl von Ossietzky Universität Oldenburg. Durch die Registrierung und Nutzung dieser Website erklären Sie sich mit diesen Bedingungen einverstanden.
-  </p>
+<p><strong>§ 1 Geltungsbereich</strong></p>
+<p>(1) Die nachfolgenden Bedingungen gelten für die Nutzung des (Name Ihrer Domain) – im Folgenden "Unsere Webseite" genannt – Forums. Für die Nutzung des Forums ist wichtig, dass Sie als Nutzer/Nutzerin die nachfolgenden Forenregeln bzw. -bedingungen akzeptieren. Die Registrierung und Benutzung unseres Forums ist kostenlos.</p>
+<p>(2) Mit der Registrierung sind Sie mit den Nutzungsbedingungen unserer Webseite einverstanden. Durch Ihr Einverständnis garantieren Sie uns, dass Sie keine Beiträge erstellen werden, die gegen die Nutzungsbedingungen verstoßen.</p>
+<p>(3) Durch das Benutzen unserer Webseite kommt kein Vertrag zwischen den Nutzern/Nutzerinnen und uns zustande.</p>
 
-  <h2>2. Registrierung und Benutzerkonto</h2>
-  <p>
-    Für bestimmte Funktionen ist eine Registrierung erforderlich. Die Angabe einer gültigen E-Mail-Adresse und die Zustimmung zu diesen Nutzungsbedingungen und der Datenschutzerklärung sind verpflichtend. Die Zugangsdaten sind vertraulich zu behandeln und dürfen nicht an Dritte weitergegeben werden.
-  </p>
+<p><strong>§ 2 Pflichten als Forum-Nutzer/Forum-Nutzerin</strong></p>
+<p>(1) Einer Ihrer Pflichten als Nutzer/Nutzerin ist es, keine Beiträge zu veröffentlichen, die gegen diese Forenregeln, gegen die guten Sitten oder sonst gegen geltendes deutsches Recht verstoßen.</p>
+<p><u>Folgende Punkte sind Ihnen nicht genehmigt:</u></p>
+<ul>
+  <li>Inhalte zu veröffentlichen, die unwahr sind und deren Veröffentlichung einen Straftatbestand oder eine Ordnungswidrigkeit erfüllt,</li>
+  <li>Versendung von Spam über das Forum an andere Forum-Nutzer/Nutzerinnen,</li>
+  <li>Verwendung von gesetzlich durch Urheber- und Markenrecht geschützte Inhalte ohne rechtmäßige Berechtigung (z. B. Pressemitteilungen etc.),</li>
+  <li>Handlungen, die wettbewerbswidrig sind,</li>
+  <li>mehrfache Einstellung von Themen ins Forum (sogenannte Doppelpostings),</li>
+  <li>eigene Werbung, folglich Schleichwerbung, zu betreiben,</li>
+  <li>Inhalte zu veröffentlichen, die beleidigend, rassistisch, diskriminierend oder pornographische Elemente aufweisen gegenüber anderen Nutzern/Nutzerinnen und der Allgemeinheit.</li>
+</ul>
+<p>Ihre Pflicht als Forum-Nutzer/Forum-Nutzerin ist es, die obigen Punkte vor Veröffentlichung Ihres Beitrags zu beachten und zu überprüfen.</p>
 
-  <h2>3. Inhalte und Nutzungsrechte</h2>
-  <p>
-    Nutzer können eigene Inhalte (z. B. Rezepte, Kommentare, Bilder) auf der Plattform veröffentlichen. Mit dem Hochladen räumen Sie den Betreibern dieser Website ein einfaches, zeitlich unbegrenztes und nicht-exklusives Nutzungsrecht zur Darstellung und Veröffentlichung Ihrer Inhalte auf dieser Plattform ein.
-  </p>
-  <p>
-    Sie versichern, dass Sie über die notwendigen Rechte an den bereitgestellten Inhalten verfügen und keine Rechte Dritter (z. B. Urheberrecht, Persönlichkeitsrecht) verletzen.
-  </p>
+<p>(2) Sollten Sie gegen § 2 Abs. 1 Nr. 1–7 dieser Nutzungsbedingungen verstoßen, behalten wir uns das Recht vor, folgende Schritte vorzunehmen:</p>
+<ul>
+  <li>Löschen oder Abändern Ihrer eingestellten Beiträge,</li>
+  <li>Verbot, weiterhin Beiträge im Forum zu verfassen,</li>
+  <li>Sperrung Ihres Nutzerzugangs.</li>
+</ul>
 
-  <h2>4. Verhaltensregeln</h2>
-  <ul>
-    <li>Es dürfen keine beleidigenden, diskriminierenden, jugendgefährdenden oder rechtswidrigen Inhalte veröffentlicht werden.</li>
-    <li>Spam, Werbung oder automatisierte Inhalte sind untersagt.</li>
-    <li>Verstöße gegen diese Regeln können zum Ausschluss von der Plattform führen.</li>
-  </ul>
+<p>(3) Sollten durch Ihre Beiträge Rechtsverstöße entstehen, verpflichten Sie sich, uns von sämtlichen Ansprüchen freizustellen und die Kosten zu ersetzen. Zudem verpflichten Sie sich, uns bei der Abwehr zu unterstützen und die Kosten einer angemessenen Rechtsverteidigung zu übernehmen.</p>
 
-  <h2>5. Moderation und Löschung von Inhalten</h2>
-  <p>
-    Die Betreiber behalten sich vor, Inhalte jederzeit und ohne Angabe von Gründen zu löschen, insbesondere wenn sie gegen die genannten Regeln verstoßen oder unangemessen erscheinen.
-  </p>
+<p>(4) Durch Ihr Einverständnis garantieren Sie uns, keine Beiträge zu erstellen, die gegen die Nutzungsbedingungen verstoßen. Das gilt auch für externe Links und Signaturen.</p>
 
-  <h2>6. Haftungsausschluss</h2>
-  <p>
-    Die Inhalte auf dieser Website wurden mit größtmöglicher Sorgfalt erstellt. Dennoch übernehmen die Betreiber keine Gewähr für die Richtigkeit, Vollständigkeit und Aktualität der Inhalte. Die Nutzung erfolgt auf eigene Verantwortung.
-  </p>
+<p><strong>§ 3 Übertragung von Nutzungsrechten</strong></p>
+<p>Sie als Forum-Nutzer/Nutzerin tragen die alleinige Verantwortung für urheberrechtlich geschützte Inhalte. Mit Veröffentlichung Ihres Beitrags räumen Sie uns das Recht ein, den Beitrag dauerhaft bereitzustellen. Unser Team hat das Recht, Ihre Beiträge zu löschen, zu bearbeiten, zu verschieben oder zu schließen.</p>
 
-  <h2>7. Änderungen der Nutzungsbedingungen</h2>
-  <p>
-    Diese Nutzungsbedingungen können bei Bedarf angepasst werden. Über wesentliche Änderungen werden registrierte Nutzer per E-Mail informiert.
-  </p>
+<p><strong>§ 4 Haftungsbeschränkung</strong></p>
+<p>(1) Wir übernehmen keine Gewähr für die im Forum veröffentlichten Inhalte – insbesondere nicht für deren Richtigkeit, Vollständigkeit oder Aktualität. Wir sind nicht verpflichtet, übermittelte Beiträge permanent zu überwachen. Eine Haftung übernehmen wir nur bei vorsätzlicher oder grob fahrlässiger Pflichtverletzung.</p>
+<p>(2) Juristische Beiträge im Forum sind unverbindlich. Die Nutzung erfolgt auf eigene Gefahr.</p>
+<p>(3) Für Werbeinhalte übernehmen wir keine Haftung. Verantwortlich ist der jeweilige Werbekunde. Die Darstellung der Werbung bedeutet nicht, dass wir deren Inhalte gutheißen.</p>
+<p>(4) Es besteht kein Anspruch auf ständigen oder unterbrechungsfreien Abruf der Webseite. Auch bei großer Sorgfalt können Ausfallzeiten nicht ausgeschlossen werden.</p>
 
-  <h2>8. Kontakt</h2>
-  <p>
-    Bei Fragen oder Hinweisen wenden Sie sich bitte an:  
-    <a href="mailto:info@rezeptwebsite.de">info@rezeptwebsite.de</a>
-  </p>
+<p><strong>§ 5 Urheberrecht</strong></p>
+<p>Alle Inhalte auf unserer Webseite unterliegen dem Urheberrecht. Jede Weiterverwendung bedarf unserer schriftlichen Zustimmung. Bei Rechtsverletzungen behalten wir uns rechtliche Schritte vor. Kosten, die daraus entstehen, werden dem Verursacher in Rechnung gestellt.</p>
 
-  <p><em>Diese Website ist ein nicht-kommerzielles, studentisches Projekt und dient ausschließlich zu Lehrzwecken im Rahmen eines universitären Seminars.</em></p>
+<p><strong>§ 6 Änderungsvorbehalt</strong></p>
+<p>Wir behalten uns vor, diese Nutzungsbedingungen jederzeit zu ändern. Änderungen werden im Forum bekannt gegeben.</p>
 
+<p><strong>§ 7 Kündigung und Laufzeit der Mitgliedschaft</strong></p>
+<p>Die Mitgliedschaft beginnt mit der Registrierung und Zustimmung zu den Nutzungsbedingungen und gilt auf unbestimmte Zeit. Sie kann jederzeit ohne Angabe von Gründen gekündigt werden.</p>
+
+<p><strong>§ 8 Salvatorische Klausel</strong></p>
+<p>Sollten einzelne Bestimmungen dieser Nutzungsbedingungen ganz oder teilweise unwirksam sein, bleibt die Gültigkeit der übrigen Bestimmungen unberührt.</p>
+
+<p>Diese <a href="http://www.jurarat.de/muster-nutzungsbedingungen">Nutzungsbedingungen</a> wurden freundlicherweise von www.jurarat.de zur Verfügung gestellt.</p>
 </main>
 
 
