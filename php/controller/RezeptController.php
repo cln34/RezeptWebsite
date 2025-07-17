@@ -14,7 +14,7 @@ class RezeptController
         $this->checkEntryRequiredParam();
 
         if (!$this->checkEntryEmail()) {
-            header("Location: eintrag-neu.php");
+            header("Location: index.php");
             exit;
         }
 
