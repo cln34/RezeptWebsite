@@ -21,7 +21,7 @@ class RezeptPDOSQLite implements RezeptDAO
     {
         try {
             $db = $this->getConnection();
-            $db->beginTransaction(); 
+            $db->beginTransaction();
             $sql = "INSERT INTO rezept (titel, email, kurzbeschreibung, dauer, schwierigkeit, preis, zutaten, menge, anleitung, bild, datum)
                 VALUES (:titel, :email, :kurzbeschreibung, :dauer, :schwierigkeit, :preis, :zutaten, :menge, :anleitung, :bild, :datum);";
             $command = $db->prepare($sql);
@@ -46,7 +46,7 @@ class RezeptPDOSQLite implements RezeptDAO
                 throw new InternalErrorException();
             }
             $lastId = intval($db->lastInsertId());
-            $db->commit(); 
+            $db->commit();
             return $lastId;
         } catch (PDOException $exc) {
              $db->rollBack();
