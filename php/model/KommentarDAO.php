@@ -11,8 +11,5 @@ interface KommentarDAO
     public function readComment($id);
 
 
-    public function deleteComment($id);
-
-
     public function getCommentsByRezeptId($rezeptId); //damit nur die passenden kommentare angezeigt werden
 }

@@ -42,11 +42,6 @@ class KommentarSession implements KommentarDAO{
     }
 
 
-    public function deleteComment($id){
-
-    }
-
-
     public function getCommentsByRezeptId($rezeptId)
     {
         $result = [];

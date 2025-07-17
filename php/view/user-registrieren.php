@@ -34,8 +34,7 @@ require_once "php/include/head.php";
 
     <form action="user-eintragen.php" method="post" class="anmeldung-form">
       <label for="email">E-Mail-Adresse</label>
-      <input type="email" id="email" name="email" placeholder="z. B. max@mustermann.de" required maxlength="25"/>
-
+      <input type="email" id="email" name="email" placeholder="z. B. max@mustermann.de" pattern="[^@\t\r\n]+@[^@\t\r\n]+\.[^@\t\r\n]+" required maxlength="25" />
       <label for="passwort">Passwort</label>
       <input
         type="password"
@@ -62,8 +61,6 @@ require_once "php/include/head.php";
         <input type="checkbox" name="nutzungsbedingungen" required>
         Ich akzeptiere die <a href="nutzungsbedingungen.php" target="_blank">Nutzungsbedingungen</a>
       </label><br><br>
-
-
 
       <input type="submit" value="Registrieren" class="button" />
     </form>

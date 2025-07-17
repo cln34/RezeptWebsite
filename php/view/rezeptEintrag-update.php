@@ -6,14 +6,14 @@ require_once "php/include/head.php";
     <?php include_once "php/include/header.php"; ?>
 
     <main class="rezeptErstellen">
-        <form action="eintrag-aktualisieren.php" method="post">
+        <form action="eintrag-aktualisieren.php" method="post" enctype="multipart/form-data">
             <input type="hidden" name="csrf_token" value="<?= htmlspecialchars($_SESSION['csrf_token']) ?>">
             <h1>Rezept bearbeiten</h1>
 
             <input type="hidden" name="id" value="<?= htmlspecialchars($entry->getId()) ?>" />
 
             <label for="titel">Rezepttitel</label>
-            <input type="text" id="titel" name="titel" value="<?= htmlspecialchars($entry->getTitel()) ?>" required maxlength="25"/>
+            <input type="text" id="titel" name="titel" value="<?= htmlspecialchars($entry->getTitel()) ?>" required maxlength="25" />
 
 
             <div class="form-row">
@@ -22,7 +22,7 @@ require_once "php/include/head.php";
                 <img id="bild-vorschau" src="#" alt="Bildvorschau" style="display: none; max-width: 300px; margin-top: 10px;" />
                 <!-- Overlay für große Vorschau -->
                 <div id="bild-overlay" style="display:none; position:fixed; top:0; left:0; width:100vw; height:100vh; background:rgba(0,0,0,0.7); justify-content:center; align-items:center; z-index:1000;">
-                <img id="bild-gross" src="#" alt="Große Bildvorschau" style="max-width:90vw; max-height:90vh; box-shadow:0 0 20px #000; background:#fff; border-radius:8px;" />
+                    <img id="bild-gross" src="#" alt="Große Bildvorschau" style="max-width:90vw; max-height:90vh; box-shadow:0 0 20px #000; background:#fff; border-radius:8px;" />
                 </div>
             </div>
 
