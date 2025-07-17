@@ -14,7 +14,9 @@ class RezeptController
         $this->checkEntryRequiredParam();
 
         if (!$this->checkEntryEmail()) {
-            header("Location: index.php");
+
+            header("Location: rezeptErstellen.php");
+
             exit;
         }
 
