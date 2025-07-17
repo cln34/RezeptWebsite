@@ -34,7 +34,7 @@ require_once "php/include/head.php";
 
     <form action="user-eintragen.php" method="post" class="anmeldung-form">
       <label for="email">E-Mail-Adresse</label>
-      <input type="email" id="email" name="email" placeholder="z. B. max@mustermann.de" pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]+$" required maxlength="25" />
+      <input type="email" id="email" name="email" placeholder="z. B. max@mustermann.de" pattern="[^@\t\r\n]+@[^@\t\r\n]+\.[^@\t\r\n]+" required maxlength="25" />
       <label for="passwort">Passwort</label>
       <input
         type="password"
