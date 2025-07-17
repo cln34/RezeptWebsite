@@ -9,33 +9,25 @@ if (session_status() !== PHP_SESSION_ACTIVE) {
   <?php include_once "php/include/header.php"; ?>
 
   <main class="anmeldung-main">
-    <h2>Impressum</h2>
+    <h1>Impressum</h1>
 
-    <p><strong>Angaben gemäß § 5 TMG:</strong></p>
+<p>RezeptWebsite<br />
+Ammerl&auml;nder Heerstra&szlig;e 114-118<br />
+26129 Oldenburg</p>
 
-    <ul>
-      <li>Colin Bolbas – <a href="mailto:colin.bolbas@uni-oldenburg.de">colin.bolbas@uni-oldenburg.de</a></li>
-      <li>Sascha Busse – <a href="mailto:sascha.busse@uni-oldenburg.de">sascha.busse@uni-oldenburg.de</a></li>
-      <li>Christoph Rettig – <a href="mailto:christoph.rettig@uni-oldenburg.de">christoph.rettig@uni-oldenburg.de</a></li>
-    </ul>
+<p><strong>Vertreten durch:</strong><br />
+Colin Bolbas<br />
+Sascha Busse<br />
+Christoph Rettig</p>
 
-    <p><strong>Kontakt:</strong></p>
-    <p>
-      E-Mail: <a href="mailto:info@rezeptwebsite.de">info@rezeptwebsite.de</a><br>
-      Carl von Ossietzky Universität Oldenburg<br>
-      Ammerländer Heerstraße 114–118<br>
-      26129 Oldenburg
-    </p>
+<h2>Kontakt</h2>
+<p>Telefon: &#91;Telefonnummer&#93;<br />
+E-Mail:  info@rezeptwebsite.de</p>
 
-    <p><strong>Verantwortlich im Sinne des § 5 TMG und § 55 Abs. 2 RStV:</strong></p>
-    <ul>
-      <li>Colin Bolbas – <a href="mailto:colin.bolbas@uni-oldenburg.de">colin.bolbas@uni-oldenburg.de</a></li>
-      <li>Sascha Busse – <a href="mailto:sascha.busse@uni-oldenburg.de">sascha.busse@uni-oldenburg.de</a></li>
-      <li>Christoph Rettig – <a href="mailto:christoph.rettig@uni-oldenburg.de">christoph.rettig@uni-oldenburg.de</a></li>
-    </ul>
+<h2>Verbraucher&shy;streit&shy;beilegung/Universal&shy;schlichtungs&shy;stelle</h2>
+<p>Wir sind nicht bereit oder verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.</p>
 
-    <p><em>Dies ist ein studentisches Projekt im Rahmen einer Lehrveranstaltung und dient ausschließlich zu Lernzwecken.</em></p>
-  </main>
+<p>Quelle: <a href="https://www.e-recht24.de">https://www.e-recht24.de</a></p>
 
   <?php include_once "php/include/footer.php"; ?>
 </body>
