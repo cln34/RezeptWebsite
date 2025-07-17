@@ -160,10 +160,12 @@ class RezeptController
         try {
             // Aufbereitung der Daten für die Kontaktierung des Modells
             $id = intval($_POST["id"]);
+
             $bildBlob = null;
             if (isset($_FILES['bild']) && $_FILES['bild']['error'] === UPLOAD_ERR_OK) {
                 $bildBlob = file_get_contents($_FILES['bild']['tmp_name']);
             }
+
             // Kontaktierung des Modells (Geschäftslogik)
             $rezept = Rezept::getInstance();
             $anleitung = is_array($_POST['anleitung']) ? implode('||', $_POST['anleitung']) : $_POST['anleitung'];
