@@ -161,6 +161,15 @@ class RezeptController
             // Aufbereitung der Daten für die Kontaktierung des Modells
             $id = intval($_POST["id"]);
 
+              // Bild-Upload wie bei createEntry behandeln:
+            $bildBlob = null;
+            if (isset($_FILES['bild']) && $_FILES['bild']['error'] === UPLOAD_ERR_OK) {
+                $bildBlob = file_get_contents($_FILES['bild']['tmp_name']);
+            } else {
+                // Falls kein neues Bild hochgeladen wurde, verwende das alte Bild (Logik ggf. im Model)
+                $bildBlob = $_POST["bild"] ?? null;
+            }
+
             // Kontaktierung des Modells (Geschäftslogik)
             $rezept = Rezept::getInstance();
             $anleitung = is_array($_POST['anleitung']) ? implode('||', $_POST['anleitung']) : $_POST['anleitung'];
@@ -177,7 +186,7 @@ class RezeptController
                 $_POST['zutaten'] = is_array($_POST['zutaten']) ? implode(',', $_POST['zutaten']) : $_POST['zutaten'],
                 $_POST['menge'] = is_array($_POST['menge']) ? implode(',', $_POST['menge']) : $_POST['menge'],
                 $anleitung,
-                $_POST["bild"]
+                $bildBlob
 
             );
 

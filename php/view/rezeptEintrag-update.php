@@ -18,7 +18,7 @@ require_once "php/include/head.php";
 
             <div class="form-row">
                 <label for="bild">Bild hochladen</label>
-                <input type="file" id="bild" name="bild" value="<?= htmlspecialchars($entry->getBild()) ?>" accept="image/*" />
+                <input type="file" id="bild" name="bild" accept="image/*" />
                 <img id="bild-vorschau" src="#" alt="Bildvorschau" style="display: none; max-width: 300px; margin-top: 10px;" />
                 <!-- Overlay für große Vorschau -->
                 <div id="bild-overlay" style="display:none; position:fixed; top:0; left:0; width:100vw; height:100vh; background:rgba(0,0,0,0.7); justify-content:center; align-items:center; z-index:1000;">
@@ -95,7 +95,7 @@ require_once "php/include/head.php";
                 <label for="preis">Preis angeben (max 50€):</label>
                 <input type="number" id="preis" name="preis" min="0" max="50" step="1" value="<?= htmlspecialchars($entry->getPreis()) ?>" required />
 
-                <input type="submit" value="Rezept aktualisieren" />
+                <input type="submit" value="Rezept aktualisieren" enctype="multipart/form-data"/>
         </form>
     </main>
 

@@ -29,19 +29,18 @@ class RezeptPDOSQLite implements RezeptDAO
                 $db->rollBack();
                 throw new InternalErrorException();
             }
-            if (!$command->execute([
-                ":titel" => $titel,
-                ":email" => $email,
-                ":kurzbeschreibung" => $kurzbeschreibung,
-                ":dauer" => $dauer,
-                ":schwierigkeit" => $schwierigkeit,
-                ":preis" => $preis,
-                ":zutaten" => $zutaten,
-                ":menge" => $menge,
-                ":anleitung" => $anleitung,
-                ":bild" => $bild,
-                ":datum" => date("Y-m-d H:i:s")
-            ])) {
+            $command->bindValue(":titel", $titel);
+            $command->bindValue(":email", $email);
+            $command->bindValue(":kurzbeschreibung", $kurzbeschreibung);
+            $command->bindValue(":dauer", $dauer);
+            $command->bindValue(":schwierigkeit", $schwierigkeit);
+            $command->bindValue(":preis", $preis);
+            $command->bindValue(":zutaten", $zutaten);
+            $command->bindValue(":menge", $menge);
+            $command->bindValue(":anleitung", $anleitung);
+            $command->bindValue(":bild", $bild, PDO::PARAM_LOB);
+            $command->bindValue(":datum", date("Y-m-d H:i:s"));
+            if (!$command->execute()) {
                 $db->rollBack();
                 throw new InternalErrorException();
             }
@@ -119,22 +118,22 @@ class RezeptPDOSQLite implements RezeptDAO
                 $db->rollBack();
                 throw new InternalErrorException();
             }
-            if (!$command->execute([
-                ":titel" => $titel,
-                ":email" => $email,
-                ":kurzbeschreibung" => $kurzbeschreibung,
-                ":dauer" => $dauer,
-                ":schwierigkeit" => $schwierigkeit,
-                ":preis" => $preis,
-                ":zutaten" => $zutaten,
-                ":menge" => $menge,
-                ":anleitung" => $anleitung,
-                ":bild" => $bild,
-                ":id" => $id
-            ])) {
+            $command->bindValue(":titel", $titel);
+            $command->bindValue(":email", $email);
+            $command->bindValue(":kurzbeschreibung", $kurzbeschreibung);
+            $command->bindValue(":dauer", $dauer);
+            $command->bindValue(":schwierigkeit", $schwierigkeit);
+            $command->bindValue(":preis", $preis);
+            $command->bindValue(":zutaten", $zutaten);
+            $command->bindValue(":menge", $menge);
+            $command->bindValue(":anleitung", $anleitung);
+            $command->bindValue(":bild", $bild, PDO::PARAM_LOB); // <-- nur hier als BLOB binden
+            $command->bindValue(":id", $id);
+
+            if (!$command->execute()) {
                 $db->rollBack();
                 throw new InternalErrorException();
-            }
+}
             $db->commit();
         } catch (PDOException $exc) {
             $db->rollBack();
