@@ -28,7 +28,7 @@ E-Mail:  info@rezeptwebsite.de</p>
 <p>Wir sind nicht bereit oder verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.</p>
 
 <p>Quelle: <a href="https://www.e-recht24.de">https://www.e-recht24.de</a></p>
-
+</main>
   <?php include_once "php/include/footer.php"; ?>
 </body>
 </html>
