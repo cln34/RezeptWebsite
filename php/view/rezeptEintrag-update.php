@@ -37,29 +37,31 @@ require_once "php/include/head.php";
                         <div class="zutat-eintrag">
                             <select id="zutaten" name="zutaten[]" required>
                                 <option value="" disabled>-- Zutat wählen --</option>
-                                <option value="Mehl" <?= $zutatenArr[$i] === 'Mehl' ? 'selected' : '' ?>>Mehl</option>
-                                <option value="Zucker" <?= $zutatenArr[$i] === 'Zucker' ? 'selected' : '' ?>>Zucker</option>
-                                <option value="Eier" <?= $zutatenArr[$i] === 'Eier' ? 'selected' : '' ?>>Eier</option>
-                                <option value="Milch" <?= $zutatenArr[$i] === 'Milch' ? 'selected' : '' ?>>Milch</option>
-                                <option value="Butter" <?= $zutatenArr[$i] === 'Butter' ? 'selected' : '' ?>>Butter</option>
-                                <option value="Salz" <?= $zutatenArr[$i] === 'Salz' ? 'selected' : '' ?>>Salz</option>
-                                <option value="Pfeffer" <?= $zutatenArr[$i] === 'Pfeffer' ? 'selected' : '' ?>>Pfeffer</option>
-                                <option value="Olivenöl" <?= $zutatenArr[$i] === 'Olivenöl' ? 'selected' : '' ?>>Olivenöl</option>
-                                <option value="Sahne" <?= $zutatenArr[$i] === 'Sahne' ? 'selected' : '' ?>>Sahne</option>
-                                <option value="Hefe" <?= $zutatenArr[$i] === 'Hefe' ? 'selected' : '' ?>>Hefe</option>
                                 <option value="Backpulver" <?= $zutatenArr[$i] === 'Backpulver' ? 'selected' : '' ?>>Backpulver</option>
-                                <option value="Vanillezucker" <?= $zutatenArr[$i] === 'Vanillezucker' ? 'selected' : '' ?>>Vanillezucker</option>
-                                <option value="Zimt" <?= $zutatenArr[$i] === 'Zimt' ? 'selected' : '' ?>>Zimt</option>
                                 <option value="Basilikum" <?= $zutatenArr[$i] === 'Basilikum' ? 'selected' : '' ?>>Basilikum</option>
-                                <option value="Pinienkerne" <?= $zutatenArr[$i] === 'Pinienkerne' ? 'selected' : '' ?>>Pinienkerne</option>
-                                <option value="Parmesan" <?= $zutatenArr[$i] === 'Parmesan' ? 'selected' : '' ?>>Parmesan</option>
-                                <option value="Knoblauch" <?= $zutatenArr[$i] === 'Knoblauch' ? 'selected' : '' ?>>Knoblauch</option>
-                                <option value="Spaghetti" <?= $zutatenArr[$i] === 'Spaghetti' ? 'selected' : '' ?>>Spaghetti</option>
+                                <option value="Butter" <?= $zutatenArr[$i] === 'Butter' ? 'selected' : '' ?>>Butter</option>
+                                <option value="Eier" <?= $zutatenArr[$i] === 'Eier' ? 'selected' : '' ?>>Eier</option>
                                 <option value="Hackfleisch" <?= $zutatenArr[$i] === 'Hackfleisch' ? 'selected' : '' ?>>Hackfleisch</option>
-                                <option value="Tomaten" <?= $zutatenArr[$i] === 'Tomaten' ? 'selected' : '' ?>>Tomaten</option>
-                                <option value="Zwiebel" <?= $zutatenArr[$i] === 'Zwiebel' ? 'selected' : '' ?>>Zwiebel</option>
+                                <option value="Hefe" <?= $zutatenArr[$i] === 'Hefe' ? 'selected' : '' ?>>Hefe</option>
+                                <option value="Knoblauch" <?= $zutatenArr[$i] === 'Knoblauch' ? 'selected' : '' ?>>Knoblauch</option>
+                                <option value="Mehl" <?= $zutatenArr[$i] === 'Mehl' ? 'selected' : '' ?>>Mehl</option>
+                                <option value="Milch" <?= $zutatenArr[$i] === 'Milch' ? 'selected' : '' ?>>Milch</option>
                                 <option value="Mozzarella" <?= $zutatenArr[$i] === 'Mozzarella' ? 'selected' : '' ?>>Mozzarella</option>
+                                <option value="Olivenöl" <?= $zutatenArr[$i] === 'Olivenöl' ? 'selected' : '' ?>>Olivenöl</option>
+                                <option value="Parmesan" <?= $zutatenArr[$i] === 'Parmesan' ? 'selected' : '' ?>>Parmesan</option>
+                                <option value="Pfeffer" <?= $zutatenArr[$i] === 'Pfeffer' ? 'selected' : '' ?>>Pfeffer</option>
+                                <option value="Pinienkerne" <?= $zutatenArr[$i] === 'Pinienkerne' ? 'selected' : '' ?>>Pinienkerne</option>
+                                <option value="Salz" <?= $zutatenArr[$i] === 'Salz' ? 'selected' : '' ?>>Salz</option>
+                                <option value="Spaghetti" <?= $zutatenArr[$i] === 'Spaghetti' ? 'selected' : '' ?>>Spaghetti</option>
+                                <option value="Sahne" <?= $zutatenArr[$i] === 'Sahne' ? 'selected' : '' ?>>Sahne</option>
+                                <option value="Tomaten" <?= $zutatenArr[$i] === 'Tomaten' ? 'selected' : '' ?>>Tomaten</option>
                                 <option value="Tomatensauce" <?= $zutatenArr[$i] === 'Tomatensauce' ? 'selected' : '' ?>>Tomatensauce</option>
+                                <option value="Vanillezucker" <?= $zutatenArr[$i] === 'Vanillezucker' ? 'selected' : '' ?>>Vanillezucker</option>
+                                <option value="Wasser" <?= $zutatenArr[$i] === 'Wasser' ? 'selected' : '' ?>>Wasser</option>
+                                <option value="Zimt" <?= $zutatenArr[$i] === 'Zimt' ? 'selected' : '' ?>>Zimt</option>
+                                <option value="Zucker" <?= $zutatenArr[$i] === 'Zucker' ? 'selected' : '' ?>>Zucker</option>
+                                <option value="Zwiebel" <?= $zutatenArr[$i] === 'Zwiebel' ? 'selected' : '' ?>>Zwiebel</option>
+
                             </select>
                             <label for="menge" class="visually-hidden">Menge</label>
                             <input type="text" id="menge" name="menge[]" value="<?= htmlspecialchars($mengeArr[$i] ?? '') ?>" required>

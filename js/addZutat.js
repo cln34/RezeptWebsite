@@ -22,31 +22,32 @@ function addZutat() {
   div.className = "zutat-eintrag";
   div.innerHTML = `
   <select id="zutaten" name="zutaten[]" required>
-              <option value="" disabled selected>-- Zutat wählen --</option>
-              <option value="Mehl">Mehl</option>
-              <option value="Zucker">Zucker</option>
-              <option value="Eier">Eier</option>
-              <option value="Milch">Milch</option>
-              <option value="Butter">Butter</option>
-              <option value="Salz">Salz</option>
-              <option value="Pfeffer">Pfeffer</option>
-              <option value="Olivenöl">Olivenöl</option>
-              <option value="Sahne">Sahne</option>
-              <option value="Hefe">Hefe</option>
-              <option value="Backpulver">Backpulver</option>
-              <option value="Vanillezucker">Vanillezucker</option>
-              <option value="Zimt">Zimt</option>
-              <option value="Basilikum">Basilikum</option>
-              <option value="Pinienkerne">Pinienkerne</option>
-              <option value="Parmesan">Parmesan</option>
-              <option value="Knoblauch">Knoblauch</option>
-              <option value="Spaghetti">Spaghetti</option>
-              <option value="Hackfleisch">Hackfleisch</option>
-              <option value="Tomaten">Tomaten</option>
-              <option value="Zwiebel">Zwiebel</option>
-              <option value="Mozzarella">Mozzarella</option>
-              <option value="Tomatensauce">Tomatensauce</option>
-            </select>
+<option value="" disabled selected>-- Zutat wählen --</option>
+<option value="Backpulver">Backpulver</option>
+<option value="Basilikum">Basilikum</option>
+<option value="Butter">Butter</option>
+<option value="Eier">Eier</option>
+<option value="Hackfleisch">Hackfleisch</option>
+<option value="Hefe">Hefe</option>
+<option value="Knoblauch">Knoblauch</option>
+<option value="Mehl">Mehl</option>
+<option value="Milch">Milch</option>
+<option value="Mozzarella">Mozzarella</option>
+<option value="Olivenöl">Olivenöl</option>
+<option value="Parmesan">Parmesan</option>
+<option value="Pfeffer">Pfeffer</option>
+<option value="Pinienkerne">Pinienkerne</option>
+<option value="Salz">Salz</option>
+<option value="Sahne">Sahne</option>
+<option value="Spaghetti">Spaghetti</option>
+<option value="Tomaten">Tomaten</option>
+<option value="Tomatensauce">Tomatensauce</option>
+<option value="Vanillezucker">Vanillezucker</option>
+<option value="Wasser">Wasser</option>
+<option value="Zimt">Zimt</option>
+<option value="Zucker">Zucker</option>
+<option value="Zwiebel">Zwiebel</option>
+    </select>
   <input type="text" name="menge[]" placeholder="Menge (z. B. 200g)" required>
   <button class="removeZutat-button" type="button" onclick="this.parentNode.remove(); updateZutatenButtons();">Zutat entfernen</button>
 `;
