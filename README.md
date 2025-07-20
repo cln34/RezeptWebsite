@@ -76,7 +76,10 @@ christoph@uol.de - pass123
 
 **Nicht umgesetzt:** 
 
-    -Nutzung von Diensten: WebServices und APIs -> Wir haben keine sinnvolle Möglichkeit gefunden WebServices oder APIs einzubauen. Außerdem würden sie den Aufbau der Website verkomplizieren.
+    -Nutzung von Diensten: WebServices und APIs -> Keine Integration externer APIs oder Webservices aufgrund von Datenschutzbedenken (z. B. Google Login, Social Media Plugins).
+	    Außerdem Externe Rezept- oder Nährwert-APIs (z. B. Spoonacular, Nutritionix) bewusst nicht verwendet:
+	    --> Registrierung und API-Key erforderlich
+	    --> Höherer technischer Aufwand für überschaubaren Mehrwert
 
     -Kommentare löschen -> wir wollten am Ende keine zusätzlichen Funktionen mehr einbauen, sondern uns um die Funktionen kümmern, die wir bereits haben 
 
