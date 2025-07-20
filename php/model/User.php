@@ -9,7 +9,7 @@ require_once "php/model/UserPDOSQLite.php";
 
 class User{
     public static function getInstance(){
-        //return UserSession::getInstance(); //dummy fix
+        //return UserSession::getInstance(); //Session
         return UserPDOSQLite::getInstance(); // Datenbank
     }
 }
