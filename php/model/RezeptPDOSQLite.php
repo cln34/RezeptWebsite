@@ -343,13 +343,22 @@ class RezeptPDOSQLite implements RezeptDAO
                 'Klassische italienische Pizza mit Tomate und Mozzarella.',
                 20,
                 'Einfach',
-                4.50,
-                'Pizzateig, Tomatensauce, Mozzarella, Basilikum',
-                '1, 100ml, 100g, 1 Bund',
-                'Teig ausrollen, mit Tomatensauce bestreichen, Mozzarella darauf verteilen, backen und mit Basilikum garnieren.',
+
+                4.00,
+                implode('||', ['Hefe', 'Mehl', 'Wasser', 'Tomatensauce', 'Mozzarella', 'Basilikum']),
+                implode('||', ['20g', '500g', '250ml', '100ml', '100g', '1 Bund']),
+                implode('||', [
+                    'Teig aus Hefe, Mehl und Wasser kneten und 1 Tag ruhen lassen',
+                    'Teig ausrollen und mit Tomatensauce bestreichen',
+                    'Mozzarella darauf verteilen',
+                    'Backen bei 250 Grad',
+                    'Mit Basilikum garnieren'
+                ]),
                 $bildPizza,
                 '2024-01-01 12:00:00'
             ]);
+
+
             $stmt->execute([
                 'Spaghetti Bolognese',
                 'bolognese@beispiel.de',
@@ -357,12 +366,21 @@ class RezeptPDOSQLite implements RezeptDAO
                 25,
                 'Einfach',
                 5.00,
-                'Spaghetti, Hackfleisch, Tomaten, Zwiebel, Knoblauch',
-                '200g, 150g, 200g, 1, 1 Zehe',
-                'Spaghetti kochen. Hackfleisch mit Zwiebel und Knoblauch anbraten, Tomaten zugeben, köcheln lassen. Mit Spaghetti servieren.',
+
+                implode('||', ['Spaghetti', 'Hackfleisch', 'Tomaten', 'Zwiebel', 'Knoblauch']),
+                implode('||', ['200g', '150g', '200g', '1', '1 Zehe']),
+                implode('||', [
+                    'Spaghetti kochen',
+                    'Hackfleisch mit Zwiebel und Knoblauch anbraten',
+                    'Tomaten zugeben',
+                    'Köcheln lassen',
+                    'Mit Spaghetti servieren'
+                ]),
                 $bildPasta,
                 '2024-01-02 13:00:00'
             ]);
+
+
             $stmt->execute([
                 'Pesto alla Genovese',
                 'pesto@beispiel.de',
@@ -370,9 +388,14 @@ class RezeptPDOSQLite implements RezeptDAO
                 10,
                 'Einfach',
                 3.00,
-                'Basilikum, Pinienkerne, Parmesan, Olivenöl, Knoblauch',
-                '1 Bund, 30g, 30g, 50ml, 1 Zehe',
-                'Alle Zutaten im Mörser oder Mixer fein zerkleinern und mit Öl vermengen.',
+
+                implode('||', ['Basilikum', 'Pinienkerne', 'Parmesan', 'Olivenöl', 'Knoblauch']),
+                implode('||', ['1 Bund', '30g', '30g', '50ml', '1 Zehe']),
+                implode('||', [
+                    'Alle Zutaten im Mörser oder Mixer fein zerkleinern',
+                    'Mit Öl vermengen'
+                ]),
+
                 $bildPesto,
                 '2024-01-03 14:00:00'
             ]);
