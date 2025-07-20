@@ -24,8 +24,8 @@ class RezeptEintrag
         $this->schwierigkeit = $schwierigkeit;
         $this->preis = $preis;
         // explode bewirkt, dass die zutaten und menge die als strings in der db gespeichert wurden, wieder zu arrays werden
-        $this->zutaten = is_array($zutaten) ? $zutaten : explode(',', $zutaten);
-        $this->menge = is_array($menge) ? $menge : explode(',', $menge);
+        $this->zutaten = is_array($zutaten) ? $zutaten : explode('||', $zutaten);
+        $this->menge = is_array($menge) ? $menge : explode('||', $menge);
         $this->anleitung = $anleitung;
         $this->bild = $bild;
         $this->datum = $datum;

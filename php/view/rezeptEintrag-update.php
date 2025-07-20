@@ -13,7 +13,7 @@ require_once "php/include/head.php";
             <input type="hidden" name="id" value="<?= htmlspecialchars($entry->getId()) ?>" />
 
             <label for="titel">Rezepttitel</label>
-            <input type="text" id="titel" name="titel" value="<?= htmlspecialchars($entry->getTitel()) ?>" required maxlength="25"/>
+            <input type="text" id="titel" name="titel" value="<?= htmlspecialchars($entry->getTitel()) ?>" required maxlength="25" />
 
 
             <div class="form-row">
@@ -22,7 +22,7 @@ require_once "php/include/head.php";
                 <img id="bild-vorschau" src="#" alt="Bildvorschau" style="display: none; max-width: 300px; margin-top: 10px;" />
                 <!-- Overlay für große Vorschau -->
                 <div id="bild-overlay" style="display:none; position:fixed; top:0; left:0; width:100vw; height:100vh; background:rgba(0,0,0,0.7); justify-content:center; align-items:center; z-index:1000;">
-                <img id="bild-gross" src="#" alt="Große Bildvorschau" style="max-width:90vw; max-height:90vh; box-shadow:0 0 20px #000; background:#fff; border-radius:8px;" />
+                    <img id="bild-gross" src="#" alt="Große Bildvorschau" style="max-width:90vw; max-height:90vh; box-shadow:0 0 20px #000; background:#fff; border-radius:8px;" />
                 </div>
             </div>
 
@@ -50,6 +50,16 @@ require_once "php/include/head.php";
                                 <option value="Backpulver" <?= $zutatenArr[$i] === 'Backpulver' ? 'selected' : '' ?>>Backpulver</option>
                                 <option value="Vanillezucker" <?= $zutatenArr[$i] === 'Vanillezucker' ? 'selected' : '' ?>>Vanillezucker</option>
                                 <option value="Zimt" <?= $zutatenArr[$i] === 'Zimt' ? 'selected' : '' ?>>Zimt</option>
+                                <option value="Basilikum" <?= $zutatenArr[$i] === 'Basilikum' ? 'selected' : '' ?>>Basilikum</option>
+                                <option value="Pinienkerne" <?= $zutatenArr[$i] === 'Pinienkerne' ? 'selected' : '' ?>>Pinienkerne</option>
+                                <option value="Parmesan" <?= $zutatenArr[$i] === 'Parmesan' ? 'selected' : '' ?>>Parmesan</option>
+                                <option value="Knoblauch" <?= $zutatenArr[$i] === 'Knoblauch' ? 'selected' : '' ?>>Knoblauch</option>
+                                <option value="Spaghetti" <?= $zutatenArr[$i] === 'Spaghetti' ? 'selected' : '' ?>>Spaghetti</option>
+                                <option value="Hackfleisch" <?= $zutatenArr[$i] === 'Hackfleisch' ? 'selected' : '' ?>>Hackfleisch</option>
+                                <option value="Tomaten" <?= $zutatenArr[$i] === 'Tomaten' ? 'selected' : '' ?>>Tomaten</option>
+                                <option value="Zwiebel" <?= $zutatenArr[$i] === 'Zwiebel' ? 'selected' : '' ?>>Zwiebel</option>
+                                <option value="Mozzarella" <?= $zutatenArr[$i] === 'Mozzarella' ? 'selected' : '' ?>>Mozzarella</option>
+                                <option value="Tomatensauce" <?= $zutatenArr[$i] === 'Tomatensauce' ? 'selected' : '' ?>>Tomatensauce</option>
                             </select>
                             <label for="menge" class="visually-hidden">Menge</label>
                             <input type="text" id="menge" name="menge[]" value="<?= htmlspecialchars($mengeArr[$i] ?? '') ?>" required>

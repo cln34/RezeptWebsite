@@ -81,6 +81,16 @@ require_once "php/include/head.php";
               <option value="Backpulver">Backpulver</option>
               <option value="Vanillezucker">Vanillezucker</option>
               <option value="Zimt">Zimt</option>
+              <option value="Basilikum">Basilikum</option>
+              <option value="Pinienkerne">Pinienkerne</option>
+              <option value="Parmesan">Parmesan</option>
+              <option value="Knoblauch">Knoblauch</option>
+              <option value="Spaghetti">Spaghetti</option>
+              <option value="Hackfleisch">Hackfleisch</option>
+              <option value="Tomaten">Tomaten</option>
+              <option value="Zwiebel">Zwiebel</option>
+              <option value="Mozzarella">Mozzarella</option>
+              <option value="Tomatensauce">Tomatensauce</option>
             </select>
             <label for="menge" class="visually-hidden">Menge</label>
             <input type="text" id="menge" name="menge[]" placeholder="Menge (z. B. 200g)" required>

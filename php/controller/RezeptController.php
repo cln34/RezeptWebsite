@@ -37,8 +37,8 @@ class RezeptController
                 $_POST["preis"],
                 //php syntax "?=wenn die bedingung stimmt" ": else"
                 // Wandelt die Zutaten- und Mengen-Arrays (wenn es arrays sind) aus dem Formular in kommaseparierte Strings um, damit sie korrekt in der Datenbank gespeichert werden
-                $_POST['zutaten'] = is_array($_POST['zutaten']) ? implode(',', $_POST['zutaten']) : $_POST['zutaten'],
-                $_POST['menge'] = is_array($_POST['menge']) ? implode(',', $_POST['menge']) : $_POST['menge'],
+                $_POST['zutaten'] = is_array($_POST['zutaten']) ? implode('||', $_POST['zutaten']) : $_POST['zutaten'],
+                $_POST['menge'] = is_array($_POST['menge']) ? implode('||', $_POST['menge']) : $_POST['menge'],
                 $anleitung,
                 $bildBlob
             );
@@ -172,8 +172,8 @@ class RezeptController
                 $_POST["preis"],
                 //php syntax "?=wenn die bedingung stimmt" ": else"
                 // Wandelt die Zutaten- und Mengen-Arrays (wenn es arrays sind) aus dem Formular in kommaseparierte Strings um, damit sie korrekt in der Datenbank gespeichert werden
-                $_POST['zutaten'] = is_array($_POST['zutaten']) ? implode(',', $_POST['zutaten']) : $_POST['zutaten'],
-                $_POST['menge'] = is_array($_POST['menge']) ? implode(',', $_POST['menge']) : $_POST['menge'],
+                $_POST['zutaten'] = is_array($_POST['zutaten']) ? implode('||', $_POST['zutaten']) : $_POST['zutaten'],
+                $_POST['menge'] = is_array($_POST['menge']) ? implode('||', $_POST['menge']) : $_POST['menge'],
                 $anleitung,
                 $_POST["bild"]
 
