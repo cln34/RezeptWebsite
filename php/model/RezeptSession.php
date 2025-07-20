@@ -16,6 +16,7 @@ class RezeptSession implements RezeptDAO
 	}
 	private $entries = array();
 	private $searchEntries = array();
+	private $favoriten = array(); // Array für Favoriten
 
 	private function __construct()
 	{
@@ -56,6 +57,10 @@ class RezeptSession implements RezeptDAO
 			);
 			$_SESSION["entries"] = serialize($this->entries);
 			$_SESSION["nextId"] = 2;
+		}
+		
+		if (isset($_SESSION['favoriten'])) {
+			$this->favoriten = $_SESSION['favoriten'];
 		}
 	}
 
@@ -134,8 +139,40 @@ class RezeptSession implements RezeptDAO
 	{
 		if (empty($this->searchEntries)) {
 			return null; // Keine Suchergebnisse gefunden
-		} else{
-			return $this->searchEntries;}
-		
+		} else {
+			return $this->searchEntries;
+		}
+	}
+	// Favorit hinzufügen
+	public function addFavorit($benutzer_id, $rezept_id) {
+		if (!isset($this->favoriten[$benutzer_id])) {
+			$this->favoriten[$benutzer_id] = [];
+		}
+		if (!in_array($rezept_id, $this->favoriten[$benutzer_id])) {
+			$this->favoriten[$benutzer_id][] = $rezept_id;
+		}
+		$_SESSION['favoriten'] = $this->favoriten;
+	}
+
+	// Favorit entfernen
+	public function removeFavorit($benutzer_id, $rezept_id) {
+		if (isset($this->favoriten[$benutzer_id])) {
+			$index = array_search($rezept_id, $this->favoriten[$benutzer_id]);
+			if ($index !== false) {
+				unset($this->favoriten[$benutzer_id][$index]);
+				$this->favoriten[$benutzer_id] = array_values($this->favoriten[$benutzer_id]);
+			}
+		}
+		$_SESSION['favoriten'] = $this->favoriten;
+	}
+
+	// Prüfen, ob Favorit
+	public function isFavorit($benutzer_id, $rezept_id) {
+		return isset($this->favoriten[$benutzer_id]) && in_array($rezept_id, $this->favoriten[$benutzer_id]);
+	}
+
+	// Alle Favoriten eines Benutzers
+	public function getFavoriten($benutzer_id) {
+		return isset($this->favoriten[$benutzer_id]) ? $this->favoriten[$benutzer_id] : [];
 	}
 }
