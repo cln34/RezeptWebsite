@@ -18,19 +18,25 @@ class UserPDOSQLite implements UserDAO
     {
         try {
             $db = $this->getConnection();
+            $db->beginTransaction();
             $sql = "INSERT INTO user (email, passwort) VALUES (:email, :passwort);";
             $command = $db->prepare($sql);
             if (!$command) {
+                $db->rollBack();
                 throw new InternalErrorException();
             }
             if (!$command->execute([
                 ":email" => $email,
-                ":passwort" => password_hash($passwort, PASSWORD_DEFAULT)
+                ":passwort" => $passwort
             ])) {
+                $db->rollBack();
                 throw new InternalErrorException();
             }
-            return intval($db->lastInsertId());
+            $lastId = intval($db->lastInsertId());
+            $db->commit(); 
+            return $lastId;
         } catch (PDOException $exc) {
+            $db->rollBack();
             throw new InternalErrorException();
         }
     }
@@ -49,50 +55,50 @@ class UserPDOSQLite implements UserDAO
     public function updateUser($id, $email, $passwort, $rolle) {}
 
     public function deleteUser($email)
-{
-    try {
-        $db = $this->getConnection();
-        $db->beginTransaction();
+    {
+        try {
+            $db = $this->getConnection();
+            $db->beginTransaction();
 
-        $sql = "SELECT * FROM user WHERE email = :email LIMIT 1";
-        $command = $db->prepare($sql);
-        if (!$command) {
-            $db->rollBack();
-            throw new InternalErrorException();
-        }
-        if (!$command->execute([":email" => $email])) {
-            $db->rollBack();
-            throw new InternalErrorException();
-        }
-        $result = $command->fetch();
-        if (empty($result)) {
-            $db->rollBack();
-            throw new MissingEntryException();
-        }
+            $sql = "SELECT * FROM user WHERE email = :email LIMIT 1";
+            $command = $db->prepare($sql);
+            if (!$command) {
+                $db->rollBack();
+                throw new InternalErrorException();
+            }
+            if (!$command->execute([":email" => $email])) {
+                $db->rollBack();
+                throw new InternalErrorException();
+            }
+            $result = $command->fetch();
+            if (empty($result)) {
+                $db->rollBack();
+                throw new MissingEntryException();
+            }
 
-        // Admin darf nicht gelöscht werden
-        if ($result["rolle"] === "Admin") {
-            $db->rollBack();
-            throw new InternalErrorException();
-        }
+            // Admin darf nicht gelöscht werden
+            if ($result["rolle"] === "Admin") {
+                $db->rollBack();
+                throw new InternalErrorException();
+            }
 
-        $sql = "DELETE FROM user WHERE email = :email";
-        $command = $db->prepare($sql);
-        if (!$command) {
-            $db->rollBack();
-            throw new InternalErrorException();
-        }
-        if (!$command->execute([":email" => $email])) {
-            $db->rollBack();
-            throw new InternalErrorException();
-        }
+            $sql = "DELETE FROM user WHERE email = :email";
+            $command = $db->prepare($sql);
+            if (!$command) {
+                $db->rollBack();
+                throw new InternalErrorException();
+            }
+            if (!$command->execute([":email" => $email])) {
+                $db->rollBack();
+                throw new InternalErrorException();
+            }
 
-        $db->commit();
-    } catch (PDOException $exc) {
-        $db->rollBack();
-        throw new InternalErrorException();
+            $db->commit();
+        } catch (PDOException $exc) {
+            $db->rollBack();
+            throw new InternalErrorException();
+        }
     }
-}
 
     public function getUser($email, $db)
     {
@@ -152,8 +158,8 @@ class UserPDOSQLite implements UserDAO
 
     private function getConnection()
     {
-            $this->create();
-    
+        $this->create();
+
         try {
             $user = 'root';
             $pw = null;
@@ -177,10 +183,10 @@ class UserPDOSQLite implements UserDAO
             // Prüfen, ob die Tabelle bereits existiert
             $result = $db->query("SELECT name FROM sqlite_master WHERE type='table' AND name='user';");
             if ($result && $result->fetch()) {
-            // Tabelle existiert bereits, also nichts tun
-            unset($db);
-            return;
-  }  
+                // Tabelle existiert bereits, also nichts tun
+                unset($db);
+                return;
+            }
 
             $db->exec("CREATE TABLE IF NOT EXISTS user (
                 id INTEGER PRIMARY KEY AUTOINCREMENT,

@@ -6,7 +6,7 @@ require_once "php/include/head.php";
     <?php include_once "php/include/header.php"; ?>
 
     <main class="rezeptErstellen">
-        <form action="eintrag-aktualisieren.php" method="post">
+        <form action="eintrag-aktualisieren.php" method="post" enctype="multipart/form-data">
             <input type="hidden" name="csrf_token" value="<?= htmlspecialchars($_SESSION['csrf_token']) ?>">
             <h1>Rezept bearbeiten</h1>
 

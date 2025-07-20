@@ -14,7 +14,9 @@ class RezeptController
         $this->checkEntryRequiredParam();
 
         if (!$this->checkEntryEmail()) {
-            header("Location: eintrag-neu.php");
+
+            header("Location: rezeptErstellen.php");
+
             exit;
         }
 
@@ -159,6 +161,11 @@ class RezeptController
             // Aufbereitung der Daten für die Kontaktierung des Modells
             $id = intval($_POST["id"]);
 
+            $bildBlob = null;
+            if (isset($_FILES['bild']) && $_FILES['bild']['error'] === UPLOAD_ERR_OK) {
+                $bildBlob = file_get_contents($_FILES['bild']['tmp_name']);
+            }
+
             // Kontaktierung des Modells (Geschäftslogik)
             $rezept = Rezept::getInstance();
             $anleitung = is_array($_POST['anleitung']) ? implode('||', $_POST['anleitung']) : $_POST['anleitung'];
@@ -175,7 +182,7 @@ class RezeptController
                 $_POST['zutaten'] = is_array($_POST['zutaten']) ? implode('||', $_POST['zutaten']) : $_POST['zutaten'],
                 $_POST['menge'] = is_array($_POST['menge']) ? implode('||', $_POST['menge']) : $_POST['menge'],
                 $anleitung,
-                $_POST["bild"]
+                $bildBlob
 
             );
 

@@ -15,9 +15,9 @@ if (!$email || !$passwort) {
 }
 
 $userController = new UserController();
-$user = $userController->readUser($email);
+$user = $userController->authenticateUser($email, $passwort);
 
-if ($user && $email === $user->getEmail() && password_verify($passwort, $user->getPassword())) {
+if ($user) {
     $_SESSION["email"] = $email;
     $_SESSION["user_id"] = $user->getId();
     $_SESSION["rolle"] = $user->getRolle();
@@ -30,4 +30,3 @@ if ($user && $email === $user->getEmail() && password_verify($passwort, $user->g
     header("Location: anmeldung.php");
     exit;
 }
-

@@ -92,7 +92,8 @@ require_once "php/include/head.php";
         <a href="kommentare.php?id=<?= urlencode($entry->getId()) ?>" class="rezept-button">Kommentare ansehen </a>
     </main>
 
-    <?php if (
+    <?php 
+    if (
         (isset($_SESSION["email"]) && $_SESSION["email"] == $entry->getEmail()) ||
         (isset($_SESSION["rolle"]) && $_SESSION["rolle"] === "Admin")
     ) { ?>
@@ -109,6 +110,7 @@ require_once "php/include/head.php";
         $istFavorit = Rezept::getInstance()->isFavorit($_SESSION["user_id"], $entry->getId());
     }
     ?>
+    <?php if (isset($_SESSION["email"])): ?>
     <form method="post" action="favourit-toggle.php?id=<?= urlencode($entry->getId()) ?>">
         <?php if ($istFavorit): ?>
             <button type="submit" name="action" value="remove" class="rezept-button">Aus Favoriten entfernen</button>
@@ -116,6 +118,7 @@ require_once "php/include/head.php";
             <button type="submit" name="action" value="add" class="rezept-button">Zu Favoriten hinzufügen</button>
         <?php endif; ?>
     </form>
+    <?php endif; ?>
 
     <?php
     include_once "php/include/footer.php"

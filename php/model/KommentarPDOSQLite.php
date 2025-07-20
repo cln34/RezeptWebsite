@@ -19,16 +19,27 @@ class KommentarPDOSQLite implements KommentarDAO
     {
         try {
             $db = $this->getConnection();
-            $sql = "INSERT INTO kommentar(rezept_id, email, inhalt, sterneBewertung) VALUES (:rezept_id, :email, :inhalt, :sterneBewertung);"; //":email" etc sind platzhalter die später belegt wertden
+            $db->beginTransaction();
+            $sql = "INSERT INTO kommentar(rezept_id, email, inhalt, sterneBewertung) VALUES (:rezept_id, :email, :inhalt, :sterneBewertung);";
             $command = $db->prepare($sql);
             if (!$command) {
+                $db->rollBack();
                 throw new InternalErrorException();
             }
-            if (!$command->execute([":rezept_id" => $rezept_id, ":email" => $email, ":inhalt" => $inhalt, ":sterneBewertung" => $sterneBewertung])) {
+            if (!$command->execute([
+                ":rezept_id" => $rezept_id,
+                ":email" => $email,
+                ":inhalt" => $inhalt,
+                ":sterneBewertung" => $sterneBewertung
+            ])) {
+                $db->rollBack();
                 throw new InternalErrorException();
             }
-            return intval($db->lastInsertId());
+            $lastId = intval($db->lastInsertId());
+            $db->commit();
+            return $lastId;
         } catch (PDOException $e) {
+             $db->rollBack();
             throw new InternalErrorException();
         }
     }
@@ -43,9 +54,6 @@ class KommentarPDOSQLite implements KommentarDAO
             throw new InternalErrorException();
         }
     }
-
-
-    public function deleteComment($id) {}
 
 
     public function getCommentsByRezeptId($rezeptId)
@@ -156,6 +164,7 @@ class KommentarPDOSQLite implements KommentarDAO
 
             unset($db);
         } catch (PDOException $e) {
+            throw new InternalErrorException();
         }
     }
 }

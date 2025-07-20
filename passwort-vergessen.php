@@ -14,7 +14,7 @@ require_once "php/include/head.php";
       <label for="email">E-Mail-Adresse</label>
       <input type="email" id="email" name="email" placeholder="z. B. max@mustermann.de" required />
 
-      <input type="submit" value="Link zum Zurücksetzen senden" class="button" />
+      <input type="disabled" value="Link zum Zurücksetzen senden" class="button" />
     </form>
 
     <p class="centered-link">
